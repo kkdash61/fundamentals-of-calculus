@@ -1,0 +1,1326 @@
+% \documentclass{book}
+\documentclass[../../main.tex]{subfiles}
+\usepackage{graphicx} % Required for inserting images
+
+\title{APPLICATION OF DERIVATIVES}
+\author{KISHORE KUMAR DASH}
+\date{10 April 2026}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{multicol}
+\usepackage[inline]{enumitem}
+\usepackage{todonotes}
+\usepackage{exercise}
+\usepackage{float}
+\usepackage[margin=1in]{geometry}
+\DeclareMathOperator{\\cosec}{\cosec}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem{example}{Example}[section]
+
+\newenvironment{solution}
+    {\begin{proof}[Solution]}
+    {\end{proof}}
+
+\renewcommand{\ExerciseHeader}{%
+  \par\noindent
+  \textbf{\large\ExerciseName~\ExerciseHeaderNB}%
+  \ifx\ExerciseTitle\empty\else\textit{\large\ExerciseTitle}\fi
+  \par\smallskip
+}
+
+
+% \renewcommand{\qed}{\hfill\qedsymbol}
+\begin{document}
+
+\chapter{Application of Derivatives}
+
+% \vspace{0.2 cm}
+Derivatives and its related concepts have tremendous applications in almost every branch of scientific study. In this section we shall study some of the simple applications, particularly, the rectilinear motion, behaviour of functions, tangents and normals to plane curves, extrimities of functions etc.
+
+\section{Velocity and Acceleration in Rectilinear Motion}
+
+In physics, where motion of any kind is studied, $time$, denoted by $t$, is the independent variable. In this type of study, the simplest case is rectilinear motion, that is, the motion is on a straight line. If the object travels equal distance in same direction in equal intervals of time the motion is called \emph{uniform}. In this case the distance travelled in a given direction per unit time, called \emph{velocity} of the object, is constant. However, most of the motions in nature are nonlinear.
+
+We shall study here the non-uniform rectilinear motion. We co-ordinate the line of motion by specifying the following:
+
+\begin{enumerate}[label=\Roman*.] % Renders as I., II., III.
+    \item a unit of measurement of distance,
+    \item a positive direction, and,
+    \item a fixed point O called the origin of distance from which all measurements are made.
+\end{enumerate}
+
+Let an object moves a distance of $s$ unit in $t$ unit of time. Then clearly $s$ is a function of $t$. Let us write it as $s=f(t)$. Suppose the same object moves a distance $s+\delta s$ in $t+\delta t$ times Then the object moves a distance $\delta s$ in $\delta t$ time. 
+
+So the average \textit{velocity} =$\dfrac{\text{Distance}}{\text{time}}$ =$\dfrac{\delta s}{\delta t}$ =$ \dfrac{f(t+\delta t)-f(t)}{\delta t}$.
+
+Taking limit as $\delta t {\rightarrow 0}$, (if it exist), is called the instantaneous velocity at time $t$ and it is given by 
+
+\[
+    v=\lim _{\delta t\rightarrow 0}\frac{\delta s}{\delta t}=\frac{ds}{dt}=f'(t)
+\]
+
+\textbf{Acceleration} of an object moving with a velocity $v$ at time $t$ is the instantaneous rate of change of velocity, thus,
+
+\[
+a=\frac{dv}{dt}=\frac{d^2s}{dt^2}
+\]
+
+\begin{example}
+A ball is thrown vertically upwards with initial speed of 98 m/sec. If the motion of the ball satisfies the equation $s=v_0t-\frac{1}{2}gt^2$, where $v_0$ is the initial velocity and $g$ $(=9.8\text{ }m/s^2)$ is the acceleration due to gravity, find the height to which the ball will rise.
+\end{example}
+
+\begin{solution}
+Here $s=v_0t-\frac{1}{2}gt^2 \Rightarrow v=\frac{ds}{dt}=v_0-gt$.
+
+When the ball rises, its velocity gradually decreases and ultimately becomes zero. Then the ball begins to fall, so putting $v=0$ in the last equation, we get, 
+
+\[
+0=v_0-gt\Rightarrow t=\frac{v_0}{g}=\frac{98}{9.8} = 10 \text{ sec.}
+\]
+
+
+Thus the ball will begin to fall after 10 seconds, by that time the ball will rise to a height of 
+
+\[
+s=98.10-\frac{1}{2}9.8.10^2=490\text{ m.}
+\]
+\end{solution}
+
+\begin{example}
+At a certain instant, the side of a square is increasing at the rate of .3 cm/sec. and at the same time the area of the square is increasing at the rate of 30 sq.cm./sec. Find the length of the side of the square at this instant.
+\end{example}
+
+\begin{solution}
+Let the side of the square at the given instant be x cm. The rate at which it is increasing equals $\dfrac{dx}{dt}=.3$ cm/sec. The area of the square equals $x^2$ sq.cm. The rate at which the area is increasing equals $\dfrac{dx^2}{dt}=2x\dfrac{dx}{dt}=2x.\dfrac{3}{10}$ sq.cm./sec. Thus $2x(0.3)=30 \Rightarrow x=\dfrac{30}{2(0.3)}=50$
+
+Hence the length of the side of the square at the given instant is 50 cm.
+\end{solution}
+
+
+\begin{exercise}
+Find velocity and acceleration at the end of 2 seconds of the particle moving according to the following rules
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $s=2t^2+3t+1$
+    \item $s=\sqrt{t}+1$
+    \item $s=\dfrac{3}{2t+1}$
+    \item $s=t^3-6t^2+15t+12$   
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+    
+
+\begin{exercise}
+The sides of an equilateral triangle are increasing at the rate of $\sqrt{3}$ cm/sec. Find the rate at which the area of the triangle is increasing when the side is 4 cm. long.
+\end{exercise}
+
+\begin{exercise}
+Find the rate at which the volume of a spherical balloon will increase when its radius is 2 metres if the rate of increase of its radius is 0.3 m/min.
+\end{exercise}
+
+\begin{exercise}
+The surface area of a cube is decreasing at the rate of 15 sq.cm./sec. Find the rate at which its edge is decreasing, when the length of the edge is 5cm.
+\end{exercise}
+
+\section{Derivative as slope of the Tangent}
+
+From the definition of derivative, we know that, the derivative of a function $y=f(x)$ at apoint $x=c$ is,
+\[
+f'(c)=\lim_{h\rightarrow 0}\frac{f(c+h)-f(c)}{h} 
+\]
+
+provided the limit exists. So, what is the meaning of this limit? 
+
+Let us explain it with the help of co-ordinate geometry. Let $P(c,f(c))$ and $Q(c+h,f(c+h))$ are two points on the curve $y=f(x)$, as shown in Figure \ref{fig:application_of_derivatives:geometrical_interpretation_of_derivative1}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{\subfix{images/figure_1.pdf}}
+    \caption{Geometrical Interpretation of Derivative}
+    \label{fig:application_of_derivatives:geometrical_interpretation_of_derivative1}
+\end{figure}
+
+Then the distance $\overline{PR}=\overline{AB}=(c+h)-c=h$ and $\overline{QR}=\overline{QB}-\overline{RB}=f(c+h)-f(c)$. Thus,
+
+\[
+\frac{f(c+h)-f(c)}{h}=\frac{\overline{QR}}{\overline{PR}}= \tan \theta = \text{ Slope of the line } \overline{PQ}
+\]
+which equals the slope of the line $L$ joining points P and Q.
+
+Thus, when $h\rightarrow 0$, the point $Q\rightarrow P$, whence the line $L$ becomes $L_t$ i.e. the tangent to the curve $y=f(x)$ at the point $P(c,f(c)$ (as in Figure \ref{fig:application_of_derivatives:geometrical_interpretation_of_derivative2}) and consequently,
+
+\[
+f'(c)=\lim_{h\rightarrow 0}\frac{f(c+h)-f(c)}{h} = \text{ Slope of the tangent to the curve }y=f(x)\text{ at the point }P(c, f(c))
+\]
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{\subfix{images/figure_2.pdf}}
+    \caption{Geometrical Interpretation of Derivative}
+    \label{fig:application_of_derivatives:geometrical_interpretation_of_derivative2}
+\end{figure}
+
+
+Thus the \textbf{Geometrical Interpretation of Derivative} of a function at a point is the \textbf{Slope of the tangent} to the curve (graph of the function) at that point.
+
+\subsection{Tangents and Normals to Plane Curves}
+
+In this section we shall find out the equation of tangents and normals to a curve at given point(s). The tangents and normals are straight lines and from the study of Co-ordinate Geometry (Geometry of $\mathbb{R}^2$), we know the followings,
+\begin{enumerate}[label=(\roman*)]
+    \item Two lines having slopes $m_1$ and $m_2$ are parallel if and only if $m_1=m_2$.
+    \item Two lines having slopes $m_1$ and $m_2$ are perpendicular to each other if and only if $m_1.m_2=-1$.
+    \item If $(x_1,y_1)$ and $(x_2,y_2)$ are two points on a straight line $L$ on a plane then the slope $m$ of the line $L$ is given by $m=\dfrac{y_2-y_1}{x_2-x_1}$.
+    \item If $m$ is the slope of a line whose y-intercept is $c$, then equation of the line is $y=mx+c$
+    \item If slope of a line is $m$ and $(x_1,y_1)$ is a point on the line then equation of the line is $y-y_1=m(x-x_1)$
+    \item If  $(x_1,y_1)$ and $(x_2,y_2)$ are two points on a line then equation of the line is $y-y_1=\dfrac{y_2-y_1}{x_2-x_1}(x-x_1)$
+\end{enumerate}
+
+With the above ideas in hand, we can now discuss the following examples.
+
+\begin{example}
+Find equation of the tangent and normal to the curve $3x^2+5y^2=23$ at the point (-1,2).
+\end{example}
+
+\begin{solution}
+Differentiating the given equation implicitly, we get,
+$6x+10y\dfrac{dy}{dx}=0$ $\Rightarrow \dfrac{dy}{dx}=-\dfrac{3x}{5y}$
+
+$\Rightarrow \dfrac{dy}{dx}|_{(-1,2)}=-\dfrac{3(-1)}{5.2}=\dfrac{3}{10}$ = Slope of the tangent.
+
+Hence equation of the tangent at (-1,2) is $y-2= \dfrac{3}{10}(x-(-1))$ $\Rightarrow 3x+10y+23=0$.
+
+Slope of the tangent is $\dfrac{3}{10}$ $\Rightarrow$ Slope of the normal is $-\dfrac{10}{3}$. 
+
+Hence equation of the normal at (-1,2) is $y-2=-\dfrac{10}{3}(x-(-1))$ $\Rightarrow 10x+3y+4=0.$
+\end{solution}
+
+\begin{example}
+Find equation of the tangent and normal to the curve $y=4x^3$ at the point $x=1$.
+\end{example}
+
+\begin{solution}
+We are asked to find the tangent and normal of the curve $y=4x^3$ at $x=1$, so $y=4.1^3=4$.
+
+Now $\dfrac{dy}{dx}= 12x^2 \Rightarrow \dfrac{dy}{dx}|_{x=1}=12$ = Slope of the Tangent. Hence slope of the Normal is $-\dfrac{1}{12}$.
+
+Hence equation of the Tangent at (1,4) is $y-4=12(x-1)\Rightarrow 12x-y-8=0$, and equation of the Normal is $y-4=-\frac{1}{12}(x-1) \Rightarrow x+12y-49=0$.
+\end{solution}
+
+
+\begin{example}
+Find equation of the tangent(s) to the curve $y=x^3$, with slope $m=\dfrac{1}{3}$.    
+\end{example}
+
+\begin{solution}
+Given slope of the tangent(s) is $m=\dfrac{1}{3}$, i.e.,
+$\dfrac{dy}{dx}=3x^2=\dfrac{1}{3}=m \Rightarrow x=\pm \dfrac{1}{3}$.
+
+Thus $x=\dfrac{1}{3} \Rightarrow y=(\dfrac{1}{3})^3=\dfrac{1}{27}$. So equation of one Tangent to the given curve is,
+
+$y-\dfrac{1}{27}=\dfrac{1}{3}(x-\dfrac{1}{3})\Rightarrow 9x-27y+2=0$. Equation of another tangent is 
+
+$(y-(-\dfrac{1}{27}))=\dfrac{1}{3}(x-(-\dfrac{1}{3}))\Rightarrow 9x-27y+2=0$.
+\end{solution}
+
+\begin{example}
+Show that the tangents to the curve $y=x^2-5x+6$at the points (2,0) and (3,0) are perpendicular to each other.
+\end{example}
+
+\begin{solution}
+Given equation of the curve is $y=x^2-5x+6$. So $\dfrac{dy}{dx}=2x-5$. 
+
+Now $m_1$= Slope of tangent at (2,0) = $\dfrac{dy}{dx}|_{x=2}=2.2-5=-1$, and 
+
+$m_2$ = Slope of tangent at (3,0) = $\dfrac{dy}{dx}|_{x=3}=2.3-5=1$. 
+
+Thus $m_1.m_2=-1$, hence the two tangents are perpendicular to each other.
+\end{solution}
+
+\begin{example}
+Find the points on the curve $y=x^3-2x^2-x$, at which the tangent lines are parallel to the line $y=3x-2$.
+\end{example}
+
+\begin{solution}
+The tangent lines are parallel to the line $y=3x-2=m_1x+c$. So the slopes of the tangent lines $m$ are equal to the slope $m_1=3$ of the given line. But $m=$ slope of the tangent lines of the given curve $y=x^3-2x^2-x$ is $m=\dfrac{dy}{dx}=3x^2-4x-1$. 
+
+Thus $m=3x^2-4x-1=3=m_1$ $\Rightarrow 3x^2-4x-4=0\Rightarrow 3x^2-6x+2x-4=0 \Rightarrow (x-2)(3x+2)=0$
+
+$\Rightarrow x_1=2$ or $x_2=-\dfrac{2}{3}$. Since these points lie on the curve, putting 
+$x_1=2$ and $x_2=-\dfrac{2}{3}$ in the equation $y=x^3-2x^2-x$, we get, $y_1=-2$ and $y_2=-\dfrac{14}{27}$.
+
+Hence at the points (2,-2) and $(-\dfrac{2}{3},-\dfrac{14}{27})$ the tangent lines are parallel to the given line $y=3x-2$.
+\end{solution} 
+
+\begin{example}
+Find equations of the tangent and normal to the ellipse 
+$\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$ at the point $(x_1,y_1)$.    
+\end{example}
+
+\begin{solution}
+Since the given point $(x_1,y_1)$ lies on the ellipse, it satisfies $\dfrac{x_1^2}{a^2}+\dfrac{y_1^2}{b^2}=1$. 
+
+To find the slope of the tangent to the ellipse, on differentiation, we get,
+
+\[
+    \frac{2x}{a^2}+\frac{2y}{b^2}(\frac{dy}{dx})=0 \Rightarrow \frac{dy}{dx}=-\frac{xb^2}{ya^2} \Rightarrow \frac{dy}{dx}|_{(x_1,y_1)} = -\frac{x_1}{y_1}\frac{b^2}{a^2}
+\]
+
+Thus equation of the Tangent to the ellipse at $(x_1,y_1)$  is 
+
+\[
+y-y_1=-\frac{x_1}{y_1}\frac{b^2}{a^2}(x-x_1) \Rightarrow \frac{yy_1-y_1^2}{b^2}=\frac{x_1^2-xx_1}{a^2} \Rightarrow \frac{xx_1}{a^2}+\frac{yy_1}{b^2}=\frac{x_1^2}{a^2}+\frac{y_1^2}{b^2} \Rightarrow \frac{xx_1}{a^2}+\frac{yy_1}{b^2}=1
+\]
+
+Now slope of the normal to the ellipse at $(x_1,y_1)$ is $\dfrac{y_1a^2}{x_1b^2}$. Thus equation of the normal to the ellipse at the point $(x_1,y_1)$ is,
+
+\[
+y-y_1=\frac{y_1a^2}{x_1b^2}(x-x_1)\Rightarrow \frac{b^2(y-y_1)}{y_1}=\frac{a^2(x-x_1)}{x_1} \Rightarrow \frac{b^2y}{y_1}-b^2= \frac{a^2x}{x_1}-a^2\Rightarrow \frac{a^2x}{x_1}-\frac{b^2y}{y_1}=a^2-b^2
+\]
+
+\end{solution}
+
+
+\begin{example}
+Show that the normal at any point $\theta$ to the curve $x=a(\cos \theta +\theta \sin \theta)$ and $y=a(\sin \theta-\theta \cos \theta)$ is at a constant distance from the origin.
+\end{example}
+
+\begin{solution}
+We are given with, $x=a(\cos \theta +\theta \sin \theta)$ and $y=a(\sin \theta-\theta \cos \theta)$
+
+$\Rightarrow \dfrac{dx}{d\theta} = a(-\sin \theta +\sin \theta+\theta \cos \theta )=a\theta \cos \theta$ and $\dfrac{dy}{d\theta}=a(\cos \theta-\cos \theta+\theta \sin \theta)=a\theta \sin\theta$. 
+
+
+Thus $\dfrac{dy}{dx}=\dfrac{dy}{d\theta}/\dfrac{dx}{d\theta}=\dfrac{a\theta \sin \theta}{a\theta \cos \theta}= \tan \theta$. So slope of the tangent to the given curve at any point $\theta$ is $\tan \theta$. Now the slope  of the normal to the curve at any point $\theta$ is $-\cot \theta$.
+
+Hence equation of the normal at any point $\theta$ to the given curve is 
+
+\[
+    y-a(\sin \theta-\theta \cos \theta)=-\cot \theta (x-a(\cos \theta +\theta \sin \theta))
+\]
+
+On simplification, we get $x\cos \theta +y\sin \theta-a=0$. 
+
+So distance of the normal from the origin (0,0) is given by $|\dfrac{0.\cos \theta+0.\sin \theta-a}{\sqrt{\cos^2\theta +\sin^2\theta}}|=a$ = Constant.
+\end{solution}
+
+
+\begin{example}
+Show that the line $y=mx+c$ is a tangent to the circle $x^2+y^2=r^2$ if $c^2=r^2(1+m^2)$.
+\end{example}
+
+\begin{solution}
+Suppose the line $y=mx+c$ and the circle $x^2+y^2=r^2$ meets at the point $(x_1,y_1)$. Thus the point $(x_1,y_1)$ satisfies both equation of the line and the circle.
+
+Slope of the tangent to the circle can be found out by taking the derivative of $x^2+y^2=r^2$ $\Rightarrow 2x+2y\dfrac{dy}{dx}=0 \Rightarrow \dfrac{dy}{dx}=-\dfrac{x}{y}$. So slope of the tangent to the circle at the point $(x_1,y_1)$ is  $\dfrac{dy}{dx}]_{(x_1,y_1)}=-\dfrac{x_1}{y_1}$. Thus equation of the tangent to the circle at the point $(x_1,y_1)$ is $y-y_1=-\dfrac{x_1}{y_1}(x-x_1) \Rightarrow xx_1+yy_1-(x_1^2+y_1^2)=0\Rightarrow xx_1+yy_1-r^2=0$. Since both the lines $mx-y+c=0$ and $xx_1+yy_1-r^2=0$ are tangents to the circle at the same point, the two equations are same. 
+
+So comparing the coefficients of x,y and the constant term, we have,
+$\dfrac{m}{x_1}=\dfrac{-1}{y_1}=\dfrac{c}{-r^2} \Rightarrow x_1=\dfrac{-mr^2}{c}$ and $y_1=\dfrac{r^2}{c}$. Now since $x_1^2+y_1^2=r^2$ putting the value of $x_1$ and $y_1$, we have, $(\dfrac{-mr^2}{c})^2+(\dfrac{r^2}{c})^2=r^2$, on simplification $c^2=r^2(1+m^2)$.
+\end{solution}
+
+
+
+\begin{exercise}
+Find equations of the tangent and normal to the following curves at the indicated points:
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $y=x^3-x$   at $x=2$.
+    \item $y=\sqrt{x}$    at$(4,2)$.
+    \item $y=\dfrac{1}{x-1}$    at $x=2$.
+    \item $y=x^3-2x-5$    at $x=1$.
+    \item $y=\sqrt{3}\sin x+\cos x$    at $x=\frac{\pi}{3}$.
+    \item $y=\dfrac{1}{ln x}$    at $x=2$.
+    \item $y=(9-x^2)^{\frac{1}{3}}$    at $(0,3)$.
+    \item $y=a(1-\cos \theta), x=a(\theta-\sin\theta)$    at $\theta=\dfrac{\pi}{2}$.
+    \item $(\dfrac{x}{a})^{\frac{2}{3}}+(\dfrac{y}{b})^{\frac{2}{3}} =1$    at  $(a\cos^3 \theta,bSin^3 \theta)$.
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+
+\begin{exercise}
+Find the point on the curve $x^2+y^2-4xy+2=0$, where the normal is parallel to the X-axis.
+\end{exercise}
+
+\begin{exercise}
+Find the points on the curve $x=\dfrac{3at}{1+t^2}$, $y=\dfrac{3at^2}{1+t^2}$ where the tangent is perpendicular to the line $4x+3y+5=0$.
+\end{exercise}
+
+\begin{exercise}
+Show that the line $y=mx+c$ touches the parabola $y^2=4ax$ if $c=\dfrac{a}{m}$.
+\end{exercise}
+
+\begin{exercise}
+Show that the line $y=mx+c$ touches the ellipse $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1 $ if $c^2=a^2m^2+b^2$.
+\end{exercise}
+
+\begin{exercise}
+Show that the line $y=mx+c$ touches the hyperbola $\dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}=1 $ if $c^2=a^2m^2-b^2$.
+\end{exercise}
+
+\begin{exercise}
+Show that the line $y=4x+13$ is a tangent to the ellipse $\dfrac{x^2}{9}+\dfrac{y^2}{25}=1 $.
+\end{exercise}
+
+\begin{exercise}
+Find equation of the tangents drawn from the point $(1,2)$ to the curve $y^2-2x^3-4y+8=0$.
+\end{exercise}
+
+\begin{exercise}
+Find the angle of intersection of the curves $y=x^2$ and $x=y^2$ at the point $(1,1)$.
+\end{exercise}
+
+\begin{exercise}
+Tangents are drawn from the origin to the curve $y=\sin x$. Show that their points of contact lie on $x^2y^2=x^2-y^2$.
+\end{exercise}
+
+\section{Increasing and Decreasing Functions}
+
+A function $y=f(x)$ is said to be \textbf{increasing} in an interval $I$, if for $x_1 < x_2$ $\Rightarrow f(x_1)\leq f(x_2)$, where $x_1,x_2\in I$. The function is \textbf{strictly increasing} in the interval $I$, if for $x_1 < x_2$ $\Rightarrow f(x_1) < f(x_2)$, $\forall x_1,x_2\in I$.
+
+Similarly, A function $y=f(x)$ is said to be \textbf{decreasing} in an interval $I$, if for $x_1 < x_2$ $\Rightarrow f(x_1)\geq f(x_2)$, where $x_1,x_2\in I$. The function is \textbf{strictly decreasing} in the interval $I$, if for $x_1 < x_2$ $\Rightarrow f(x_1) > f(x_2)$, $\forall x_1,x_2\in I$.
+
+A function is called \textbf{monotonic} if it is either increasing or decreasing.
+
+\begin{theorem}
+Let $f(x)$ be a continuous function on $[a,b]$ and derivable on $(a,b)$. 
+\begin{enumerate}[label=(\roman*)]
+    \item If $f(x)$ is strictly increasing on $(a,b)$ then $f'(x)>0$ $\forall x\in (a,b)$.
+    \item If $f(x)$ is strictly decreasing on $(a,b)$ then $f'(x)<0$ $\forall x\in (a,b)$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Let $x\in (a,b)$ be an arbitrary point. $f'(x)$ exists as $f(x)$ is derivable on $(a,b)$. We know from the definition of derivative that, $f'(x)=\lim_{h\rightarrow 0}\dfrac{f(x+h)-f(x)}{h}$.Then,
+\begin{enumerate}[label=(\roman*)]
+    \item If $f(x)$ is strictly increasing on $(a,b)$, then,
+
+$f(x+h)>f(x)$ $\forall h>0$ $\Rightarrow f(x+h)-f(x)>0$ $\forall h>0$
+$ \Rightarrow\lim_{h\rightarrow 0}\dfrac{f(x+h)-f(x)}{h}>0$  $\Rightarrow f'(x)>0$.
+
+    \item If $f(x)$ is strictly decreasing on $(a,b)$, then,
+
+$f(x+h)<f(x)$ $\forall h>0$ $\Rightarrow f(x+h)-f(x)<0$ $\forall h>0$
+$\Rightarrow\lim_{h\rightarrow 0}\dfrac{f(x+h)-f(x)}{h}<0$  $\Rightarrow f'(x)<0$.
+\end{enumerate}
+\end{proof}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{\subfix{images/figure_3.pdf}}
+    \caption{$f(x)$ is increasing function from $a$ to $b$}
+    \label{fig:application_of_derivatives:increasing_function}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{\subfix{images/figure_4.pdf}}
+    \caption{$f(x)$ is decreasing function from $a$ to $b$}
+    \label{fig:application_of_derivatives:decreasing_function}
+\end{figure}
+
+\textbf{\textit{Remark.}} If $f(x)$ is an increasing function on $(a,b)$, then as shown in Figure \ref{fig:application_of_derivatives:increasing_function}, the tangent at every points on the curve $y=f(x)$ makes an acute angle $\theta$ with the positive direction of $X-axis$. Therefore $\tan \theta >0\Rightarrow 
+ f'(x)=\dfrac{dy}{dx}>0$.
+
+Similarly if $f(x)$ is an decreasing function on $(a,b)$, then as shown in Figure \ref{fig:application_of_derivatives:decreasing_function}, the tangent at every points on the curve $y=f(x)$ makes an obtuse angle $\theta$ with the positive direction of $X-axis$. Therefore $\tan \theta <0\Rightarrow f'(x)=\dfrac{dy}{dx}<0$.
+
+
+
+
+
+\begin{example}
+Find the intervals in which the function $f(x)=2x^3-9x^2+12x+1$ is 
+\begin{enumerate*}[label=(\alph*)]
+    \item increasing, and 
+    \item decreasing.
+\end{enumerate*}
+\end{example}
+
+\begin{solution}
+Given $f(x)=2x^3-9x^2+12x+1\Rightarrow f'(x)= 6x^2-18x+12=6(x^2-3x+2)=6(x-1)(x-2)$.
+\begin{enumerate}[label=(\alph*)]
+    \item $f(x)$ is increasing, means, $f'(x)>0\Rightarrow (x-1)(x-2)>0 \Rightarrow x<1$ or $x>2 \Rightarrow x\in(-\infty,1)\cup (2,\infty)$.
+    \item For $f(x)$ to be decreasing $f'(x)<0\Rightarrow (x-1)(x-2)<0 \Rightarrow 1<x<2  \Rightarrow x\in(1,2)$.
+\end{enumerate}
+\end{solution}
+
+\begin{example}
+Find the intervals in which the function $f(x)=(x-1)^3(x-2)^2$ is 
+\begin{enumerate*}[label=(\alph*)]
+    \item increasing, and 
+    \item decreasing.
+\end{enumerate*}
+\end{example}
+
+\begin{solution}
+Given $f(x)=(x-1)^3(x-2)^2\Rightarrow f'(x)=3(x-1)^2(x-2)^2+2(x-1)^3(x-2)=(x-1)^2(x-2)(3x-6+2x-2)$ = $(x-1)^2(x-2)(5x-8)$.
+
+\begin{enumerate}[label=(\alph*)]
+\item $f(x)$ is increasing, means, $f'(x)>0\Rightarrow (x-1)^2(x-2)(5x-8)>0 \Rightarrow (x-2)(5x-8)>0$ $(\because (x-1)^2>0$   $ \forall x) $  $ \Rightarrow x\in(-\infty,\dfrac{8}{5})\cup (2,\infty)$.
+
+\item For $f(x)$ to be decreasing,  $f'(x)<0\Rightarrow (x-1)^2(x-2)(5x-8)<0 \Rightarrow (x-2)(5x-8)<0$  $ \Rightarrow x\in(\dfrac{8}{5}, 2)$. 
+\end{enumerate}
+\end{solution}
+
+\begin{example}
+Find the intervals in which the function $f(x)= \ln (1+x)-\dfrac{2x}{2+x}$ is increasing or decreasing.
+\end{example}
+
+\begin{solution}
+Clearly $f(x)$ is defined for all $x$, satisfying $x+1>0$ i.e. $x>-1$. So domain of $f$ is $(-1,\infty)$. Given $f(x)= ln (1+x)-\dfrac{2x}{2+x}\Rightarrow $ $f'(x)= \dfrac{1}{1+x}-\dfrac{2(2+x)-2x}{(2+x)^2}=\dfrac{x^2}{(2+x)^2}\dfrac{1}{1+x}$.
+
+Now $f$ if increasing, so $f'(x)>0 \Rightarrow \dfrac{x^2}{(2+x)^2}\dfrac{1}{1+x}>0 \Rightarrow \dfrac{1}{1+x}>0$ $(\because \dfrac{x^2}{(2+x)^2}>0$  $\forall  x)$, $\Rightarrow 1+x>0 \Rightarrow x>-1$, i.e. $x\in (-1,\infty)$. Hence the given function is increasing in its domain.
+\end{solution}
+
+\begin{example}
+Find the intervals in which the function $f(x)=\dfrac{\ln x}{x}, x>0$ is 
+\begin{enumerate*}[label=(\alph*)]
+    \item increasing, and 
+    \item decreasing.
+\end{enumerate*}
+\end{example}
+
+\begin{solution}
+Given $f(x)=\dfrac{\ln x}{x}\Rightarrow f'(x)= \dfrac{1-\ln x}{x^2}$.
+
+\begin{enumerate}[label=(\alph*)]
+    \item $f(x)$ is increasing, means, $f'(x)>0\Rightarrow \dfrac{1-\ln x}{x^2}\Rightarrow 1-\ln x>0 \Rightarrow1>\ln x \Rightarrow x<e$. Thus in the interval $(0,e)$ the given function is increasing.    
+    \item $f(x)$ is decreasing, means, $f'(x)<0 \ \Rightarrow \ln x>1\Rightarrow x>e$, Hence the given function is decreasing in the interval $(e, \infty)$.
+\end{enumerate}
+\end{solution}
+
+\begin{exercise}
+Find the intervals in which the function $f(x)= \sin x+ \cos x, 0 \leq x \leq 2\pi$ is
+\begin{enumerate*}[label=(\alph*)]
+    \item increasing, and 
+    \item decreasing.
+\end{enumerate*}
+\end{exercise}
+
+\begin{solution}
+Given $f(x)= \sin x+ \cos x\Rightarrow f'(x)= \cos x-\sin x= \sqrt{2}(\dfrac{1}{\sqrt{2}}\cos x-\dfrac{1}{\sqrt{2}}\sin x)$ =$\sqrt{2}(\cos x \sin \dfrac{\pi}{4}-\sin x\cos \dfrac{\pi}{4})=\sqrt{2}\sin (\dfrac{\pi}{4}-x)$.
+
+\begin{enumerate}[label=(\alph*)]
+    \item For $f(x)$ to be increasing, we must have,
+ 
+$f'(x)>0\Rightarrow \sqrt{2}\sin (\dfrac{\pi}{4}-x) >0 \Rightarrow \sin (\dfrac{\pi}{4}-x) >0 \Rightarrow -\sin (\dfrac{\pi}{4}-x)<0 \Rightarrow \sin (x-\dfrac{\pi}{4}) <0$  $\Rightarrow \pi<x-\dfrac{\pi}{4}<2\pi\Rightarrow \dfrac{5\pi}{4}<x<\dfrac{9\pi}{4}\Rightarrow \dfrac{5\pi}{4}<x<2\pi$ or  $2\pi<x<\dfrac{9\pi}{4}\Rightarrow \dfrac{5\pi}{4}<x<2\pi$ or  $0<x<\dfrac{\pi}{4}$ $\Rightarrow x\in (0,\dfrac{\pi}{4})\cup(\dfrac{5\pi}{4},2\pi)$.
+
+Hence $f(x)$ is increasing in the interval $(0,\dfrac{\pi}{4})\cup(\dfrac{5\pi}{4},2\pi)$.
+    
+\item For $f(x)$ to be decreasing, we must have,
+
+$f'(x)<0\Rightarrow \sqrt{2}\sin (\dfrac{\pi}{4}-x) <0 \Rightarrow \sin (\dfrac{\pi}{4}-x) <0 \Rightarrow -\sin (\dfrac{\pi}{4}-x)>0 \Rightarrow \sin (x-\dfrac{\pi}{4}) >0$  $\Rightarrow 0<x-\dfrac{\pi}{4} <\pi\Rightarrow \dfrac{\pi}{4}<x<\dfrac{5\pi}{4}$ $\Rightarrow x\in(\dfrac{\pi}{4},\dfrac{5\pi}{4})$.
+
+Hence $f(x)$ is decreasing in the interval $(\dfrac{\pi}{4},\dfrac{5\pi}{4})$.
+\end{enumerate}
+\end{solution}
+
+\begin{example}
+Show that the function $f(x)=\dfrac{e^x}{x^p}$ is strictly increasing for $x>p>0$.
+\end{example}
+
+\begin{solution}
+Given $f(x)=\dfrac{e^x}{x^p}$. Thus 
+$f'(x)=\dfrac{e^xx^p-pe^xx^{p-1}}{x^{2p}}$. The given function is strictly increasing, therefore, $f'(x)>0\Rightarrow\dfrac{e^xx^p-pe^xx^{p-1}}{x^{2p}}>0\Rightarrow \dfrac{e^xx^{p-1}(x-p)}{x^{2p}}>0$.
+$\Rightarrow x-p>0\Rightarrow x>p$.
+\end{solution}
+
+\begin{example}
+Show that $\tan x >x$,  $\forall x\in(0,\dfrac{\pi}{2})$.
+\end{example}
+
+\begin{solution}
+Suppose $f(x)=\tan x-x\Rightarrow f'(x)= \sec^2 x-1$. Since $\sec x>1,$ $\forall x\in(0,\dfrac{\pi}{2}),$ $f'(x)>0$ $\forall x \in (0,\dfrac{\pi}{2}) \Rightarrow f(x)$ is an increasing function in the interval $(0,\dfrac{\pi}{2})$. Hence $f(x)>f(0)$ $\forall x>0\Rightarrow \tan x-x>\tan 0-0=0$ or $\tan x>x$ $\forall x\in(0,\dfrac{\pi}{2})$.
+\end{solution}
+
+\begin{exercise}
+Find the intervals in which the following functions are
+\begin{enumerate*}[label=(\alph*)]
+    \item increasing, and 
+    \item decreasing.
+\end{enumerate*}
+
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $f(x)=\ln x$,  $x\in \mathbb{R^+}$
+    \item $f(x)=\sin x$,  $x\in[0,2\pi]$
+    \item $f(x)=2x^3+3x^2-36x+1$.
+    \item $f(x)=x^4-\dfrac{x^3}{3}$
+    \item $f(x)=x+\dfrac{1}{x}$.
+    \item $f(x)=\dfrac{1}{x-1}$,     $x\neq 1$.
+    \item $f(x)=4x^2+\dfrac{1}{x}$.
+    \item $f(x)=\sin 2x-\cos 2x$,    $x\in[0,2\pi]$.
+    \item $f(x)=\sin 3x$,     $x\in[0,\dfrac{\pi}{2}]$.
+
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+
+\begin{exercise}
+Show that $\sin x>x$,  for $x>0$.
+\end{exercise}
+
+\begin{exercise}
+Show that $2\sin x+\tan x\geq 3x$ for $x\in(0,\dfrac{\pi}{2})$.
+\end{exercise}
+
+\begin{exercise}
+Show that $ x-\dfrac{x^2}{2}<\ln (1+x)<x-\dfrac{x^2}{2(1+x)}$,  $\forall x>0$.
+\end{exercise}
+
+\section{Maxima and Minima}
+
+Differentiation is an important tool to find the maximum and minimum value of a function. Knowledge of these values of a function has wide applications in finance, science and technology.
+
+% \textbf{\textit{Definition.}}
+
+\begin{definition}
+In this section, we define the following,
+\begin{itemize}
+    \item \textbf{Local(Relative) Maximum}: A function $f(x)$ has a local maximum or a relative maximum at a point $x=c$, if $f(c)>f(x)$ $\forall x\in(c-h,c+h)$, where $h$ is as small as possible.
+    \item \textbf{Local(Relative) Minimum}: A function $f(x)$ has a local minimum or a relative minimum at a point $x=c$, if $f(c)<f(x)$ $\forall x\in(c-h,c+h)$, where $h$ is as small as possible.
+    \item \textbf{\textit{Absolute Maximum}} A function $f(x)$ defined on an interval $I$ has an absolute maximum at a point $x=c$ if $f(c)>f(x)$  $\forall x\in I$.
+    \item \textbf{\textit{Absolute Minimum}} A function $f(x)$ defined on an interval $I$ has an absolute minimum at a point $x=c$ if $f(c)<f(x)$  $\forall x\in I$.
+\end{itemize}
+
+\end{definition}
+
+The local maximum or local minimum is called \textbf{local extremum}. The following is the necessary condition for the Extremum of a function at a given point. 
+
+\begin{theorem}
+If the function $f(x)$ has an extremum at the point $x=c$ then $f'(c)=0$ or $f'(c)$ does not exist.
+\end{theorem}
+
+\begin{proof}
+Suppose $f'(c)$ exists and $f(x)$ has a local maximum at $x=c$. Thus by definition of local maximum, for $h>0$, $f(c)> f(x)$ for $x\in (c-h,c+h)\Rightarrow f(c)>f(c+h)$ and $f(c)> f(c-h)$ $\Rightarrow \dfrac{f(c+h)-f(c)}{h}\leq 0$ and $\dfrac{f(c-h)-f(c)}{-h}\geq 0$. Now by the definition of Left Hand Limit and Right Hand Limit, we have  $f'(c^+)= \lim _{h\rightarrow 0^+}\dfrac{f(c+h)-f(c)}{h}\leq 0$ and $f'(c^-)= \lim _{h\rightarrow 0^+}\dfrac{f(c-h)-f(c)}{h}\geq 0$. Since $f'(c)$ exists $f'(c^+)$=$f'(c^-)$=$f'(c)=0$.
+\end{proof}
+
+
+\textbf{\textit{Remark.}} The condition in the above theorem is not sufficient for a function to have an extremum. That means the derivative at a point $x=c$ may vanish or may not exists without the function having an extremum at that point. For example $f(x)=x^3$. The derivative of this function $f'(x)=3x^2$ vanish at $x=0$ which is not a point of extremum of $f(x)$.
+
+\begin{definition}
+A point $x=c$ is called a \textbf{Critical point or Extreme point} of $f$ if either $f'(c)=0$ or $f'(c)$ does not exist.
+\end{definition}
+
+\subsubsection{First Derivative Test For Local Extremum}
+
+Let $c$ be a critical point of the derivable function $f$ in an interval $[a,b]$. Then if,
+
+\begin{enumerate}
+    \item $f'(x)$ changes sign from positive to negative at $c$ (i.e. $f'(c)$ is positive in the left side of $c$ and negative in the right side of $c$), then $c$ is a point of local maximum for $f$.
+    \item $f'(x)$ changes sign from  negative to positive at $c$, then $c$ is a point of local minimum for $f$.
+\end{enumerate}
+
+\begin{example}
+Find the local maxima/minima of the function $f(x)=x^4-4x^3-2x^2+12x+1$.
+\end{example}
+
+\begin{solution}
+Given $f(x)=x^4-4x^3-2x^2+12x+1\Rightarrow f'(x)=4x^3-12x^2-4x+12=4(x-3)(x-1)(x+1)$. Now $f'(x)=0\Rightarrow x=-1, x=1,x=3$. Thus the set of critical points of $f(x)$ are $\{-1,1,3\}$.
+
+\begin{equation*}
+f'(x) = 4(x-3)(x-1)(x+1) \text{ is }
+\begin{cases}
+     <0    & \text{for  }     x < -1 \\\\
+    >0    & \text{for   }     x >-1
+\end{cases}    
+\end{equation*}
+
+\begin{equation*}
+f'(x) = 4(x-3)(x-1)(x+1) \text{ is }
+\begin{cases}
+     >0    & \text{for   }     x < 1 \\\\
+    <0    & \text{for   }   x >1
+\end{cases}    
+\end{equation*}
+
+\begin{equation*}
+f'(x) = 4(x-3)(x-1)(x+1) \text{ is }
+\begin{cases}
+     <0    & \text{for   }     x < 3 \\\\
+    >0    & \text{for   }   x >3
+\end{cases}    
+\end{equation*}
+
+Thus by the 1st derivative test, $f(x)$ has a local maximum at $x=1$ and local minimum at $x=-1$ and $x=3$. Putting these values in $f(x)$, we get, the local maximum is $f(1)=1^4-4.1^3-2.1^2+12.1+1=8$ and the local minimum is $f(-1)=f(3)=-8$.
+\end{solution}
+
+\subsubsection{Local Extremum where $f'(x)$ does not exist}
+
+As already discussed, a point $c$ is a critical point of the function $f(x)$ if either $f'(c)=0$ or $f'(c)$ does not exist. We shall describe this situation by the following example.
+
+\begin{example}
+Discuss the points of local maxima and minima of the function $f(x)=|x^2-9|$.
+\end{example}
+
+\begin{solution}
+Here we have,
+\begin{equation*}
+f(x) = 
+\begin{cases}
+     x^2-9    & \text{for   }     x < -3 \\\\
+    -(x^2-9)    & \text{for   }      -3 \leq x \leq 3 \\\\
+    x^2-9          &\text{for  } x>3
+\end{cases}    
+\end{equation*}
+
+Here the function is not derivable at $x=\pm3$, but derivable else where. so the critical points of the function are $x=\pm3$. Now we have,
+
+\begin{equation*}
+f'(x) = 
+\begin{cases}
+     2x    & \text{for   }     x < -3 \\\\
+    -2x    & \text{for   }      -3 < x < 3 \\\\
+    2x          &\text{for  } x>3
+\end{cases}    
+\end{equation*}
+
+In addition to the two critical points $x=\pm3$, the other critical point is $x=0$, as $f'(0)=0$. To determine the local maximum and local minimum, we now perform the 1st derivative test.
+
+\begin{equation*}
+f'(x)= 
+\begin{cases}
+     <0    & \text{for   }     x < -3    \text{ as } f'(x)=2x\\\\
+    >0    & \text{for   }   x >-3        \text{ as } f'(x)=-2x
+\end{cases}    
+\end{equation*}
+
+Thus $x=-3$ is a point of local minimum of $f(x)$.
+\begin{equation*}
+f'(x)= 
+\begin{cases}
+     >0    & \text{for   }     x < 0    \text{ as } f'(x)=-2x\\\\
+    <0    & \text{for   }   x >0        \text{ as } f'(x)=-2x
+\end{cases}    
+\end{equation*}
+
+Thus $x=0$ is a point of local maximum of $f(x)$.
+Next, 
+\begin{equation*}
+f'(x)= 
+\begin{cases}
+     <0    & \text{for   }     x < 3   \text{ as } f'(x)=-2x\\\\
+    >0    & \text{for   }   x >3       \text{ as } f'(x)=2x
+\end{cases}    
+\end{equation*}
+
+Thus $x=3$ is a point of local minimum of $f(x)$.
+\end{solution}
+
+
+\subsubsection{End Point Extremum} So far we have discussed the Local Extremum where the critical point $c$ is an interior point of the interval $[a,b]$. To determine the extremum at the end points $a$ and $b$, we follow the following rules, which is very clear from the graph.
+
+\begin{itemize}
+    \item $f'(a)<0\Rightarrow$ a is a point of \textbf{local maximum}
+    \item $f'(a)>0\Rightarrow$ a is a point of \textbf{local minimum}
+    \item $f'(b)>0\Rightarrow$ b is a point of \textbf{local maximum}
+    \item $f'(b)<0\Rightarrow$ b is a point of \textbf{local minimum}
+\end{itemize}
+
+\begin{example}
+Find the points of local extremum and end point extremum in the interval $[-2,2]$ of the function $f(x)= x^2-2|x|+2$.
+\end{example}
+
+\begin{solution}
+Given $f(x)= x^2-2|x|+2$.
+\begin{equation*}
+f(x)= 
+\begin{cases}
+     x^2-2x+2    & \text{for   }     x \geq 0   \\\\
+    x^2+2x+2    & \text{for   }   x <0        
+\end{cases}    
+\end{equation*}
+
+\begin{equation*}
+\Rightarrow f'(x)= 
+\begin{cases}
+     2x-2    & \text{for   }     0<x \leq 2   \\\\
+    2x+2    & \text{for   }   -2\leq x <0        
+\end{cases}    
+\end{equation*}
+
+Since $f'(x)<0$ for $x>0$ and $f'(x)>0$ for $x<0$, $x=0$ is a point of local maximum. 
+
+Here $x=1$ and $x=-1$ are the critical points of $f(x)$, which we get by equating $f'(x)=0$. Here, 
+
+\begin{equation*}
+f'(x)= 
+\begin{cases}
+     >0    & \text{for   }     x>1   \\\\
+    <0    & \text{for   }    x <1        
+\end{cases}    
+\end{equation*}
+
+So  $x=1$ is a point of local minimum. Similarly 
+\begin{equation*}
+f'(x)= 
+\begin{cases}
+     >0    & \text{for   }     x>-1   \\\\
+    <0    & \text{for   }    x <-1        
+\end{cases}    
+\end{equation*}
+
+Hence $x=-1$ is a point of local minimum.
+
+Next to find the end point extremum, $f'(2)=2.2-2=2>0\Rightarrow$ $x=2$ is an end point of maximum. Similarly $f'(-2)=2(-2)+2=-2<0\Rightarrow$ $x=-2$ is an end point maximum.
+
+Thus $x=0$ is a point of local maximum, $x=1$ is a point of local minimum, $x=-1$ is a point of local minimum, $x=2$ is an end  point maximum and $x=-2$ is an end point maximum. 
+\end{solution}
+
+\subsubsection{Second Derivative Test For Local Extremum}
+
+% \vspace{0.2cm}
+% \textbf{\textit{II. SSECOND DERIVATIVE TEST FOR LOCAL EXTREMUM.}}
+
+This test states that if $c$ is an interior point of $[a,b]$ and $f'(c)=0$ and
+
+\begin{enumerate}[label=(\roman*)]
+    \item $f''(c)<0$, then $c$ is a point of local maximum for $f(x)$.
+    \item $f''(c)>0$, then $c$ is a point of local minimum for $f(x)$.
+\end{enumerate}
+
+\textbf{\textit{Note.}} The 2nd derivative test fails if $f''(c)=0$.
+
+\begin{example}
+Find the local extremum of the function $f(x)=x^4-2x^2+3$ in the interval $[-2,2]$.
+\end{example}
+
+\begin{solution}
+Given $f(x)=x^4-2x^2+3\Rightarrow f'(x)=4x^3-4x=4x(x+1)(x-1)$. Now $f'(x)=0\Rightarrow 4x(x+1)(x-1)=0$. Thus $x=0,-1,1$ are the critical points of $f(x)$ in the given interval. Now $f''(x)=12x^2-4=4(3x^2-1)$.
+
+Thus $f''(-1)=4(3(-1)^2-1)=8>0$, $f''(0)=4(3(0)^2-1)=-4<0$ and $f''(1)=4(3(1)^2-1)=8>0$. Hence by the 2nd derivative test the function has local minimum at $x=-1$ and $x=1$ and local maximum at $x=0$.
+
+Hence the Local maximum of the function is $f(0)=3$ and the local minimum is $f(-1)=f(1)=2$.
+\end{solution}
+
+\begin{example}
+Find the local extremum of the function $f(x)=\sin x+ \cos x$ in the interval $[0,2\pi]$.
+\end{example}
+
+
+\begin{solution}
+Given $f(x)=\sin x+ \cos x\Rightarrow f'(x)=\cos x-\sin x$. 
+
+The roots of the equation $f'(x)=0\Rightarrow \cos x-\sin x=0$, which gives, $\tan x=1\Rightarrow x=\dfrac{\pi}{4},\pi+\dfrac{\pi}{4}$. 
+
+Now $f''(x)=-\sin x-\cos x$. So $f''(\dfrac{\pi}{4})=-\sin \dfrac{\pi}{4}-\cos \dfrac{\pi}{4}=-\dfrac{1}{\sqrt{2}}-\dfrac{1}{\sqrt{2}}=-\sqrt{2}<0$ and 
+
+$f''(\pi+\dfrac{\pi}{4})=-\sin(\pi+ \dfrac{\pi}{4})-\cos(\pi+ \dfrac{\pi}{4})=-(-\dfrac{1}{\sqrt{2}})-(-\dfrac{1}{\sqrt{2}})=\sqrt{2}>0$.
+
+Hence by 2nd derivative test $f(x)$ has a local maximum at $x=\dfrac{\pi}{4}$ and a local minimum at $x=(\pi+\dfrac{\pi}{4})$. The local maximum value is $f(\dfrac{\pi}{4})= \sin \dfrac{\pi}{4}+\cos \dfrac{\pi}{4}=\dfrac{1}{\sqrt{2}}+\dfrac{1}{\sqrt{2}}=\sqrt{2}$ and the local minimum value is $f(\pi+\dfrac{\pi}{4})=\sin (\pi+\dfrac{\pi}{4})+\cos (\pi+\dfrac{\pi}{4})=-\dfrac{1}{\sqrt{2}}-\dfrac{1}{\sqrt{2}}=-\sqrt{2}$.
+\end{solution}
+
+\textbf{\textit{Absolute Maximum and Absolute Minimum.}} Let $f$ be a function defined on the interval $[a,b]$. A point $c$ is said to be the point of Absolute Maximum if $f(x)\leq f(c)$  $\forall x\in[a,b]$ and $c$ is the point of Absolute Minimum if $f(x)\geq f(c)$  $\forall x\in[a,b]$.
+
+Thus for a given function $f(x)$ defined on an interval $[a,b]$, whose critical points are $c_1, c_2, c_3,...., c_n$ the Absolute Maximum $M$ of $f(x)$ on $[a,b]$ is
+
+\[
+    M= \max\text{ }\{f(a),f(b),f(c_1),f(c_2),f(c_3),...,f(c_n)\}
+\]
+
+Similarly we can find out the Absolute Minimum by taking the minimum of the above set.
+
+\begin{example}
+Find the value of $x$ and $y$, such that $x+y=8$ and $xy$ is maximum.
+\end{example}
+
+\begin{solution}
+Given $x+y=8\Rightarrow y=8-x$. Here the function $f(x)=xy=x(8-x)= 8x-x^2$.
+
+$\Rightarrow f'(x)=8-2x$. To find the critical point, $ f'(x)=8-2x=0\Rightarrow x=4$.
+
+Now $f''(x)=-2$, so $f''(4)=-2\Rightarrow f(x)=xy$ has maximum at $x=4$. $y=8-x=8-4=4$. Hence if $x=4$ and $y=4$ then $xy$ is maximum and  the maximum is 4.4=16.
+\end{solution}
+
+\begin{example}
+Show that the rectangle of maximum area that can be inscribed in a circle is a square.
+\end{example}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{\subfix{images/figure_5.pdf}}
+    \caption{Rectangle inscribed inside a circle}
+    \label{fig:application_of_derivatives:rectangle_inside_circle}
+\end{figure}
+
+\begin{solution}
+From Figure \ref{fig:application_of_derivatives:rectangle_inside_circle} let $ABCD$ be a rectangle inscribed in a circle centered at the origin $O$ and having radius $OC=a$. Let $OE\perp BC$. Let $OE=x=\dfrac{1}{2}AB$ and $EC=y=\dfrac{1}{2}BC$.
+
+Now the area of $ABCD=f(x)=AB.BC=4xy=4x\sqrt{a^2-x^2}$ $\Rightarrow f'(x)=4\sqrt{a^2-x^2}-\dfrac{4x^2}{\sqrt{a^2-x^2}}$. Since the area $f(x)$ is maximized,
+
+$f'(x)=0\Rightarrow 4\sqrt{a^2-x^2}-\dfrac{4x^2}{\sqrt{a^2-x^2}}=0$  $\Rightarrow 4\sqrt{a^2-x^2}=\dfrac{4x^2}{\sqrt{a^2-x^2}}\Rightarrow a^2-x^2=x^2$. Thus discarding the negative value, we get, $x=\dfrac{a}{\sqrt{2}}$. Thus $y=\sqrt{a^2-\dfrac{a^2}{2}}=\dfrac{a}{\sqrt{2}}$. So $\dfrac{1}{2}AB=\dfrac{1}{2}BC\Rightarrow AB=BC$. Hence $ABCD$ is a square.
+\end{solution}
+
+\begin{example}
+Find the dimensions of a right circular cylinder of the highest volume that can be inscribed in a sphere of radius $a$.
+\end{example}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{\subfix{images/figure_6.pdf}}
+    \caption{Right cylinder inscribed inside a sphere}
+    \label{fig:application_of_derivatives:cylinder_inside_sphere}
+\end{figure}
+
+\begin{solution}
+Given radius of the sphere is $a$. Let $2x$ be the height of the cylinder. By Figure \ref{fig:application_of_derivatives:cylinder_inside_sphere} the radius $r$ of the cylinder is given by $r=\sqrt{a^2-x^2}$.
+
+The volume of the cylinder is given by $f(x)=V=\pi(\sqrt{a^2-x^2})^2.2x=2\pi(a^2x-x^3)$. Here to find the maximum volume, the critical point can be find out by $f'(x)=\dfrac{dV}{dx}=0 \Rightarrow 2\pi(a^2-3x^2)=0\Rightarrow x=\dfrac{a}{\sqrt{3}}$, ignoring the negative value of $x$. Now $f''(x)= -12\pi x$ $\Rightarrow f''(\dfrac{a}{\sqrt{3}})=-12\pi\dfrac{a}{\sqrt{3}}<0$. Thus by 2nd derivative test the volume of the cylinder is maximum when $x=\dfrac{a}{\sqrt{3}}$ and thus the radius of the cylinder is $r=\sqrt{a^2-x^2}=\sqrt{a^2-(\dfrac{a}{\sqrt{3}})^2}= a\sqrt{\dfrac{2}{3}}$.
+\end{solution} 
+
+
+\begin{example}
+A wire of length 36 m is to be cut into two pieces. One of the pieces is to be made into a square and the other into a circle. What should be the lengths of the two pieces, so that the combined area of the square and the circle is minimum ?
+\end{example}
+
+\begin{solution}
+Let $x$ meters be the length of a side of the square and $y$ meters be the radius of the circle. Then we have, $4x+2\pi y=36\Rightarrow 2x+\pi y=18$.  
+
+Let $A=f(x)$ be the combined area of the square and the circle, so $f(x)=A=x^2+\pi y^2=x^2+\pi (\dfrac{18-2x}{\pi})^2=x^2+\dfrac{1}{\pi}(18-2x)^2$.
+
+Now $f'(x)=\dfrac{dA}{dx}=2x+\dfrac{2}{\pi}(18-2x)(-2)= 2x-\dfrac{4}{\pi}(18-2x)$ and $f''(x)=\dfrac{d^2A}{dx^2}=2-\dfrac{4}{\pi}(-2)=2+\dfrac{8}{\pi}$. To find out the extremum of $f(x)=A$, we are to find out the critical points, i.e. roots of the equation $f'(x)=0\Rightarrow  2x-\dfrac{4}{\pi}(18-2x)=0\Rightarrow x=\dfrac{36}{\pi+4}$. Clearly $f''(\dfrac{36}{\pi+4})= 2+\dfrac{8}{\pi}>0$. Thus $f(x)=A$ is minimum at $x=\dfrac{36}{\pi+4}$. So $y=\dfrac{18}{\pi+4}$. Hence length of the two pieces of wire are $4x=\dfrac{144}{\pi+4}$m. and $2\pi y=\dfrac{36\pi}{\pi+4}$m.
+\end{solution}
+
+\begin{example}
+The total cost of producing $x$ mobile hand sets is Rs.$(\dfrac{x^2}{4}+35x+25)$ and the price per set at which they may be sold is Rs.$(50-\dfrac{x}{2})$. Find the daily output to maximize the total profit.
+\end{example}
+
+\begin{solution}
+Here the total profit $f(x)=P$ = Revenue - cost = Rs.$[(50-\dfrac{x}{2})x-(\dfrac{x^2}{4}+35x+25)]=15x-\dfrac{3x^2}{4}-25$. 
+
+To maximize the profit, we are to find out the critical points. So $f'(x)=0\Rightarrow 15-\dfrac{3x}{2}=0\Rightarrow x=10$.
+Now $f''(x)= -\dfrac{3}{2}\Rightarrow f''(10)=-\dfrac{3}{2}<0$. Hence, the profit will be maximum if $x$, the production of hand sets will be at least 10 units.
+\end{solution}
+
+
+\textbf{\textit{Note.}} A point $Q$ on a curve $y=f(x)$ (as given in Figure \ref{fig:application_of_derivatives:inflection_points}) is said to be a \textbf{point of inflexion} if the curve is concave on one side and convex on the other side of $Q$ with respect to the $x$-axis.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{\subfix{images/figure_7.pdf}}
+    \caption{Visualizing Inflection Points}
+    \label{fig:application_of_derivatives:inflection_points}
+\end{figure}
+
+It is necessary that a point $x=c$ is a point of inflection of the curve $y=f(x)$, if $f''(c)=0$. But the condition is not sufficient. For example, $x=0$ is not a point of inflecxion for the curve $y=x^4$, as $f''(x)$ does not change sign when $x$ passes through the origin. A point on the curve may be a point of inflexion even when the 2nd derivative does not exist at that point, e.g. $y=x^{\frac{1}{3}}$. Thus \textbf{in order to find points of inflexion we must have to}
+\begin{enumerate}[label=(\roman*)]
+    \item find the points where $f''(x)=0$ or $f''(x)$ does not exist.
+    \item test whether $f''(x)$ changes sign on two sides of these points.
+\end{enumerate} 
+
+\begin{exercise}
+Find the extreme points of the following functions. Specify if the extremum is a maximum or a minimum. Find the extreme values :
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $f(x)=x^2-2x+3$ 
+    \item $f(x)=x+\dfrac{1}{x}$
+    \item $f(x)=\dfrac{2-3x}{2+x}$
+    \item $f(x)=x^4-\dfrac{x^3}{3}$
+    \item $f(x)=(x-2)^2(x+3)^4$
+    \item $f(x)= \dfrac{1}{|x-2|}$
+    \item $f(x)=xe^{-x}$,     $x\in (-2,2)$.
+    \item $f(x)=\sin x\cos x$,   $x\in (\dfrac{\pi}{8},\dfrac{\pi}{2})$
+    \item $f(x)=4\cos 2x-3\sin 2x$,    $x\in(-\dfrac{\pi}{2},\dfrac{\pi}{2})$.
+    \item $f(x)=\sin 3x$,     $x\in[0,\dfrac{\pi}{2}]$.
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+\begin{exercise}
+Show that the following functions do not have maximum or minimum:
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+     \item $f(x)=x^5$
+    \item $f(x)= 3x^3-12x^2+16x-5$ 
+    \item $f(x)=4-3x+3x^2-x^3$
+    \item $f(x)=ln |x|$,   $x\neq 0$
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+\begin{exercise}
+Find the absolute maximum and absolute minimum of the following functions on the indicated domains:
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+     \item $f(x)=x^2-4x+1$,  $x\in [0,3]$
+    \item $f(x)= x^2+\dfrac{1}{x^2}$,  $x\in [.1,2]$ 
+    \item $f(x)=  |x^3|$,   $x\in [-2,3]$
+    \item $f(x)= |x-x^2|$,   $x\in [-2,2]$
+    \item $f(x)=\dfrac{1}{3-x}$,  $x\in [0,4]$
+    \item $f(x)=x(x^3-4)$,  $x\in [0,2]$
+    \item $f(x)=Sec x$,  $x\in (-\dfrac{\pi}{2},\dfrac{\pi}{2})$
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+\begin{exercise}
+Prove that $\dfrac{x}{1+x\tan x}$ is  maximum when $x=\cos x$.
+\end{exercise}
+
+\begin{exercise}
+The income in rupees of a manufacturing concern by selling $x$ items is given by $500+3000x-3x^2$. For which value of $x$, the concern makes its maximum revenue.
+\end{exercise}
+
+\begin{exercise}
+Prove that the maximum value of $(\frac{1}{x})^x$ is $e^{\frac{1}{e}}$.
+\end{exercise}
+
+\begin{exercise}
+When a Farm sells $x$ items per day, then the profit function $p(x)$ in rupees is given by $p(x)=(430-x)x-3500$. How many items should the farm sell to make the maximum profit ? Finf the maximum profit.
+\end{exercise}
+
+\begin{exercise}
+Show that the rectangle that has maximum area for a given perimeter is a square.
+\end{exercise}
+
+\begin{exercise}
+Find the points on the curve $5x^2-6xy+5y^2=0$ which are nearest to the origin.
+\end{exercise}
+
+\begin{exercise}
+Find the dimensions of the rectangle of greatest area that can be inscribed in a semicircle of radius $a$.
+\end{exercise}
+
+\begin{exercise}
+Find the point on the curve $4x^2+a^2y^2=4a^2$, where $4<a^2<8$, that is farthest from the point $(0,-2)$.
+\end{exercise}
+
+\begin{exercise}
+The combined resistance $R$ of two resistors $R_1$ and $R_2$, where $R_1,R_2>0$ is given by $\dfrac{1}{R}=\dfrac{1}{R_1}+\dfrac{1}{R_2}$. If $R_1+R_2=C$(a constant), show that the maximum resistance $R$ is obtained by choosing $R_1=R_2$.
+
+(\textbf{Hints. Find $R=R_1-\dfrac{R_1^2}{C}$}, then find $\dfrac{dR}{dR_1}$ and $\dfrac{d^2R}{dR_1^2}$, find the critical point and test for maximum.)
+\end{exercise}
+
+\section{Three Basic Theorems}
+
+\begin{theorem}[\textbf{Rolle's Theorem}]
+    If a function $f$ is
+\begin{enumerate}
+    \item continuous on the closed interval $[a,b]$,
+    \item derivable on the open interval $(a,b)$  and
+    \item $f(a)=f(b)$, then there exists at least one point $c\in (a,b)$ such that $f'(c)=0$.
+\end{enumerate}
+\end{theorem}
+
+Here $f'(c)=0$ i.e., Slope of the tangent to the curve $y=f(x)$ at the point $(c,f(c))$ is $0$ and we know that the $X$-axis has slope $0$. Therefore the tangent to the curve $y=f(x)$ at the point $(c,f(c))$ is parallel to the $X$-axis. This is the \textbf{Geometrical interpretation of Rolle's theorem}. See Figure \ref{fig:application_of_derivatives:rolle_theorem} below.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{\subfix{images/Rolle_Theorem.png}}
+    \caption{Geometrical Interpretation of Rolle's Theorem}
+    \label{fig:application_of_derivatives:rolle_theorem}
+\end{figure}
+
+\begin{example}
+    Verify the validity of Rolle's theorem for the function $f(x)=x^3-3x$ in the interval $[0,\sqrt{3}]$ and find $c$, such that $f'(c)=0$.
+\end{example}
+
+\begin{solution}
+Clearly the given function $f(x)=x^3-3x$ is continuous in the interval $[0,\sqrt{3}]$ and derivable in the interval $(0,\sqrt{3})$. Also $f(0)=0=f(\sqrt{3)}$. Hence $f(x)$ satisfies all the three conditions of Rolle's theorem. Thus there exists a point $c\in (0,\sqrt{3}) $, such that $ f'(c) = 0$. To find $c$, $f'(x)= 3x^2-3=0\Rightarrow x=\pm 1$. hence, there exists a point $c=1 \in (0,\sqrt{3})$ such that $f'(1)=0$.
+\end{solution}
+
+\begin{example}
+Verify the validity of Rolle's theorem for the function $f(x)=|x|$ in the interval $[-1, 1]$.
+\end{example}
+
+\begin{solution}
+Clearly the given function $f(x)=|x|$ is continuous in the interval $[-1,1]$ and $f(-1)=|-1|=1=f(1)$. Thus conditions (i) and (ii) 0f the Rolle's theorem are satisfied by the given function $f(x)=|x|$. But $f(x)=|x|$ is not derivable at the point $0\in (-1,1)$. So condition (ii) of Rolle's theorem is not satisfied by the given function $f(x)=|x|$. Hence Rolle's theorem is not valid for $f(x)=|x|$.
+\end{solution}
+
+\begin{theorem}[\textbf{Lagrange's Mean Value Theorem}]
+If a function $f$ is
+\begin{enumerate}
+    \item continuous on the closed interval $[a,b]$ and
+    \item derivable on the open interval $(a,b)$ 
+\end{enumerate}
+then there exists at least one point $c\in (a,b)$ such that $f'(c)=\dfrac{f(b)-f(a)}{b-a}$.
+\end{theorem}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{\subfix{images/mean_value_theorem.png}}
+    \caption{Geometrical Interpretation of Mean Value Theorem}
+    \label{fig:application_of_derivatives:mean_value_theorem}
+\end{figure}
+
+\begin{proof}
+Let us consider a function $F(x)= (b-a)f(x)-(f(b)-f(a))x$. Since given, $f(x)$ is continuous on the closed interval $[a,b]$ and derivable on the open interval $(a,b)$, $F(x)$ is also continuous on the closed interval $[a,b]$ and derivable on the open interval $(a,b)$. Moreover $F(a)=F(b)=bf(a)-af(b)$. Thus $F(x)$ satisfies all the three conditions of Rolle's theorem, Hence there exists at least one point $c\in (a,b)$ such that $F'(c)=0\Rightarrow F'(c)= (b-a)f'(c)-(f(b)-f(a))=0$ $\Rightarrow f'(c)=\dfrac{f(b)-f(a)}{b-a}$.    
+\end{proof}
+
+Here $f'(c)$ is the slope of the tangent to the curve $y=f(x)$ at the point $(c,f(c))$ and $\dfrac{f(b)-f(a)}{b-a}$ is the slope of the line segment joining the points $P(a,f(a))$ and $Q(b,f(b))$ on the curve. Hence $f'(c)=\dfrac{f(b)-f(a)}{b-a}$ means the tangent to the curve at $(c,f(c))$ is parallel to the chord $PQ$. This is the \textbf{Geometrical interpretation of Mean Value theorem}.
+
+\begin{example}
+Verify the validity of Mean Value theorem for the function $f(x)=2x^2-3x+7$ in the interval $[1,2]$ and find $c$, such that $f'(c)=0$.
+\end{example}
+
+\begin{solution}
+Clearly $f(x)=2x^2-3x+7$ is continuous on the closed interval $[1,2]$ and derivable on the open interval $(1,2)$. Hence by Mean Value theorem there exists a point $c\in (1,2)$ such that $f'(c)=\dfrac{f(2)-f(1)}{2-1}
+\Rightarrow 4c-3=\dfrac{9-6}{2-1}\Rightarrow c=\dfrac{3}{2}$.
+\end{solution}
+
+\begin{example}
+Using Lagrange's Mean Value theorem, prove that $\sin x<x$  $\forall x\in [0,\dfrac{\pi}{2}]$.
+\end{example}
+
+\begin{solution}
+Let $f(x)=\sin x-x$. For $0<c<x<\frac{\pi}{2}$, by the Mean Value theorem, we have $f'(c)= \dfrac{f(x)-f(0)}{x-0}$ $\Rightarrow \cos c-1= \dfrac{\sin x-x}{x}$ as $f'(x)=\cos x-1$. But $<-1<\cos x<1$. Thus $\dfrac{\sin x-x}{x}<0\Rightarrow \sin x<x$. 
+\end{solution}
+\newpage
+\begin{theorem}[\textbf{Cauchy's Mean Value Theorem}]
+    If $f$ and $g$ are two functions such that
+\begin{enumerate}
+    \item both are continuous on $[a,b]$,
+    \item both are derivable on $(a,b)$ and
+    \item $g'(x)\neq 0$ for any $x\in (a,b)$, then there exists at least one point $c\in (a,b)$ such that $\dfrac{f'(c)}{g'(c)}=\dfrac{f(b)-f(a)}{g(b)-g(a)}$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Let us define a function $F(x)$ by $F(x)=f(x)-f(a)-\dfrac{f(b)-f(a)}{g(b)-g(a)}(g(x)-g(a))$. Here $g(b)-g(a)\neq 0$, otherwise we apply Rolle's theorem on $g$ to get $g'(y) =0$ for $y\in(a,b)$ contradicting condition (iii) of the theorem. Clearly $F(x)$ is continuous on the closed interval $[a,b]$ and derivable on the open interval $(a,b)$. Also $F(a)=F(b)$. Hence, by Rolle's theorem, there exists a point $c\in(a,b)$ such that $F'(c)=0\Rightarrow f'(c)-\dfrac{f(b)-f(a)}{g(b)-g(a)}g'(c)=0\Rightarrow \dfrac{f'(c)}{g'(c)}=\dfrac{f(b)-f(a)}{g(b)-g(a)}$.
+\end{proof}
+
+\begin{example}
+Show that $\dfrac{v-u}{1+v^2}<\tan^{-1}v-\tan^{-1}u<\dfrac{v-u}{1+u^2}$ if $0<u<v$ and 
+
+deduce that $\dfrac{\pi}{4}+\dfrac{3}{25}<\tan^{-1}\dfrac{4}{3}<\dfrac{\pi}{4}+\dfrac{1}{6}$.
+\end{example}
+
+\begin{solution}
+Let us take $f(x)=\tan^{-1}x$, then for $u<x<v$, $f'(x)=\dfrac{1}{1+x^2}$. Then by Cauchy's Mean Value theorem, $\dfrac{f(v)-f(u)}{v-u}=f'(c)$, where $u<c<v$
+
+$\Rightarrow \dfrac{\tan^{-1}v-\tan^{-1}u}{v-u}= \dfrac{1}{1+c^2}$. Here $c>u\Rightarrow 1+c^2>1+u^2\Rightarrow \dfrac{1}{1+c^2}<\dfrac{1}{1+u^2}$. Similarly, $v>c\Rightarrow \dfrac{1}{1+v^2}<\dfrac{1}{1+c^2}$. Hence $\dfrac{1}{1+v^2}<\dfrac{\tan^{-1}v-\tan^{-1}u}{v-u}=\dfrac{1}{1+c^2}<\dfrac{1}{1+u^2}\Rightarrow \dfrac{v-u}{1+v^2}<\tan^{-1}v-\tan^{-1}u<\dfrac{v-u}{1+u^2}$.
+
+Now, putting $v=\dfrac{4}{3}$ and $u=1$ in the last inequalities, we get, $\dfrac{3}{25}<\tan^{-1}\dfrac{4}{3}-\tan^{-1}1<\dfrac{1}{6}$. Hence $\dfrac{\pi}{4}+\dfrac{3}{25}<\tan^{-1}\dfrac{4}{3}<\dfrac{\pi}{4}+\dfrac{1}{6}$ (as $\tan^{-1}1=\dfrac{\pi}{4}$).
+\end{solution}
+
+
+
+
+\begin{exercise}
+Verify the validity of Rolle's theorem and find  the point $c\in(a,b)$ where $f'(c)=0$ in the following problems.
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $f(x)=3x-x^3$, $a=0$,$b=\sqrt{3}$ 
+    \item $f(x)=x-1$, $a=-\dfrac{1}{2}$,$b=\dfrac{1}{2}$
+    \item $f(x)= \cos x$, $a=-\dfrac{\pi}{2}$, $b=\dfrac{\pi}{2}$
+    \item $f(x)=x^2-8x+12$ $a=2$,$b=6$
+    \item $f(x)=(x^2-1)(x-2)$ $a=-1$,$b=2$
+    \item $f(x)= |x-1|$ $a=0$,$b=2$
+
+ \end{enumerate}
+\end{multicols}
+\end{exercise}
+
+
+\begin{exercise}
+Verify Lagrange's Mean Value theorem for the following functions on the indicated intervals and find the required point $c$.
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $f(x)=x^2-1$, on $[2,3]$ 
+    \item $f(x)=x(x-1)$, on $[1,2]$
+    \item $f(x)= x^3-2x^2-x+3$ on  $[0,1]$
+    \item $f(x)=(x-1)(x-2)(x-3)$ on $[0,4]$
+    \item $f(x)=\tan^{-1}x$ on $[0,1]$
+    \item $f(x)= \sin x-\sin 2x$ on $[0,\pi]$
+ \end{enumerate}
+\end{multicols}
+\end{exercise}
+
+
+
+\begin{exercise}
+Using Rolle's theorem, find points on the curve $f(x)=16-x^2$, $x\in[-1,1]$, where the tangent is parallel to the $X$-axis.
+\end{exercise}
+ 
+\begin{exercise}
+Using Mean Value theorem, prove that, for any pair of real numbers $x$,$y$ $|\sin x-\sin y|\leq |x-y|$.
+\end{exercise}
+
+\begin{exercise}
+Using Cauchy's Mean Value theorem, show that,
+\begin{equation*}
+\frac{\sin \alpha-\sin \beta}{\cos \beta - \cos \alpha}= \cot \theta
+\end{equation*}
+where $0<\alpha<\theta<\beta<\frac{\pi}{2}$.   
+\end{exercise}
+
+
+\section{Indeterminate Form}
+
+We have already discussed in the limit section that $\lim _{x\rightarrow c}\dfrac{f(x)}{g(x)}$= $\dfrac{\lim _{x\rightarrow c} f(x)}{\lim _{x\rightarrow c}g(x)}$. But when $\lim _{x\rightarrow c}f(x)=0$ and $\lim _{x\rightarrow c}g(x)=0$, then $\lim _{x\rightarrow c}\dfrac{f(x)}{g(x)}$ reduces to a form $\dfrac{0}{0}$ (zero divided by zero), which is an \textbf{\textit{indeterminate form}}. For example, $\lim_{x\rightarrow 0}\dfrac{\sin x}{x}$ is in the indeterminate form ($\dfrac{0}{0}$ form).
+
+Other indeterminate forms are $\dfrac{\infty}{\infty}$, $0.\infty$, $\infty-\infty$, $0^0$, $\infty^0$ and $1^\infty$. But in practice, all of these can be reduced to the basic indeterminate form $\dfrac{0}{0}$.
+
+The problems of Limit in the indeterminate form can be solved by the use of L' Hospital rule which is stated below.
+
+% \textbf{\textit{L' Hospital Rule:}} Let
+
+% \begin{enumerate}
+%     \item $f$ and $g$ be differentiable functions at $x=c$,
+%     \item $\lim _{x\rightarrow c} f(x)=0$ and $\lim _{x\rightarrow c} g(x)=0$,
+%     \item $\frac{\lim _{x\rightarrow c} f'(x)}{\lim _{x\rightarrow c}g'(x)}=l$.
+% \end{enumerate}
+% Then $\frac{\lim _{x\rightarrow c} f(x)}{\lim _{x\rightarrow c}g(x)}=l$.
+
+\begin{theorem}[\textbf{L'Hôspital Rule}]
+Let:
+\begin{enumerate}
+    \item $f$ and $g$ be differentiable functions at $x = c$,
+    \item $\displaystyle\lim_{x \to c} f(x) = 0$ \quad and \quad 
+          $\displaystyle\lim_{x \to c} g(x) = 0$,
+    \item $\displaystyle\frac{\lim_{x \to c} f'(x)}{\lim_{x \to c} g'(x)} = l$.
+\end{enumerate}
+Then,
+\[
+    \frac{\lim_{x \to c} f(x)}{\lim_{x \to c} g(x)} = l.
+\]
+\end{theorem}
+
+\begin{example}
+    Show that $\lim_{x\rightarrow 0}\dfrac{\sin x}{x}=1$.
+\end{example}
+
+\begin{solution}
+    The Limit $\lim_{x\rightarrow 0}\dfrac{\sin x}{x}$ is in the form $\dfrac{0}{0}$ ($\because \sin 0=0$). Applying L' Hospital Rule, we get,
+\begin{equation*}
+\lim_{x\rightarrow 0}\frac{\sin x}{x}=\lim_{x\rightarrow 0}\frac{\frac{d}{dx}\sin x}{\frac{d}{dx}x}=\lim_{x\rightarrow 0}\frac{\cos x}{1}= \cos 0=1.    
+\end{equation*}
+\end{solution}
+
+
+\begin{example}
+    Evaluate $\lim_{x\rightarrow \dfrac{\pi}{2}}\dfrac{\cos x}{\pi -2x}$.
+\end{example}
+
+\begin{solution}
+Here both $f(x)= \cos x$ and $g(x)=\pi -2x$ $\rightarrow 0$ as $x\rightarrow0$. Hence, applying the L' Hospital Rule,
+\begin{equation*}
+\lim_{x\rightarrow \frac{\pi}{2}}\frac{\cos x}{\pi -2x} = \lim_{x\rightarrow \frac{\pi}{2}}\frac{\frac{d}{dx}\cos x}{\frac{d}{dx}(\pi -2x)} = \lim_{x\rightarrow \frac{\pi}{2}}\frac{-\sin x }{-2}=\frac{\sin \frac{\pi}{2} }{2}=\frac{1}{2}. 
+\end{equation*}
+\end{solution}
+
+
+\begin{example}
+    Evaluate $\lim_{x\rightarrow 0}(\dfrac{1}{x}-\cot x)$.
+\end{example}
+
+\begin{solution}
+    \begin{align*}
+        \lim_{x\rightarrow 0}\left(\frac{1}{x}-\cot x\right) &= \lim_{x\rightarrow 0}\left(\frac{1}{x}-\frac{\cos x}{\sin x}\right) &\quad \infty - \infty &\text{ form} \\
+        &= \lim_{x\rightarrow 0}\left(\frac{\sin x-x\cos x}{x\sin x}\right) &\quad \frac{0}{0} &\text{ form}\\
+        &= \lim_{x\rightarrow 0}\frac{\frac{d}{dx}(\sin x-x\cos x)}{\frac{d}{dx}(x\sin x)} \\ 
+        &= \lim_{x\rightarrow 0}\frac{\cos x-(\cos x-x\sin x)}{\sin x+x\cos x} \\ 
+        &= \lim_{x\rightarrow 0}\frac{x\sin x}{\sin x+x\cos x} &\quad \frac{0}{0} &\text{ form}\\ 
+        &= \lim_{x\rightarrow 0}\frac{\sin x+x\cos x}{\cos x+\cos x-x\sin x} = \frac{0}{2} = 0
+    \end{align*}
+\end{solution}
+
+% \textbf{\textit{Solution.}} $\lim_{x\rightarrow 0}(\frac{1}{x}-Cot x)$ ($\infty-\infty$ form)
+% =$\lim_{x\rightarrow 0}(\frac{1}{x}-\frac{\cos x}{\sin x})$
+% =$\lim_{x\rightarrow 0}(\frac{\sin x-x\cos x}{xSin x}$  ($\frac{0}{0}$ form) =$\lim_{x\rightarrow 0}(\frac{\frac{d}{dx}(\sin x-x\cos x)}{\frac{d}{dx}(xSin x)}$ = $\lim_{x\rightarrow 0}\frac{\cos x-(\cos x-xSin x)}{\sin x+x\cos x}$=$\lim_{x\rightarrow 0}\frac{xSin x}{\sin x+x\cos x}$  ($\frac{0}{0}$ form) = $\lim_{x\rightarrow 0}\frac{\sin x+x\cos x}{\cos x+\cos x-xSin x}$= $\frac{0}{2}=0$.
+
+
+\begin{example}
+    Find $\lim_{x\rightarrow \infty}x^{\frac{1}{x}}$.
+\end{example}
+
+\begin{solution}
+Here we are to find $\lim_{x\rightarrow \infty}x^{\frac{1}{x}}$, which is in the form $\infty^0$. Let $y=x^{\frac{1}{x}}$. Therefore, $\ln y=\ln x^{\frac{1}{x}}=\dfrac{\ln x}{x}$, which becomes $\frac{\infty}{\infty}$ form. Hence, we have,
+
+\begin{equation*}
+\lim_{x\rightarrow \infty}\ln y=\lim_{x\rightarrow \infty}\frac{\ln x}{x}=\lim_{x\rightarrow \infty}\frac{\frac{d}{dx}\ln x}{\frac{d}{dx}x} = \lim_{x\rightarrow \infty}\frac{\frac{1}{x}}{1} = 0
+\end{equation*}
+As $\lim_{x\rightarrow \infty}\ln y=0$, therefore, $\lim_{x\rightarrow \infty}y=e^0=1$.
+\end{solution}
+
+
+\begin{example}
+    Find $\lim_{x\rightarrow \infty} \dfrac{x^n}{e^x}$.
+\end{example}
+
+\begin{solution}
+Here $\dfrac{x^n}{e^x}$ is in $\dfrac{\infty}{\infty}$ form. So applying the L' Hospital Rule, we get
+\begin{equation*}
+\lim_{x\rightarrow \infty} \frac{x^n}{e^x} = \lim_{x\rightarrow \infty} \frac{\frac{d}{dx}x^n}{\frac{d}{dx}e^x}=\lim_{x\rightarrow\infty}\frac{nx^{n-1}}{e^x} = \cdots = \lim_{x\rightarrow \infty} \frac{n!}{e^x} = 0
+\end{equation*}
+\end{solution}
+
+
+
+\begin{exercise}
+Evaluate the following
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $\lim_{x\rightarrow 0}\dfrac{\sin \alpha x}{\sin \beta x}$ 
+    \item $\lim_{x\rightarrow 1}\dfrac{\ln x}{x^2-1}$
+    \item $\lim_{x\rightarrow 0}(\dfrac{\sin x}{x})^{\dfrac{1}{x}}$
+    \item $\lim_{x\rightarrow 0}\dfrac{x-\sin x}{\tan^3 x}$
+    \item $\lim_{x\rightarrow \infty}\dfrac{5x^3-3x^2+1}{x^3-7x+1}$
+    \item $\lim_{x\rightarrow 5}\dfrac{x^2-4x-5}{x^2-8x+15}$
+    \item $\lim_{x\rightarrow 0}\dfrac{e^x-e^{-x}-2\sin x}{x\sin x}$
+    \item $\lim_{x\rightarrow \dfrac{\pi}{2}}\dfrac{\cos x}{\sin 2x}$
+    \item $\lim_{x\rightarrow 0}\dfrac{e^x-e^{-x}}{\sin x}$
+    \item $\lim_{x\rightarrow 1}\left[\dfrac{1}{\ln x}-\dfrac{x}{x-1}\right]$
+    \item $\lim_{x\rightarrow 0}(\dfrac{2x+1}{x+1})^{\dfrac{1}{x}}$
+    \item $\lim_{x\rightarrow \infty}(1+\dfrac{3}{x})^x$
+    \item $\lim_{x\rightarrow 0}(1+x^2)^{\dfrac{1}{x}}$
+    \item $\lim_{x\rightarrow 1}(1-x) \tan \dfrac{\pi x}{2}$
+    \item $\lim_{x\rightarrow 0}\dfrac{x\cos x-\sin x}{x^2\sin x}$
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+
+\section{Differentials and Error Calculation}
+Let $y=f(x)$ be a given function. For a very small increment (say) $h$ in $x$, the corresponding increment in y is (say) $k$, i.e. given $y=f(x)$, we have  $y+k= f(x+h)$. Now $\dfrac{k}{h}=\dfrac{(y+k)-y}{h}= \dfrac{f(x+h)-f(x)}{h}$. So when $h\rightarrow 0$, it becomes, $\dfrac{dy}{dx}$ or $f'(x)$. Thus
+$\lim_{h\rightarrow 0}\dfrac{k}{h}
+=\lim_{h\rightarrow 0}\dfrac{f(x+h)-f(x)}{h}= f'(x)$. Hence $\dfrac{k}{h}= \dfrac{f(x+h)-f(x)}{h}$ which is approximately equal to $f'(x)$, let us write it as $\dfrac{f(x+h)-f(x)}{h}\approxeq f'(x)$. So $f(x+h)\approxeq f(x)+f'(x).h$.
+
+\begin{example}
+    If $f(x)=x^4-10$ and $x$ changes from 2 to 1.99, what is the approximate change in $f(x)$?
+\end{example}
+
+\begin{solution}
+    Let $x=2$ and $x+h=1.99$. Then $h=1.99-2=-0.01$. We have $f(x)=x^4-10$ $\Rightarrow f'(x)=4x^3\Rightarrow f'(x)|_{x=2}=4.2^3=32$. Now $f(x+h)\approxeq f(x)+h.f'(x)$ $\Rightarrow f(1.99)\approxeq f(2)+(-0.01)f'(2)=6+(-0.01).32=5.68$. Hence the approximate change in $f(x)$ is 5.68.
+\end{solution}
+
+
+\begin{example}
+    Find the approximate value of $\sqrt[3]{28}$.
+\end{example}
+
+\begin{solution}
+Here, let $f(x)=\sqrt[3]{x}\Rightarrow f'(x)=\dfrac{1}{3x^{\frac{2}{3}}}$. Next, let us put $x=27$ and $h=1$. Then $f(x+h)\approxeq f(x)+f'(x).h$ $\Rightarrow f(27+1)\approxeq f(27)+f'(27).1$ $\Rightarrow \sqrt[3]{28}\approxeq \sqrt[3]{27}+\frac{1}{3(27)^{\frac{2}{3}}}=3+0.037=3.037$.
+\end{solution}
+
+
+
+\begin{example}
+    Find the approximate value of $\sqrt{101}$.
+\end{example}
+
+\begin{solution}
+Let us take $f(x)=\sqrt{x}$, then $f'(x)=\frac{1}{2\sqrt{x}}$. Let $x=100$ and $h=-1$. Now $f(x+h)\approxeq f(x)+f'(x).h\Rightarrow f(101)\approxeq f(100)+f'(100).(-1)$
+$\Rightarrow \sqrt{101}\approxeq \sqrt{100}-\dfrac{1}{2\sqrt{100}}$
+$\Rightarrow \sqrt{101}\approxeq 10-0.05=9.95$.
+\end{solution}
+
+
+\begin{example}
+    Find the approximate value of $\sin 61^\circ$.
+\end{example}
+
+\begin{solution}
+Let $f(x)=\sin x^\circ=\sin\dfrac{\pi}{180}x \Rightarrow  f'(x)=\dfrac{\pi}{180}\cos \dfrac{\pi}{180}x=\dfrac{\pi}{180} \cos x^\circ$. 
+
+Let $x=60$ and $h=1$. But $f(x+h)\approxeq f(x)+f'(x).h\Rightarrow f(61)\approxeq f(60)+f'(60).1$ 
+
+Thus $\sin 61^\circ\approxeq \sin 60^\circ+\dfrac{\pi}{180} \cos 60^\circ$ =$\dfrac{\sqrt{3}}{2}+\dfrac{\pi}{180}\dfrac{1}{2}=\dfrac{1}{2}(\sqrt{3}+\dfrac{\pi}{180})$.
+\end{solution}
+\end{document}

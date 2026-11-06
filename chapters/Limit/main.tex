@@ -1,0 +1,827 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Welcome to Overleaf --- just edit your LaTeX on the left,
+% and we'll compile it for you on the right. If you open the
+% 'Share' menu, you can invite other users to edit at the same
+% time. See www.overleaf.com/learn for more info. Enjoy!
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \documentclass{article}
+
+\documentclass[../../main.tex]{subfiles}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{todonotes}
+\usepackage{exercise}
+\usepackage[margin=1in]{geometry}
+\DeclareMathOperator{\cosec}{cosec}
+
+\newtheorem{exercise}{Exercise}[section]
+
+\renewcommand{\ExerciseHeader}{%
+  \par\noindent
+  \textbf{\large\ExerciseName~\ExerciseHeaderNB}%
+  \ifx\ExerciseTitle\empty\else\textit{\large\ExerciseTitle}\fi
+  \par\smallskip
+}
+
+
+% \renewcommand{\qed}{\hfill\qedsymbol}
+
+\begin{document}
+\chapter{Learning Calculus}\vspace{.1cm}
+
+\section{Limit}
+The first lesson of Calculus is \textit{LIMIT}. One can learn it from the following examples. The actual definition of limit will be discussed at a letter stage for easy understanding.
+
+\vspace{0.2cm}
+\textbf{Example 1.} If I say 5, then it is 5, only 5 and nothing but 5. But if I say 4.99999 or 5.00001 then it is not 5, but it is very close to 5, \textit{the difference between 5 and these numbers are not exactly 0 though it is negligible}. They are approximately 5. Let us say both numbers are limiting 5. We say Limit x tends to 5 and write it as $\lim_{x \to 5}$. You may write \emph{Lim } or \textit{Lt} in place of \textit{Limit}.
+Thus we can express every number in two ways, one absolute number and approximate or limiting number. Let us consider a day-to-day example.
+
+\vspace{0.2cm}
+\textbf{Example 2.} 
+% \vspace{0.2cm}
+Suppose I have no money in my pocket. That is, I have 0 money with me now. But if I have only a 25 paisa coin in my pocket, I can not purchase any thing in the market with that 25 paisa coin. So I have almost 0 money in my pocket, though it is not absolutely 0. So we may say that ``amount of money in my pocket  $\rightarrow 0$".
+
+Thus the concept of absolute number and Limiting number is clear now. Let us take some examples.
+            
+\vspace{0.2cm}
+\textbf{Example 3.}  
+\vspace{0.2cm}  
+Evaluate $\lim_{x \to 5}\dfrac{x^2-25}{x-5}$
+
+\textbf{Solution.} Given $\lim_{x \rightarrow 5}$. So $x$ is not exactly 5. That is ${(x^2-25)}$ is not exactly 0, 
+ which means, $\dfrac{(x^2-25)}{x-5}$ is not $0/0$, which is meaningless. 
+
+Therefore, 
+\begin{align*}
+    \lim_{x \to 5} \frac{x^2-25}{x-5} &= \lim_{x \to 5} \frac{(x+5)(x-5)}{(x-5)} \\ 
+        &= \lim_{x\to5} (x+5) \\
+        &= 10
+\end{align*}
+
+Let us take a direct example, where $\lim_{x \rightarrow 0}$ and $x=0$ are considered as same.
+
+\vspace{0.2cm}
+\textbf{Example 4.}
+\vspace{0.2cm}
+Evaluate $\lim_{x \rightarrow 0}\dfrac{x^2+2x+25}{x^2+x+5}$
+
+\textbf{Solution.} Here $\lim_{x \rightarrow 0}$. So neither the numerator nor the denominator is $0$.
+So we can apply $x$ to be $0$ directly. Thus,
+
+\begin{align*}
+    \lim_{x \rightarrow 0}\frac{x^2+2x+25}{x^2+x+5} &= \frac{0^2+2.0+25}{0^2+0+5} \\
+    &= \frac{25}{5} = 5
+\end{align*}
+
+Now we shall discuss an example which is an application of elementary \textit{algebra}.
+
+\vspace{0.2cm}
+\textbf{Example 5.} 
+\vspace{0.2cm}
+Evaluate $\lim_{x \to 0}\dfrac{\sqrt{x+25}-5}{x}$
+
+\textbf{Solution.} Here $\lim_{x \rightarrow 0}$. So if we put $x$=0, then $\dfrac{\sqrt{x+25}-5}{x}=\dfrac{0}{0}$, which is meaningless. But $x$ is not exactly $0$. Hence, rationalizing the numerator, we get,
+
+\begin{align*}
+    \lim_{x\to0} \frac{\sqrt{x+25}-5}{x} &= \lim_{x\to0} \frac{(\sqrt{x+25}-5)(\sqrt{x+25}+5)}{x(\sqrt{x+25}+5)} \\ 
+    &= \lim_{x\to0} \frac{x+25-5^2}{x(\sqrt{x+25}+5)} \\
+    &= \lim_{x\to0} \frac{x}{x(\sqrt{x+25}+5)} = \lim_{x\to0} \frac{1}{\sqrt{x+25}+5} \\
+    &= \frac{1}{10}
+\end{align*}
+      
+Let us discuss another similar example.
+
+\vspace{0.2cm}
+\textbf{Example 6.}
+\vspace{0.2cm}
+Evaluate $\lim_{x \rightarrow 7}\dfrac{4-\sqrt{9+x}}{1-\sqrt{8-x}}$.
+    
+\textbf{Solution.} Here if I put $x$=7 then it will again take $\dfrac{0}{0}$ form, which is meaningless. So we need to rationalize both the numerator and denominator. Therefore,
+
+\begin{align*}
+    \lim_{x \rightarrow 7}\frac{4-\sqrt{9+x}}{1-\sqrt{8-x}} &= \lim_{x \rightarrow 7}\frac{(4-\sqrt{9+x})(4+\sqrt{9+x})(1+\sqrt{8-x})}{(1-\sqrt{8-x})(1+\sqrt{8-x})(4+\sqrt{9+x})} \\
+    &= \lim_{x \rightarrow 7}\frac{(16-(9+x))(1+\sqrt{(8-x)})}{(1-(8-x))(4+\sqrt{9+x})} \\
+    &= \lim_{x \rightarrow 7}\frac{(7-x)(1+\sqrt{(8-x)})}{(x-7)(4+\sqrt{9+x})} \\ 
+    &= -\lim_{x \rightarrow 7}\frac{(1+\sqrt{(8-x)})}{(4+\sqrt{9+x})} \\
+    &= -\frac{(1+\sqrt{(8-7)})}{(4+\sqrt{9+7})} = -\frac{2}{8}=-\frac{1}{4}.
+\end{align*}
+
+\begin{exercise}
+Evaluate the following Limits
+\begin{multicols}{3}
+\begin{enumerate}
+    \item $\lim_{x \rightarrow 0}\dfrac{2x^2+5x+4}{x^2+3x+1}$
+    \item $\lim_{x \rightarrow 3}\dfrac{\sqrt{2x+9}}{4x+3}$
+    \item $\lim_{x \rightarrow 1}\dfrac{x^3-1}{x-1}$
+    \item $\lim_{x \rightarrow 1}(\dfrac{2}{1-x^2}+\dfrac{1}{x-1})$
+    \item $\lim_{x \rightarrow 3}\dfrac{x^2-4x+3}{x^2-2x-3}$
+    \item $\lim_{x \rightarrow 2}\dfrac{x^3+3x^2-9x-2}{x^3-x-6}$
+    \item $\lim_{x \rightarrow 0}\dfrac{\sqrt{3-2x}-\sqrt{3}}{x}$
+    \item $\lim_{x \rightarrow 1}\dfrac{x^2-\sqrt{x}}{\sqrt{x}-1}$
+    \item $\lim_{x \rightarrow 4}\dfrac{x^2-16}{\sqrt{x^2+9}-5}$
+    \item $\lim_{x \rightarrow 0}\dfrac{\sqrt{x+4}-2}{\sqrt{x+9}-3}$
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+\subsection{Infinite Limit}
+Again without going through the definition, we can have idea on Infinite Limit as follows, 
+
+Here $\lim_{x \rightarrow \infty}$ which mean $x$ is too large, so $\dfrac{1}{x}$ is too small, so $\dfrac{1}{x}\rightarrow 0$.
+
+With this idea we can discuss the following examples.
+
+\vspace{0.2cm}
+\textbf{Example 7.} 
+\vspace{0.2cm}
+Evaluate $\lim_{x \rightarrow \infty}\dfrac{5x^2+3x-1}{x^2+4x+3}$
+    
+\textbf{Solution.} Here $x\rightarrow\infty$ means $\dfrac{1}{x}\rightarrow 0$. So, dividing both numerator and denominator by $x^2$, we obtain,
+
+\begin{align*}
+    \lim_{x \rightarrow \infty}\frac{5x^2+3x-1}{x^2+4x+3} = \lim_{x \rightarrow \infty}\frac{5+\dfrac{3}{x}-\dfrac{1}{x^2}}{1+\dfrac{4}{x}+\dfrac{3}{x^2}}
+    = \frac{5+0-0}{1+0+0} = 5
+\end{align*}
+
+\vspace{0.2cm}
+\textbf{\textit{Example 8.}}
+\vspace{0.2cm}
+Evaluate  $\lim_{x \rightarrow \infty}\dfrac{(5x-1)(2x+3)}{(2x-5)(x-7)}$
+    
+\textbf{Solution.} Dividing both the numerator and denominator by $x^2$ we get,
+
+\begin{align*}
+  \lim_{x \rightarrow \infty}\frac{(5x-1)(2x+3)}{(2x-5)(x-7)} =  \lim_{x\to\infty} \frac{(5-\dfrac{1}{x})(2+\dfrac{3}{x})}{(2-\dfrac{5}{x})(1-\dfrac{7}{x})}
+  = \frac{(5-0)(2+0)}{(2-0)(1-0)} = \frac{10}{2} = 5
+\end{align*}
+ 
+
+\vspace{0.2cm}
+\textbf{Example 9.}
+\vspace{0.2cm}
+Evaluate  $\lim_{x \rightarrow \infty}\dfrac{\sqrt{25x^2+3}}{\sqrt[3]{27x^3+5}}$
+    
+\textbf{Solution.} Dividing both numerator and the denominator by $x$, we get,
+
+\begin{align*}
+    \lim_{x \rightarrow \infty}\frac{\sqrt{25x^2+3}}{\sqrt[3]{27x^3+5}}=\lim_{x \rightarrow \infty}\frac{\dfrac{\sqrt{25x^2+3}}{x}}{\dfrac{\sqrt[3]{27x^3+5}}{x}} = \lim_{x\rightarrow\infty}\frac{\sqrt{\dfrac{25x^2+3}{x^2}}}{\sqrt[3]{\dfrac{27x^3+5}{x^3}}}
+    = \lim_{x\rightarrow\infty}\frac{\sqrt{25+\dfrac{3}{x^2}}}{\sqrt[3]{27+\dfrac{5}{x^3}}} = \frac{\sqrt{25}}{\sqrt[3]{27}} = \frac{5}{3}
+\end{align*}
+    
+% \pagebreak
+
+Next we shall discuss the problems involving \emph{Arithmetic} and \emph{}{Geometric series}. Here we know that $1+2+3+....+n = \dfrac{n(n+1)}{2}$ and $1+r+r^2+r^3+....+r^n =\dfrac{1-r^{n+1}}{1-r}$.
+
+\vspace{0.2cm}
+\textbf{Example 10.} 
+\vspace{0.2cm}
+Evaluate  $\lim_{n \rightarrow \infty}\dfrac{(1+2+3+.....+n)}{n^2}$
+    
+\textbf{Solution.} Summing up the numerator, we get,
+\begin{align*}
+    \lim_{n \rightarrow \infty}\frac{{1+2+3+.....+n}}{n^2} = \lim_{n \rightarrow \infty}\frac{n(n+1)}{2n^2} = \lim_{n \rightarrow \infty}\frac{n+1}{2n} = \lim_{n\to\infty} \frac{1}{2}+\frac{1}{2n} = \frac{1}{2}
+\end{align*}
+
+\vspace{0.2cm}
+\textbf{Example 11.}
+\vspace{0.2cm}
+Evaluate  $\lim_{n \rightarrow \infty}\dfrac{1+\dfrac{1}{2}+\dfrac{1}{2^2}+\dfrac{1}{2^3}+.....+\dfrac{1}{2^n}}{1+\dfrac{1}{3}+\dfrac{1}{3^2}+\dfrac{1}{3^3}+.....+\dfrac{1}{3^n}}$
+
+\textbf{Solution.} 
+
+\begin{equation*}
+ \lim_{n \rightarrow \infty}\frac{1+\dfrac{1}{2}+\dfrac{1}{2^2}+\dfrac{1}{2^3}+.....+\dfrac{1}{2^n}}{1+\dfrac{1}{3}+\dfrac{1}{3^2}+\dfrac{1}{3^3}+.....+\dfrac{1}{3^n}} = \lim_{n\to\infty}\frac{1-\dfrac{1}{2^{n+1}}}{1-\dfrac{1}{2}}\frac{1-\dfrac{1}{3}}{1-\dfrac{1}{3^{n+1}}} = \frac{1.\dfrac{2}{3}}{\dfrac{1}{2}.1} = \frac{4}{3}
+\end{equation*}
+\newpage
+\begin{exercise}
+Evaluate the following Limits
+\begin{multicols}{2}
+\begin{enumerate}
+    \item $\lim_{x \rightarrow \infty}\dfrac{4x^2-3x+1}{2x^2+x-5}$
+    \item $\lim_{x \rightarrow \infty}\dfrac{(3x-1)(4x-1)}{(2x+3)(6x-5)}$
+    \item $\lim_{x \rightarrow \infty}\dfrac{5x+6}{\sqrt{4x^2+9}}$
+    \item $\lim_{x \rightarrow \infty}\sqrt{x^2+4x}-x$
+    \item $\lim_{x \rightarrow \infty}{x(\sqrt{x^2+1})-\sqrt{x^2-1})}$
+    \item $\lim_{n \rightarrow \infty}\dfrac{1^2+2^2+3^2+....+n^2}{n^3}$
+    \item $\lim_{n \rightarrow \infty}(\dfrac{1}{n^2}+\dfrac{2}{n^2}+\dfrac{3}{n^2}+....+\dfrac{n-1}{n^2})$
+    \item $\lim_{n \rightarrow \infty}(\dfrac{1}{3}+\dfrac{1}{3^2}+\dfrac{1}{3^3}+....+\dfrac{1}{3^n})$
+    \item $\lim_{x \rightarrow \infty}\dfrac{\sin{x}}{x}$
+    \item $\lim_{x \rightarrow \dfrac{\pi}{4}}\dfrac{\sin (\dfrac{1-\tan x}{1+\tan x})}{\dfrac{\pi}{4}-x}$
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+\subsection{Trignometric Limit}
+
+Let us remember that $\lim_{x \to 0}\frac{\sin x}{x} = 1$, whose proof will be discussed later. Therefore,
+
+\begin{equation*}
+    \lim_{x \to 0}\frac{\tan x}{x} = \lim_{x \rightarrow 0}\frac{\dfrac{\sin x}{\cos x}}{x} = \lim_{x \to 0}\frac{\sin x}{x}\frac{1}{\cos x} = 1.\frac{1}{\cos 0}= 1.
+\end{equation*}
+
+\vspace{0.2cm}
+\textbf{Example 12.}
+\vspace{0.2cm}
+Evaluate $\lim_{x \rightarrow 0}\dfrac{\sin 7x}{x}$
+
+\textbf{Solution.}
+
+\begin{equation*}
+    \lim_{x \to 0}\frac{\sin 7x}{x} = \lim_{x \rightarrow 0}(\frac{\sin 7x}{7x}).7 = 1.7 = 7
+\end{equation*}
+
+\vspace{0.2cm}
+\textbf{Example 13.}
+\vspace{0.2cm}
+Evaluate $\lim_{x \rightarrow 0}\dfrac{1-\cos x}{x^2}$
+
+\textbf{Solution.}
+    
+\begin{align*}
+    \lim_{x\to0} \frac{1-\cos x}{x^2} &= \lim_{x\to0} \frac{(1-\cos x)(1+\cos x)}{x^2(1+\cos x)} = \lim_{x\to0} \frac{(1-\cos^2 x)}{x^2(1+\cos x)} = \lim_{x\to0} \frac{\sin^2 x}{x^2(1+\cos x)} \\ 
+    &= \lim_{x\to0} \left(\frac{\sin x}{x}\right)^2\frac{1}{1+\cos x} = 1.\frac{1}{1+\cos 0} = \frac{1}{2}
+\end{align*}
+
+\vspace{0.2cm}
+\textbf{Example 14.}
+\vspace{0.2cm}
+Evaluate $\lim_{x \rightarrow \frac{\pi}{2}} (\frac{\pi}{2}-x)\tan x$
+
+\textbf{Solution.} Let $\frac{\pi}{2}-x = y$, then as $x\rightarrow\frac{\pi}{2}$ means $y\to0$. Therefore,
+
+\begin{equation*}
+    \lim_{x \rightarrow \frac{\pi}{2}} (\frac{\pi}{2}-x)\tan x = \lim_{y\to0} y\tan (\frac{\pi}{2}-y) = \lim_{y\to0} y\cot y = \lim_{y\to0}\frac{y}{\tan y} = 1
+\end{equation*}
+
+\vspace{0.2cm}
+\textbf{Example 15.}
+\vspace{0.2cm}
+Evaluate $\lim_{x\rightarrow a}\dfrac{a\sin x-x\sin a}{x-a}$
+
+\textbf{Solution.} 
+
+\begin{align*}
+    \lim_{x\rightarrow a}\frac{a\sin x-x\sin a}{x-a} &= \lim_{x\rightarrow a}\frac{a\sin x-x\sin x+x\sin x-x\sin a}{x-a} = \lim_{x\rightarrow a}\frac{(a-x)\sin x+x(\sin x-\sin a)}{x-a} \\
+    &= \lim_{x\rightarrow a}\frac{(a-x)\sin x}{x-a} + \lim_{x\rightarrow a}\frac{2x}{x-a}\cos \left(\frac{x+a}{2}\right)\sin \left(\frac{x-a}{2}\right) \\ 
+    &= -\sin a+a \cos a \lim_{x\to a}\frac{\sin \frac{x-a}{2}}{\frac{(x-a)}{2}} = a\cos a - \sin a
+\end{align*}
+
+\vspace{0.2cm}
+\textbf{Example 16.}
+\vspace{0.2cm}
+Evaluate $\lim_{x\rightarrow 0}\dfrac{\sin^{-1}{x}}{x}$
+
+\textbf{Solution.} Let $\sin^{-1}{x} =y$, i.e.,  $\sin y = x$. So $x\rightarrow 0 \Rightarrow y\rightarrow0$, therefore,
+\begin{equation*}
+    \lim_{x\rightarrow 0}\frac{\sin^{-1}{x}}{x} = \lim_{y\to0} \frac{y}{\sin y} = 1
+\end{equation*}
+
+\vspace{0.2cm}
+\textbf{Example 17.}
+\vspace{0.2cm}
+Evaluate $\lim_{x \rightarrow \infty}x\sin \dfrac{1}{x}$
+
+\textbf{Solution:} Let $\dfrac{1}{x} = y$, then $x\rightarrow \infty \Rightarrow y\rightarrow 0$. Thus,
+\begin{equation*}
+    \lim_{x \rightarrow \infty}x\sin \frac{1}{x} = \lim_{y\to0}\frac{\sin y}{y} = 1
+\end{equation*}
+
+\begin{exercise}
+Evaluate the following Trignometric Limits
+\begin{multicols}{2}
+\begin{enumerate}
+    \item $\lim_{x \rightarrow \pi}\dfrac{\sin {x}}{\pi-x}$
+    \item $\lim_{x \rightarrow 0} \dfrac{\sqrt{2}-\sqrt{1+\cos x}}{x^2}$
+    \item $\lim_{x \rightarrow 0} \dfrac{1-\cos^3 x}{x \sin 2x}$
+    \item $\lim_{x \rightarrow 0} \dfrac{1+\sin x-\cos x}{1-\sin x-\cos x}$
+    \item $\lim_{x \rightarrow 0} \dfrac{\tan x-\sin x}{x^3}$
+    \item $\lim_{x \rightarrow \frac{\pi}{4}} \dfrac{\cos x-\sin x}{\cos 2x}$
+    \item $\lim_{x \rightarrow 0}\dfrac{\sqrt{1+\sin x}-\sqrt{1-\sin x}}{\tan x}$
+    \item $\lim_{x \rightarrow 0}\dfrac{2\sin x-\sin 2x}{x^3}$
+    \item $\lim_{x \rightarrow 0}\dfrac{\cos x-\cos 5x}{\cos 2x-\cos 6x}$
+    \item $\lim_{x \rightarrow 0}\dfrac{x\cos x+\sin x}{x^2+\tan x}$
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+
+\subsection{Logarithmic and Exponential Limit}
+
+These limits are based on two formulae, whose proof will be discussed in a later stage.
+\begin{itemize}
+    \item $\lim_{x\rightarrow 0}\dfrac{\log_a(1+x)}{x} = \dfrac{1}{\ln a}$
+    \item $\lim_{x\rightarrow 0}\dfrac{a^x-1}{x} = \ln a$
+\end{itemize}
+Consequently we get, (taking $a = e$) \begin{itemize}
+    \item $\lim_{x\rightarrow 0}\dfrac{\ln (1+x)}{x} = 1$
+    \item $\lim_{x\rightarrow 0}\dfrac{e^x-1}{x} = 1$
+\end{itemize}
+
+\vspace{0.2cm}
+\textbf{Example 18.}
+\vspace{0.2cm}
+Evaluate $\lim_{x\rightarrow 0}\dfrac{\ln(1+5x)}{\ln(1+3x)}$
+
+\textbf{Solution.} 
+\begin{equation*}
+    \lim_{x\rightarrow 0}\frac{\ln(1+5x)}{\ln(1+3x)} = \lim_{x\rightarrow 0}\frac{\dfrac{\ln(1+5x)}{5x}.5x}{\dfrac{\ln(1+3x)}{3x}.3x} = \lim_{x\rightarrow 0}\frac{\dfrac{\ln(1+5x)}{5x}.5}{\dfrac{\ln(1+3x)}{3x}.3} = \frac{5}{3}
+\end{equation*}
+
+\vspace{0.2cm}
+\textbf{Example 19.}
+\vspace{0.2cm}
+Evaluate $\lim_{x\rightarrow 0}\dfrac{a^x-b^x}{x}$
+
+\textbf{Solution.} 
+\begin{equation*}
+    \lim_{x\rightarrow 0}\frac{a^x-b^x}{x} = \lim_{x\rightarrow 0}\frac{a^x-1+1-b^x}{x} = \lim_{x\rightarrow 0}\frac{a^x-1}{x}-\lim_{x\rightarrow 0}\frac{b^x-1}{x} = \ln a - \ln b = \ln \frac{a}{b}
+\end{equation*}
+
+% \todo{Start from here}
+\vspace{0.2cm}
+\textbf{Example 20.}
+\vspace{0.2cm}
+Evaluate $\lim_{x\rightarrow 0}\dfrac{3^{2x}-2^{3x}}{x}$.
+
+\textbf{Solution.} 
+\begin{equation*}
+    \lim_{x\rightarrow 0}\frac{3^{2x}-2^{3x}}{x}=\lim_{x\rightarrow 0}\frac{3^{2x}-1+1-2^{3x}}{x} = \lim_{x\rightarrow 0}\frac{3^{2x}-1}{2x}.2-\lim_{x\rightarrow 0}\frac{2^{3x}-1}{3x}.3 = 2\ln 3 - 3\ln 2 = \ln \frac{9}{8}
+\end{equation*}
+
+\vspace{0.2cm}
+\textbf{Example 21.}
+\vspace{0.2cm}
+Evaluate $\lim_{x\rightarrow 0}\dfrac{10^x-2^x-5^x+1}{x \sin x}$
+
+\textbf{Solution.} 
+\begin{align*}
+    \lim_{x\rightarrow 0}\frac{10^x-2^x-5^x+1}{x\sin x} &= \lim_{x\rightarrow 0}\frac{(5.2)^x-2^x-5^x+1}{x \sin x} = \lim_{x\rightarrow 0}\frac{5^x2^x-2^x-(5^x-1)}{x \sin x} \\
+    &= \lim_{x\rightarrow 0}\frac{(5^x-1)(2^x-1)}{x \sin x} = \lim_{x\rightarrow 0}(\frac{5^x-1}{x})(\frac{2^x-1}{x})(\frac{x}{\sin x}) \\
+    &= \ln 5.\ln 2. 1 = \ln 10
+\end{align*}
+
+% \pagebreak
+
+\vspace{0.2cm}
+\textbf{Example 22.}
+\vspace{0.2cm}
+Evaluate $\lim_{x\rightarrow 1}\dfrac{x-1}{\log_a x}$
+
+\textbf{Solution.} Let $x-1 = z$, then $x \rightarrow 1 \Rightarrow z \rightarrow 0$. Thus 
+$\lim_{x\rightarrow 1}\dfrac{x-1}{\log_a x}$ = $\lim_{z\rightarrow 0}\dfrac{z}{\log_a (z+1)} = \ln a$. 
+
+\vspace{0.2cm}
+\textbf{Example 23.}
+\vspace{0.2cm}
+Evaluate $\lim_{x\rightarrow 0}\dfrac{e^x+e^{-x}-2}{x^2}$
+
+\textbf{Solution:} 
+\begin{equation*}
+    \lim_{x\rightarrow 0}\frac{e^x+e^{-x}-2}{x^2} = \lim_{x\rightarrow 0}\frac{e^x(e^x+e^{-x}-2)}{e^xx^2} = \lim_{x\rightarrow 0}\frac{e^{2x}+1-2e^x}{e^xx^2} = \lim_{x\rightarrow 0}\left(\frac{e^x-1}{x}\right)^2.\frac{1}{e^x} = 1.1 = 1
+\end{equation*}
+
+\begin{exercise}
+Evaluate the following Limits
+\begin{multicols}{3}
+\begin{enumerate}
+    \item $\lim_{x \rightarrow 1}\dfrac{\ln x}{x-1}$
+    \item $\lim_{x \rightarrow 1}\dfrac{\ln (2x-1)}{x-1}$
+     \item $\lim_{x \rightarrow 0}\dfrac{\ln (x+1)}{\sqrt{x+1}-1}$
+     \item $\lim_{x \rightarrow 2}\dfrac{\ln (x-1)}{x^2+x-6}$
+     \item $\lim_{x \rightarrow 0}\dfrac{e^{ax}-e^{-ax}}{x}$
+     \item $\lim_{x \rightarrow 1}\dfrac{2^{x-1}-1}{3^{x-1}-1}$
+     \item $\lim_{x \rightarrow 0}\dfrac{x(e^x-1)}{1-\cos x}$
+     \item $\lim_{x \rightarrow 0}\dfrac{a^x-b^x}{\sin x}$
+     \item $\lim_{x \rightarrow 1}\dfrac{5^{x-1}-1}{\sqrt{x}-1}$
+     \item $\lim_{x \rightarrow 0}\dfrac{\ln(5+x)-\ln(5-x)}{x}$
+\end{enumerate}    
+\end{multicols}
+\end{exercise}
+
+\subsection{Left Hand and Right Hand Limit}
+
+We have already discussed that for $\lim_{x\rightarrow5}$ we have two cases, $x$ is very close to 5, so $x$ may be greater than 5, that is ${x = 5.0000001}$  or  $x$   may  be  less  than 5,  that is,  ${x = 4.9999999}$.
+
+In the former case, we say it \emph{Right Hand Limit} and write it as $\lim_{x \rightarrow 5^+}$. Similarly in the later case we say it as \emph{Left Hand Limit} and write it as $\lim_{x \rightarrow 5^-}$. Thus $\lim_{x \rightarrow 5^+}$ means $x$ is very close to 5, but $x$ is greater than 5 (we may take it as 5.00000001). So difference between $x$ and 5 is negligible. Similar in case of Left Hand Limit.
+
+Here we note that if the Left Hand Limit and the Right Hand Limit of a function exist at a point $a$ then Limit of the function exist at $a$, that is, if $\lim_{x\rightarrow a^+}{f(x)} = \lim_{x\rightarrow a^-}{f(x)}$ and both the limit exists, then $\lim_{x\rightarrow a}f(x)$ exists.
+
+\vspace{0.2cm}
+\textbf{Example 24.} 
+\vspace{0.2cm}
+Test the existence of $\lim_{x\rightarrow 1}f(x)$ if 
+
+\begin{equation*}
+    f(x) =
+\begin{cases}
+    5x-4     & \text{if    }     0<x \leq1 \\\\
+    4x^3-3   & \text{if    }     1<x<2
+\end{cases}  
+\end{equation*}
+
+\textbf{Solution.} Here $f(x) = 5x-4$ for $x\leq 1$,  So $\lim_{x\rightarrow 1^-}f(x) = \lim_{x\rightarrow 1^-}(5x-4) = 5.1-4 = 1$.
+
+Similarly $ f(x) = 4x^3-3$ for $x>1$, so $\lim_{x\rightarrow 1^+}f(x) = \lim_{x\rightarrow 1^+}{4x^3-3} = 4.1^3-3 = 1$
+
+Thus $\lim_{x\rightarrow 1^-}f(x)=\lim_{x\rightarrow 1^+}f(x)$. Hence $\lim_{x\rightarrow 1}f(x)$ exists and $\lim_{x\rightarrow 1}{f(x)} = 1$. 
+
+\vspace{0.2cm}
+\textbf{Example 25.} 
+\vspace{0.2cm}
+Test the existence of $\lim_{x\rightarrow 1}f(x)$ if 
+
+\begin{equation*}
+    f(x) =
+\begin{cases}
+    1+x^2     & \text{if   }     0<x \leq1 \\\\
+    2-x       & \text{if   }     1<x<2
+\end{cases}  
+\end{equation*}
+
+\textbf{Solution.} Here $f(x) = 1+x^2$ for $x\leq 1$. So $\lim_{x\rightarrow 1^-}f(x) = \lim_{x\rightarrow 1^-}(1+x^2) = 1+1^2 = 2$.
+
+Similarly $f(x) = 2-x$ for $x>1$, so $\lim_{x\rightarrow 1^+}f(x) = \lim_{x\rightarrow 1^+}{(2-x)} = 2-1 = 1$.
+
+Thus $\lim_{x\rightarrow 1^-}f(x) \neq \lim_{x\rightarrow 1^+}f(x)$. Hence $\lim_{x\rightarrow 1}{f(x)}$ does not exist.
+
+\vspace{0.2cm}
+\textbf{Example 26.}
+\vspace{0.2cm}
+Test the existence of $\lim_{x\rightarrow 0}f(x)$ if $f(x)= \dfrac{|x|}{x}$, where the absolute value function $g(x) = |x|$ is defined by 
+
+\begin{equation*}
+|x| = 
+\begin{cases}
+    -x     & \text{if   }     x < 0 \\\\
+    x    & \text{if   }   x\geq 0
+\end{cases}    
+\end{equation*}
+ 
+\textbf{Solution.} Here $|x| = -x$ for $x<0$ and $|x| = x$ for $x\geq 0$.
+
+So $\lim_{x\rightarrow 0^-}f(x) = \lim_{x\rightarrow 0^-}\dfrac{|x|}{x} = \lim_{x\rightarrow 0^-}\dfrac{-x}{x} = -1$;   and 
+
+$\lim_{x\rightarrow 0^+}f(x) = \lim_{x\rightarrow 0^+}\dfrac{|x|}{x} = \lim_{x\rightarrow 0^+}\dfrac{x}{x} = 1$.Thus $\lim_{x\rightarrow 0^-}f(x) \neq \lim_{x\rightarrow 0^+}f(x)$. 
+
+Hence $\lim_{x\rightarrow 0}f(x)$ does not exist.
+
+\vspace{0.2cm}
+\textbf{Example 27.} 
+\vspace{0.2cm}
+Evaluate $\lim_{x\rightarrow 7}f(x)$ if $f(x)= [x]$.
+
+\textbf{Solution.} Here we note that $f(x)= [x]$ is called the \textit{Greatest Integer Function}. That is $[x]$ is the greatest integer less than or equal to $x$. As an example, $x=2.56$, then $[x]=[2.56] = 2$, similarly $[-4.95] = -5$ etc.
+
+Here $x\rightarrow 7^-$ means $x < 7$ and $x\rightarrow 7^+$ means $x > 7$. So $\lim_{x\rightarrow 7^-}f(x)= \lim_{x\rightarrow 7^-}[x] = 6$ and $\lim_{x\rightarrow 7^+}f(x)= \lim_{x\rightarrow 7^+}[x] = 7$. Hence $\lim_{x\rightarrow 7}{f(x)}$ does not exist.
+ 
+In general, for any integer $n$, $\lim_{x\rightarrow n^-}[x] = n-1$ and  $\lim_{x\rightarrow n^+}[x] = n$. Hence $\lim_{x\rightarrow n}{[x]}$ does not exist.
+
+\vspace{0.2cm}
+\textbf{Example 28.}
+\vspace{0.2cm}
+Evaluate $\lim_{x\rightarrow 0}f(x)$ if $f(x) = \dfrac{e^{1/x}-1}{e^{1/x}+1}$.
+
+\textbf{Solution.} Here $x\rightarrow 0^-$, so $x < 0 \Rightarrow \frac{1}{x} < 0$, therefore  $x\rightarrow 0^- \Rightarrow \frac{1}{x}\to -\infty$, so, $e^{1/x} \to e^{-\infty} = 0$.
+
+Now $\lim_{x\rightarrow 0^{-}}f(x) = \lim_{x\rightarrow 0^{-}}{\dfrac{e^{1/x}-1}{e^{1/x}+1}} = \dfrac{0-1}{0+1} =-1$.
+
+Next $x\rightarrow 0^+ \Rightarrow x > 0$, so $\frac{1}{x} > 0, -\frac{1}{x} < 0$. Thus   $x\rightarrow 0^+ \Rightarrow -\frac{1}{x}\rightarrow -\infty$. So $e^{-1/x}\rightarrow e^{-\infty} = 0$.
+   
+Therefore, $\lim_{x\rightarrow 0^+}f(x) = \lim_{x\rightarrow 0^+}{\dfrac{e^{1/x}-1}{e^{1/x}+1}} =
+  \lim_{x\rightarrow 0^{+}}\dfrac{e^{1/x}(1-e^{-1/x})}{e^{1/x}(1+e^{-1/x})} = \lim_{x\rightarrow 0^{+}}\dfrac{1-e^{-1/x}}{1+e^{-1/x}} =\dfrac{1-0}{1+0}=1$.
+    
+Hence $\lim_{x\rightarrow 0} f(x)$  does not exist.
+
+
+\begin{exercise}
+Evaluate the existence of the following Limits
+\begin{multicols}{3}
+\begin{enumerate}
+    \item $\lim_{x \rightarrow \frac{\pi}{2}} \tan x$
+    \item $\lim_{x \rightarrow 0} \cosec x$
+    \item $\lim_{x \rightarrow 0} e^\frac{1}{x}$
+    \item $\lim_{x \rightarrow 0} \dfrac{1}{e^{\dfrac{1}{x}}-1}$
+    \item $\lim_{x \rightarrow 0} \dfrac{e^\frac{1}{x^2}-e^\frac{-1}{x^2}}{x^2}$
+    \item $\lim_{x \rightarrow \frac{3}{2}}$$[2x-3]$
+    \item $\lim_{x \rightarrow 0} \dfrac{1-e^{1/x}}{1+e^{1/x}}$
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+ 
+\section{Continuous Functions}
+
+It is important to note that ``Continuity of a function is always defined at a point, not on a set". If a function is continuous at all points of a set then it is continuous on the set.
+
+Here we shall discuss continuity of a function in three steps. We shall discuss three definitions of continuity and discuss the related examples separately.
+
+\textbf{Definition 1.} If $ \lim _{x\rightarrow a} f(x) = f(a)$ then we say that the function $f(x)$ is continuous at $x=a$.
+   
+This definition has three implications, i.e., 
+\begin{itemize}[leftmargin=5em]
+    \item limit $\lim _{x\rightarrow a} f(x)$ exists,
+    \item $f(a)$ exists, and,
+    \item $\lim _{x\rightarrow a} f(x) = f(a)$.
+\end{itemize}
+
+\vspace{0.2cm}
+\textbf{Example 29.} 
+\vspace{0.2cm}
+Discuss the continuity of the function $f(x)$ at $x=3$, if 
+
+\begin{equation*}
+f(x) = 
+ \begin{cases}
+     \dfrac{x^{2}-9}{x-3}   & \text{if   }  x \neq 3 \\\\
+     1                      & \text{if  }   x=3
+ \end{cases}
+\end{equation*}
+
+\textbf{Solution.} Here $\lim_{x\rightarrow 3}{f(x)} = \lim_{x\rightarrow 3}\dfrac{x^2-9}{x-3}$ (as $x\neq 3$) = $\lim_{x\rightarrow 3}\dfrac {(x+3)(x-3)}{x-3} = \lim_{x\rightarrow 3}(x+3)= 3+3 = 6$.
+But $f(3)=1$. Thus, $\lim_{x\rightarrow 3}{f(x)} \neq f(3)$. Hence  $f(x)$ is  not continuous at  $x=3$. 
+
+\vspace{0.2cm}
+\textbf{Example 30.}
+\vspace{0.2cm}
+Find the value of the constant $\lambda$, so that the function $f(x)$ given below is continuous at $x=1$.
+
+\begin{equation*}
+    f(x) = 
+ \begin{cases}
+     \dfrac{x^2+2x-3}{x-1}   & \text{if   }  x \neq 1 \\\\
+     \lambda                      & \text{if  }   x=1
+ \end{cases}
+\end{equation*}
+ 
+\textbf{Solution.} Here $\lim_{x\rightarrow 1}f(x) = \lim_{x\rightarrow 1}\dfrac{x^2+2x-3}{x-1}
+ = \lim_{x\rightarrow 1}\dfrac{(x-1)(x+3)}{x-1} = \lim_{x\rightarrow 1} {(x+3)} = 1+3 = 4 = f(1)$ (as $f$ is continuous at $x=1$). Hence  $\lambda =4$.
+\newpage
+\vspace{0.2cm}
+\textbf{Example 31.}
+\vspace{0.2cm}
+Discuss the continuity of the function $f(x)$ at $x=0$, where 
+\begin{equation*}
+    f(x) = 
+ \begin{cases}
+     \dfrac{\sin 3x}{\sin 5x}   & \text{if   }  x \neq 0 \\\\
+      \dfrac{3}{5}                      & \text{if  }   x=0
+ \end{cases}
+\end{equation*}
+
+\textbf{Solution:} Here $\lim_{x\rightarrow 0}f(x) = \lim_{x\rightarrow 0}\dfrac{\sin 3x}{\sin 5x}  = \lim_{x\rightarrow 0}\dfrac{\dfrac{\sin 3x}{3x}}{\dfrac{\sin 5x}{5x}}.\dfrac{3}{5} = \frac{3}{5}$ and $f(0)$ = $\dfrac{3}{5}$. 
+
+Thus $\lim_{x\rightarrow 0}{f(x)}$ = $f(0).$ Hence $f(x)$ is continuous at $x=0.$
+
+\vspace{0.2cm}
+\textbf{Example 32.}
+\vspace{0.2cm}
+Discuss the continuity of the function $f(x)$ at $x=0$, where 
+\begin{equation*}
+     f(x) = 
+ \begin{cases}
+     \dfrac{e^{x}-1} {\ln(1+2x)}   & \text{if   }  x \neq 0 \\\\
+      7                      & \text{if  }   x=0.
+ \end{cases}
+\end{equation*}
+
+\textbf{Solution.} Here $\lim_{x\rightarrow 0}f(x) = \lim_{x\rightarrow 0}\dfrac{e^{x}-1}{\ln(1+2x)} = \lim_{x\rightarrow 0}\dfrac{\dfrac{e^{x}-1}{x}}{\dfrac{ln(1+2x)}{x}} = \lim_{x\rightarrow 0}\dfrac{\dfrac{e^{x}-1}{x}}{\dfrac{\ln(1+2x)}{2x}2} = \dfrac{1}{2}$
+
+Given $f(0)=7$. Thus $\lim_{x\rightarrow 0}{f(x)} \neq f(0)$. Hence $f$ is not continuous at $x=0$.
+
+\vspace{0.3cm}
+\textbf{Definition 2.} We have already discussed that if $\lim_{x\rightarrow a^+}{f(x)} = \lim_{x\rightarrow a^-}{f(x)}$ and both the limit exists, then $\lim_{x\rightarrow a}f(x)$ exists.
+Thus, if $\lim_{x\rightarrow a^+}f(x) = \lim_{x\rightarrow a^-}f(x)$ then we say that $f(x)$ is continuous at $x=a$.
+% \vspace{0.1cm}
+
+So as per our previous example $f(x)=\dfrac{|x|}{x}$ is not continuous at $x=0$ and $f(x)= [x]$ is discontinuous at $x=n$ for any integer $n$.
+
+\vspace{0.2cm}
+\textbf{Example 33.}
+\vspace{0.2cm}
+Discuss the continuity of the function ${f(x)}$ at $x=2$, if 
+
+\begin{equation*}
+    f(x) =
+\begin{cases}
+    2-x     & \text{if    }      x < 2 \\\\
+    2+x   & \text{if    }        x \geq 2
+\end{cases}
+\end{equation*}
+
+\textbf{Solution.} For $x < 2,$ here $f(x)$ = $2-x$. Thus $\lim_{x\rightarrow 2^-}{f(x)}$ = $\lim_{x\rightarrow 2^-}{(2-x)}$ = $2-2$ = $0$. But for $x\geq 2$, $f(x)$ = $2+x$. So $\lim_{x\rightarrow 2^+}{f(x)}$ = $\lim_{x\rightarrow 2^+}{(2+x)} = 2+2 = 4$. 
+
+Thus $\lim_{x\rightarrow 2^-}{f(x)} \neq \lim_{x\rightarrow 2^+}{f(x)}$. Hence $f(x)$ is discontinuous at $x = 2$.
+
+\vspace{0.2cm}
+\textbf{Example 34.}
+\vspace{0.2cm}
+Discuss the continuity of the function $f(x)$ at $x=1$ if 
+\begin{equation*}
+    f(x) =
+\begin{cases}
+    \dfrac{|x-1|}{x-1}     & \text{if    }      x \neq 1 \\\\
+    1   & \text{if    }        x = 1
+\end{cases}
+\end{equation*}
+
+\textbf{Solution.} Here $f(1) = 1$ and we know that 
+\begin{equation*}
+    |x-1| =
+\begin{cases}
+    x-1     & \text{if    }      x > 1 \\\\
+    -(x-1)   & \text{if    }        x < 1
+\end{cases}
+\end{equation*}
+
+Thus $\lim_{x\rightarrow 1^-}f(x) = \lim_{x\rightarrow 1^-}{\dfrac{|x-1|}{x-1}} = \lim_{x\rightarrow 1^-}{\dfrac{-(x-1)}{x-1}} = -1$. And $\lim_{x\rightarrow 1^+}f(x) = \lim_{x\rightarrow 1^+}{\dfrac{|x-1|}{x-1}} = \lim_{x\rightarrow 1^+}{\dfrac{x-1}{x-1}} = 1$. Thus $\lim_{x\rightarrow 1^-}f(x) \neq  \lim_{x\rightarrow 1^+}{f(x)}$. Hence $f(x)$ is discontinuoun at $x=1$.
+
+\vspace{0.2cm}
+\textbf{Example 35}
+\vspace{0.2cm}
+Discuss the continuity of the function $f(x)$ at $x=0$ if 
+\begin{equation*}
+    f(x) =
+\begin{cases}
+    \dfrac{e^{1/x}-e^{-1/x}}{e^{1/x}+e^{-1/x}}     & \text{if    }      x \neq 0 \\\\
+    1   & \text{if    }        x = 0
+\end{cases}
+\end{equation*}
+
+\textbf{Solution.} Here $f(0)= 1$. Now, for $x < 0, \dfrac{1}{x} < 0.$  Thus  $x\rightarrow 0^- \Rightarrow \dfrac{1}{x}\rightarrow -\infty$, so $e^{1/x}\rightarrow e^{-\infty}   \rightarrow 0$. Based on the same argument $ e^{2/x} \rightarrow 0.$ Thus,
+
+\begin{equation*}
+\lim_{x\rightarrow 0^-}{f(x)} = \lim_{x\rightarrow 0^-}{\frac{e^{1/x}-e^{-1/x}}{e^{1/x}+ e^{-1/x}}} = \lim_{x\rightarrow 0^-}\frac{e^{-1/x}(e^{2/x}-1)}{e^{-1/x}(e^{2/x}+1)} = \lim_{x\rightarrow 0^-}\frac{e^{2/x}-1}{e^{2/x}+1} = \frac{0-1}{0+1} = -1.    
+\end{equation*}
+
+Similarly for $x > 0$, $\frac{1}{x} > 0$. Thus $x\rightarrow 0^+ \Rightarrow \dfrac{1}{x}\rightarrow \infty, \Rightarrow \dfrac{-1}{x}\rightarrow -\infty$, so $e^{-1/x}\rightarrow e^{-\infty} = 0$. Based on the same argument $e^{-2/x}\rightarrow 0$. Thus,
+
+\begin{equation*}
+\lim_{x\rightarrow 0^+}f(x) = \lim_{x\rightarrow 0^+}{\frac{e^{1/x}-e^{-1/x}}{e^{1/x}+ e^{-1/x}}} = \lim_{x\rightarrow 0^+}\frac{e^{1/x}(1-e^{-2/x})}{e^{1/x}(1+e^{-2/x})} = \lim_{x\rightarrow 0^+}\frac{1-e^{-2/x}}{1+e^{-2/x}} = \frac{1-0}{1+0} = 1    
+\end{equation*}
+
+Thus  $\lim_{x\rightarrow 0^-}{f(x)} \neq  \lim_{x\rightarrow 0^+}{f(x)}$. Hence $f(x)$ is discontinuous at $x=0$. 
+
+\vspace{0.2cm}
+\textbf{Example 36.}
+\vspace{0.2cm}
+Test the continuity of $f(x) = \sin\dfrac{\pi[x]}{2}$ at $x=0$.
+
+\textbf{Solution.} Here Sine function is an even function, that is, $\sin (-x) = -\sin x$. Thus,
+
+\begin{align*}
+    &\lim_{x\rightarrow 0^-}{f(x)} = \lim_{x\rightarrow 0^-}{\sin\frac{\pi[x]}{2}} = \sin\frac{\pi(-1)}{2} = -\sin \frac{\pi}{2} = -1 \\    
+    & \lim_{x\rightarrow 0^+}f(x) = \lim_{x\rightarrow 0^+}\sin\frac{\pi[x]}{2} = \lim_{x\to0^+}\sin\frac{\pi.0}{2} = 0
+\end{align*}
+
+Therefore $\lim_{x\rightarrow 0^-}{f(x)} \neq \lim_{x\rightarrow 0^+}{f(x)}$. Hence $f(x)$ is discontinuous at $x=0$.
+
+\vspace{0.3cm}
+\textbf{Definition 3.} Suppose $f$ is a real function and let {$x_n$} be a sequence of real numbers such that $x_n\rightarrow x$ . Then the function $f$ is said to be continuous at $x$ if and only if $x_n\rightarrow x \Rightarrow f(x_n)\rightarrow f(x)$ i.e. if and only if  $\lim_{n\rightarrow \infty} {x_n} = x \Rightarrow \lim_{n\rightarrow \infty} {f(x_n)} = f(x)$.
+
+\vspace{0.2cm}
+\textbf{Example 37.} Test the continuity of the function 
+
+\begin{equation*}
+    f(x) =
+\begin{cases}
+    1     & \text{if    }      x \in \mathcal{Q} \\\\
+    0   & \text{if    }        x \notin \mathcal{Q}
+\end{cases}
+\end{equation*}
+
+at any real point.
+
+\textbf{Solution.} Let $x$ be a rational number, that is $x\in \mathcal{Q}$. Then we get a sequence of irrational numbers ${x_n}$ such that $\lim_{n\rightarrow \infty} {x_n} = x$. But $f({x_n})= 0$ as ${x_n}\notin \mathcal{Q}$ and $f(x)=1$ as $x\in \mathcal{Q}$. Thus, $\lim_{n\rightarrow \infty} {x_n} = x$, but $\lim_{n\rightarrow \infty} {f(x_n)} \neq f(x)$, which means $f$ is not continuous at $x$, i.e., $f$ is not continuous at any rational points.
+
+Similarly, let $x$ be an irrational number, that is $x \notin \mathcal{Q}$. Then we get a sequence of rational numbers ${x_n}$ such that $\lim_{n\rightarrow \infty} {x_n} = x$. But $f({x_n})= 1$, as ${x_n}\in \mathcal{Q}$ and $f(x)=0$, as $x \notin \mathcal{Q}$. Thus, $\lim_{n\rightarrow \infty} {x_n} = x$, but $\lim_{n\rightarrow \infty} {f(x_n)} \neq f(x)$, which means $f$ is not continuous at $x$, i.e., $f$ is not continuous at any irrational points. 
+
+Hence $f(x)$ is discontinuous at every real points.
+
+\vspace{0.2cm}
+\textbf{Example 38.}
+\vspace{0.2cm}
+Test the continuity of the function 
+\begin{equation*}
+    f(x) =
+\begin{cases}
+    x     & \text{if    }      x \in \mathcal{Q} \\\\
+    -x   & \text{if    }        x \notin \mathcal{Q}
+\end{cases}
+\end{equation*}
+at any real point.
+
+\textbf{Solution.} Let $x$ be a rational number, that is $x\in \mathcal{Q}$. Then we get a sequence of irrational numbers ${x_n}$ such that $\lim_{n\rightarrow \infty} {x_n} = x$. But $f({x_n})= -x_n$, as ${x_n}\notin \mathcal{Q}$ and $f(x)=x$, as $x\in \mathcal{Q}$. Thus $\lim_{n\rightarrow \infty} {x_n} = x$, but $\lim_{n\rightarrow \infty} {f(x_n)}=\lim_{n\rightarrow \infty} {-x_n}=-x \neq x = f(x)$. The equality holds only when $x=0$. Thus $f$ is not continuous at $x$ except at $x=0$, i.e., $f$ is not continuous at any rational points, except at $x=0$.
+
+Similarly, let $x$ be an irrational number, that is $x\notin \mathcal{Q}$. Then we get a sequence of rational numbers ${x_n}$ such that $\lim_{n\rightarrow \infty}{x_n} = x$. But $f({x_n})= x_n$, as ${x_n}\in \mathcal{Q}$ and $f(x)=-x$, as $x\notin \mathcal{Q}$. Thus $\lim_{n\rightarrow \infty}{x_n} = x$, but $\lim_{n\rightarrow \infty} {f(x_n)}=\lim_{n\rightarrow \infty} {x_n} = x \neq -x =f(x)$. 
+
+Thus $f$ is not continuous at $x$, i.e., $f$ is not continuous at any irrational points. Hence $f(x)$ is continuous only at $0$ and discontinuous at all other real points.
+     
+\begin{exercise}
+Examine the continuity of the following functions at the indicated points
+\begin{multicols}{2}    
+\begin{enumerate}
+    \item $f(x)$ at $x=a$, where,  \begin{flalign*}
+f(x) &= 
+\begin{cases}
+    \dfrac{x^2-a^2}{x-a}     & \text{if   } x \neq a \\ 
+    a                       & \text{if   } x=a              
+\end{cases}&&
+\end{flalign*}
+
+    \item $f(x)$ at $x=0$, where, \begin{flalign*}
+f(x) &= 
+\begin{cases}
+    \dfrac{\sin \alpha x}{x}     & \text{if   }     x \neq 0 \\
+    \alpha                      & \text{if   }   x=0
+\end{cases}&&    
+\end{flalign*}
+
+\item $f(x)$ at $x=0$, where, \begin{flalign*}
+f(x) &= 
+\begin{cases}
+    (1+3x)^{\dfrac{1}{x}}  & \text{if   }  x \neq 0 \\
+    e^3                   & \text{if   }  x=0              
+\end{cases}&&    
+\end{flalign*}
+
+\item $f(x)$ at $x=0$, where, \begin{flalign*}
+f(x) &= 
+\begin{cases}
+    \dfrac{e^{x}-1}{\ln(1+2x)}     & \text{if   }     x \neq 0 \\\\    
+    7    & \text{if   }   x=0              
+\end{cases}&    
+\end{flalign*}
+
+\item $f(x)$ at $x=0$, where, \begin{flalign*}
+f(x) &= 
+\begin{cases}
+    x \sin \dfrac{1}{x}     & \text{if   }     x \neq 0 \\\\    
+    0    & \text{if   }   x=0              
+\end{cases}&    
+\end{flalign*}
+
+\item $f(x)$ at $x=1$, where, \begin{flalign*}
+f(x) &= 
+\begin{cases}
+    \dfrac{x^7-1}{x-1}     & \text{if   }     x \neq 1 \\\\    
+    7    & \text{if   }   x=1              
+\end{cases}&    
+\end{flalign*}
+
+\item $f(x)$ at $x=0$, where, \begin{flalign*}
+f(x) &= 
+\begin{cases}
+    \dfrac{1}{x+[x]}     & \text{if   }     x < 0 \\\\    
+    -1    & \text{if   }   x\geq 0              
+\end{cases}&    
+\end{flalign*}
+
+\item $f(x)$ at $x=0$, where, \begin{flalign*}
+f(x) &= 
+\begin{cases}
+    \dfrac{x-|x|}{x}     & \text{if   }     x \neq 0 \\\\    
+    2    & \text{if   }   x=0              
+\end{cases}&    
+\end{flalign*}
+
+\item $f(x)$ at $x=0$, where, \begin{flalign*}
+f(x) &= 
+\begin{cases}
+    \dfrac{x}{|x|+2x}     & \text{if   }     x \neq 0 \\\\    
+    1    & \text{if   }   x=0              
+\end{cases}&    
+\end{flalign*}
+
+\item $f(x)$ at $x=0, 1$, where, \begin{flalign*}
+f(x) &= 
+\begin{cases}
+    2x+1     & \text{if   }     x \leq 0 \\\\    
+    x    & \text{if   }   0 < x <1  \\\\
+    2x-1  & \text{if   }   x\geq 1
+\end{cases}&    
+\end{flalign*}
+
+\item $f(x)$ at $x \in \mathbb{R}$, where \begin{flalign*}
+f(x) &= 
+\begin{cases}
+    x      & \text{if   }     x \in \mathbb{Q} (rational) \\\\    
+    0    & \text{if   }       x \in \mathbb{Q}^{'} (irrational)              
+\end{cases}&    
+\end{flalign*} 
+
+\end{enumerate}
+\end{multicols}
+\end{exercise} 
+ 
+ 
+ 
+ 
+ \end{document}
+
+
+
+ 

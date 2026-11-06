@@ -1,0 +1,309 @@
+% \documentclass{book}
+
+\documentclass[../../main.tex]{subfiles}
+\usepackage{graphicx} % Required for inserting images
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{amsthm}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{fillbetween}
+
+\usepackage[margin=1in]{geometry}
+\DeclareMathOperator{\cosec}{cosec}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem*{note}{Note}
+
+\newenvironment{solution}
+    {\begin{proof}[Solution]}
+    {\end{proof}}
+
+\begin{document}
+\chapter{The Area Problem}
+
+\section{Quadrature}
+
+Let $f(x)$ be a continuous function on the closed interval $[a,b]$. Let us divide the interval $[a,b]$ into $n$ sub-intervals by the points $x_1,x_2,.....,x_{n-1}$, each of which having length $h_1,h_2,.....,h_n$ respectively, i.e.
+
+$a=x_0<x_1<x_2<.......<x_{n-1}<x_n=b$ and $h_m=|x_m-x_{m-1}|$, where $m\leq n$. Let $t_r$ be any point in the sub-interval $[x_{r-1},x_r]$ for $r=1,2,....,n$. Let us define
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{\subfix{images/quadrature_defn.pdf}}
+    \caption{Definite integral as a sum of area of rectangles}
+    \label{fig:area_finding:quadrature_defn}
+\end{figure}
+
+\[
+S=\sum_{r=1}^nh_rf(t_r) = h_1f(t_1)+h_2f(t_2)+.......+h_nf(t_n)
+\]
+
+
+
+The above sum is the sum of $n$ rectangles since $h_r.f(t_r)$ is a rectangle. When maximum of $h_r\rightarrow 0$, i.e., when $n\rightarrow \infty$, if the limit of $S$ exists, then this limit is called definite integral of $f(x)$ from $a$ to $b$. Therefore,
+
+\[
+\int_a^bf(x)\,dx = \lim_{n\rightarrow \infty}\sum_{r=1}^nh_rf(t_r)
+\]
+
+represents the area of the curve $y=f(x)$ between $a$ and $b$, as drawn in the above figure.
+
+\begin{example}
+Find area of the rectangle, whose sides are $y=0$, $x=3$, $y=1$ and $x=1$.
+\end{example}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{\subfix{images/prob1.pdf}}
+    \caption{Region bounded by $y=0, y=1, x=1, x=3$}
+    \label{fig:area_finding:prob1}
+\end{figure}
+
+\begin{solution}
+From Figure \ref{fig:area_finding:prob1}, we find that the two adjacent sides have a length of 2 and 1 unit. So its area $A=2.1=2$ square units. Let us solve the same problem using definite integral as follows,
+
+\[
+\text{Area } A=\int_a^bf(x)\,dx = \int_1^3 1\,dx = \bigl.x\bigr\vert_1^3 = 3-1 = 2 \text{ square units.}
+\]
+\end{solution}
+
+\begin{example}
+Find area of the region enclosed by $y=16-x^2$, $y=0$ and the ordinates $x=0$ and $x=2$ as shown in Figure \ref{fig:area_finding:prob2}.
+\end{example}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{\subfix{images/prob2.pdf}}
+    \caption{Region bounded by $y=16-x^2$ and $y=0$ between $x=0$ and $x=2$}
+    \label{fig:area_finding:prob2}
+\end{figure}
+
+\begin{solution}
+From the given figure \ref{fig:area_finding:prob2}, it can be seen that the required area, 
+\[
+\text{Area } \int_0^2(16-x^2)\,dx=\left.\left(16x-\frac{x^3}{3}\right)\right\vert_0^2=32-\frac{8}{3}=\frac{88}{3} \text{ square units.}
+\]
+\end{solution}
+
+\begin{example}
+Find area of the region bounded by $x^2=y$, $x=0$ and the lines $y=1$ and $y=2$. 
+\end{example}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{\subfix{images/prob3.pdf}}
+    \caption{Region bounded by $x^2=y$ and $x=0$ between lines $y=1$ and $y=2$}
+    \label{fig:area_finding:prob3}
+\end{figure}
+
+\begin{solution}
+From the given Figure \ref{fig:area_finding:prob3}, it can be seen that the required area,
+\[
+A = \int_1^2x\,dy = \int_1^2\sqrt{y}\,dy = \left.\frac{2}{3}y^\frac{3}{2}\right\vert_1^2 = \frac{2}{3}(2\sqrt{2}-1) \text{ square units.}
+\]
+\end{solution}
+
+
+\begin{example}
+Find area of the region bounded by the curve $y=(x+3)(x-2)$ and the $x$ axis, i.e., $y=0$ as shown in Figure \ref{fig:area_finding:prob4}. 
+\end{example}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{\subfix{images/prob4.pdf}}
+    \caption{Region bounded by $y=(x+3)(x-2)$ and $y=0$}
+    \label{fig:area_finding:prob4}
+\end{figure}
+
+\begin{solution}
+From the given figure \ref{fig:area_finding:prob4}, we observe that the curve $y=(x+3)(x-2)$ meets the $x$ axis, i.e, $y=0$ at the points $(-3,0)$ and $(2,0)$. Therefore, the area between the curve and the $x$ axis is given by,
+\begin{align*}
+    A=\displaystyle\int_{-3}^2(x+3)(x-2)\,dx &= \displaystyle\int_{-3}^2(x^2+x-6)\,dx = \left.\left(\frac{x^3}{3}+\frac{x^2}{2}-6x\right)\right\vert_{-3}^2 \\ 
+    &= \left(\frac{8}{3}+2-12\right)-\left(-9+\frac{9}{2}+18\right) = -\frac{22}{3}-\frac{27}{2}=-\frac{125}{6}
+\end{align*}
+Since the area lies below the $x$ axis, the area is negative. However the area of a region can not be negative, so the area $A$ is the magnitude of the integral, i.e., $\dfrac{125}{6}$ square units.
+\end{solution}
+
+
+\begin{example}
+Find area of a quadrant of the circle $x^2+y^2=a^2$ as shown in Figure \ref{fig:area_finding:prob5}.
+\end{example}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{\subfix{images/prob5.pdf}}
+    \caption{Plot of $x^2+y^2=a^2$ with $a=3$}
+    \label{fig:area_finding:prob5}
+\end{figure}
+
+
+\begin{solution}
+From the Figure \ref{fig:area_finding:prob5}, we observe that $y=\sqrt{a^2-x^2}$ lies in the 1st quadrant. Therefore,
+\[
+A=\int_0^a\sqrt{a^2-x^2}\,dx = \left|\frac{x}{2}\sqrt{a^2-x^2}+\frac{a^2}{2}\sin^{-1}\frac{x}{a}\right\vert_0^a = \frac{a^2}{2}\sin^{-1}1 = \frac{a^2}{2}\frac{\pi}{2}=\frac{\pi a^2}{4} \text{ square units.}
+\]
+\end{solution}
+
+\begin{example}
+Find area of the region bounded by the parabola $y^2=x$ and the straight line $y=x$ as shown in Figure \ref{fig:area_finding:parabola_and_line}.
+\end{example}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{\subfix{images/parabola_and_line.pdf}}
+    \caption{Shaded portion shows the common region between parabolas $y^2=x$ and $y=x$}
+    \label{fig:area_finding:parabola_and_line}
+\end{figure}
+
+\begin{solution}
+Here we observe that $y^2=x$ and $y=x$. In order to find where these two curves meet, we set $x=\sqrt{x}$ $\implies x^2=x\implies x(x-1)=0$. So $x=0$ or $x=1$, accordingly $y=0$ or $y=1$. 
+
+Thus, the given parabola and the given straight line meet each other at the points $(0,0)$ and $(1,1)$. Hence the required area,
+\[
+A=\int_0^1(\sqrt{x}-x)\,dx=\left.\left(\frac{2}{3}x^{\frac{3}{2}}-\frac{x^2}{2}\right)\right\vert_0^1=\frac{2}{3}-\frac{1}{2}=\frac{1}{6} \text{ square units}
+\]
+\end{solution}
+
+
+\begin{example}
+Find area of the region bounded by the parabola $y=x^2$ and the straight line $y=x$.    
+\end{example}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{\subfix{images/parabola_and_line_2.pdf}}
+    \caption{Shaded portion shows the common region between parabolas $y=x^2$ and $y=x$}
+    \label{fig:area_finding:parabola_and_line_2}
+\end{figure}
+
+
+\begin{solution}
+Here we have two curves $y=x^2$ and $y=x$. To find out where these two curves meet, we set $x^2=x$ $\implies x(x-1)=0$. So $x=0$ or $x=1$, accordingly $y=0$ or $y=1$. Thus the given parabola and the given straight line meets each other at the points $(0,0)$ and $(1,1)$ as shown in Figure \ref{fig:area_finding:parabola_and_line_2}. 
+
+Hence the required area
+
+\[
+A=\int_0^1(x-x^2)\,dx=\left.\left(\frac{x^2}{2}-\frac{x^3}{3}\right)\right\vert_0^1=\frac{1}{2}-\frac{1}{3}=\frac{1}{6} \text{ square units.}
+\]
+    
+\end{solution}
+
+\begin{example}
+Find area of the parabola $y^2=4ax$ bounded by its latus rectum $x=a$.    
+\end{example}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth, height=0.4\textheight]{\subfix{images/parabola_rectum.pdf}}
+    \caption{Shaded portion shows the common region between $y^2=4.2x$ and $x=2$ (Here $a$ is set to 2).}
+    \label{fig:area_finding:parabola_rectum}
+\end{figure}
+
+\begin{solution}
+We observe (from the Figure) that the curve is symmetrical about the $x-$axis and the region lies between, $x=0$ and $x=a$. Hence the required area,
+\[
+A=2\int_0^a y\,dx=2\int_0^a \sqrt{4ax}\,dx=\left.4\sqrt{a}\frac{2}{3}x^{\frac{3}{2}}\right\vert_0^a=\frac{8}{3}a^2 \text{ square units.}
+\]
+\end{solution}
+
+
+\begin{example}
+Find area of the region enclosed between the parabolas $y^2=x$ and $x^2=y$.    
+\end{example}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{\subfix{images/two_parabolas.pdf}}
+    \caption{Shaded portion shows the common region between parabolas $y^2=x$ and $x^2=y$}
+    \label{fig:area_finding:twoparabolas}
+\end{figure}
+
+\begin{solution}
+Here the required common region is shown in Figure \ref{fig:area_finding:twoparabolas}. We get the points of intersection between these two parabolas by solving the equation,
+\[
+x^2=\sqrt{x}\implies x^4-x=0 \implies x(x^3-1)=0\implies x=0,x=1
+\]
+Here, we reject the the imaginary roots as they are not relevant. Therefore, the required area,
+\[
+A=\int_0^1\sqrt{x}\,dx-\int_0^1x^2\,dx=\left.\frac{2}{3}x^{\frac{3}{2}}\right\vert_0^1-\left.\frac{x^3}{3}\right\vert_0^1=\frac{2}{3}-\frac{1}{3}=\frac{1}{3} \text{ square units.}
+\]
+\end{solution}
+
+
+\begin{example}
+Find area of the region enclosed between the curves $y=\sin x$ and $y=\cos x$ for $0\leq x\leq 2\pi$ as shown in Figure \ref{fig:area_finding:sinx_cosx}. 
+\end{example}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{\subfix{images/sinx_cosx.pdf}}
+    \caption{Shaded portion shows the common region between $y=\sin x$ and $y=\cos x$ between $0\leq x\leq 2\pi$}
+    \label{fig:area_finding:sinx_cosx}
+\end{figure}
+
+\begin{solution}
+The points of intersection of the curves are found by solving the equation $\tan x=1$, i.e. $x=\frac{\pi}{4}$ and $x=\frac{5\pi}{4}$ for $0\leq x\leq 2\pi$. It is clear from Figure \ref{fig:area_finding:sinx_cosx} that,
+
+\begin{equation*}
+\begin{array}{ll}
+\cos x \geq \sin x & x \in [0, \pi/4] \\
+\cos x \leq \sin x & x \in [\pi/4, 5\pi/4] \\
+\cos x \geq \sin x & x \in [5\pi/4, 2\pi]
+\end{array}
+\end{equation*}
+
+So, the desired area equals,
+\begin{align*}
+    A &= \int_0^{\pi/4} (\cos x - \sin x)\,dx + \int_{\pi/4}^{5\pi/4} (\sin x - \cos x)\,dx + \int_{5\pi/4}^{2\pi} (\cos x - \sin x)\,dx \\
+    &= \Bigl[\sin x + \cos x\Bigr]_0^{\pi/4} + \Bigl[-\cos x - \sin x\Bigr]_{\pi/4}^{5\pi/4} + \Bigl[\sin x + \cos x\Bigr]_{5\pi/4}^{2\pi} \\
+    &=\left(\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{2}}-1\right)+\left(\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{2}}\right)+\left(1+\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{2}}\right) \\
+    &=\sqrt{2}-1+2\sqrt{2}+1+\sqrt{2}=4\sqrt{2} \text{ square units.}
+\end{align*}
+\end{solution}
+
+\pagebreak
+
+\begin{exercise}
+Solve the following problems.
+\begin{enumerate}
+    \item Find area of the triangle whose sides are $y=x$, $y=0$ and $x=1$.
+    \item Find area of the trapezium bounded by the sides, $y=x$, $y=0$, $x=2$ and $x=5$.
+    \item Find area of the region enclosed by,
+    \begin{enumerate}[label=(\alph*)]
+        \item $y=9-x^2$,$y=0$, $x=-3$ and $x=3$.
+        \item $y=x^{\frac{1}{2}}-x$, $y=0$, $x=0$ and $x=1$.
+        \item $y=x^2-x-2$, $y=0$,$x=-1$ and $x=2$.
+    \end{enumerate}
+
+    \item Find area of the region enclosed by the parabola $y=x^2$, $y=0$ and $x=1$.
+    \item Find area of the region enclosed by the curve $y=e^x$, the $x-$axis and the ordinates $x=1$ and $x=2$.
+    \item Find area of the semi-circle $x^2+y^2=1$.
+    \item Find area of the ellipses:
+    
+    (i) $\dfrac{x^2}{9}+\dfrac{y^2}{16}=1$ \qquad  (ii) $\dfrac{x^2}{16}+\dfrac{y^2}{9}=1$
+    
+    \item Find area of the region bounded by the parabola $y^2=8x$ and its latus rectum.
+    \item Find area of the region bounded by the parabola $y^2=4x$ and the double ordinate through $(2,0)$.
+    \item Find area of the region enclosed by the curve $y=(x-1)(x-3)$ and the $x-$axis.
+    \item Find area of the region enclosed between the parabola $y^2=2x$ and the line $y=4x-1$.
+    \item Find area of the region enclosed between the parabolas $y=x^2$ and $x=y^2$.
+    \item Find area of the region enclosed by the curve $y=(x-1)^2$ and the line $y=x+1$.
+    \item Determine the area of the region bounded by $y^2=x^3$ and the double ordinate through $(3,0)$.
+    \item Find area of the regions into which the circle $x^2+y^2=4$ is divided by the line $x+\sqrt{3}y=2$.
+    \item Determine the area common to the parabola $x=y^2$ and the circle $x^2+y^2=2x$.
+    \item Determine the area of the region between the curve $y=\sin x$, $y=0$ and $x\in[0,\pi]$.
+    \item Determine the area of the region between the curves $y=\sin x$ and $y=\sin 2x$ for $x\in[0,\pi]$.
+\end{enumerate}    
+\end{exercise}
+
+\end{document}

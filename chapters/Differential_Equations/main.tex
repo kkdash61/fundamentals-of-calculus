@@ -1,0 +1,704 @@
+\documentclass{book}
+\usepackage{graphicx} % Required for inserting images
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage[margin=1in]{geometry}
+\DeclareMathOperator{\cosec}{cosec}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem*{note}{Note}
+
+\newenvironment{solution}
+    {\begin{proof}[Solution]}
+    {\end{proof}}
+
+% \author{KISHORE KUMAR DASH}
+% \date{11, August 2026}
+
+\begin{document}
+\chapter{Differential Equations}
+
+\section{Introduction}
+
+\begin{definition}
+An equation containing a dependent variable, an independent variable and differential coefficients of dependent variable with respect to independent variable is called an \textit{ordinary differential equation}. If the derivative is a partial derivative, then the equation is called a \textit{partial differential equation}.
+\end{definition}
+
+Following are the examples of ordinary differential equations,
+\begin{multicols}{3}
+\begin{enumerate}[label=(\roman*)]
+    \item $\dfrac{dy}{dx}=(x+y)$
+    \item $\dfrac{d^2y}{dx^2}=5x$
+    \item $\dfrac{dy}{dx}=\sin x+\cos x$
+    \item $\dfrac{dy}{dx}+xy=x^2+1$
+    \item $\dfrac{d^2y}{dx^2}+\frac{dy}{dx}-2y=x^2$
+    \item $[1+(\dfrac{dy}{dx})^2]^{\frac{3}{2}}=5\dfrac{d^2y}{dx^2}$
+    \item $y=x\dfrac{dy}{dx}-\sqrt{1+(\dfrac{dy}{dx})^2}$
+    \item $(x^2+y^2)dx-2xy\,dy=0$
+    \item $(\dfrac{d^3y}{dx^3})^2+(1+\dfrac{dy}{dx})^3=0$
+\end{enumerate}
+\end{multicols}
+In comparison, the equations below illustrate partial differential equations.
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $x\dfrac{\partial f}{\partial x}+y\dfrac{\partial f}{\partial y}=0$
+    \item $\dfrac{\partial^2f}{\partial x^2}-5\dfrac{\partial^2f}{\partial x\partial y}+6\dfrac{\partial^2f}{\partial y^2}=0$
+\end{enumerate}
+\end{multicols}
+
+\textbf{Order of a Differential Equation.} The order of a differential equation is the order of the highest derivative present in the equation. For example,
+
+\begin{enumerate}[label=(\roman*)]
+    \item $\dfrac{dy}{dx}+xy=(x+1)^2$ is a \textit{first order} differential equation.
+    \item $\dfrac{d^2y}{dx^2}-\dfrac{dy}{dx}-2y=e^x$ is a \textit{second order} differential equation.
+    \item $\dfrac{d^3y}{dx^3}-6(\dfrac{dy}{dx})^2-4y=0$ is a \textit{third order} differential equation.
+    \item $(\dfrac{d^3y}{dx^3})^2+(1+\dfrac{dy}{dx})^3=0$ has order three.
+\end{enumerate}
+\begin{note}
+Order of a differential equation is \textit{always} a positive integer.    
+\end{note}
+
+\textbf{Degree of a Differential Equation}. The degree of a differential equation is the degree (power) of the highest order derivative present in the equation, when differential coefficients are made free from fractions and radicals.
+
+Thus, the degree of a differential equation is the power of the highest order derivative present in the equation when it is written as a polynomial in the differential coefficients.
+
+For example,
+\begin{enumerate}[label=(\roman*)] 
+\item $\dfrac{d^3y}{dx^3}-6(\dfrac{dy}{dx})^2-4y=0$ is a first degree differential equation.
+
+\item $x(\dfrac{dy^3}{dx^3})^2+(\dfrac{dy}{dx})^4+y^2=0$ is a differential equation of degree two.
+    
+\item $x\dfrac{dy}{dx}+\sqrt{1+(\dfrac{dy}{dx})^2}=y$. Rearranging the terms and squaring both the sides, we get,
+    $(x^2-1)\left(\dfrac{dy}{dx}\right)^2-2xy\dfrac{dy}{dx}+(y^2-1)=0$. Thus the given differential equation has degree two.
+    
+\item $\left[1+\left(\dfrac{dy}{dx}\right)^2\right]^{\frac{3}{2}}=5\dfrac{d^2y}{dx^2} \Rightarrow \left[1+\left(\dfrac{dy}{dx}\right)^2\right]^3=25\left(\dfrac{d^2y}{dx^2}\right)^2$. Thus this equation is a second degree differential equation.
+
+\item The differential equation $(x^2+xy+y^2)\,dx-2xy\,dy=0$ may be written as $\dfrac{dy}{dx}=\dfrac{x^2+xy+y^2}{2xy}$. So its degree is 1.
+
+\item The differential equation $\left(\dfrac{d^2y}{dx^2}\right)^2+\sin \left(\dfrac{dy}{dx}\right)=0$ is a second order equation, but since the given equation can not be expressed as a polynomial in the differential coefficients, \textbf{its degree is not defined}.
+\end{enumerate}
+
+\textbf{Linear and Non-linear Differential Equations}. A differential equation is called \textit{linear} if 
+\begin{enumerate}[label=(\alph*)]
+    \item Every dependent variable and derivatives present in the equation are in their first degree only, and,
+    \item Product of derivatives and/or dependent variable do not occur in the equation.
+\end{enumerate}
+If a differential equation is not linear then it is a \textit{non-linear} differential equation.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{lcccc}
+        \toprule[1.2pt]
+        Expression & Linear/Non-linear & Ordinary/Partial & Order & Degree \\
+        \midrule
+        $\dfrac{d^2y}{dx^2}+x^2\dfrac{dy}{dx}+xy=\sin x$ & Linear & Ordinary & 2 & 1 \\
+        $\dfrac{d^2y}{dx^2}-5\dfrac{dy}{dx}+6y=\sin x$ & Linear & Ordinary & 2 & 1 \\
+        $\dfrac{\partial f}{\partial y}=x\dfrac{\partial^2f}{\partial x^2}$ & Linear & Partial & 2 & 1 \\
+        $\dfrac{d^2y}{dx^2}+(\dfrac{dy}{dx})^2+y=0$ & Non-linear & Ordinary & 2 & 1 \\ 
+        $\dfrac{dy}{dx}+y^2=0$ & Non-linear & Ordinary & 1 & 1 \\ 
+        $\dfrac{d^2y}{dx^2}+y\dfrac{dy}{dx}=x^2$ & Non-linear & Ordinary & 2 & 1 \\
+        $(x^2+y^2)dx-2xy\,dy=0$ & Non-linear & Ordinary & 1 & 1 \\
+        $\dfrac{\partial^2f}{\partial x^2}+\dfrac{\partial f}{\partial x}\dfrac{\partial f}{\partial y}+\dfrac{\partial^2f}{\partial y^2}=0$ & Non-linear & Partial & 2 & 1 \\
+        \bottomrule[1.2pt]
+    \end{tabular}
+    \caption{Examples of differential equations belonging to \emph{different} categories}
+    \label{tab:examples}
+\end{table}
+\newpage
+
+\begin{exercise}
+Determine the order and degree of the following differential equations. State whether they are linear or non-linear. 
+\begin{multicols}{3}
+\begin{enumerate}[label=(\roman*)]
+    \item $\dfrac{dy}{dx}+xy=e^x$
+    \item $\dfrac{d^2y}{dx^2}+\left(\dfrac{dy}{dx}\right)^2=\sin x$
+    \item $\dfrac{d^2y}{dx^2}+y\dfrac{dy}{dx}= x$
+    \item $x^2\dfrac{d^3y}{dx^3}-\sqrt{xy}= 0$
+    \item $x^2\,dy+y^2\,dx=0$
+    \item $\dfrac{d^4y}{dx^4}+3\left(\dfrac{dy}{dx}\right)^3+y=0$
+    \item $\left(\dfrac{dy}{dt}\right)^3=\sqrt{1+\left(\dfrac{dy}{dt}\right)^2}$
+    \item $\left(\dfrac{dy}{dx}\right)^2+\dfrac{1}{\frac{dy}{dx}}=3$
+    \item $\sqrt{1+\left(\dfrac{dy}{dt}\right)^2}=\sqrt[3]{\dfrac{d^2y}{dx^2}}$
+    \item $x\dfrac{d^2y}{dx^2}=x^2+1$
+    \item $\dfrac{d^4y}{dx^4}=\left[1+\left(\dfrac{dy}{dx}\right)^2\right]^{\frac{3}{2}}$
+    \item $x^2\left(\dfrac{d^2y}{dx^2}\right)^3+y\left(\dfrac{dy}{dx}\right)^4+y^4=0$
+    \item $(xy^2+x)\,dx+(y-x^2y)\,dy=0$
+    \item $5\dfrac{d^2y}{dx^2}=\left[1+\left(\dfrac{dy}{dx}\right)^2\right]^{\frac{3}{2}}$
+    \item $\dfrac{d^3y}{dx^3}+\sin \left(\dfrac{d^2y}{dx^2}\right)=0$
+    \item[] \phantom{x}
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+\section{Solution of a Differential Equation}
+\textbf{Variable Separable Method.} If the differential equation can be put in the form $f(x)\,dx=g(y)\,dy$, we say that the variables are separable and such equation can be solved by integrating on both sides.
+
+\begin{example}
+Solve the differential equation $\dfrac{dy}{dx}=\dfrac{1}{1+x^2}$.
+\end{example}
+\begin{solution}
+Given $\dfrac{dy}{dx}=\dfrac{1}{1+x^2} \Rightarrow \displaystyle\int dy=\displaystyle\int\frac{1}{1+x^2}\,dx \Rightarrow y=\tan^{-1}x+C$ is the solution.    
+\end{solution}
+
+\begin{example}
+Solve the differential equation $(x+1)\dfrac{dy}{dx}=2xy$.    
+\end{example}
+
+\begin{solution}
+\begin{align*}
+(x+1)\frac{dy}{dx}=2xy &\implies \frac{dy}{y}=\frac{2x}{x+1}\,dx \implies \displaystyle\int\frac{dy}{y}=2\displaystyle\int\frac{x}{x+1}\,dx \\
+&\implies \int\frac{dy}{y}=2 \int\frac{x+1-1}{x+1}\,dx=2\left[\int dx-\int\frac{1}{x+1}\,dx\right] \\
+&\implies \ln y=2x-2\ln|x+1|+C
+\end{align*}
+is the required solution.
+\end{solution}
+
+
+\begin{example}
+Solve the differential equation $\cos x(1+\cos y)\,dx-\sin y(1+\sin x)\,dy=0$.    
+\end{example}
+
+\begin{solution}
+\begin{align*}
+\cos x(1+\cos y)\,dx-\sin y(1+\sin x)\,dy=0 &\implies \frac{\cos x}{1+\sin x}\,dx-\frac{\sin y}{1+\cos y}\,dy=0 \\
+&\implies \int\frac{\cos x}{1+\sin x}\,dx+\int\frac{-\sin y}{1+\cos y}\,dy=0 \\
+&\implies \ln \left|1+\sin x\right|+\ln \left|1+\cos y\right|=\ln C \\
+&\implies (1+\sin x)(1+\cos y)=C
+\end{align*}    
+is the required solution.
+\end{solution}
+\newpage
+\begin{example}
+Solve $\dfrac{dy}{dx}=x+y$    
+\end{example}
+
+\begin{solution}
+In this given differential equation, it is not possible to separate the variables. Let $x+y=v$, so we have,
+\[
+\frac{d}{dx}(x+y)=\frac{dv}{dx} \implies 1+\frac{dy}{dx}=\frac{dv}{dx} \implies \frac{dy}{dx}=\frac{dv}{dx}-1
+\]
+
+Using this equation, we have, 
+\begin{align*}
+\frac{dy}{dx}=x+y &\implies \frac{dv}{dx}-1=v \implies \frac{dv}{dx}=1+v \implies\frac{dv}{1+v}=dx \\
+&\implies \int\frac{dv}{1+v}=\int dx \implies \ln |1+v|=x+C \implies \ln |1+x+y|=x+C
+\end{align*}
+is the desired solution.
+\end{solution}
+
+We have observed that a constant of integration $C$ is present in each of the solutions of the differential equation discussed in the above examples. These solutions are called \textit{general solutions} of the differential equations. To find a \textit{particular solution}, we are given with some condition(s), which are called \textit{initial value(s)}.
+
+
+\begin{example}
+Solve $x\,dy+y\,dx=xy\,dx$, $y(1)=1$
+\end{example}
+
+\begin{solution}
+Given,
+\begin{align*}
+    x\,dy+y\,dx=xy\,dx &\implies x\,dy=xy\,dx-y\,dx \implies x\,dy=(x-1)y\,dx \\
+    &\implies \frac{1}{y}\,dy=(1-\frac{1}{x})\,dx \implies\displaystyle\int\frac{1}{y}\,dy=\displaystyle\int(1-\frac{1}{x})\,dx \\
+    &\implies \ln |y|=x-\ln|x|+C \implies \ln |xy|=x+C \implies |xy|=e^{x+C}
+\end{align*}    
+It is given that $y(1)=1$ i.e., $y=1$ when $x=1$. So putting $x=1, y=1$ in the last equation, we get,
+\[
+1=e^{1+c} \text{ i.e. } e^{1+c}=1=e^0 \implies C = -1
+\]
+Therefore, the required solution is $|xy|=e^{x-1}$
+\end{solution}
+
+
+
+\begin{example}
+Solve $\dfrac{d^2y}{dx^2}=12x+1$
+\end{example}
+
+\begin{solution}
+Integrating the given equation throughout, we get,
+\[
+\frac{dy}{dx}=\int(12x+1)\,dx=6x^2+x+C_1
+\]
+Integrating again, we get, 
+\[
+y=\int(6x^2+x+C_1)\,dx=2x^3+\frac{x^2}{2}+C_1x+C_2
+\]
+\end{solution}
+
+\begin{example}
+Solve $\dfrac{d^2y}{dx^2}=\sin x-\cos x$, given $\dfrac{dy}{dx}=0$ and $y=0$ when $x=\dfrac{\pi}{2}$
+\end{example}
+
+\begin{solution}
+Integrating the given equation throughout, we get,
+\[
+\frac{dy}{dx}=\int(\sin x-\cos x)\,dx=-\cos x-\sin x+C_1
+\]
+Given $\dfrac{dy}{dx}=0$ if $x=\dfrac{\pi}{2}$. Therefore, 
+\[
+0=-\cos \frac{\pi}{2}-\sin \frac{\pi}{2}+C_1 = 0-1+C_1 \implies C_1 = 1
+\]
+Integrating the equation again, we get,
+\[
+y=\int(-\cos x-\sin x+1)\,dx=-\sin x+\cos x+x+C_2
+\]
+Given $y=0 \text{ when } x = \dfrac{\pi}{2}$. Therefore,
+\[
+0=-\sin \frac{\pi}{2}+\cos \frac{\pi}{2}+\frac{\pi}{2}+C_2 \implies C_2=1-\frac{\pi}{2}
+\]
+Hence, the desired solution is $y=-\sin x+\cos x+x+(1-\frac{\pi}{2})$
+\end{solution}
+
+\begin{example}
+Solve $(1+e^{2x})\,dy+(1+y^2)e^x\,dx=0$ given that $y(0)=1$.
+\end{example}
+
+\begin{solution}
+Given,
+\begin{align*}
+(1+e^{2x})\,dy+(1+y^2)e^x\,dx=0 &\implies \int \frac{dy}{1+y^2}  + \int\frac{e^x}{1+e^{2x}}\,dx=0 \\ 
+&\implies \int \frac{dy}{1+y^2}  + \displaystyle\int\frac{dt}{1+t^2}=0 \qquad \text{ where $t=e^x$} \\
+&\implies \tan^{-1}y+\tan^{-1}t=C \implies \tan^{-1}y+\tan^{-1}e^x=C
+\end{align*}
+Given $y=1 \text{ when } x=0$, therefore,
+\[
+\tan^{-1}1+\tan^{-1}e^0=C \implies \frac{\pi}{4}+\frac{\pi}{4}=C \implies C=\frac{\pi}{2}
+\]
+Therefore, we have, 
+\[
+\tan^{-1}y+\tan^{-1}e^x=\frac{\pi}{2} \implies \tan^{-1}y=\frac{\pi}{2}-\tan^{-1}e^x=\cot^{-1}e^x=\tan^{-1}\frac{1}{e^x}
+\]
+Hence $y=\dfrac{1}{e^x}$ is the required solution.
+\end{solution}
+
+\begin{example}
+Solve $\dfrac{d^2y}{dx^2}=xe^x$, given $y(0)=1$ and $y'(0)=1$.    
+\end{example}
+
+\begin{solution}
+Given $\dfrac{d^2y}{dx^2}=xe^x$, integrating this equation once, we get,
+\begin{align*}
+\frac{dy}{dx}=\int xe^x\,dx &\implies \frac{dy}{dx}=x\int e^x\,dx-\int(\frac{d}{dx}x\int e^x\,dx)\,dx = xe^x-\int e^x\,dx \\    &\implies \frac{dy}{dx} = xe^x-e^x+C
+\end{align*}
+Given $y'(0)=1$, i.e. $\dfrac{dy}{dx}=1$ when $x=0$. Therefore,
+\[
+\frac{dy}{dx}=xe^x-e^x+C \implies 1 = 0e^0-e^0+C \implies C=2
+\]
+Putting the value of $C$ in the above equation, we get,
+\[
+\frac{dy}{dx}=xe^x-e^x+2
+\]
+Integrating again, we have, 
+\[
+y=xe^x-2e^x+2x+K
+\]
+Given $y(0)=1$, thus $1=0-2+0+K$ $\implies K=3$. Hence the desired solution is $y=xe^x-2e^x+2x+3$. 
+\end{solution}
+\newpage
+\begin{exercise}
+Solve the following differential equations 
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $\dfrac{dy}{dx}=x\cos x$
+    \item $dy-(1+y^2)\,dx=0$
+    \item $\dfrac{dy}{dx}=(1+x^2)(1+y^2)$
+    \item $x^2\sqrt{3+y^2}\,dx+y\sqrt{1+x^3}\,dy=0$
+    \item $\tan y\,dx+\cot x\,dy=0$
+    \item $(x^2+7x+12)\,dy+(y^2-6y+5)\,dx=0$
+    \item $y\,dy-e^{-y}x\sin x\,dx=0$
+    \item $\sec^2 x\tan y\,dx+\sec^2y\tan x\,dy=0$
+    \item $(xy+2x+y+2)\,dx+x(x+2)\,dy=0$
+    \item $\dfrac{dy}{dx}=(x-y)^2$
+
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+\begin{exercise}
+Solve the following differential equations 
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $\dfrac{d^2y}{dx^2}=12x^2-2x$
+    \item $\dfrac{d^2y}{dx^2}=\sec^2 x$
+    \item $\dfrac{d^2y}{dx^2}=\cos x-\sin x+\sec x\tan x$
+    \item $cosec x\dfrac{d^2y}{dx^2}=x$
+    \item $e^{-x}\dfrac{d^2y}{dx^2}=x$
+    \item $\dfrac{d^2y}{dx^2}=\cos x\sin^3 x$
+
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+\begin{exercise}
+Solve the following initial value problems
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $\dfrac{dy}{dx}=2+x$, $y(0)=3$
+    \item $\dfrac{dx}{dt}=-2x$, $x(0)=4$
+    \item $\dfrac{dy}{dx}=-\dfrac{y}{x}$, $y(2)=1$
+    \item $\dfrac{dy}{dx}=\sin x+\cos x$, $y(0)=1$
+    \item $\dfrac{d^2y}{dx^2}=3x^2-x+1$, $y(0)=0$ and $y'(0)=1$
+    \item $\dfrac{d^2x}{dt^2}=\sin^2 t$, $x=1$ and $\dfrac{dx}{dt}=0$ when $t=\dfrac{\pi}{2}$
+
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+\section{Homogeneous Differential Equation}
+
+We have already discussed about homogeneous functions in our derivative section, that a \textit{function $f(x,y)$ is a homogeneous function of degree $n$ if $f(\lambda x,\lambda y)=\lambda^n f(x,y)$}. For example, $f(x,y)=x^2y+xy^2$ is a homogeneous function of degree 3, as $f(\lambda x,\lambda y)=(\lambda x)^2(\lambda y)+(\lambda x)(\lambda y)^2=\lambda^3(x^2y+xy^2)=\lambda^3 f(x,y)$. But the function $f(x,y)=x^3-y^2$ is not a homogeneous function.
+
+\textbf{If $M(x,y)$ and $N(x,y)$ are both homogeneous functions of same degree, then the differential equation $M(x,y)dx+N(x,y)dy=0$ is a homogeneous differential equation of first order and first degree}. To find the solution of such a differential equation, we proceed in the following way.
+
+The given equation can be rewritten as,
+\[
+\frac{dy}{dx}=-\frac{M(x,y)}{N(x,y)}=f(x,y) \text{ (say) }
+\]
+
+
+Let us put $y=vx$ in the above equation, so that $\dfrac{dy}{dx}=x\dfrac{dv}{dx}+x$. Rest of the solution can be followed from the following examples.
+
+\begin{example}
+Solve the differential equation $(x^2+y^2)\,dx=xy\,dy$.
+\end{example}
+
+\begin{solution}
+Here the differential equation is $\dfrac{dy}{dx}=\dfrac{x^2+y^2}{xy}=\dfrac{x}{y}+\dfrac{y}{x}$. Putting $y=vx$, we get $\dfrac{dy}{dx}=v+x\dfrac{dv}{dx}$. Therefore, 
+\begin{align*}
+\frac{dy}{dx}=\frac{x}{y}+\frac{y}{x} &\implies v+x\frac{dv}{dx}=\frac{1}{v}+v \implies x\frac{dv}{dx}=\frac{1}{v} \implies v\,dv=\frac{dx}{x}
+\end{align*}
+Integrating both the sides, we get, 
+\[
+\frac{v^2}{2}=\ln C_1x \implies \frac{y^2}{x^2}=\ln Cx^2 \text{ is the solution.}
+\]
+\end{solution}
+
+\begin{example}
+Solve the differential equation $(y+\sqrt{x^2+y^2})\,dx=x\,dy, \text{ } y(1)=0$.    
+\end{example}
+
+\begin{solution}
+Here the given differential equation takes the form
+\[
+\frac{dy}{dx}=\frac{(y+\sqrt{x^2+y^2})}{x}=\frac{y}{x}+\sqrt{1+\left(\frac{y}{x}\right)^2}
+\]
+Putting $y=vx$, we get,
+\begin{align*}
+v+x\frac{dv}{dx}=v+\sqrt{1+v^2} &\implies x\frac{dv}{dx}=\sqrt{1+v^2} \implies \frac{dv}{\sqrt{1+v^2}}=\frac{dx}{x} \\
+&\implies \int\frac{dv}{\sqrt{1+v^2}}=\int\frac{dx}{x} \implies \ln \left|v+\sqrt{1+v^2}\right|=\ln |x|+\ln C=\ln C|x| \\
+&\implies \left|v+\sqrt{1+v^2}\right| =C|x| \implies \left|\frac{y}{x}+\sqrt{1+\frac{y^2}{x^2}}\right|=C|x|
+\end{align*}
+Given $y(1)=0$, i.e. $y=0$ when x=1, thus, by the above equation, we get, $C=1$. Therefore, 
+\[
+\frac{y}{x}+\sqrt{1+\left(\frac{y}{x}\right)^2}=x \text{ or } y+\sqrt{x^2+y^2}=x^2
+\]
+\end{solution}
+is the required solution.
+
+\subsection{Special Forms of Homogeneous Equations}
+
+The homogeneous differential equation can be of the form
+
+\[
+\frac{dy}{dx}=\frac{ax+by+c}{a'x+b'y+c'}
+\]
+
+Here there might arise two different cases.
+
+\begin{enumerate}
+\item Here $\dfrac{a}{a'}=\dfrac{b}{b'}=\dfrac{1}{k}$. Therefore, we have,
+\[
+\frac{dy}{dx}=\frac{ax+by+c}{a'x+b'y+c'}=\frac{ax+by+c}{k(ax+by+c')}
+\]
+
+To solve this equation, we put $z=ax+by$. Therefore,
+\[
+a+b\frac{dy}{dx}=\frac{dz}{dx} \text{ or } \frac{dy}{dx}=\frac{1}{b}\left(\frac{dz}{dx}-a\right)
+\]
+
+Thus, the above differential equation becomes, 
+\[
+\frac{1}{b}\left(\frac{dz}{dx}-a\right)=\frac{z+c}{kz+c'} \implies \frac{dz}{dx}=\frac{(b+ak)z+bc+ac'}{kz+c'}
+\]
+
+which can be solved by the \textit{variable separable method}.
+
+\begin{example}
+Solve the differential equation $(2x+3y+1)\,dx-(4x+6y+1)\,dy$.
+\end{example}
+
+\begin{solution}
+Here the differential equation can be rewritten as $\dfrac{dy}{dx}=\dfrac{2x+3y+1}{2(2x+3y)+1}$.
+
+Putting $2x+3y=z$, we get $\dfrac{dy}{dx}=\dfrac{1}{3}(\dfrac{dz}{dx}-2)$. Therefore,
+\begin{align*}
+\frac{dy}{dx}=\frac{2x+3y+1}{2(2x+3y)+1} &\implies \frac{1}{3}(\frac{dz}{dx}-2)=\frac{z+1}{2z+1} \implies \frac{dz}{dx}=\frac{3(z+1)}{2z+1}+2=\frac{7z+5}{2z+1} \\
+&\implies \frac{2z+1}{7z+5}dz=dx \implies \frac{1}{7}\left(\frac{14z+10-3}{7z+5}\right)\,dz=dx \\
+&\implies \frac{2}{7}\,dz-\frac{3}{7(7z+5)}\,dz=dx
+\end{align*}
+On integration, we get,
+\[
+\frac{2}{7}z-\frac{3}{49}\ln |7z+5|=x+C
+\]
+Putting the value of $z=2x+3y$, we finally have,
+\[
+\frac{2}{7}(2x+3y)-\frac{3}{49}\ln |7(2x+3y)+5|=x+C
+\]
+which is the desired solution.
+\end{solution} 
+
+
+
+
+\item Here $\dfrac{a}{a'}\neq\dfrac{b}{b'}$. In such cases we assign $x=X+h$ and $y=Y+k$, where $h$ and $k$ are suitable constants. Then $dx=dX$, $dy=dY$ and $\dfrac{dy}{dx}=\dfrac{dY}{dX}$. Therefore, we have,
+
+\[
+\frac{dy}{dx}=\frac{ax+by+c}{a'x+b'y+c'} \implies \frac{dY}{dX}=\frac{aX+bY+ah+bk+c}{a'X+b'Y+a'h+b'k+c'}
+\]
+
+Now, we choose $h$ and $k$ such that $ah+bk+c=0$ and $a'h+b'k+c'=0$ and solve these pair of equations to get the value of  $h$ and $k$. 
+
+Therefore, the given equation becomes,
+\[
+\frac{dY}{dX}=\frac{aX+bY}{a'X+b'Y}
+\]
+which is a homogeneous equation and can be solved by putting $Y=vX$.
+
+\begin{example}
+Solve the differential equation $(x+2y+3)\,dx-(2x+y+3)\,dy$
+\end{example}
+
+\begin{solution}
+The given equation is $\dfrac{dy}{dx}=\dfrac{x+2y+3}{2x+y+3}$. Putting $x=X+h$ and $y=Y+k$, we get,
+\[
+\frac{dY}{dX}=\frac{X+2Y+h+2k+3}{2X+Y+2h+k+3}
+\]
+where the constants $h$ and $k$ are chosen in such a way that,
+\begin{align*}
+    h+2k+3&=0\\
+    2h+k+3&=0
+\end{align*}
+On solving these equations, we get, $h=-1$ and $k=-1$. Now the given equation becomes,
+\[
+\frac{dY}{dX}=\frac{X+2Y}{2X+Y}
+\]
+Putting $Y=vX$ in this equation, we have,
+\[
+v+X\frac{dv}{dX}=\frac{1+2v}{2+v} \implies \frac{2+v}{1-v^2}dv=\frac{dX}{X} \implies \frac{2}{1-v^2}dv+\frac{v}{1-v^2}dv=\frac{dX}{X}
+\]
+Integrating both the sides, we get,
+\begin{align*}
+    \ln(1-v^2)-\frac{1}{2}\ln(1-v^2)=\ln C_1X &\implies \ln (1+v^2)=CX^2 \implies 1+v^2=e^{CX^2} \\
+    &\implies 1+\frac{Y^2}{X^2}=e^{CX^2} \implies 1+\left(\frac{y-1}{x-1}\right)^2=e^{C(x-1)^2}
+\end{align*}
+is the desired solution. 
+\end{solution}
+
+\end{enumerate}
+
+\begin{exercise}
+Solve the following differential equations
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $(x-y)\,dy-(x+2y)\,dx=0$
+    \item $(x+2y)\,dx+(y-2x)\,dy=0$
+    \item $x^2y\,dx-(x^3+y^3)\,dy=0$
+    \item $(x^2-2y^2)\,dx+xy\,dy=0$
+    \item $x^2\dfrac{dy}{dx}-3xy-2y^2=0$
+    \item $\dfrac{dy}{dx}=\dfrac{y}{x}+\tan \dfrac{y}{x}$
+    \item $x\dfrac{dy}{dx}=y+2xe^{-\dfrac{y}{x}}$
+    \item $2xy\,dy-(y^2-x^2)\,dx=0$
+
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+\begin{exercise}
+Solve the following differential equations
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $(x+y+4)\,dx-(x+y-6)\,dy=0$
+    \item $(2x+y+1)\,dx+(4x+2y-1)\,dy=0$
+    \item $(2x-4y+5)\,dy+(x-2y+3)\,dx=0$
+    \item $(x+y)(dx-dy)=dx+dy$
+    \item $(x-y)\,dy=(x+y+1)\,dx$
+    \item $(x+y+4)\,dx-(x-y-6)\,dy=0$
+    \item $(y-x+1)\,dx-(y+x+5)\,dy=0$
+    \item $(3x+2y-5)\,dx+(2x+3y-5)\,dy=0$
+
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+\section{First Order Linear Equations}
+
+A differential equation of the form 
+
+\[
+\frac{dy}{dx}+P(x)y=Q(x)
+\]
+
+
+is said to be a \textit{first order linear differential equation}, where $P(x)$ and $Q(x)$ are functions of $x$. To solve this equation, we multiply the equation throughout by,
+
+\[
+F=e^{\int P(x)\,dx}
+\]
+
+
+where $F$ is called the \textit{Integrating factor}. Thus the given linear differential equation becomes,
+
+\begin{align*}
+    e^{\int P(x)\,dx}\frac{dy}{dx} + P(x)\,y\,e^{\int P(x)\,dx} &= Q(x)\,e^{\int P(x)\,dx} \\[6pt]
+    \implies \frac{d}{dx}\left(y\,e^{\int P(x)\,dx}\right) &= Q(x)\,e^{\int P(x)\,dx}
+\end{align*}
+Integrating both the sides, we get the desired solution as,
+
+\[
+ye^{\int P(x)\,dx}=\int (Q(x)e^{\int P(x)\,dx})dx
+\]
+
+\begin{example}
+Solve the following linear differential equation: $(1+x^2)\dfrac{dy}{dx}+2xy=x^3$.
+\end{example}
+
+\begin{solution}
+Given $(1+x^2)\dfrac{dy}{dx}+2xy=x^3 \implies \dfrac{dy}{dx}+\dfrac{2x}{(1+x^2)}y=\dfrac{x^3}{(1+x^2)}$. Here $P(x)=\dfrac{2x}{(1+x^2)}$. 
+
+So the integrating factor of the given linear equation is
+\[
+F=e^{\int\dfrac{2x}{(1+x^2)}dx}=e^{\ln(1+x^2)}=1+x^2
+\]
+Multiplying the equation by $(1+x^2)$, we get
+\begin{align*}
+    (1+x^2)\frac{dy}{dx}+2xy=x^3 &\implies \frac{d}{dx}\{(1+x^2)y\}=x^3 \\
+    &\implies (1+x^2)y=\displaystyle\int x^3\,dx=\frac{x^4}{4}+C
+\end{align*}
+is the required solution.
+
+\end{solution}
+
+\begin{example}
+Solve the following linear differential equation: $(1+y^2)\,dx+x\,dy=\tan^{-1}y\,dy$.    
+\end{example}
+
+\begin{solution}
+Given,
+\begin{align*}
+(1+y^2)\,dx+x\,dy=\tan^{-1}y\,dy &\implies (1+y^2)\,dx=(\tan^{-1}y-x)\,dy \implies \frac{dx}{dy}=\frac{\tan^{-1}y}{1+y^2}-\frac{x}{1+y^2} \\ 
+&\implies \frac{dx}{dy}+\frac{x}{1+y^2}=\frac{\tan^{-1}y}{1+y^2}
+\end{align*}
+which is a linear differential equation of first order. Here the integrating factor is $F=e^{\int\dfrac{dy}{1+y^2}}=e^{\tan^{-1}y}$. 
+
+Multiplying the equation throughout by $e^{\tan^{-1}y}$, we get,
+\[
+\frac{dx}{dy}e^{\tan^{-1}y}+\frac{x}{1+y^2}e^{\tan^{-1}y}=\frac{\tan^{-1}y}{1+y^2}e^{\tan^{-1}y} \implies \frac{d}{dy}(xe^{\tan^{-1}y})=\frac{\tan^{-1}y}{1+y^2} e^{\tan^{-1}y}
+\]
+Integrating both the sides, we have,
+\begin{align*}
+xe^{\tan^{-1}y}&=\int\frac{\tan^{-1}y}{1+y^2} e^{\tan^{-1}y}\,dy=\displaystyle\int te^t\,dt \qquad \text{ where $\tan^{-1}y=t$} \\
+&= e^t(t-1)+C=e^{\tan^{-1}y}(\tan^{-1}y-1)+C
+\end{align*}
+Hence the required solution is $x=\tan^{-1}y-1+Ce^{-\tan^{-1}y}$
+\end{solution}
+
+\subsection{Equations Reducible to Linear Form (Bernoulli's Equation)}
+There are differential equations which are not in linear form, but by suitable transformation, we can reduce such equations to linear form. Here we shall discuss only one such equation, which is known as the \textit{Bernoulli's equation}. It is of the form,
+\[
+\frac{dy}{dx}+P(x)y=Q(x)y^n,\quad n\neq-1
+\]
+
+Dividing both sides of the equation by $y^n$, we get,
+
+\[
+\frac{1}{y^n}\frac{dy}{dx}+\frac{1}{y^{n-1}}P(x)=Q(x)
+\]
+
+Multiplying this equation throughout by $(1-n)$, we have,
+
+\[
+(1-n)\frac{1}{y^n}\frac{dy}{dx}+(1-n)\frac{1}{y^{n-1}}P(x)=(1-n)Q(x)
+\]
+
+Putting $\dfrac{1}{y^{n-1}}=z$ $\Rightarrow (1-n)\dfrac{1}{y^n}\dfrac{dy}{dx}=\dfrac{dz}{dx}$ in the last equation, we get,
+
+\[
+\frac{dz}{dx}+(1-n)P(x)z=(1-n)Q(x)
+\]
+which is a linear equation in $x$ and $z$.
+
+\begin{example}
+Solve $\dfrac{dy}{dx}+\dfrac{y}{x}=xy^2$    
+\end{example}
+
+\begin{solution}
+The given equation is a Bernoulli's equation. Dividing this equation through by $y^2$, we get
+\[
+\frac{1}{y^2}\frac{dy}{dx}+\frac{1}{y}\frac{1}{x}=x
+\]
+Putting $\dfrac{1}{y}=z$ we get $-\dfrac{1}{y^2}\dfrac{dy}{dx}=\dfrac{dz}{dx}$. Substituting this into the previous equation, we have,
+\[
+-\frac{dz}{dx}+\frac{z}{x}=x \implies \frac{dz}{dx}-\frac{z}{x}=-x
+\]
+Here, the integrating factor is $F=e^{\int -\dfrac{1}{x}\,dx}=e^{-\ln x}=\dfrac{1}{x}$. Therefore, 
+\[
+\frac{1}{x}\frac{dz}{dx}-\frac{z}{x^2}=-1 \implies \frac{d}{dx}\left(\frac{z}{x}\right)=-1
+\]
+On integration, we get, 
+\[
+\frac{z}{x}=-x+C \text{ or } \frac{1}{xy}=C-x
+\]
+which is the desired solution.
+\end{solution}
+
+
+\begin{exercise}
+Solve the following differential equations
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $\dfrac{dy}{dx}+y=e^{-x}$
+    \item $(x^2-1)\dfrac{dy}{dx}+2xy=1$
+    \item $(1-x^2)\dfrac{dy}{dx}+2xy=x\sqrt{1-x^2}$
+    \item $x\ln x\dfrac{dy}{dx}+y=2\ln x$
+    \item $(1+x^2)\dfrac{dy}{dx}+2xy= \cos x$
+    \item $\dfrac{dy}{dx}+y\sec x=\tan x$
+    \item $(x+\tan y)\,dy=\sin 2y\,dx$
+    \item $(x+y+1)\,dy=dx$
+    \item $(x+2y^3)\,dy=y\,dx$
+    \item $\sin x\dfrac{dy}{dx}+3y=\cos x$
+    \item $(1+y^2)\,dx+(x-e^{-\tan^{-1}y})\,dy=0$
+
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+\begin{exercise}
+Solve the following differential equations
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $x\dfrac{dy}{dx}+y=xy^2$
+    \item $x\dfrac{dy}{dx}+y=x^4y^3$
+    \item $\dfrac{dy}{dx}+xy=x^3y^3$
+    \item $x\dfrac{dy}{dx}+y=y^2 ln x$
+    \item $(1+x^2)\dfrac{dy}{dx}=xy-y^2$
+    \item $\dfrac{dy}{dx}+\dfrac{y}{x-1}=x\sqrt{y}$
+    \item $\dfrac{dy}{dx}+\dfrac{y}{x}=x^2$, $y(1)=1$
+    \item $\dfrac{dy}{dx}+2y\tan x=\sin x$, $y(\dfrac{\pi}{3})=0$
+    \item $\dfrac{dy}{dx}+5y=3e^x$, $y(0)=1$
+    \item $\dfrac{dy}{dx}+\dfrac{y}{x}=\dfrac{\sin x}{x}$, $y(0)=0$
+
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+
+\end{document} 

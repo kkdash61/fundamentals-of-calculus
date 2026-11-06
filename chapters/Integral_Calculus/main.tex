@@ -1,0 +1,1418 @@
+\documentclass{book}
+\usepackage{graphicx} % Required for inserting images
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{amsthm}
+\usepackage[margin=1in]{geometry}
+\DeclareMathOperator{\cosec}{cosec}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem*{note}{Note}
+
+\newenvironment{solution}
+    {\begin{proof}[Solution]}
+    {\end{proof}}
+
+% \author{KISHORE KUMAR DASH}
+% \date{13, June 2026}
+
+\begin{document}
+\chapter{Indefinite Integrals}
+
+\section {Introduction}
+\vspace{0.2 cm}
+Indefinite integration is the reverse process of differentiation. For a decent definition, let us go through the following concept. If a function $f(x)$ is the derivative of another function $F(x)$, that is, $f(x)=F'(x)$ then $F(x)$ is called \textit{premitive or antiderivative} of $f(x)$. For example,
+
+if $f(x)=3x^2$, then $F(x)=x^3$ as $\dfrac{d}{dx}x^3=3x^2$, if $f(x)=\cos x$, then $F(x)=\sin x$ as $\dfrac{d}{dx}\sin x=\cos x$,if $f(x)=\dfrac{1}{1+x^2}$, then $F(x)=\tan^{-1} x$ as $\dfrac{d}{dx}\tan^{-1}x=\dfrac{1}{1+x^2}$.
+
+\begin{definition}
+Let $F$ be the antiderivative of $f$, i.e. $f(x)=F'(x)$. But for any constant $C$, we have, $\dfrac{d}{dx}(F(x)+C=f(x)=F'(x))$, it follows that $F(x)+C$ is the antiderivative of  $f(x)$.
+
+$F(x)+C$ is called the Indefinite Integral of $f(x)$ and it is written by $\displaystyle\int f(x)dx=F(x)+C$, $C$ is called the constant of integration. Thus, by definition, $\displaystyle\int f(x)dx =F(x)+C$ if and only if $F'(x)=f(x)$ $\forall x$.    
+\end{definition}
+
+
+\begin{example}
+Here are a few examples
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int3x^2 \, dx=x^3+C$.
+    \item $\displaystyle\int \cos x \, dx=\sin x+C$.
+    \item $\displaystyle\int \frac{1}{1+x^2} \, dx=\tan^{-1}x+C$.
+\end{enumerate}
+\end{example}
+
+
+\subsection{Standard Integration Formulae}
+
+Since indefinite integration is the reverse process of differentiation, we can formulate the following indefinite integration formulae from the knowledge of differentiation as follows:
+
+\begin{enumerate}
+    \item $\dfrac{d}{dx}\left(\dfrac{x^{n+1}}{n+1}\right)=x^n \Longrightarrow  \displaystyle\int x^n \, dx=\frac{x^{n+1}}{n+1}+C$, for $n\neq -1$.    
+    \item $\dfrac{d}{dx}\ln x=\dfrac{1}{x} \Longrightarrow \displaystyle\int \frac{1}{x} \, dx=\ln |x|+C$.
+    \item $\dfrac{d}{dx}\sin x=\cos x \Longrightarrow \displaystyle\int \cos x \, dx=\sin x+C$.
+    \item $\dfrac{d}{dx}\cos x=-\sin x \Longrightarrow \displaystyle\int \sin x \, dx=-\cos x+C$.
+    \item $\dfrac{d}{dx}\tan x=\sec^2 x \Longrightarrow \displaystyle\int \sec^2 x \, dx=\tan x+C$.
+    \item $\dfrac{d}{dx}\cot x=-\cosec^2 x \Longrightarrow \displaystyle\int \cosec^2 x \, dx=-\cot x+C$.
+    \item $\dfrac{d}{dx}\sec x=\sec x.\tan x \Longrightarrow \displaystyle\int \sec x.\tan x \, dx=\sec x+C$.
+    \item $\dfrac{d}{dx}\cosec x=-\cosec x\cot x \Longrightarrow \displaystyle\int \cosec x.\cot x \, dx=-\cosec x+C$.
+    \item $\dfrac{d}{dx}a^x=a^x\ln a\Longrightarrow \displaystyle\int a^x \, dx=\frac{a^x}{\ln a}+C$.
+    \item $\dfrac{d}{dx}e^x=e^x\Longrightarrow \displaystyle\int e^x \, dx=e^x+C$.
+    \item $\dfrac{d}{dx}\sin^{-1}x=\dfrac{1}{\sqrt{1-x^2}}\Longrightarrow \displaystyle\int \frac{1}{\sqrt{1-x^2}} \, dx=\sin^{-1}x+C$ or $-\cos^{-1}x+C$.
+    \item $\dfrac{d}{dx}\tan^{-1}x=\dfrac{1}{1+x^2}\Longrightarrow \displaystyle\int \frac{1}{1+x^2} \, dx=\tan^{-1}x+C$  or $-\cot^{-1}x+C$.
+    \item $\dfrac{d}{dx}\sec^{-1}x=\dfrac{1}{|x|\sqrt{x^2}-1}\Longrightarrow \displaystyle\int \frac{1}{|x|\sqrt{x^2}-1} \, dx=\sec^{-1}x+C$ or $-\cosec^{-1}x+C$.
+\end{enumerate}
+
+\subsection{Algebra of Indefinite Integrals}
+
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int [f(x)\pm g(x)] \, dx=\int f(x) \, dx\pm \int g(x) \, dx$ \text{ and }
+    \item $\displaystyle\int kf(x) \, dx=k\int f(x)\, dx$ where $k$ is any arbitrary constant.
+\end{enumerate}
+
+Thus using both the above equations we can formulate,
+
+\[
+\int [k_1f_1(x)+k_2f_2(x)+...+k_nf_n(x)] \, dx=k_1\int f_1(x) \, dx+k_2\int f_2(x)+...+k_n\int f_n(x) \, dx
+\]
+
+\begin{example}
+Evaluate the followings:
+\begin{multicols}{2}
+
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int \left(6x^2+7x+\frac{2}{\sqrt{x}}-\frac{3}{x}+5\right) \, dx$
+    \item $\displaystyle\int\left(5\cos x+3e^x+\frac{2}{\sqrt{1-x^2}}\right) \, dx$
+    \item $\displaystyle\int \frac{x^2}{1+x^2} \, dx$
+    \item $\displaystyle\int3\tan^2 x \, dx$
+    \item $\displaystyle\int \sqrt{1+\sin 2x} \, dx$
+    \item $\displaystyle\int\frac{1-\cos 2x}{1+\cos 2x} \, dx$
+    \item $\displaystyle\int a^{x+2} \, dx$
+    \item $\displaystyle\int \frac{(a^x+b^x)^2}{a^xb^x} \, dx$
+    \item[] \phantom{x}
+\end{enumerate}
+\end{multicols}    
+\end{example}
+
+
+\begin{solution}
+\begin{enumerate}[label=(\roman*)]
+\item Here we have,
+\begin{align*}
+    \int (6x^2+7x+\frac{2}{\sqrt{x}}-\frac{3}{x}+5) \, dx &= \int6x^2 \, dx+\int 7x \, dx+\int\frac{2}{\sqrt{x}} \, dx-\int\frac{3}{x} \, dx+\int5 \, dx \\
+    &= 6\int x^2 \, dx+7\int x \, dx+2\int\frac{1}{\sqrt{x}} \, dx-3\int\frac{1}{x} \, dx+5\int  \, dx \\ 
+    &= 6\frac{x^3}{3}+7\frac{x^2}{2}+2\frac{x^{-\frac{1}{2}+1}}{-\frac{1}{2}+1}-3\ln x+5x+C \\ 
+    &= 2x^3+\frac{7}{2}x^2+4\sqrt{x}-3\ln x+5x+C
+\end{align*}
+
+\item
+\begin{align*}
+    \int(5\cos x+3e^x+\frac{2}{\sqrt{1-x^2}}) \, dx &= \int5\cos x \, dx+\int 3e^x \, dx+\int \frac{2}{\sqrt{1-x^2}} \, dx \\ 
+    &= 5\int \cos x \, dx+3\int e^x \, dx+2\int \frac{1}{\sqrt{1-x^2}} \, dx \\ 
+    &= 5\sin x+3e^x+2\sin^{-1}x+C
+\end{align*}
+
+\item 
+\begin{align*}
+\int \frac{x^2}{1+x^2} \, dx &= \int \frac{(x^2+1)-1}{1+x^2} \, dx = \int(\frac{x^2+1}{1+x^2}-\frac{1}{1+x^2}) \, dx = \int\frac{x^2+1}{1+x^2} \, dx \\
+& -\int \frac{1}{1+x^2} \, dx = \int dx-\int \frac{1}{1+x^2} \, dx = x-\tan^{-1}x+C
+\end{align*}
+
+\item 
+\[
+\int3\tan^2 x \, dx = 3\int \tan^2 x \, dx = 3\int (\sec^2 x-1) \, dx = 3\int \sec^2 x \, dx-3\int dx = 3\tan x-3x+C
+\]
+
+\item 
+\begin{align*}
+\int \sqrt{1+\sin 2x} \, dx &= \int \sqrt{\sin^2 x+\cos^2 x+2\sin x \cos x} \, dx = \int \sqrt{(\sin x+\cos x)^2} \, dx \\ 
+&= \int {(\sin x+\cos x)} \, dx = \int \sin x \, dx+\int \cos x \, dx = -\cos x+\sin x+C
+\end{align*}
+
+\item 
+\begin{align*}
+\int\frac{1-\cos 2x}{1+\cos 2x} \, dx &= \int\frac{1-\cos^2x+\sin^2x}{1+\cos^2x-\sin^2x} \, dx = \int\frac{2\sin^2x}{2\cos^2x} \, dx = \int \tan^2x \, dx \\
+&= \int (\sec^2x-1) \, dx = \tan x-x+C.
+\end{align*}
+
+\item 
+\[
+\int a^{x+2} \, dx = \int a^xa^2 \, dx = a^2\int a^x \, dx = a^2\frac{a^x}{\ln a}+C=\frac{a^{x+2}}{\ln a}+C
+\]
+
+\item 
+\begin{align*}
+\int \frac{(a^x+b^x)^2}{a^xb^x} \, dx &= \int \frac{(a^x)^2+(b^x)^2+2a^xb^x}{a^xb^x} \, dx = \int\left[\frac{(a^x)^2}{a^xb^x}+\frac{(b^x)^2}{a^xb^x}+\frac{2a^xb^x}{a^xb^x}\right] \, dx \\
+&= \int \left[\frac{a^x}{b^x}+\frac{b^x}{a^x}+2\right] \, dx = \int \left\{\frac{a}{b}\right\}^x \, dx+\int \left\{\frac{b}{a}\right\}^x \, dx+\int 2\,dx \\
+&= \frac{\frac{a^x}{b^x}}{\ln(\frac{a}{b})}+\frac{\frac{b^x}{a^x}}{\ln(\frac{b}{a})}+2x+C = \frac{\frac{a^x}{b^x}}{\ln a - \ln b}+\frac{\frac{b^x}{a^x}}{\ln b - \ln a}+2x+C \\
+&= \frac{\frac{a^x}{b^x}-\frac{b^x}{a^x}}{\ln a - \ln b} + 2x + C
+\end{align*}
+
+
+
+\end{enumerate}
+\end{solution}
+
+\begin{exercise}
+Evaluate the following integrals,
+\begin{multicols}{3}
+\begin{enumerate}
+    \item $\displaystyle\int \frac{dx}{\sqrt{x}}$
+    \item $\displaystyle\int\frac{1+x}{x} \, dx$
+    \item $\displaystyle\int(3-x)(3+x) \, dx$
+    \item $\displaystyle\int(x-\sqrt{x}) \, dx$
+    \item $\displaystyle\int(x+\frac{1}{x^2}) \, dx$
+    \item $\displaystyle\int \frac{x^4}{1+x^2} \, dx$
+    \item $\displaystyle\int\frac{x^4+x^3+x^2+x+2}{x^2+1} \, dx$
+    \item $\displaystyle\int e^{x+1} \, dx$
+    \item $\displaystyle\int\frac{e^{2x}+e^x}{e^x} \, dx$
+    \item $\displaystyle\int\frac{2^x+3^x}{5^x} \, dx$
+    \item $\displaystyle\int\frac{\sin x}{\cos^2 x} \, dx$
+    \item $\displaystyle\int\frac{1-\cos^2 x}{1+\cos x} \, dx$
+    \item $\displaystyle\int\frac{\sin^2 x}{1-\cos x} \, dx$
+    \item $\displaystyle\int\frac{\cos 2x}{\cos x+\sin x} \, dx$
+    \item $\displaystyle\int (\sec^2x-\cosec^2x) \, dx$
+    \item $\displaystyle\int (\tan x+\cot x)^2 \, dx$
+    \item $\displaystyle\int\frac{5+3\sin x}{\cos^2x} \, dx$
+    \item $\displaystyle\int\frac{\cos 3x\cos 2x+\sin 3x\sin2x}{1-\cos^2x} \, dx$
+    \item $\displaystyle\int\frac{dx}{1+\sin x}$
+    \item $\displaystyle\int\frac{\sin x}{1+\sin x} \, dx$
+    \item $\displaystyle\int\frac{\sec x}{\sec x+\tan x} \, dx$
+    \item $\displaystyle\int (\tan^2x+\frac{1}{\sqrt{1-x^2}}) \, dx$
+    \item $\displaystyle\int (\frac{1}{\sqrt{1-x^2}}-\frac{1}{1+x^2}) \, dx$
+    \item $\displaystyle\int(\sqrt{1-x^2}+\frac{x^2}{\sqrt{1-x^2}}) \, dx$
+\end{enumerate} 
+\end{multicols}
+
+\end{exercise}
+
+\section{Integration by Method of Substitution}
+
+Integrals of certain functions can not be obtained directly if they are not in one of the standard form as given in the last section, but they may be reduced to standard forms by proper substitution. If $g(x)$ is a continuously differentiable function, then to evaluate integrals of the form
+\[
+\displaystyle\int f(g(x))g'(x)dx
+\]
+we substitute $g(x)=u$ and $g'(x)dx=du$. These substitutions reduce the above integral to $\displaystyle\int f(u) \, du$. After evaluating this integral we substitute back the value of $u$.
+\newpage
+\begin{example}
+Evaluate the following integrals, where $a$ and $b$ are arbitrary constants:
+\begin{multicols}{3}
+
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int (ax+b)^n \, dx$, for $n\neq -1$
+    \item $\displaystyle\int \frac{dx}{ax+b}$
+    \item $\displaystyle\int\cos (ax+b) \, dx$
+    \item $\displaystyle\int e^{ax+b} \, dx$
+    \item $\displaystyle\int\frac{dx}{\sqrt{1-(ax+b)^2}}$
+    \item $\displaystyle\int\cot x \, dx$
+    \item $\displaystyle\int\tan x \, dx$
+    \item $\displaystyle\int\sec x \, dx$
+    \item $\displaystyle\int \sin^3 x\cos x \, dx$
+    \item $\displaystyle\int\frac{\cos^3x}{\sin^4x}\,dx$
+    \item $\displaystyle\int xe^{x^2} \, dx$
+    \item $\displaystyle\int \frac{(\tan^{-1}x)^2}{1+x^2} \, dx$
+    \item $\displaystyle\int\frac{(\ln x)^2}{x} \, dx$
+    \item $\displaystyle\int\frac{dx}{x^2-a^2}$
+\end{enumerate}
+\end{multicols}    
+\end{example}
+
+\begin{solution}
+Let us put $ax+b=u$ $\implies a \, dx=du$.
+\begin{enumerate}[label=(\roman*)]
+\item $\displaystyle\int (ax+b)^n \, dx$= $\frac{1}{a}\displaystyle\int (ax+b)^na \, dx$= $\dfrac{1}{a}\displaystyle\int u^n \, du$= $\dfrac{1}{a}\dfrac{u^{n+1}}{n+1}+C$= $\dfrac{1}{a}\dfrac{(ax+b)^{n+1}}{n+1}+C$.
+
+\item $\displaystyle\int \frac{dx}{ax+b} = \frac{1}{a}\displaystyle\int \frac{a}{ax+b} \, dx=\frac{1}{a}\displaystyle\int \frac{du}{u} = \frac{1}{a}\ln |u|+C = \frac{1}{a}\ln |ax+b|+C$.
+
+\item $\displaystyle\int\cos (ax+b) \, dx = \frac{1}{a}\displaystyle\int\cos (ax+b)a \, dx = \frac{1}{a}\displaystyle\int\cos u \, du =\frac{1}{a}\sin u+C = \frac{1}{a}\sin (ax+b)+C$.
+
+
+
+ 
+\begin{note}
+Following the last example, we can get,
+\begin{enumerate}
+\item  $\displaystyle\int \sin(ax+b) \, dx=-\frac{1}{a}\cos(ax+b)+C$
+
+\item $\displaystyle\int \sec^2(ax+b) \, dx=\frac{1}{a}\tan(ax+b)+C$
+
+\item $\displaystyle\int \sec(ax+b)\tan(ax+b) \, dx=\frac{1}{a}\sec(ax+b)+C$
+
+\item $\displaystyle\int\cosec^2 (ax+b) \, dx=-\frac{1}{a}\cot(ax+b)+C$
+
+\item $\displaystyle\int \cosec (ax+b)\cot(ax+b) \, dx=-\frac{1}{a}\cosec(ax+b)+C$
+\end{enumerate}
+\end{note}
+
+
+\item $\displaystyle\int e^{ax+b} \, dx = \frac{1}{a}\displaystyle\int e^{ax+b}a \, dx = \frac{1}{a}\displaystyle\int e^u \, du =\frac{1}{a}e^{ax+b}+C$. Similarly, $\displaystyle\int a^{ax+b} \, dx=\frac{1}{a}\frac{a^{ax+b}}{\ln a}+C$.
+
+\item $\displaystyle\int\frac{dx}{\sqrt{1-(ax+b)^2}} = \frac{1}{a}\displaystyle\int\frac{a}{\sqrt{1-(ax+b)^2}} \, dx = \frac{1}{a}\displaystyle\int\frac{du}{\sqrt{1-u^2}} = \frac{1}{a}\sin^{-1}u+C = \frac{1}{a}\sin^{-1}(ax+b)+C$.
+
+Similarly, we can get, $\displaystyle\int\frac{dx}{1+(ax+b)^2}=\frac{1}{a}\tan^{-1}(ax+b)+C$.
+
+\item To evaluate $\displaystyle\int\cot x \, dx=\displaystyle\int\frac{\cos x}{\sin x} \, dx$, let $\sin x=t \Rightarrow \cos x \, dx=dt$. Thus,
+
+\[
+\int\cot x \, dx = \int\frac{\cos x}{\sin x} \, dx=\int\frac{dt}{t} = \ln |t|+C=\ln |\sin x|+C
+\]
+
+\item To evaluate $\displaystyle\int\tan x \, dx=\displaystyle\int\frac{\sec x\tan x}{\sec x} \, dx$, let $\sec x=t \Rightarrow \sec x\tan x \, dx=dt$. Thus,
+
+\[
+\int\tan x \, dx = \int\frac{\sec x\tan x}{\sec x} \, dx=\int\frac{dt}{t} = \ln |t|+C=\ln |\sec x|+C.
+\]
+
+\item To evaluate $\displaystyle\int\sec x \, dx=\displaystyle\int\frac{\sec x(\sec x+\tan x)}{\sec x+\tan x} \, dx$, let $\sec x+\tan x=t \Rightarrow (\sec x\tan x+\sec^2x) \, dx=dt$. Thus,
+
+\[
+\int\sec x \, dx = \int\frac{\sec^2 x+\sec x\tan x}{\sec x+\tan x} \, dx=\int\frac{dt}{t} = \ln |t|+C=\ln |\sec x+\tan x|+C.
+\]
+Similarly, we can get, $\displaystyle\int\cosec x \, dx=-\ln |\cosec x+\cot x|+C$.
+
+\item Now, to find $\displaystyle\int\sin^3 x\cos x \, dx$, let $\sin x=t \Rightarrow \cos x \, dx=dt$. Thus,
+
+\begin{align*}
+\int\sin^3 x\cos x  \, dx &=\int t^3 \, dt= \frac{t^4}{4}+C=\frac{\sin^4 x}{4}+C.    
+\end{align*}
+
+
+\item To evaluate $\displaystyle\int\frac{\cos^3x}{\sin^4x}\,dx$, let us put $\sin x=t$, so $\cos x\,dx=dt$. Hence,
+$\displaystyle\int\frac{\cos^3x}{\sin^4x}\,dx=\int\frac{\cos^2x\cos x}{\sin^4x}\,dx$= $\displaystyle\int\frac{1-\sin^2 x}{\sin^4x}\,\cos x\,dx$
+=-$\displaystyle\int \frac{1-t^2}{t^4}\,dt$=$\int t^{-4} \,dt-\int t^{-2}\,dt$
+=$-\dfrac{1}{3t^3}+\dfrac{1}{t}+C$
+
+=$-\dfrac{1}{3\sin^3x}+\dfrac{1}{\sin x}+C$=$\dfrac{1}{\sin x}-\dfrac{1}{3\sin^3x}+C$.
+
+
+\item To evaluate $\displaystyle\int xe^{x^2} \, dx$, let $x^2=t \Rightarrow 2x \, dx=dt$. Thus,
+
+\[
+\int xe^{x^2} \, dx =\frac{1}{2}\int 2xe^{x^2}dx = \frac{1}{2}\int e^tdt= \frac{1}{2}e^t+C=\frac{1}{2}e^{x^2}+C.
+\]
+
+\item To evaluate $\displaystyle\int \frac{(\tan^{-1}x)^2}{1+x^2} \, dx$, let $\tan^{-1}x=t \Rightarrow \dfrac{1}{1+x^2} \, dx=dt$. Thus,
+
+\[
+\int \frac{(\tan^{-1}x)^2}{1+x^2} \, dx=\int t^2\,dt = \frac{t^3}{3}+C=\frac{1}{3}(\tan^{-1}x)^3+C.
+\]
+
+\item To evaluate $\displaystyle\int\frac{(\ln x)^2}{x} \, dx$, let $\ln x=t \Rightarrow \dfrac{dx}{x} \,=dt$. Thus,
+
+\[
+\int \frac{(\ln x)^2}{x} \, dx =\int t^2dt= \frac{t^3}{3}+C=\displaystyle\frac{(\ln x)^3}{3}+C.
+\]
+
+\item $\displaystyle\int\frac{dx}{x^2-a^2} =\frac{1}{2a}\displaystyle\int \left(\frac{1}{x-a}-\frac{1}{x+a}\right) \,dx=\frac{1}{2a}(\ln|x-a|-\ln|x+a|)+C=\frac{1}{2a}\ln|
+\frac{x-a}{x+a}|+C$.
+
+\end{enumerate}
+\end{solution}
+
+\subsection{Integration of some Trignometric Functions}
+
+Now we shall evaluate the integration using the following trigonometric formulae. We know that
+
+\begin{align*}
+    \sin (x+y)&=\sin x\cos y+\cos x\sin y \\ 
+    \sin (x-y)&=\sin x\cos y-\cos x\sin y
+\end{align*}
+Adding the two, we get
+\[
+\sin x\cos y=\frac{1}{2}\left\{\sin (x+y)+\sin (x-y)\right\}
+\]
+Similarly, we also know that, 
+\begin{align*}
+    \cos (x+y)&=\cos x\cos y-\sin x\sin y \\
+    \cos (x-y)&=\cos x\cos y+\sin x\sin y
+\end{align*}
+On addition and substraction, the above two formulae give,
+\begin{align*}
+    \cos x\cos y &= \frac{1}{2}\left\{\cos (x+y)+\cos(x-y)\right\} \\ 
+    \sin x\sin y &= \frac{1}{2}\left\{\cos (x-y)-\cos(x+y)\right\}
+\end{align*}
+Following similar lines, we can also obtain the following,
+\begin{align*}
+    \sin x+\sin y &= 2\sin\left(\frac{x+y}{2}\right)\cos\left(\frac{x-y}{2}\right) \\
+    \cos x+\cos y &= 2\cos\left(\frac{x+y}{2}\right)\cos\left(\frac{x-y}{2}\right)
+\end{align*}
+
+Also we know that,
+\[
+\cos 2x=\cos^2x-\sin^2x=1-2\sin^2x=2\cos^2x-1
+\]
+Therefore,
+\[
+\sin^2x=\frac{1}{2}(1-\cos2x) \text{ and } \cos^2x=\frac{1}{2}(1+\cos2x)
+\]
+Similarly, using the following expressions,
+\[
+\cos3x=4\cos^3x-3\cos x; \qquad \sin 3x=3\sin x-4\sin^3x
+\]
+
+we can show that, 
+
+\[
+\cos^3x=\frac{1}{4}(3\cos x+\cos 3x) \text{ and } \sin ^3x=\frac{1}{4}(3\sin x-\sin 3x)
+\]
+
+
+Using the formulae of $\sin^2x$ and $\cos^2x$, we can formulate the following expressions,
+\begin{align*}
+    \sin^4x &= \frac{1}{4}(2\sin^2x)^2=\frac{1}{4}(1-\cos 2x)^2 = \frac{1}{4}(1-2\cos 2x+\cos^22x) \\
+    &= \frac{1}{4}\left[1-2\cos 2x+\left(\frac{1+\cos 4x}{2}\right)\right] = \frac{1}{8}(3-4\cos 2x+\cos 4x)
+\end{align*}
+
+and 
+
+\begin{align*}
+    \cos^4x &= \frac{1}{4}(2\cos^2x)^2=\frac{1}{4}(1+\cos 2x)^2 = \frac{1}{4}(1+2\cos 2x+\cos^22x) \\
+    &= \frac{1}{4}\left[1+2\cos 2x+\left\{\frac{1+\cos 4x}{2}\right\}\right] = \frac{1}{8}(3+4\cos 2x+\cos 4x)
+\end{align*}
+
+\begin{example}
+Evaluate the following integrals:
+\begin{multicols}{3}
+
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int \sin 3x\cos 2x \, dx$,
+    \item $\displaystyle\int \sin 3x\sin 2x \,dx$
+    \item $\int\cos 3x\cos 2x \, dx$
+    \item $\displaystyle\int \frac{\sin 4x+\sin 6x}{\cos 4x+\cos 6x} \, dx$
+    \item $\displaystyle\int\sin^2x\, dx$
+    \item $\displaystyle\int\cos^3x \, dx$
+    \item $\displaystyle\int \sin^2 x\cos^2 x \, dx$
+    \item $\displaystyle\int\sin^4 x\, dx$
+    \item $\displaystyle\int \tan^4x \, dx$
+    \item $\displaystyle\int \tan^5x \, dx$
+   
+ 
+\end{enumerate}
+\end{multicols}    
+\end{example}
+
+\begin{solution}
+\begin{enumerate}[label=(\roman*)]
+\item 
+\begin{align*}
+    \displaystyle\int \sin 3x\cos 2x \, dx &= \frac{1}{2}\displaystyle\int \left[\sin(3x+2x)+\sin(3x-2x)\right] \, dx = \frac{1}{2}\displaystyle\int\sin 5x \,dx+\frac{1}{2}\int\sin x \, dx \\
+    &= \frac{1}{2}\left(-\frac{\cos 5x}{5}-\cos x\right)+C = -\frac{1}{2}\left(\frac{\cos 5x}{5}+\cos x\right)+C
+\end{align*}
+
+\item 
+\begin{align*}
+    \displaystyle\int \sin 3x\sin 2x \, dx  &= \frac{1}{2}\displaystyle\int [\cos(3x-2x)-\cos (3x+2x)] \, dx = \frac{1}{2}\displaystyle\int (\cos x-\cos 5x)\, dx \\ 
+    &= \frac{1}{2} \left(\sin x-\frac{\sin 5x}{5}\right)+C =\frac{1}{10} (5\sin x-\sin 5x)+C
+\end{align*}
+
+\item 
+\begin{align*}
+    \displaystyle\int \cos 3x\cos 2x \, dx  &= \frac{1}{2}\displaystyle\int [\cos(3x+2x)+\cos (3x-2x)] \, dx=\frac{1}{2}\displaystyle\int (\cos 5x+\cos x)\, dx \\
+    &= \frac{1}{2} (\frac{\sin 5x}{5}+\sin x)+C =\frac{1}{10} (\sin 5x+5\sin x)+C
+\end{align*}
+
+\item 
+\begin{align*}
+    \displaystyle\int \frac{\sin 4x+\sin 6x}{\cos 4x+\cos 6x} \, dx &= \displaystyle\int \frac{2(\sin\frac{4x+6x}{2}\cos\frac{4x-6x}{2})}{2(\cos\frac{4x+6x}{2}\cos\frac{4x-6x}{2})} \, dx = \int \frac{(\sin 5x\cos x)}{(\cos 5x\cos x)}\, dx = \int \tan 5x\,dx \\
+    &= \frac{1}{5} \ln|\sec 5x|+C
+\end{align*}
+
+\item 
+\begin{align*}
+\int\sin^2x\, dx = \int\frac{1}{2}(1-\cos 2x)\, dx = \frac {1}{2}\int dx-\frac{1}{2}\int \cos 2x\,dx = \frac{x}{2}-\frac{\sin 2x}{4}+C = \frac{1}{4}(2x-\sin 2x)+C
+\end{align*}
+
+\item
+\begin{align*}
+    \int\cos^3x \, dx &= \int\frac{1}{4}(3\cos x+\cos 3x) \, dx = \frac{1}{4}\int 3\cos x\,dx+\frac{1}{4}\int \cos 3x\,dx \\
+ &= \frac{1}{4}\left(3\sin x+\frac{\sin 3x}{3}\right)+C=\frac{1}{12}(9\sin x+\sin 3x)+C
+\end{align*}
+
+
+\item For evaluating $\displaystyle\int\sin^2 x\cos^2 x \, dx$, we have, 
+
+\begin{align*}
+\int\sin^2 x\cos^2 x  \, dx &=\frac{1}{4}\int(2\sin x\cos x)^2  \, dx=\frac{1}{8}\int 2\sin^2 2x  \, dx =\frac{1}{8}\int(1-\cos 4x)\  \, dx \\
+&=\frac{1}{8}\left(x-\frac{\sin 4x}{4}\right)+C=\frac{1}{32}(4x-\sin 4x)+C    
+\end{align*}
+
+
+\item To evaluate $\displaystyle\int\sin^4 x \,dx$ we have,
+
+\begin{align*}
+    \int\sin^4 x \,dx &= \frac{1}{4}\int(1-\cos 2x)^2 \, dx = \frac{1}{4}\int (1-2\cos 2x+\cos^22x) \, dx \\ 
+    &= \frac{1}{4}\int\left\{1-2\cos 2x+\left(\frac{1+\cos 4x}{2}\right)\right\} \, dx = \frac{1}{8}\int(3-4\cos 2x+\cos 4x)\  \, dx \\ 
+    &= \frac{1}{8}\left(3x-4.\frac{\sin2x}{2}+\frac{\sin4x}{4}\right)+C = \frac{1}{32}(12x-8\sin 2x+\sin4x)+C
+\end{align*} 
+
+\item Substitute $t = \tan x \Rightarrow dt = \sec^2 x \, dx$. We have,
+\begin{align*}
+    \int \tan^4x \, dx &= \int \tan^2x\tan^2x \, dx = \int \tan^2x(\sec^2 x-1)\, dx = \int (\tan^2x\sec^2 x-\tan^2 x)\, dx \\
+    &= \int (\tan^2x\sec^2 x-\sec^2 x+1)\, dx = \int \tan^2x\sec^2 x\,dx-\int \sec^2 x\,dx+\int dx \\
+    &= \int t^2\,dt-\tan x\,dx+x = \frac{t^3}{3}-\tan x\,dx+x+C \\
+    &= \frac{\tan^3x}{3}-\tan x\,dx+x+C
+\end{align*}
+
+\item Substitutue $\sec x=t\Rightarrow \sec x\tan x \, dx=dt$. We have,
+\begin{align*}
+    \int \tan^5x \, dx &= \int \tan^4x\tan x \, dx= \int (\sec^2 x-1)^2\tan x\,dx = \int (\sec^4 x-2\sec^2x+1)\tan x\,dx \\ 
+    &= \int \sec^4 x\tan x\,dx-2\int \sec^2x\tan x\,dx+\int\tan x\,dx \\
+    &= \int \sec^3 x(\sec x\tan x\,dx)-2\int \sec x(\sec x\tan x\,dx)+\int\ \frac{\sec x\tan x}{\sec x}\,dx \\ 
+    &= \int t^3\,dt-2\int t\,dt+\int\frac{dt}{t} \\
+    &= \frac{t^4}{4}-t^2+\ln|t|+C = \frac{\sec^4 x}{4}-\sec^2 x+\ln|\sec x|+C
+\end{align*}
+
+\end{enumerate}
+\end{solution}
+
+\begin{exercise}
+Evaluate the following integrals
+\begin{multicols}{3}
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int \sin 5x\cos 2x\,dx$
+    \item $\displaystyle\int\cos 5x\cos 2x \, dx$
+    \item $\displaystyle\int\sin 5x\sin 2x\, dx$
+    \item $\displaystyle\int \sin\frac{3x}{4}\cos \frac{x}{2} \, dx$
+    \item $\displaystyle\int \sin \frac{5x}{2}\sin \frac{x}{2}\, dx$
+    \item $\displaystyle\int\sin \frac{x}{2}\sin \frac{x}{3}\cos \frac{x}{4}\, dx$
+
+\end{enumerate} 
+\end{multicols}  
+\end{exercise}
+
+\begin{exercise}
+Evaluate the following integrals
+\begin{multicols}{3}
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int \cos^2 x \, dx$
+    \item $\displaystyle\int\sin^3 x \, dx$
+    \item $\displaystyle\int\cos^7 x\, dx$
+    \item $\displaystyle\int\sin^6 x\, dx$
+    \item $\displaystyle\int\cos^5 x\sin^3 x\, dx$
+    \item $\displaystyle\int \sin^2 (2x+5)\,dx$
+    \item $\displaystyle\int \sin^3 (2x+3)\,dx$
+    \item $\displaystyle\int\frac{\sin^3 x}{\cos^6 x}\, dx$
+    \item $\displaystyle\int\ cosec ^4 x\cot^5 x\, dx$
+    \item $\displaystyle\int \sec^3x\tan^4 x \, dx$
+    \item $\displaystyle\int \sin^4 x\cos^4 x\, dx$
+    \item $\displaystyle\int\sin^3 x\cos^4 x\, dx$
+    \item $\displaystyle\int\sin^3 x\cos^3 x\, dx$
+    \item $\displaystyle\int\tan^3 x\,dx$
+    \item $\displaystyle\int\cot^4 x\, dx$
+    \item $\displaystyle\int\tan^3 x\sec^3x\, dx$
+    \item $\displaystyle\int \tan^5 x\, dx$
+    \item $\displaystyle\int \cot^6 x\, dx$
+
+\end{enumerate} 
+\end{multicols}    
+\end{exercise} 
+\newpage
+\subsection{Integration by Trignometric Substitution}
+
+The following simple trigonometric formulae can be used to simplify some forms of functions in the integrand with trigonometric substitutions, 
+
+\begin{align*}
+    1-\sin^2\alpha &= \cos^2\alpha \text{ (or } 1-\cos^2\alpha =\sin^2\alpha) \\
+    1+\tan^2\alpha &= \sec^2\alpha \text{ (or } 1+\cot^2\alpha=\cosec^2\alpha) \\ 
+    \sec^2\alpha-1 &= \tan^2\alpha \text{ (or } \cosec^2\alpha-1=\cot^2\alpha)
+\end{align*}
+
+The irrational forms $\sqrt{a^2-x^2}$, $\sqrt{a^2+x^2}$, $\sqrt{x^2-a^2}$ can be simplified to radical free functions by putting $x=a\sin\alpha$ (or $x=a\cos\alpha$), $x=a\tan\alpha$ (or $x=a\cot\alpha$), $x=a\sec\alpha$ (or $x=a\cosec\alpha$) respectively.
+
+\begin{example}\label{ex:trignometric_substitution}
+Evaluate the following integrals:
+\begin{multicols}{3}
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int \frac{dx}{\sqrt{a^2-x^2}}$
+    \item $\displaystyle\int \frac{dx}{{a^2+x^2}}$
+    \item $\displaystyle\int \frac{dx}{|x|\sqrt{x^2-a^2}}$
+    \item $\displaystyle\int \frac{dx}{\sqrt{a^2+x^2}}$
+    \item $\displaystyle\int \frac{dx}{\sqrt{x^2-a^2}}$
+    \item $\displaystyle\int\frac{dx}{x^2-a^2}$
+\end{enumerate}
+\end{multicols}    
+\end{example}
+\begin{solution}
+\begin{enumerate}[label=(\roman*)]
+\item Let $x=a \sin t \Rightarrow dx=a\cos t\,dt$ and $t=\sin^{-1}\dfrac{x}{a}$. Therefore,
+\[
+\int\frac{dx}{\sqrt{a^2-x^2}}=\int\frac{a\ cost\,dt}{\sqrt{a^2-a^2\sin^2t}}=\int\frac{a\ cost\,dt}{{a\ cost}}=\int dt=t+C=\sin^{-1}\frac{x}{a}+C
+\]
+
+In place of taking $x=a \sin t$, we may take $x=a \cos t$ and solve it accordingly.
+
+\item Let $x=a \tan \theta \Rightarrow dx=a\sec^2 \theta\,d\theta$ and $\theta=\tan^{-1}\dfrac{x}{a}$. Therefore,
+
+\[
+\int\frac{dx}{a^2+x^2}=\int\frac{a\sec^2 \theta\,d\theta}{a^2+a^2\tan^2\theta}=\int\frac{a\sec^2 \theta\,d\theta}{a^2\sec^2\theta}=\int\frac{1}{a}\, d\theta=\frac{1}{a}\theta+C=\frac{1}{a}\tan^{-1}\frac{x}{a}+C
+\]
+
+In place of taking $x=a \tan \theta$, we may take $x=a \cot \theta$ and solve it accordingly.
+
+\item Let us put $x=a\sec u \Rightarrow dx=a\sec u\tan u\,du$ and $u=\sec^{-1}\dfrac{x}{a}$. Therefore,
+\[
+\int \frac{dx}{|x|\sqrt{x^2-a^2}}=\int \frac{a\sec u\tan u}{a\sec u\sqrt{a^2\sec^2-a^2}}\,du=\int \frac{a\sec u\tan u}{a^2\sec u\tan u}\,du=\int \frac{1}{a}\,du= \frac{1}{a}u+C=\frac{1}{a}\sec^{-1}\frac{x}{a}+C
+\]
+
+In place of taking $x=a \sec t$, we may take $x=a \ cosec\,t$ and solve it accordingly.
+
+\item To evaluate $\displaystyle\int \frac{dx}{\sqrt{a^2+x^2}}$, let us put $x=a\tan z \Rightarrow dx=a\sec^2z\,dz$. Therefore,
+
+\begin{align*}
+\int \frac{dx}{\sqrt{a^2+x^2}}&=\int \frac{a\sec^2z}{\sqrt{a^2+a^2\tan^2z}}\,dz=\int \frac{a\sec^2z}{a\sec z}\,dz = \int \sec z\,dz \\ 
+&= \ln\left|\sec z+\tan z\right|+C \\
+&= \ln\left|\sqrt{1+\tan^2z}+\tan z\right|+C \\
+&= \ln\left|\sqrt{1+\frac{x^2}{a^2}}+\frac{x}{a}\right|+C = \ln(\sqrt{a^2+x^2}+x)+C_1
+\end{align*}
+where $C_1$ is another constant of integration.
+
+\item To evaluate $\displaystyle\int \frac{dx}{\sqrt{x^2-a^2}}$, let $x=a\sec \theta \Rightarrow dx=a\sec\theta\tan\theta\,d\theta$. Therefore,
+
+\begin{align*}
+    \int \frac{dx}{\sqrt{x^2-a^2}} &= \int \frac{a\sec\theta\tan\theta}{\sqrt{a^2\sec^2\theta-a^2}}d\theta = \int \frac{a\sec\theta\tan\theta}{a\tan\theta}d\theta = \int \sec\theta\,d\theta \\
+    &= \ln\left|\sec\theta+\tan\theta\right|+C \\
+    &= \ln\left|\sec\theta+\sqrt{\sec^2\theta-1}\right|+C \\
+    &= \ln\left|\frac{x}{a}+\sqrt{\frac{x^2}{a^2}-1}\right|+C = \ln (x+\sqrt{x^2-a^2})+C_1
+\end{align*}
+\item To evaluate $\displaystyle\int\frac{dx}{x^2-a^2}$, we know that $\dfrac{1}{x^2-a^2}$=$\dfrac{1}{2a}(\dfrac{1}{x-a}-\dfrac{1}{x+a})$. Thus, 
+\[
+\int\frac{dx}{x^2-a^2}=\frac{1}{2a}\int(\frac{1}{x-a}-\frac{1}{x+a})\,dx=\frac{1}{2a}\ln|x-a|-\ln|x+a|+C=\frac{1}{2a}\ln\left|\frac{x-a}{x+a}\right|+C
+\]
+
+The results obtained above (example \ref{ex:trignometric_substitution}) can be used as standard formulae.
+
+\end{enumerate}
+\end{solution}
+
+
+\begin{example}
+Evaluate the following integrals:
+\begin{multicols}{3}
+
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int \frac{dx}{\sqrt{16-9x^2}}$
+    \item $\displaystyle\int \frac{e^x}{25+e^{2x}}\,dx$
+    \item $\displaystyle\int \frac{dx}{x(25+(\ln x)^2)}$
+    \item $\displaystyle\int \frac{\cos x}{\sqrt{1+9\sin^2 x}}\,dx$
+    \item $ \displaystyle\int \frac{dx}{x\sqrt{x^4-9}}$
+    \item $\displaystyle\int \frac{2x^3}{4+x^8}\,dx$
+    \item $\displaystyle\int \frac{x+1}{\sqrt{x^2+4x-12}}\,dx$
+    \item $\displaystyle\int\frac{dx}{3+\sin 2x}$
+    \item[] \phantom{x}
+    \item[] \phantom{x}
+   
+\end{enumerate}
+\end{multicols}    
+\end{example}
+
+\begin{solution}
+\begin{enumerate}[label=(\roman*)]
+\item 
+\[
+\int \frac{dx}{\sqrt{16-9x^2}}=\frac{1}{3}\int \frac{dx}{\sqrt{(\frac{4}{3})^2-x^2}}=\frac{1}{3}\sin^{-1}\frac{x}{4/3}+C=\frac{1}{3}\sin^{-1}\frac{3x}{4}+C
+\]
+
+\item Let us put $e^x=t \Rightarrow e^x\,dx=dt$. Hence,
+\[
+\int \frac{e^x}{25+e^{2x}}\,dx=\int \frac{dt}{25+t^2}=\frac{1}{5}\tan^{-1}\frac{t}{5}+C=\frac{1}{5}\tan^{-1}\frac{e^x}{5}+C
+\]
+
+
+\item Let $\ln x=t \Rightarrow \frac{1}{x}\,dx=dt$.
+\[
+\int \frac{dx}{x(25+(\ln x)^2)}=\int \frac{dt}{25+t^2}=\frac{1}{5}\tan^{-1}\frac{t}{5}+C=\frac{1}{5}\tan^{-1}\frac{(\ln x)}{5}+C
+\]
+
+
+\item Let $\sin x=t \Rightarrow \cos x\,dx=dt$. Thus,
+
+\begin{align*}
+    \int \frac{\cos x}{\sqrt{1+9\sin^2 x}}\,dx &= \int \frac{dt}{\sqrt{1+9t^2}} = \frac{1}{3}\int\frac{dt}{\sqrt{(\frac{1}{3})^2+t^2}} = \ln\left|\sqrt{ 1+\left(\frac{t}{1/3}\right)^2}+\frac{t}{1/3}\right|+C \\
+    &= \frac{1}{3}\ln|\sqrt{1+9t^2}+3t|+C = \frac{1}{3}\ln|\sqrt{1+9\sin^2x}+3\sin x|+C
+\end{align*}
+
+
+\item To evaluate the given integral, let $x^2=t \Rightarrow 2x\,dx=dt$. So,
+
+\[
+\int \frac{dx}{x\sqrt{x^4-9}} = \frac{1}{2}\int\frac{2x\,dx}{x^2\sqrt{(x^2)^2}-9} = \frac{1}{2}\int\frac{dt}{t\sqrt{t^2-9}} = \frac{1}{2}\frac{1}{3}\sec^{-1}\frac{t}{3}+C = \frac{1}{6}\sec^{-1}\frac{x^2}{3}+C
+\]
+
+
+
+\item Let us put $x^4=u \Rightarrow 4x^3\,dx=du$. Thus,
+
+\[
+\int \frac{2x^3}{4+x^8}\,dx = \frac{1}{2}\int \frac{4x^3}{4+(x^4)^2}\,dx = \frac{1}{2}\int \frac{du}{2^2+u^2}=\frac{1}{2}.\frac{1}{2}\tan^{-1}\frac{u}{2}+C=\frac{1}{4}\tan^{-1}\frac{x^4}{2}+C
+\]
+
+\item 
+\[
+\int \frac{x+1}{\sqrt{x^2+4x-12}}\,dx = \int \frac{x+2-1}{\sqrt{x^2+4x-12}}\,dx = \frac{1}{2}\int \frac{2x+4}{\sqrt{x^2+4x-12}}\,dx+\int \frac{dx}{\sqrt{(x+2)^2-16}}
+\]
+
+In the first integral let us put $x^2+4x-12=t\Rightarrow (2x+4)dx=dt$ 
+\newline
+and in the 2nd integral let $x+2=z\Rightarrow dx=dz$. Thus, the given integral becomes,
+\begin{align*}
+\frac{1}{2}\int\frac{dt}{\sqrt{t}}-\int\frac{dz}{\sqrt{z^2-4^2}} &= \sqrt{t}-\ln |z+\sqrt{z^2-4^2}|+C \\
+&= \sqrt{x^2+4x-12}-\ln |(x+2)+\sqrt{(x+2)^2-16}|+C \\
+&= \sqrt{x^2+4x-12}-ln|(x+2)+\sqrt{x^2+4x-12}|+C
+\end{align*}
+
+\item 
+\begin{align*}
+    \int\frac{dx}{3+\sin 2x} &= \int\frac{dx}{3(\sin^2 x+\cos^2 x)+2\sin x\cos x} \\
+        &= \int\frac{\sec^2 x}{3(\tan^2 x+1)+2\tan x}\,dx \quad \text{(Divide numerator and denominator by $\cos^2 x$)} \\
+        &= \int\frac{\sec^2 x}{3\tan^2 x+2\tan x+3}\,dx \qquad \text{(Putting $\tan x = t \Rightarrow \sec^2 x\,dx = dt$)} \\
+        &= \int\frac{dt}{3t^2+2t+3} = \frac{1}{3}\int \frac{dt}{(t+\frac{1}{3})^2+\frac{8}{9}}
+        = \frac{1}{3}.\frac{2\sqrt{2}}{3} \tan^{-1}\left(\frac{t+\frac{1}{3}}{\frac{2\sqrt{2}}{3}}\right)+C \\ 
+        &= \frac{2\sqrt{2}}{9}\tan^{-1}\left(\frac{3\tan x+1}{2\sqrt{2}}\right)+C
+\end{align*}
+
+\end{enumerate}
+\end{solution}
+
+\pagebreak
+
+\begin{exercise}
+Evaluate the following integrals
+\begin{multicols}{3}
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int \frac{dx}{\sqrt{36-x^2}}$
+    \item $\displaystyle\int \frac{dx}{7+x^2}$
+    \item $\displaystyle\int \frac{dx}{x\sqrt{9x^2-4}}$
+    \item $\displaystyle\int \frac{dx}{\sqrt{3+4x^2}}$
+    \item $\displaystyle\int \frac{dx}{\sqrt{4x^2-6}}$
+    \item $\displaystyle\int \frac{dx}{x\sqrt{4-(\ln x)^2}}$
+    \item $\displaystyle\int \frac{dx}{x\sqrt{6+(\ln x^2)}}$
+    \item $\displaystyle\int \frac{\cos x}{\sqrt{9-\sin^2 x}}\,dx$
+    \item $\displaystyle\int \frac{e^{4x}}{9+e^{8x}}\,dx$
+    \item $\displaystyle\int \frac{\sec\theta \tan\theta}{9+\sec^2 \theta}\,d\theta$
+    \item $\displaystyle\int \frac{dx}{x \ln x\sqrt{(\ln x)^2-16}}$
+    \item $\displaystyle\int \frac{dx}{\sqrt{e^{4x}-25}}$
+    \item $\displaystyle\int \frac{e^x\cos e^x}{\sqrt{9+\sin^2e^x}}\,dx$
+    \item $\displaystyle\int \frac{\sec\theta}{\sin\theta\sqrt{3\tan^2\theta-1}}\,d\theta$
+    \item $\displaystyle\int \frac{x^2}{\sqrt{25-x^6}}\,dx$
+    \item $\displaystyle\int\frac{a^x}{\sqrt{1-a^{2x}}}\,dx$
+    \item $\displaystyle\int\sqrt{\frac{\sin (x-\alpha)}{\sin(x+\alpha)}}\,dx$
+    \item[] \phantom{x}
+\end{enumerate} 
+\end{multicols}
+
+\end{exercise}
+
+\begin{exercise}\label{ex:has_hints}
+Evaluate the following integrals
+\begin{multicols}{3}
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int \frac{dx}{\sqrt{21-x^2-4x}}$
+    \item $\displaystyle\int\frac{dx}{9x^2+6x+10}$
+    \item $\displaystyle\int \frac{3x+4}{4+x^2}\,dx$
+    \item $\displaystyle\int \frac{dx}{(x+1)\sqrt{x^2+2x-8}}$
+    \item $\displaystyle\int \frac{x-2}{\sqrt{3x^2-8}}\,dx$
+    \item $\displaystyle\int \frac{x^2+2x+2}{x\sqrt{x^2-4}}\,dx$
+    \item $\displaystyle\int \frac{x+7}{\sqrt{x^2+8x}}\,dx$
+    \item $\displaystyle\int\frac{\sin x}{\sin 3x}\,dx$
+    \item $\displaystyle\int\sqrt{\sec x-1}\,dx$
+    \item $\displaystyle\int \frac{dx}{(2\sin x+3\cos x)^2}$
+    \item $\displaystyle\int \frac{dx}{2-3\cos 2x}$
+    \item $\displaystyle\int\frac{dx}{2+\cos x}$
+    \item $\displaystyle\int\frac{dx}{1-2\sin x}$
+    \item $\displaystyle\int\frac{dx}{\cos x-\sin x}$
+    \item $\displaystyle\int\frac{dx}{1+\cos x+\sin x}$
+    \item $\displaystyle\int\frac{dx}{5+4\cos x}$
+    \item $\displaystyle\int\frac{dx}{4-5\cos x}$
+    \item[] \phantom{x}    
+\end{enumerate} 
+\end{multicols}
+
+\end{exercise}
+
+\textbf{Hint:} In the last exercise \ref{ex:has_hints}  use the following formulae for the last six questions:
+\[
+\sin x=\frac{2\tan\dfrac{x}{2}}{1+\tan^2\dfrac{x}{2}} \text{ and } \cos x=\frac{1-\tan^2\dfrac{x}{2}}{1+\tan^2\dfrac{x}{2}}
+\]
+
+
+
+\section{Integration by Parts}
+
+Integration by parts is a method to integrate the product of two functions. This rule emerges from the product rule of derivatives.
+
+\begin{theorem}[\textbf{Integration by parts rule}]
+If $f(x)$ and $g(x)$ are two functions such that $\int g(x)\,dx$ and $\int [f'(x)\int g(x)\,dx]\,dx$ exist, then, 
+\[
+\int f(x)g(x)\,dx = f(x)\int g(x)\,dx-\int \left[f'(x)\int g(x)\,dx\right]\,dx
+\]
+\end{theorem}
+
+\begin{proof}
+Let $g(x)$ be the derivative of $G(x)$, i.e. $G'(x)=g(x)$. Then $\int g(x)dx=G(x)+C$. Using Product rule of derivatives, we have the following
+\begin{align*}
+    \frac{d}{dx}\left[f(x)\int g(x)\,dx\right] &= \frac{d}{dx}\left[f(x)(G(x)+C)\right] = f'(x)[G(x)+C]+f(x)G'(x) \\
+    &= f'(x)\int g(x)dx+f(x)g(x)
+\end{align*}
+Integrating both the sides, we have
+\begin{align*}
+    & f(x)\int g(x)dx=\int \left[f'(x)\int g(x)dx\right]dx+\int f(x)g(x)dx \\
+    &\Rightarrow \int f(x)g(x)dx=f(x)\int g(x)dx-\int \left[f'(x)\int g(x)dx\right]dx
+\end{align*}
+\end{proof}
+
+\begin{note}
+If $f(x)$ is the 1st function and $g(x)$ is the 2nd function, then
+\begin{align*}
+\int \text{(1st function)(2nd function)}\, dx &= \text{(1st function)}\int\text{(2nd function)}\,dx \\
+&\qquad\qquad- \int\left[\text{derivative of 1st function}\int\text{(2nd function)}\,dx\right]\,dx    
+\end{align*}
+\end{note}
+
+
+\begin{example}
+Evaluate the following integrals
+\begin{multicols}{3}
+
+\begin{enumerate}[label=(\roman*)]
+    \item $\int xe^x\,dx$
+    \item $\int \ln x\,dx$
+    \item $\int \sec^3 x\,dx$
+
+\end{enumerate}
+\end{multicols}    
+\end{example}
+
+\begin{solution}
+\begin{enumerate}[label=(\roman*)]
+
+\item 
+\[
+\int xe^x\,dx = x\int e^x\,dx-\int \left[\frac{d}{dx}x\int e^x\,dx\right]\,dx =xe^x-\int 1.e^x\,dx=xe^x-e^x+C
+\]
+
+\item 
+
+\begin{align*}
+\int \ln x\,dx&=\int \ln x.1\,dx = \ln x\int 1dx-\int \left[\frac{d}{dx}\ln x\int 1dx\right]\,dx \\
+&= x.\ln x-\int \frac{1}{x}x\,dx = x \ln x-\int dx=x\ln x-x+C
+\end{align*}
+
+
+
+
+
+\item To evaluate $\int \sec^3 x\,dx$, we know that 
+
+\[
+\int \sec x\,dx=\int \frac{\sec x(\sec x+\tan x)}{\sec x+\tan x}\,dx=\int\frac{\sec^2 x+\sec x\tan x}{\sec x+\tan x}\,dx= \ln \left|\sec x+\tan x\right|+C
+\]
+Therefore, 
+\begin{align*}
+\text{Let } I &= \int \sec^3 x\,dx = \int \sec x\sec^2 x\,dx = \sec x\int\sec^2x\,dx-\int \left(\frac{d}{dx}\sec x\int \sec^2 x\,dx\right)\,dx \\
+&= \sec x\tan x-\int \sec x\tan x\tan x\,dx = \sec x\tan x-\int \sec x\tan^2 x\,dx \\
+&= \sec x\tan x-\int \sec x(\sec^2x-1)\,dx = \sec x\tan x-\int \sec^3 x\,dx+\int\sec x\,dx \\
+&= \sec x\tan x-I+\int\sec x\,dx
+\end{align*}
+Rearranging the terms, we obtain the following expression,
+\begin{align*}
+    2I=\sec x\tan x+\int\sec x\,dx \Rightarrow I=\frac{1}{2}\sec x\tan x+\frac{1}{2}\ln|\sec x+\tan x|+C
+\end{align*}
+\end{enumerate}
+\end{solution}
+
+\begin{note}
+While using Integration by parts, usually the 1st and 2nd functions are chosen in the following (\textbf{ILATE}) order,
+\begin{enumerate}
+    \item \textbf{I} stands for Inverse Trigonometric function
+    \item \textbf{L} for Logarithmic function
+    \item \textbf{A} for Algebraic function
+    \item \textbf{T} for Trigonometric function, and,
+    \item \textbf{E} for Exponential function.
+\end{enumerate}
+\end{note}
+
+\begin{example}
+Evaluate the following integrals:
+\begin{multicols}{3}
+
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int x\sin x\,dx$
+    \item $\displaystyle\int x^2 e^x\,dx$
+    \item $\displaystyle\int \tan^{-1}x\,dx$
+    \item $\displaystyle\int (\ln x)^2\,dx$
+    \item $\displaystyle\int \sin \sqrt{x}\,dx$
+    \item $\displaystyle\int x\cos^2 x\,dx$
+    \item $\displaystyle\int x\tan^2 x\,dx$
+\end{enumerate}
+\end{multicols}    
+\end{example}
+
+\begin{solution}
+\begin{enumerate}[label=(\roman*)]
+
+\item 
+\[
+\int x\sin x\,dx = x\int \cos x\,dx-\int \left[\frac{d}{dx}x\int \cos x\,dx\right]\,dx = x\sin x-\int 1.\sin x\,dx = x\sin x+\cos x+C
+\]
+
+\item 
+\begin{align*}
+\int x^2 e^x\,dx &= x^2\int e^x\,dx -\int \left[\frac{d}{dx}x^2\int e^xdx\right]\,dx
+=x^2.e^x-\int 2xe^x\,dx = x^2.e^x-2\int xe^x\,dx \\
+&= x^2e^x-2\left[x\int e^x\,dx-\int\left(\frac{d}{dx}x\int e^x\,dx\right)\,dx\right] \\
+&= x^2e^x-2xe^x+2\int 1.e^x\,dx = x^2e^x-2xe^x+2e^x+C =(x^2-2x+2)e^x+C
+\end{align*}
+
+
+\item 
+\begin{align*}
+\int \tan^{-1}x\,dx &= \int \tan^{-1}x.1\,dx = \tan^{-1}x\int 1\,dx-\int\left(\frac{d}{dx}\tan^{-1}x\int1\,dx\right)\,dx \\
+&=x\tan^{-1}x-\int\frac{x}{1+x^2}dx=x\tan^{-1}x-\frac{1}{2}\ln\left|1+x^2\right|+C    
+\end{align*}
+
+\item 
+\begin{align*}
+\int (\ln x)^2\,dx &= (\ln x)^2\int 1\,dx-\int\left[\frac{d}{dx}(\ln x)^2\int 1\,dx\right]\,dx = x(\ln x)^2-\int2\ln x.\frac{1}{x}.x\,dx \\
+&= x(\ln x)^2-2\int \ln x\,dx \\
+&= x(\ln x)^2-2\left[\ln x\int 1\,dx-\int\left(\frac{d}{dx}\ln x\int1\,dx\right)\,dx\right] \\
+&= x(\ln x)^2-2x\ln x+2\int\frac{1}{x}x\,dx \\
+&= x(\ln x)^2-2x\ln x+2\int 1\,dx = x(\ln x)^2-2x\ln x+2x+C \\
+&= [(\ln x)^2-2\ln x+2]x+C
+\end{align*}
+
+\item 
+To evaluate $\displaystyle\int \sin \sqrt{x}\,dx$, let us substitute $\sqrt{x}=t \Rightarrow \dfrac{1}{2\sqrt{x}}\,dx=dt\Rightarrow dx=2t\,dt$. Therefore,
+\begin{align*}
+    \int \sin \sqrt{x}\,dx&=\int (\sin t)2t\,dt=2\int t\sin t\,dt = 2\left[t\int \sin t\,dt-\int\left(\frac{d}{dt}t\int\sin t\,dt\right)dt\right] \\
+    &= 2(-t\cos t+\int\cos t\,dt) = 2(-t\cos t+\sin t)+C = 2(\sin\sqrt{x}-\sqrt{x}\cos\sqrt{x})+C
+\end{align*}
+
+\item 
+\begin{align*}
+    \int x\cos^2 x\,dx &= \int x\frac{1}{2}(1+\cos 2x)\,dx = \frac{1}{2}\left[\int x\,dx+\int x\cos 2x\,dx\right] \\
+    &= \frac{x^2}{4}+\frac{1}{2}\left[x\int\cos x\,dx-\int\left[\frac{d}{dx}x\int\cos x\,dx\right]dx\right] \\
+    &= \frac{x^2}{4}+\frac{x}{2}\sin x-\frac{1}{2}\int1.\sin x\,dx = \frac{x^2}{4}+\frac{x}{2}\sin x+\frac{1}{2}\cos x+C
+\end{align*}
+
+
+\item 
+\begin{align*}
+    \int x\tan^2 x\,dx = \int x(\sec^2 x-1)\,dx &= \int x\sec^2 x\,dx-\int x\,dx \\
+    &= x\int \sec^2x\,dx-\int \left[\frac{d}{dx}x\int\sec^2x\,dx\right]dx-\frac{x^2}{2} \\ 
+    &= x\tan x-\int 1.\tan x\,dx-\frac{x^2}{2} = x\tan x- \ln|\sec x|-\frac{x^2}{2}+C
+\end{align*}
+
+
+\end{enumerate} 
+\end{solution}
+
+\begin{example}
+Evaluate the following integrals:
+\begin{multicols}{2}
+
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int e^{ax}\sin bx\,dx$
+    \item $\displaystyle\int e^{ax}\cos bx\,dx$
+    \item $\displaystyle\int \sqrt{x^2-a^2}\,dx$
+    \item $\displaystyle\int \sqrt{a^2+x^2}\,dx$
+    \item $\displaystyle\int \sqrt{a^2-x^2}\,dx$
+    \item[] \phantom{x}
+\end{enumerate}
+\end{multicols}    
+\end{example}
+
+\begin{solution}
+\begin{enumerate}[label=(\roman*)]
+
+\item 
+\begin{align*}
+    \int e^{ax}\sin bx\,dx&=\sin bx\int e^{ax}\,dx-\int \left(\frac{d}{dx}\sin bx\int e^{ax}\,dx\right)dx = \frac{1}{a}e^{ax}\sin bx-\frac{b}{a}\int e^{ax}\cos bx\,dx \\ 
+    &= \frac{1}{a}e^{ax}\sin bx-\frac{b}{a}\left[\cos bx\int e^{ax}\,dx-\int(\frac{d}{dx}\cos bx\int e^{ax}\,dx)dx\right] \\
+    &= \frac{1}{a}e^{ax}\sin bx-\frac{b}{a^2}e^{ax}\cos bx+\frac{b^2}{a^2}\int e^{ax}\sin bx\,dx
+\end{align*}
+
+Rearranging the terms, we have,
+\begin{align*}
+    & \int e^{ax}\sin bx\,dx-\frac{b^2}{a^2}\int e^{ax}\sin bx\,dx = \frac{1}{a}e^{ax}\sin bx-\frac{b}{a^2}e^{ax}\cos bx \\
+    &\implies \left[\frac{a^2-b^2}{a^2}\right]\int e^{ax}\sin bx\,dx = \frac{1}{a}e^{ax}\sin bx-\frac{b}{a^2}e^{ax}\cos bx \\
+    &\implies \int e^{ax}\sin bx\,dx = \left(\frac{a^2}{a^2-b^2}\right)\left[\frac{1}{a}e^{ax}\sin bx-\frac{b}{a^2}e^{ax}\cos bx\right]+C \\
+    &\implies \int e^{ax}\sin bx\,dx = \left(\frac{e^{ax}}{a^2-b^2}\right)\left[a\sin bx-b\cos bx\right]+C
+\end{align*}
+
+Similarly we can prove that,
+\item 
+\[
+\int e^{ax}\cos bx\,dx=\frac{e^{ax}}{a^2-b^2}(a\cos bx+b\sin bx)+C
+\]
+
+\item 
+\begin{align*}
+    \int \sqrt{x^2-a^2}\,dx&=\sqrt{x^2-a^2}\int1\,dx-\int\left(\frac{d}{dx}\sqrt{x^2-a^2}\int1\,dx\right)\,dx \\
+    &= x\sqrt{x^2-a^2}-\int\frac{x^2}{\sqrt{x^2-a^2}}\,dx = x\sqrt{x^2-a^2}-\int\frac{x^2-a^2+a^2}{\sqrt{x^2-a^2}}\,dx \\
+    &= x\sqrt{x^2-a^2}-\int\sqrt{x^2-a^2}\,dx-\int\frac{a^2}{\sqrt{x^2-a^2}}\,dx
+\end{align*}
+
+Rearranging the terms, we get,
+\begin{align*}
+    2\int \sqrt{x^2-a^2}\,dx=x\sqrt{x^2-a^2}-\int\frac{a^2}{\sqrt{x^2-a^2}}\,dx = x\sqrt{x^2-a^2}-a^2\ln|x+x\sqrt{x^2-a^2}|+C
+\end{align*}
+
+In other words,
+\[
+\int \sqrt{x^2-a^2}\,dx=\frac{1}{2}\left[x\sqrt{x^2-a^2}-a^2\ln|x+x\sqrt{x^2-a^2}|\right]+C
+\]
+
+Similarly we can prove that,
+
+\item 
+\[
+\int \sqrt{a^2+x^2}\,dx = \frac{x}{2}\sqrt{a^2+x^2}+\frac{a^2}{2}\ln|x+\sqrt{x^2+a^2}+C \quad \text{and,}
+\]
+
+\item \[
+\int \sqrt{a^2-x^2}\,dx = \frac{x}{2}\sqrt{a^2-x^2}+\frac{a^2}{2}\sin^{-1}\frac{x}{a}+C
+\]
+
+\end{enumerate} 
+\end{solution}
+\newpage
+\begin{exercise}
+Evaluate the following integrals
+\begin{multicols}{3}
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int x^2\cos x\,dx$
+    \item $\displaystyle\int x\sec x\,dx$
+    \item $\displaystyle\int e^x\sin x\,dx$
+    \item $\displaystyle\int \cos^{-1}x\,dx$
+    \item $\displaystyle\int x\tan^{-1}x\,dx$
+    \item $\displaystyle\int\tan^{-1}\sqrt{x}\,dx$
+    \item $\displaystyle\int (\ln x)^2\,dx$
+    \item $\displaystyle\int\frac{\ln x}{x^2}\,dx$
+    \item $\displaystyle\int x\tan^2 x\,dx$
+    \item $\displaystyle\int x\sin x\cos x\,dx$
+    \item $\displaystyle\int e^{ax}\sin (bx+c)\,dx$
+    \item $\displaystyle\int e^{2x}\cos 3x\,dx$
+    \item $\displaystyle\int \cosec^3x\,dx$
+    \item $\displaystyle\int \tan^3x\,dx$
+    \item $\displaystyle\int \cos (\ln x)\,dx$
+    \item $\displaystyle\int x\sin^3x\,dx$
+    \item $\displaystyle\int \ln (x^2+1)\,dx$
+    \item $\displaystyle\int (2x+3)^2e^{3x}\,dx$
+    \item $\displaystyle\int x^2\tan^{-1}x\,dx$
+    \item $\displaystyle\int \sec^{-1}x\,dx$
+    \item $\displaystyle\int x^2\tan^{-1}x\,dx$
+
+
+\end{enumerate}
+\end{multicols}    
+\end{exercise}
+
+\begin{exercise}
+Evaluate the following integrals
+\begin{multicols}{3}
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int \sqrt{16-x^2}\,dx$
+    \item $\displaystyle\int \sqrt{5-4x^2}\,dx$
+    \item $\displaystyle\int e^x\sqrt{9-e^{2x}}\,dx$
+    \item $\displaystyle\int \sqrt{x^2+4}\,dx$
+    \item $\displaystyle\int \sqrt{4x^2+12x+13}\,dx$
+    \item $\displaystyle\int \sec^2\theta\sqrt{\sec^2\theta +3}\,d\theta$
+    \item $\displaystyle\int \sqrt{x^2-8}\,dx$
+    \item $\displaystyle\int \sqrt{x^2-4x+2}\,dx$
+    \item $\displaystyle\int a^x\sqrt{a^{2x}-4}\,dx$
+    \item $\displaystyle\int \sec\theta\tan\theta\sqrt{\tan^2\theta-3}\,d\theta$.
+
+\end{enumerate}
+\end{multicols}    
+\end{exercise}
+
+\begin{note}
+We know in the beginning of the chapter that definite integration is the reverse process of differentiation. Therefore,
+
+\begin{align*}
+ & \qquad \frac{d}{dx}(e^xf(x))=f(x)\frac{d}{dx}e^x+e^x\frac{d}{dx}f(x) = e^xf(x)+e^xf'(x)=e^x\left[f(x)+f'(x)\right] \\ 
+ &\implies  \int e^x(f(x)+f'(x))\,dx=(e^xf(x))+C
+\end{align*}
+
+We can derive this expression using integration by parts,
+\begin{align*}
+ \int e^x\left[f(x)+f'(x)\right]\,dx&=\int e^xf(x)\,dx+\int e^xf'(x)\,dx \\
+ &= f(x)\int e^x\,dx-\int \left(\frac{d}{dx}f(x)\int e^x\,dx\right)\,dx+\int e^xf'(x)\,dx \\ 
+ &= e^xf(x)-\int e^xf'(x)\,dx+\int e^xf'(x)\,dx = e^xf(x)+C
+\end{align*}
+
+Similarly, we can also establish the following expression,
+\[
+\int e^{-x}\left[f'(x)-f(x)\right]\,dx=e^{-x}f(x)+C
+\]
+
+\end{note}
+\newpage
+Following this observation, we can integrate the following,
+
+\begin{example}
+Evaluate the following integrals:
+\begin{multicols}{2}
+
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int e^x(\ln x+\frac{1}{x})\,dx$
+    \item $\displaystyle\int e^x\frac{1+\sin x}{1+\cos x}\,dx$
+   
+\end{enumerate}
+\end{multicols}    
+\end{example}
+
+\begin{solution}
+\begin{enumerate}[label=(\roman*)]
+\item 
+\begin{align*}
+    \int e^x(\ln x+\frac{1}{x})\,dx &= \int e^x\ln x\,dx+\int \frac{e^x}{x}\,dx=\ln x\int e^x\,dx-\int \left(\frac{d}{dx}\ln x\int e^x\,dx\right)dx+\int \frac{e^x}{x}\,dx \\ 
+    &= e^x\ln x-\int \frac{e^x}{x}\,dx+\int \frac{e^x}{x}\,dx = e^x\ln x+C
+\end{align*}
+
+\item 
+\begin{align*}
+   &\qquad \int e^x\frac{1+\sin x}{1+\cos x}\,dx = \int e^x\frac{\sin x}{1+\cos x}\,dx+\int e^x\frac{1}{1+\cos x}\,dx \\
+&=\frac{\sin x}{1+\cos x}\int e^x\,dx-\int\left(\frac{d}{dx}\frac{\sin x}{1+\cos x}\int e^x\,dx\right)dx+\int e^x\frac{1}{1+\cos x}\,dx \\
+&= e^x\left(\frac{\sin x}{1+\cos x}\right)-\int e^x\frac{1}{1+\cos x}\,dx+\int e^x\frac{1}{1+\cos x}\,dx \qquad \text{(as $\frac{d}{dx}(\frac{\sin x}{1+\cos x})=\frac{1}{1+\cos x}$)} \\
+&= \frac{e^x\sin x}{1+\cos x}+C 
+\end{align*}
+
+\end{enumerate} 
+\end{solution}
+
+\begin{exercise}
+Evaluate the following integrals
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int e^x(\frac{1}{x}-\frac{1}{x^2})\,dx$
+    \item $\displaystyle\int e^x(\sin x+\cos x)\,dx$
+    \item $\displaystyle\int e^x(\tan x+\ln \sec x)\,dx$
+    \item $\displaystyle\int e^x\sec x(1+\tan x)\,dx$
+    \item $\displaystyle\int e^x\left(\frac{2+\sin 2x}{1+\cos 2x}\right)\,dx$
+    \item $\displaystyle\int e^x\left(\frac{1-\sin x}{1-\cos x}\right)\,dx$
+    \item $\displaystyle\int \frac{xe^x}{(1+x)^2}\,dx$
+    \item $\displaystyle\int (\frac{1}{\ln x}-\frac{1}{(\ln x)^2})\,dx$.
+    \item \label{itm:hint} $\displaystyle\int e^x(x^5+5x^4-4x^3-12x^2+6x+15)\,dx$
+    \item[] \phantom{x}
+
+\end{enumerate}
+\end{multicols}    
+\end{exercise}
+
+\textbf{Hint:} In the last exercise \ref{itm:hint} take $f(x)=x^5-4x^3+6x+9$, so that $f'(x)=5x^4-12x^2+6$.
+
+\begin{note}
+Integral of the form $\displaystyle\int\frac{(px+q)}{ax^2+bx+c} \,dx$ can be solved by expressing $px+q$ as 
+\[
+px+q=\lambda \frac{d}{dx}(ax^2+bx+c)+\mu \implies px+q=\lambda (2ax+b)+\mu
+\]
+From this equation we get the value of $\lambda$ and $\mu$ by equating the coefficient of $x$ and the constant term in both side of the equation. Rest part is easy to solve and can be followed from the following examples.
+\end{note}
+
+\newpage
+
+\begin{example}
+Evaluate the following integrals
+\begin{multicols}{3}
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int \frac{4x+1}{x^2+3x+2}\,dx$
+    \item $\displaystyle\int\frac{x-3}{x^2+2x-4}\,dx$
+    \item $\displaystyle\int\frac{3\sin x+2\cos x}{3\cos x+2\sin x}\,dx$
+\end{enumerate}
+\end{multicols}    
+\end{example}
+
+\begin{solution}
+\begin{enumerate}[label=(\roman*)]
+\item Let us write, $4x+1=\lambda \dfrac{d}{dx}(x^2+3x+2)+\mu \Rightarrow 4x+1=\lambda(2x+3)+\mu=2\lambda x+(3\lambda+\mu)$. Now comparing the coefficient of $x$ and the constant terms, we get, $\lambda=2$ and $\mu=-5$.
+
+Thus, we have,
+\begin{align*}
+\int\frac{4x+1}{x^2+3x+2}\,dx &= \int\frac{2(2x+3)-5}{x^2+3x+2}\,dx = 2\int\frac{2x+3}{x^2+3x+2}\,dx-5\int\frac{1}{x^2+3x+2}\,dx \\
+&= 2\ln|x^2+3x+2|-5\int\frac{1}{(x+\frac{3}{2})^2-(\frac{1}{2})^2}\,dx \\
+&= 2\ln|x^2+3x+2|-5\ln\left|\frac{x+1}{x+2}\right|+C
+\end{align*}
+
+\item Let us write $x-3=\lambda \dfrac{d}{dx}(x^2+2x-4)+\mu \Rightarrow x-3=\lambda(2x+2)+\mu = 2\lambda x+(2\lambda +\mu)$. 
+\newline
+Now comparing the coefficient of $x$ and the constant term, we get $\lambda =\dfrac{1}{2}$ and $\mu=-4$.
+
+Thus, we have,
+\begin{align*}
+\int\frac{x-3}{x^2+2x-4}\,dx &= \frac{1}{2}\int\frac{2x+2}{x^2+2x-4}\,dx-4\int \frac{1}{x^2+2x-4}\,dx \\
+&= \frac{1}{2}\ln|x^2+2x-4|-4\int\frac{1}{(x+1)^2-5}\,dx \\
+&= \frac{1}{2}\ln|x^2+2x-4|-\frac{2}{\sqrt{5}}\ln\left|\frac{x+1-\sqrt{5}}{x+1+\sqrt{5}}\right|+C
+\end{align*}
+
+
+\item Let us formulate, Numerator=$\lambda$(derivative of denominator)+$\mu$(Denominator). Therefore,
+\begin{align*}
+    3\sin x+2\cos x &= \lambda \frac{d}{dx}(3\cos x+2\sin x)+\mu(3\cos x+2\sin x) \\
+    &= \lambda(-3\sin x+2\cos x)+\mu(3\cos x+2\sin x) \\ 
+    &= (-3\lambda+2\mu)\sin x+(2\lambda+3\mu)\cos x
+\end{align*}
+
+Now comparing the coefficients of $\sin x$ and $\cos x$ in both sides of the above equation, we get, 
+\begin{align*}
+    -3\lambda+2\mu&=3 \\ 
+    2\lambda+3\mu&=2
+\end{align*}
+On solving, we get $\lambda=\dfrac{-5}{13}$ and $\mu=\dfrac{12}{13}$. Therefore, we have,
+\begin{align*}
+    \int\frac{3\sin x+2\cos x}{3\cos x+2\sin x}\,dx &= \int\frac{\lambda(-3\sin x+2\cos x)+\mu (3\cos x+2\sin x)}{3\cos x+2\sin x} \\ 
+    &= \lambda\int\frac{(-3\sin x+2\cos x)}{(3\cos x+2\sin x)}\,dx+\mu\int1\,dx \\
+    &= \lambda \ln|(3\cos x+2\sin x)|+\mu x+C \qquad \text{where $t=(3\cos x+2\sin x)$} \\
+    &= \frac{-5}{13}\ln(3\cos x+2\sin x)+\frac{12}{13}x+C
+\end{align*}
+
+\end{enumerate} 
+\end{solution} 
+
+\begin{note}
+Integrals of the form $\int (px+q)\sqrt{ax^2+bx+c}\,dx$ can be solved by expressing $px+q$ as
+\[
+px+q=\lambda \frac{d}{dx}(ax^2+bx+c)+\mu \implies px+q=\lambda (2ax+b)+\mu
+\]
+From this equation we get the value of $\lambda$ and $\mu$ by equating the coefficient of $x$ and the constant term in both side of the equation. Rest part is easy and can be followed from the following examples.
+
+\end{note}
+
+\begin{example}
+Evaluate the following integrals
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $\int (3x-2)\sqrt{x^2+x+1}\,dx$
+    \item $\int (x+1)\sqrt{1-x-x^2}\,dx$ 
+\end{enumerate}
+\end{multicols}    
+\end{example}
+
+\begin{solution}
+\begin{enumerate}[label=(\roman*)]
+
+\item Let us define $3x-2=\lambda \dfrac{d}{dx}(x^2+x+1)+\mu \Rightarrow 3x-2=\lambda (2x+1)+\mu = 2\lambda x+(\lambda+\mu)$. Comparing the coefficients of the x and the constant term, we get $\lambda=\dfrac{3}{2}$ and $\mu=-\dfrac{7}{2}$.
+
+Now, we have, $3x-2 = \dfrac{3}{2}\dfrac{d}{dx}(x^2+x+1)-\dfrac{7}{2} = \dfrac{3}{2}(2x+1)-\dfrac{7}{2}$, and therefore,
+\begin{align*}
+    \int (3x-2)\sqrt{x^2+x+1}\,dx &= \int \left\{\frac{3}{2}(2x+1)-\frac{7}{2}\right\}\sqrt{x^2+x+1}\,dx \\
+    &= \frac{3}{2}\int (2x+1)\sqrt{x^2+x+1}\,dx-\frac{7}{2}\int \sqrt{x^2+x+1}\,dx \\ 
+    &= \frac{3}{2}\int \sqrt{t}\,dt-\frac{7}{8}\int \sqrt{(2x+1)^2+3}\,dx \qquad \text{where $x^2+x+1=t$} \\ 
+    &= t^{\dfrac{3}{2}}-\frac{7}{32}\left\{(2x+1)^2+6\ln|2x+1|\right\}+C \\ 
+    &= (x^2+x+1)^{\dfrac{3}{2}}-\frac{7}{32}\left\{(2x+1)^2+6\ln|2x+1|\right\}+C
+\end{align*}
+
+
+\item Let us define $x+1=\lambda \dfrac{d}{dx}(1-x-x^2)+\mu \implies x+1=\lambda (-1-2x)+\mu = -2\lambda x+(\mu-\lambda)$. \newline
+Comparing the coefficients of x and the constant term, we have $-2\lambda=1$ and $\mu-\lambda=1$. 
+
+Therefore, $\lambda=-\dfrac{1}{2}, \mu=\dfrac{1}{2}$ and $x+1=-\dfrac{1}{2}(-1-2x)+\dfrac{1}{2}$.
+
+Now, we have,
+\begin{align*}
+&\qquad \int (x+1)\sqrt{1-x-x^2}\,dx \\
+&= \int \left[-\frac{1}{2}(-1-2x)+\frac{1}{2}\right]\sqrt{1-x-x^2}\,dx \\
+&= -\frac{1}{2}\int (-1-2x)\sqrt{1-x-x^2}\,dx+\frac{1}{2}\int\sqrt{1-x-x^2}\,dx  \\ 
+&= -\frac{1}{2}\int\sqrt{t}\,dt+\frac{1}{2}\int\sqrt{\left\{1-\left(x^2+x+\frac{1}{4}-\frac{1}{4}\right)\right\}}\,dx \qquad \text{where $t=1-x-x^2$ } \\ 
+&= -\frac{1}{3}t^{\frac{3}{2}}+\frac{1}{2}\int\sqrt{\frac{5}{4}-\left(x+\frac{1}{2}\right)^2}\,dx \\ 
+&= -\frac{1}{3}(1-x-x^2)^{\frac{3}{2}}+\frac{1}{2}\left[\frac{1}{2}\left(x+\frac{1}{2}\right)\sqrt{1-x-x^2}+\frac{1}{2}.\frac{5}{4}\sin^{-1}\left(\frac{x+\frac{1}{2}}{\frac{\sqrt{5}}{2}}\right)\right] \\ 
+&= -\frac{1}{3}(1-x-x^2)^{\frac{3}{2}}+\frac{1}{8}(2x+1)\sqrt{1-x-x^2}+\frac{5}{16}\sin^{-1}\left(\frac{2x+1}{\sqrt{5}}\right)+C
+\end{align*}
+
+\end{enumerate} 
+\end{solution}
+\pagebreak
+
+\begin{exercise}
+Evaluate the following integrals
+\begin{multicols}{3}
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int \frac{x}{8+x-x^2}\,dx$
+    \item $\displaystyle\int\frac{2x}{2+x-x^2}\,dx$
+    \item $\displaystyle\int\frac{2x+5}{x^2-x-2}$
+    \item $\displaystyle\int \frac{1}{1+\tan x}\,dx$
+    \item $\displaystyle\int \frac{2x+1}{\sqrt{x^2+2x-1}}\,dx$   
+    \item $\displaystyle\int\frac{6x-5}{\sqrt{3x^2-5x+1}}\,dx$
+    \item $\displaystyle\int x\sqrt{x^2+x}\,dx$
+    \item $\displaystyle\int (2x-5)\sqrt{x^2-4x+3}\,dx$
+    \item $\displaystyle\int (x-2)\sqrt{2x^2-6x+5}\,dx$
+
+\end{enumerate}
+\end{multicols}    
+\end{exercise}
+
+\section{Integration of Rational Algebraic Functions by using Partial Fractions}
+
+\textbf{Partial Fractions} If $f(x)$ and $g(x)$ are two polynomials, then $\dfrac{f(x)}{g(x)}$ defines a rational algebraic function or a rational function of $x$.
+
+If degree of $f(x)< $ degree of $g(x)$, then $\dfrac{f(x)}{g(x)}$ is called a proper rational function.
+
+If degree of $f(x)\geq  $ degree of $g(x)$, then $\dfrac{f(x)}{g(x)}$ is called an improper rational function.
+
+If $\dfrac{f(x)}{g(x)}$ is an improper rational function, we divide $f(x)$ by $g(x)$ so that $\dfrac{f(x)}{g(x)}=\phi(x)+\dfrac{r(x)}{g(x)}$, where $\phi(x)$ and $r(x)$ are polynomials such that, degree of $r(x)< $degree of $g(x)$. Thus $\dfrac{f(x)}{g(x)}$ is expressible as the sum of a polynomial $\phi(x)$ and a proper rational function $\dfrac{\phi(x)}{g(x)}$.
+
+Any proper rational function $\dfrac{f(x)}{g(x)}$ can be expressed as the sum of rational functions, each having a simple factor of $g(x)$. Each such fraction  is called a partial fraction and the process of obtaining them is called decomposition of $\dfrac{f(x)}{g(x)}$ into partial fractions.
+
+The decomposition of $\dfrac{f(x)}{g(x)}$ into partial fractions depends mainly upon the nature of the factors of
+$g(x)$ as discussed below.
+
+\textbf{Case I.} The partial fraction corresponding to every non-repeated linear factor $ax+b$ of $g(x)$ is of the form $\dfrac{A}{ax+b}$, where $A$ is a constant. If $g(x)=(a_1x+b_1)(a_2x+b_2)(a_3x+b_3)$, then 
+\[
+\frac{f(x)}{g(x)}=\frac{A_1}{a_1x+b_1}+\frac{A_2}{a_2x+b_2}+\frac{A_3}{a_3x+b_3}
+\]
+
+
+\textbf{Case II.} To a repeated linear factor of the form $(ax+b)^n$, there corresponds $n$ partial fractions of the form $\dfrac{A_r}{(ax+b)^r}$ ($r=1,2,.....,n$). If $g(x)=(ax+b)^3(cx+d)$, then 
+
+\[
+\frac{f(x)}{g(x)}=\frac{A_1}{ax+b}+\frac{A_2}{(ax+b)^2}+\frac{A_3}{(ax+b)^3}+\frac{A_4}{cx+d}
+\]
+
+
+\textbf{Case III.} To a non-repeated quadratic factor $ax^2+bx+c$ of $g(x)$ there corresponds a partial fraction of the form $\dfrac{A_1x+B_1}{ax^2+bx+c}$. If $g(x)=(ax^2+bx+c)(px+q)$, then 
+
+\[
+\frac{f(x)}{g(x)}=\frac{A_1x+B_1}{ax^2+bx+c}+\frac{A_2}{px+q}
+\]
+
+\textbf{Case IV.} To a repeated quadratic factor $(ax^2+bx+c)^n$ of $g(x)$ there corresponds $n-$partial fractions of the form $\dfrac{A_rx+B_r}{(ax^2+bx+c)^r}$, $r=1,2,....,n$. If $g(x)=(ax^2+bx+c)^2(px+q)$, then
+\[
+\frac{f(x)}{g(x)}=\frac{A_1x+B_1}{ax^2+bx+c}+\frac{A_2x+B_2}{(ax^2+bx+c)^2}+\frac{A_3}{px+q}
+\]
+
+The following examples make this clearer.
+
+\begin{example}
+Evaluate the following integrals
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int \frac{4x+5}{x^2+x-2}\,dx$
+    \item $\displaystyle\int\frac{x^2}{(x+1)^2(x-2)}\,dx$
+    \item $\displaystyle\int\frac{2x^2+x+3}{(x^2+2)(x-1)}\,dx$
+    \item $\displaystyle\int \frac{4x^2}{(x-3)(x+1)}\,dx$
+
+\end{enumerate}
+\end{multicols}    
+\end{example} 
+
+\begin{solution}
+\begin{enumerate}[label=(\roman*)]
+\item To evaluate $\int \dfrac{4x+5}{x^2+x-2}\,dx$, let us take $\dfrac{4x+5}{x^2+x-2}=\dfrac{4x+5}{(x-1)(x+2)}=\dfrac{A}{x-1}+\dfrac{B}{x+2}$. Multiplying the equation throughout by $x^2+x-2$, we get, $4x+5=A(x+2)+B(x-1)$. Here we can get the value of the constants $A$ and $B$ in various methods. The most easy one is to put the value of $x$ to be -2 and 1. 
+
+Putting $x=1$ in the expression $4x+5=A(x+2)+B(x-1)$, we get $3A=9 \Rightarrow A=3$.
+
+
+Similarly, putting $x=-2$ we get $B=1$. Therefore, we have,
+\begin{align*}
+    &\qquad \frac{4x+5}{x^2+x-2}\,dx = \frac{4x+5}{(x-1)(x+2)} = \frac{3}{x-1}+\frac{1}{x+2} \\
+    &\Rightarrow \int\frac{4x+5}{x^2+x-2}\,dx = \int\frac{3}{x-1}\,dx+\int\frac{1}{x+2}\,dx = 3\ln|x-1|+\ln|x+2|+C \\
+    % = \ln|(x-1)^3(x+2)|+C
+\end{align*}
+ 
+\item To evaluate $\displaystyle\int\frac{x^2}{(x+1)^2(x-2)}\,dx$, let 
+$\dfrac{x^2}{(x+1)^2(x-2)}$=$\dfrac{A}{x+1}+\dfrac{B}{(x+1)^2}+\dfrac{C}{x-2}$. 
+\newline
+Multiplying this equation throughout by $(x+1)^2(x-2)$, we get,
+\[
+x^2=A(x+1)(x-2)+B(x-2)+C(x+1)^2
+\]
+
+Putting $x=-1$, we get $-3B=1\Rightarrow B=-\frac{1}{3}$. Putting $x=2$, we have $4=9C\Rightarrow C=\frac{4}{9}$, and, finally, putting $x=0$, we get, $0=-2A-2B+C\Rightarrow A=\frac{5}{9}$. Thus 
+
+Therefore, 
+\begin{align*}
+    \int\frac{x^2}{(x+1)^2(x-2)}\,dx &= \frac{5}{9}\int\frac{dx}{x+1}-\frac{1}{3}\int\frac{dx}{(x+1)^2}+\frac{4}{9}\int\frac{dx}{x-2} \\ 
+    &= \frac{5}{9}\ln|x+1|+\frac{1}{3(x+1)}+\frac{4}{9}\ln|x-2|+C
+\end{align*}
+
+\item To evaluate $\displaystyle\int\frac{2x^2+x+3}{(x^2+2)(x-1)}\,dx$, let us write, $\dfrac{2x^2+x+3}{(x^2+2)(x-1)}$=$\dfrac{Ax+B}{x^2+2}+\dfrac{C}{x-1}$. 
+
+Multiplying throughout by $(x^2+2)(x-1)$, we get, 
+\begin{align*}
+2x^2+x+3 = (Ax+B)(x-1)+C(x^2+2) = (A+C)x^2-(A-B)x-(B-2C)
+\end{align*}
+
+Now comparing the co-efficients of $x^2$, $x$ and the constant terms of the above equation, we get, 
+
+$A+C=2, A-B=-1$ and $B-2C=-3$. On solving, we have $A=0, B=1, C=2$.
+Therefore, plugging these values back to the expression, we have,
+\begin{align*}
+&\qquad \frac{2x^2+x+3}{(x^2+2)(x-1)}=\frac{Ax+B}{x^2+2}+\frac{C}{x-1}=\frac{1}{x^2+2}+\frac{2}{(x-1)} \\
+&\Rightarrow \int\frac{2x^2+x+3}{(x^2+2)(x-1)}\,dx = \int\frac{dx}{x^2+2}+2\int\frac{dx}{x-1} = \frac{1}{\sqrt{2}}\tan^{-1}\frac{x}{\sqrt{2}}+2\ln|x-1|+C
+\end{align*}
+
+\item Here we observe that $\dfrac{4x^2}{(x-3)(x+1)}$=$\dfrac{4x^2}{x^2-2x-3}$ is a improper rational function.
+
+First, we can rearrange the integral in the following form, 
+\begin{align*}
+    &\qquad \frac{4x^2}{x^2-2x-3} = 4+\frac{8x+12}{(x-3)(x+1)} = 4+\frac{A}{x-3}+\frac{B}{x+1} \\
+    &\Rightarrow 4x^2=4(x-3)(x+1)+A(x+1)+B(x-3)
+\end{align*}
+Putting $x=3$ and $x=1$ successively in the above expression, we get $A=9$ and $B=-1$. Therefore,
+\begin{align*}
+    \int \frac{4x^2}{(x-3)(x+1)}\,dx = \int4\,dx+9\int\frac{dx}{x-3}-\int\frac{dx}{x+1}=4x+9\ln|x-3|-\ln|x+1|+C
+\end{align*}
+
+\end{enumerate} 
+\end{solution}
+
+\begin{exercise}
+Evaluate the following integrals
+\begin{multicols}{3}
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int \frac{x-1}{(x+1)(x-2)}\,dx$
+    \item $\displaystyle\int\frac{x^3}{(x-1)(x-2)}\,dx$
+    \item $\displaystyle\int\frac{2x-1}{(x-1)(x+2)(x-3)}$
+    \item $\displaystyle\int \frac{4x-9}{x^2-5x+6}\,dx$
+    \item $\displaystyle\int \frac{x^3}{x^2-3x+2}\,dx$    
+    \item $\displaystyle\int\frac{x^2+1}{x^2-1}\,dx$
+    \item $\displaystyle\int \frac{2x}{(x^2+1)(x^2+2)}\,dx$
+    \item $\displaystyle\int \frac{\cos x}{(2+\sin x)(3+4\sin x)}\,dx$
+    \item $\displaystyle\int\frac{1}{\sin x-\sin 2x}\,dx$
+
+\end{enumerate}
+\end{multicols}    
+\end{exercise}
+
+\begin{exercise}
+Evaluate the following integrals
+\begin{multicols}{3}
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int \frac{3x+1}{(x-2)^2(x+2)}\,dx$
+    \item $\displaystyle\int\frac{x^2+1}{(x-1)^2(x+3)}\,dx$
+    \item $\displaystyle\int\frac{2x+9}{(x+3)^2}\,dx$
+    \item $\displaystyle\int\frac{x^2+7x+4}{x^3+x^2-x-1}\,dx$
+    \item $\displaystyle\int\frac{2x^2+7x-3}{x^2(2x+1)}\,dx$
+    \item $\displaystyle\int\frac{\cos x}{(1-\sin x)^2(2+\sin x)}\,dx$
+
+\end{enumerate}
+\end{multicols}    
+\end{exercise}
+
+\begin{exercise}
+Evaluate the following integrals
+\begin{multicols}{3}
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int \frac{x}{(x^2+4)(x-1)}\,dx$
+    \item $\displaystyle\int\frac{2x}{x^3-1}\,dx$
+    \item $\displaystyle\int\frac{dx}{(x^2+1)(x^2+4)}$
+    \item $\displaystyle\int\frac{x^3-1}{x^3+x}\,dx$
+    \item $\displaystyle\int\frac{dx}{x(x^4+1)}$
+    \item $\displaystyle\int\frac{x^2}{(x^2+1)(3x^2+4)}\,dx$
+    \item $\displaystyle\int\frac{\tan \theta+\tan^3\theta}{1+\tan^3\theta}\,d\theta$.
+    \item[] \phantom{x}
+
+
+
+\end{enumerate}
+\end{multicols}    
+\end{exercise}
+
+\end{document}  

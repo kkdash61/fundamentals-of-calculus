@@ -1,0 +1,178 @@
+  % ============================================================
+%  MATH BOOK — MAIN FILE
+%  Usage: list your chapter filenames (without .tex) in the
+%         \includeChapter{...} calls below, in order.
+%         Each chapter file should live in the chapters/ folder.
+% ============================================================
+
+% \documentclass[12pt, a4paper, twoside, openright]{book}
+\documentclass{book}
+
+% ── Encoding & Language ─────────────────────────────────────
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+% ── Page Layout ─────────────────────────────────────────────
+\usepackage[
+  top=2.5cm, bottom=2.5cm,
+  inner=3cm,  outer=2cm
+]{geometry}
+
+% ── Math Packages ───────────────────────────────────────────
+\usepackage{amsmath}      % Core math environments
+\usepackage{amssymb}      % Extra math symbols
+\usepackage{amsthm}       % Theorem environments
+\usepackage{mathtools}    % Extensions to amsmath
+\usepackage{bm}           % Bold math symbols
+
+\usepackage{float}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{fillbetween}
+
+
+% ── Theorem / Definition Environments ───────────────────────
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[subsection]
+\newtheorem{example}{Example}[section]
+\newtheorem{exercise}{Exercise}[section]
+
+% \newtheorem{theorem}{Theorem}[section]
+% \newtheorem{lemma}[theorem]{Lemma}
+% \newtheorem{definition}{Definition}[section]
+% \newtheorem{exercise}{Exercise}[section]
+% \newtheorem{example}{Example}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+
+\newenvironment{solution}
+    {\begin{proof}[Solution]}
+    {\end{proof}}
+
+% ── Fonts ────────────────────────────────────────────────────
+\usepackage{lmodern}      % Improved Latin Modern fonts
+
+% ── Graphics & Color ────────────────────────────────────────
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\graphicspath{{figures/}}  % Put shared figures here
+
+% ── Hyperlinks ───────────────────────────────────────────────
+\usepackage[
+  colorlinks = true,
+  linkcolor  = NavyBlue,
+  citecolor  = OliveGreen,
+  urlcolor   = Maroon,
+  bookmarks  = true,
+  pdftitle   = {My Math Book},
+  pdfauthor  = {Author Name}
+]{hyperref}
+
+% ── Miscellaneous ────────────────────────────────────────────
+\usepackage{microtype}    % Better typography
+\usepackage{booktabs}     % Professional tables
+\usepackage[inline]{enumitem}     % Customisable lists
+\usepackage{import}       % Needed for \subimport / path-aware includes
+\usepackage{multicol}
+\usepackage{todonotes}
+
+\DeclareMathOperator{\cosec}{cosec}
+
+% ── Chapter Import Helper ────────────────────────────────────
+%  \includeChapter{filename}
+%    - filename: the .tex file name WITHOUT extension,
+%      located inside the  chapters/  subfolder.
+%    - Uses \subimport so that any \input / \includegraphics
+%      inside the chapter file resolves paths relative to
+%      chapters/, not to this root directory.
+%
+%  Each chapter file should begin directly with its content
+%  (e.g. \chapter{Title of Chapter}) — no \documentclass or
+%  \begin{document} in the chapter files.
+% ────────────────────────────────────────────────────────────
+\newcommand{\includeChapter}[1]{%
+  \subimport{chapters/}{#1}%
+  \clearpage                  % Start next chapter on a new page
+}
+
+% ════════════════════════════════════════════════════════════
+
+\usepackage{subfiles}
+
+\begin{document}
+% ════════════════════════════════════════════════════════════
+
+% ── Front Matter ─────────────────────────────────────────────
+\frontmatter
+
+\begin{titlepage}
+  \centering
+  \vspace*{3cm}
+  {\Huge\bfseries Fundamentals of Calculus\par}
+  \vspace{1.5cm}
+  {\Large Kishore Kumar Dash\par}
+  \vspace{1cm}
+  {\large \today\par}
+  \vfill
+\end{titlepage}
+
+\tableofcontents
+% \listoffigures   % Remove if not needed
+% \listoftables    % Remove if not needed
+
+% ── Main Matter ──────────────────────────────────────────────
+\mainmatter
+
+\subfile{chapters/Limit/main}
+\subfile{chapters/Differentiation/main}
+\subfile{chapters/Application_of_Derivatives/main}
+\subfile{chapters/Integral_Calculus/main}
+\subfile{chapters/Definite_Integrals/main}
+\subfile{chapters/Area_Finding/main}
+\subfile{chapters/Differential_Equations/main}
+
+% ============================================================
+%  ADD / REMOVE / REORDER chapters here.
+%  Simply change the filename inside \includeChapter{...}.
+%  Files must be in the  chapters/  subfolder.
+%
+%  Example:
+%    \includeChapter{ch01_introduction}
+%    \includeChapter{ch02_real_numbers}
+%    \includeChapter{ch03_sequences}
+% ============================================================
+
+% \includeChapter{learning_calculus}
+% \includeChapter{derivatives}
+% \includeChapter{application_of_derivatives}
+% \includeChapter{integral_calculus}
+% \includeChapter{definite_integrals}
+% \includeChapter{area_quadrature}
+% \includeChapter{differential_equations}
+% \includeChapter{ch02_real_numbers}
+% \includeChapter{ch03_sequences}
+% \includeChapter{ch04_continuity}   ← uncomment when ready
+
+
+% ── Back Matter ──────────────────────────────────────────────
+% \backmatter
+
+% % Bibliography (uses a .bib file named references.bib)
+% \bibliographystyle{plain}
+% \bibliography{references}
+
+% % Index (requires running  makeindex  on the .idx file)
+% % \printindex
+
+% ════════════════════════════════════════════════════════════
+\end{document}
+% ════════════════════════════════════════════════════════════

@@ -1,0 +1,1520 @@
+% \documentclass{book}
+\documentclass[../../main.tex]{subfiles}
+\usepackage{graphicx} % Required for inserting images
+
+\title{DIFFERENTIATION / DERIVATIVES}
+\author{KISHORE KUMAR DASH}
+\date{21 March 2026}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{multicol}
+\usepackage[inline]{enumitem}
+\usepackage{todonotes}
+\usepackage{exercise}
+\usepackage[margin=1in]{geometry}
+\DeclareMathOperator{\cosec}{cosec}
+
+\renewcommand{\ExerciseHeader}{%
+  \par\noindent
+  \textbf{\large\ExerciseName~\ExerciseHeaderNB}%
+  \ifx\ExerciseTitle\empty\else\textit{\large\ExerciseTitle}\fi
+  \par\smallskip
+}
+
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem*{note}{Note}
+
+\newenvironment{solution}
+    {\begin{proof}[Solution]}
+    {\end{proof}}
+
+% \renewcommand{\qed}{\hfill\qedsymbol}
+\begin{document}
+
+\chapter{Differentiation or Derivatives}
+
+\section{Definition}
+
+
+The derivative or differentiation of a function $y = f(x)$ is denoted by $y'$ or $f'(x)$ and defined by    
+
+\[
+f'(x)= \lim_{h \rightarrow 0} \frac {f(x+h)-f(x)}{h}
+\]
+provided the limit exists. With the above definition we can discuss the following examples.
+
+\begin{example}
+If $y=x$, find $\dfrac{dy}{dx}.$    
+\end{example}
+
+\begin{solution}
+Here $f(x)=y=x.$ So $f(x+h)=x+h.$
+
+Thus, $\dfrac{dy}{dx} = f'(x) = \lim_{h \rightarrow 0} \dfrac {f(x+h)-f(x)}{h} =
+ \lim_{h \rightarrow 0} \dfrac {(x+h)-x}{h} = \lim_{h \rightarrow 0} \dfrac {h}{h} = 1$.    
+\end{solution}
+
+\begin{example}
+Find the derivative of a \textit{Constant}.    
+\end{example}
+
+\begin{solution}
+Here $f(x)=C$ where $C$ is a constant. So $f(x+h)= C$.
+
+Thus $f'(x) = \lim_{h \rightarrow 0} \dfrac {f(x+h)-f(x)}{h} = \lim_{h \rightarrow 0} \dfrac {C-C}{h} = \lim_{h \rightarrow 0} \dfrac {0}{h} = 0$. So derivative of a constant function is zero.    
+\end{solution}
+
+\begin{example}
+If $y=x^2$, find $\dfrac{dy}{dx}$.    
+\end{example}
+
+\begin{solution}
+Here $f(x)=y=x^2.$ So $f(x+h)=(x+h)^2$. Thus
+\begin{align*}
+f'(x) &= \lim_{h \rightarrow 0} \frac {f(x+h)-f(x)}{h} = \lim_{h \rightarrow 0} \frac {(x+h)^2-x^2}{h} \\
+&= \lim_{h \rightarrow 0} \frac {(x+h+x)(x+h-x)}{h} = \lim_{h \rightarrow 0} \frac {(2x+h)h}{h} \\
+&= \lim_{h \rightarrow 0}(2x+h) = 2x
+\end{align*}    
+\end{solution}
+
+\begin{example}
+If $y= \sqrt{x}$, find $\dfrac{dy}{dx}.$    
+\end{example}
+
+\begin{solution}
+Here $f(x)=y=\sqrt{x}.$ So $f(x+h)=\sqrt{x+h}$, Therefore, 
+\begin{align*}
+f'(x) &= \lim_{h \rightarrow 0} \frac {f(x+h)-f(x)}{h} = \lim_{h \rightarrow 0} \frac {\sqrt{x+h}-\sqrt{x}}{h} = \lim_{h \rightarrow 0} \frac {(\sqrt{x+h}-\sqrt{x})(\sqrt{x+h}+\sqrt{x})}{h(\sqrt{x+h}+\sqrt{x})} \\
+&=\lim_{h \rightarrow 0} \frac {x+h-x}{h(\sqrt{x+h}+\sqrt{x})} = \lim_{h \rightarrow 0} \frac {h}{h(\sqrt{x+h}+\sqrt{x})} \\
+&=\lim_{h \rightarrow 0} \frac {1}{\sqrt{x+h}+\sqrt{x}} = \frac{1}{2\sqrt{x}} = \frac{1}{2}x^{-1/2}
+\end{align*}
+\end{solution}
+
+
+\begin{note}
+In all the above examples we have noted that ``if $y=x^n$, for any real number n, then $\dfrac{dy}{dx}=nx^{n-1}$" which can be proved by using the Binomial theorem.
+\end{note}
+
+\begin{example}
+If $y= 5x^3$, find $\dfrac{dy}{dx}.$    
+\end{example}
+
+\begin{solution}
+ Here $f(x)=y=5x^3.$ So $f(x+h)= 5(x+h)^3$. Therefore, 
+
+\begin{align*}
+f'(x) &= \lim_{h \rightarrow 0} \frac {f(x+h)-f(x)}{h} = \lim_{h \rightarrow 0} \frac {5(x+h)^3-5x^3}{h} = \lim_{h \rightarrow 0} 5\frac {(x+h)^3-x^3}{h} \\
+&= \lim_{h \rightarrow 0} 5\frac {(x+h-x)((x+h)^2+(x+h)x+x^2)}{h} \qquad \text{ [Using } a^3-b^3=(a-b)(a^2+ab+b^2) \text{]} \\
+&= \lim_{h \rightarrow 0} 5\frac{h((x+h)^2+(x+h)x+x^2)}{h} = 5((x+0)^2+(x+0)x+x^2) \\
+&= 5.3x^2 = 15x^2
+ \end{align*}
+\end{solution}
+
+\begin{note}
+In the above example we have noted that ``if $y=Cf(x)$, for any constant C,then $\dfrac{dy}{dx}=Cf'(x)$", which can be proved directly using the definition of derivative. Similarly,  we can prove that $\dfrac{d}{dx}(f(x)\pm g(x))=\dfrac{d}{dx}f(x)\pm \dfrac{d}{dx}g(x).$
+\end{note}
+
+Using the formulae from both the notes above, we can find 
+
+\[
+\dfrac{d}{dx}(5x^2+2\sqrt{x}-7)=5\dfrac{d}{dx}x^2+2\dfrac{d}{dx}\sqrt{x}-\dfrac{d}{dx}7 = 5.2x+2.\frac{1}{2\sqrt{x}}-0 = 10x+\frac{1}{\sqrt{x}}.
+\]
+
+This can be proved using the definition \emph{ab intio}\textit{(from the first principle)}.
+
+\begin{example}
+Find the derivative of $\sin x$.
+\end{example}
+
+\begin{solution}
+Here $f(x)=\sin{x}$. So, $f(x+h)=\sin{(x+h)}$. Therefore,
+\begin{align*}
+f'(x) &= \lim_{h \rightarrow 0} \frac {f(x+h)-f(x)}{h} = \lim_{h \rightarrow 0} \frac {\sin{(x+h)}-\sin{x}}{h} = \lim_{h \rightarrow 0} \frac {2\sin{\frac{x+h-x}{2}}.\cos\frac{x+h+x}{2}}{h} \\
+&= \lim_{h \rightarrow 0} \frac {2\sin{\frac{h}{2}}.\cos\frac{2x+h}{2}}{h} = \lim_{h \rightarrow 0} \frac {\sin{\frac{h}{2}}}{\frac{h}{2}}.\lim_{h \rightarrow 0} \cos{\frac{2x+h}{2}} = 1.\cos{\frac{2x+0}{2}} = \cos x
+\end{align*}
+\end{solution}
+
+\begin{example}
+Find the derivative of $\tan {x}$.    
+\end{example}
+
+\begin{solution}
+Here $f(x)=\tan {x}$. So $f(x+h)=\tan{(x+h)}$. Therefore,
+\begin{align*}
+f'(x) &= \lim_{h \rightarrow 0} \frac {f(x+h)-f(x)}{h} =
+ \lim_{h \rightarrow 0} \frac {\tan (x+h)-\tan x}{h} = \lim_{h \rightarrow 0} \frac {\dfrac{\sin{(x+h)}}{\cos{(x+h)}}-\dfrac{\sin{x}}{\cos{x}}}{h} \\
+ &= \lim_{h \rightarrow 0} \frac {\sin{(x+h)}\cos{x}-\cos{(x+h)}\sin{x}}{h\cos{x}\cos{(x+h)}} = \lim_{h \rightarrow 0} \frac {\sin{(x+h-x)}}{h}\frac{1}{\cos{x}\cos{(x+h)}} \\ 
+ &= \lim_{h \rightarrow 0} \frac {\sin{h}}{h}\frac{1}{\cos{x}\cos{(x+h)}} = \frac{1}{\cos^2{x}} = \sec^2x
+\end{align*}
+\end{solution}
+
+\begin{note}
+Following the same principle we can prove the derivatives of other trigonometric functions which are listed below:
+\begin{multicols}{2}
+\begin{enumerate}
+    \item $\dfrac{d}{dx}\cos{x} = -\sin{x}$
+    \item $\dfrac{d}{dx}\cot{x}=-\cosec x$
+    \item $\dfrac{d}{dx}\sec x=\sec x.\tan x$
+    \item $\dfrac{d}{dx}\cosec x=-\cosec x.\cot{x}$
+\end{enumerate}
+\end{multicols}    
+\end{note}
+
+\begin{example}
+If $y= e^x$, find $\dfrac{dy}{dx}$
+\end{example}
+
+\begin{solution}
+Here $f(x)=y=e^x.$ So $f(x+h)=e^{x+h}.$ Therefore,
+
+$f'(x) = \lim_{h \rightarrow 0} \dfrac {f(x+h)-f(x)}{h} =
+\lim_{h \rightarrow 0} \dfrac {e^{x+h}-e^x}{h}=\lim_{h \rightarrow 0} \dfrac {e^x.e^h-e^x}{h}=\lim_{h \rightarrow 0} \dfrac {e^x(e^h-1)}{h}=e^x.1=e^x$
+\end{solution}
+
+\begin{example}
+If $y= a^x$, find $\dfrac{dy}{dx}.$
+\end{example}
+
+\begin{solution}
+Here $f(x)=y=a^x.$ So $f(x+h)=a^{x+h}$. Therefore, 
+\[
+f'(x) = \lim_{h \rightarrow 0} \frac {f(x+h)-f(x)}{h} = \lim_{h \rightarrow 0} \frac {a^{x+h}-a^x}{h} = \lim_{h \rightarrow 0} \frac {a^x.a^h-a^x}{h} = \lim_{h \rightarrow 0} \frac {a^x(a^h-1)}{h} = a^x\ln{a}
+\]
+\end{solution}
+
+\begin{example}
+If $y= \ln{x}$, find $\dfrac{dy}{dx}$.    
+\end{example}
+
+\begin{solution}
+    Here $f(x)=y=\ln{x}.$ So $f(x+h)=\ln{(x+h)}$. Therefore,
+
+\begin{align*}
+    f'(x) &= \lim_{h \rightarrow 0} \frac {f(x+h)-f(x)}{h} = \lim_{h \rightarrow 0} \frac {\ln{(x+h)}-\ln{x}}{h} = \lim_{h \rightarrow 0} \frac {\ln{\frac{(x+h)}{x}}}{h} = \lim_{h \rightarrow 0} \frac {\ln{(1+\frac{h}{x})}}{h} \\ 
+    &= \lim_{h \rightarrow 0} \frac {\ln{(1+\frac{h}{x})}}{\frac{h}{x}x} = \lim_{h \rightarrow 0} \left[\frac {\ln{(1+\frac{h}{x})}}{\frac{h}{x}}\right]\frac{1}{x} = 1.\frac{1}{x} = \frac{1}{x}
+\end{align*}
+\end{solution}
+
+\begin{example}
+If $y= \log_ax$, find $\dfrac{dy}{dx}$    
+\end{example}
+
+\begin{solution}
+Here $f(x)=y=\log_a x.$ So $f(x+h)=\log_a (x+h).$ Therefore,
+
+\begin{align*}
+    f'(x) &= \lim_{h \rightarrow 0} \frac {f(x+h)-f(x)}{h} = \lim_{h \rightarrow 0} \frac {\log_a (x+h)-\log_a x}{h} = \lim_{h \rightarrow 0} \frac {\log_a \frac{x+h}{x}}{h} \\
+    &= \lim_{h \rightarrow 0} \frac {\log_a {(1+\frac{h}{x})}}{h} = \lim_{h \rightarrow 0} \frac {\log_a {(1+\frac{h}{x})}}{\frac{h}{x}.x} = \lim_{h \rightarrow 0} \left[\frac {\log_a {(1+\frac{h}{x})}}{\frac{h}{x}}\right]\frac{1}{x} = \frac{1}{x}\log_a x = \frac{1}{x\ln{a}}
+\end{align*}
+\end{solution}
+
+
+\begin{example}
+If $y= \sin^{-1}x$ for $-{\pi/2}\leq y\leq  {\pi/2}$ , find  $\dfrac{dy}{dx}$.    
+\end{example}
+
+\begin{solution}
+Here $y=\sin^{-1}x \Rightarrow x=\sin y$ and $y+k=\sin^{-1} (x+h) \Rightarrow x+h = \sin (y+k)$. So $h\rightarrow 0\Rightarrow k\rightarrow 0$ 
+
+\begin{align*}
+    f'(x) &= \lim_{h \rightarrow 0} \frac {f(x+h)-f(x)}{h} = \lim_{h \rightarrow 0} \frac {\sin^{-1} (x+h)-\sin^{-1}x}{(x+h)-x} = \lim_{k \rightarrow 0} \frac {(y+k)-y}{\sin (y+k)-\sin y} \\ 
+    &= \lim_{k \rightarrow 0} \frac {k}{\sin (y+k)-\sin y} = \frac{1}{\dfrac{d}{dy}\sin y} = \frac{1}{\cos y} = \frac{1}{\sqrt{1-\sin^2 y}} = \frac{1}{\sqrt{1-x^2}}
+\end{align*}
+\end{solution}
+
+\begin{note}
+Following the same principle we can prove the derivatives of other inverse trigonometric functions which are listed below:
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $\dfrac{d}{dx} \cos ^{-1} x$ = $\dfrac{-1}{\sqrt{1-x^2}}.$
+    \item $\dfrac{d}{dx} \tan^{-1}{x}$= $\dfrac{1}{1+x^2}$
+    \item $\dfrac{d}{dx} \cot^{-1} x$=$\dfrac{-1}{1+x^2}$
+    \item $\dfrac{d}{dx} \sec^{-1} x$=$\dfrac{1}{|x|\sqrt{x^2-1}}$
+    \item $\dfrac{d}{dx} \cosec^{-1} x$=$\dfrac{-1}{|x|\sqrt{x^2-1}}$
+    \item[] \phantom{x}
+\end{enumerate}
+\end{multicols}
+\end{note}
+
+\begin{exercise}
+Find the derivatives of the following functions \textit{from the first principle}:
+\begin{multicols}{4}
+\begin{enumerate}
+    \item $x^4$
+    \item $\dfrac{1}{x^3}$
+    \item $\dfrac{1}{2x^2}$
+    \item $\dfrac{1}{2x+3}$
+    \item $(x+1)(x+2)$
+    \item $\dfrac{x^2+2}{x+1}$
+    \item $(4x-1)^2$
+    \item $x\sin x$
+    \item $\sin x\cos x$
+    \item $e^{3x}$
+    \item $x^2e^x$
+    \item $\sqrt{\sin x}$
+    \item $\ln{\sin x}$
+    \item $\sin(\ln x)$
+    \item $\sec^{-1} x$
+    \item $\tan \sqrt{x}$
+    \item $x \tan^{-1}x$
+    \item $\dfrac{\sin x}{x}$
+    \item $e^{\sqrt{x}}$
+    \item[] \phantom{x}
+\end{enumerate}
+\end{multicols}    
+\end{exercise}
+
+
+
+\section{Product and Quotient Rule}
+
+\begin{theorem}
+The following expressions hold true.
+\begin{align*}
+   \dfrac{d}{dx}(f(x).g(x)) &=  g(x)\dfrac{d}{dx}f(x)+f(x)\dfrac{d}{dx}g(x) \\
+   \dfrac{d}{dx}\frac{f(x)}{g(x)} &= \frac{f'(x).g(x)-f(x)g'(x)}{g(x)^2}
+\end{align*}
+\end{theorem}
+
+\begin{proof}
+For the first expression, let $t(x)=f(x)\cdot g(x)$. We have the following 
+\begin{align*}
+\dfrac{d}{dx}({f(x).g(x)}) = \dfrac{d}{dx}t(x) &= \lim_{h \rightarrow 0} \frac {t(x+h)-t(x)}{h} = \lim_{h \rightarrow 0} \frac {f(x+h)g(x+h)-f(x)g(x)}{h} \\ 
+&= \lim_{h \rightarrow 0} \frac {f(x+h)g(x+h)-f(x)g(x+h)+f(x)g(x+h)-f(x)g(x)}{h} \\
+&= \lim_{h \rightarrow 0}\frac{f(x+h)g(x+h)-f(x)g(x+h)}{h} + \lim_{h \rightarrow 0}\frac{f(x)g(x+h)-f(x)g(x)}{h} \\ 
+&= \lim_{h \rightarrow 0}\frac{(f(x+h)-f(x))g(x+h)}{h} + \lim_{h \rightarrow 0}\frac{f(x)(g(x+h)-g(x))}{h} \\ 
+&= g(x)\dfrac{d}{dx}f(x) + f(x)\dfrac{d}{dx}g(x) = f'(x)g(x)+f(x)g'(x)
+\end{align*}
+
+For the second expression, let $k(x)=\frac{f(x)}{g(x)}$, then $k(x+h)=\frac{f(x+h)}{g(x+h)}$. Thus, we have,
+\begin{align*}
+    \dfrac{d}{dx}(\frac{f(x)}{g(x)}) = \dfrac{d}{dx} k(x) &= \lim_{h \rightarrow 0} \frac {k(x+h)-k(x)}{h} = \lim_{h \rightarrow 0} \frac {\dfrac{f(x+h)}{g(x+h)}-\dfrac{f(x)}{g(x)}}{h} \\ 
+    &= \lim_{h \rightarrow 0} \frac {f(x+h)g(x)-f(x)g(x+h)}{hg(x+h)g(x)} \\
+    &= \lim_{h \rightarrow 0} \frac {f(x+h)g(x)-f(x)g(x)+f(x)g(x)-f(x)g(x+h)}{h}{\frac{1}{g(x+h)g(x)}} \\
+    &= \lim_{h \rightarrow 0} \frac {\left[f(x+h)-f(x)\right]g(x)-f(x)\left[g(x+h)-g(x)\right]}{h}{\frac{1}{g(x+h)g(x)}} \\
+    &= \left[\lim_{h \rightarrow 0} \frac {(f(x+h)-f(x))}{h}.g(x)-\lim_{h\rightarrow 0}f(x)\frac {(g(x+h)-g(x))}{h})\right].\lim_{h\rightarrow 0}{\frac{1}{g(x+h)g(x)}} \\
+    &= \frac{f'(x)g(x)-f(x)g'(x)}{g(x)^2}
+\end{align*}
+
+\end{proof}
+
+\begin{example}
+Find $\dfrac{d}{dx} (x^2 \sin x)$.    
+\end{example}
+
+\begin{solution}
+Applying the product rule,
+$\dfrac{d}{dx} (x^2 \sin x)$= $(\dfrac{d}{dx}x^2).\sin x+x^{2}.\dfrac{d}{dx}\sin x$= $2x \sin x+x^{2}\cos x.$    
+\end{solution}
+
+\begin{example}
+Find $\dfrac{d}{dx} (e^x \tan x +x^n \cos x)$.    
+\end{example}
+
+\begin{solution}
+\begin{align*}
+\dfrac{d}{dx} (e^x \tan x +x^n \cos x) &= \dfrac{d}{dx} (e^x \tan x) +\dfrac{d}{dx}(x^n \cos x) \\
+&= \tan x\dfrac{d}{dx} e^x+e^x \dfrac{d}{dx}\tan x +\cos x\dfrac{d}{dx}x^n+x^n \dfrac{d}{dx}\cos x \\ 
+&= e^x \tan x+e^x \sec^2 x +nx^{n-1}\cos x+x^n.(-\sin x) \\
+&= e^x(\tan x+\sec^2 x)+x^{n-1}(n\cos x-x\sin x)
+\end{align*}    
+\end{solution}
+
+\begin{example}
+Find $\dfrac{d}{dx} \dfrac{e^x}{1+\ln x}$.    
+\end{example}
+
+\begin{solution}
+Applying the quotient rule, 
+\[
+\dfrac{d}{dx} \frac{e^x}{1+\ln x} = \frac{(1+\ln x)\frac{d}{dx}e^x-e^x\frac{d}{dx}(1+\ln x) }{(1+\ln x)^2} = \frac{e^x(1+\ln x)-\frac{e^x}{x}}{(1+\ln x)^2} = \frac{e^x(x(1+\ln x)-1)}{x(1+\ln x)^2}
+\]
+\end{solution}
+
+\begin{example}
+Find $\dfrac{d}{dx}( \dfrac{\sin x+\cos x}{\sin x-\cos x})$    
+\end{example}
+
+\begin{solution}
+Applying the quotient rule, we get,
+
+\begin{align*}
+    \frac{d}{dx} (\frac{\sin x+\cos x}{\sin x-\cos x}) &= \frac{(\sin x - \cos x)\frac{d}{dx}(\sin x+\cos x)-(\sin x+\cos x)\frac{d}{dx}(\sin x-\cos x)}{(\sin x-\cos x)^2} \\
+    &= \frac{(\cos x-\sin x)(\sin x-\cos x)-(\sin x+\cos x)(\cos x+\sin x)}{(\sin x-\cos x)^2} \\
+    &= \frac{-2}{(\sin x-\cos x)^2}
+\end{align*}
+
+\end{solution}
+
+
+\begin{exercise}
+Differentiate the following functions with respect to $x$,
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $x^n\sin x$
+    \item $\sin x \cos x$
+    \item $x^2e^x\sin x$   
+    \item $x^3\ln x \cos x$
+    \item $(x\sin x+\cos x)(x\cos x-\sin x)$
+    \item $(3\sec x-4\cosec x)(5\cos x-2\sin x)$
+    \item $\dfrac{x^2+1}{x^2-1}$
+    \item $\dfrac{x+e^x}{1+\ln x}$
+    \item $\dfrac{x}{1+ \tan x}$
+    \item $\dfrac{x\tan x}{\sec x+\tan x}$
+    \item $\dfrac{\sin x-x\cos x}{x\sin x+\cos x}$
+    \item $\dfrac{x^2-x+1}{x^2+x+1}$
+    \item $\dfrac{a+\sin x}{1+a\sin x}$
+    \item$\dfrac{e^x+e^{-x}}{x^2+1}$
+    \item $\dfrac{a^x-b^x}{x}$
+    \item $\dfrac{\sqrt{x}-1}{\sqrt{x}+1}$
+    \item $(\dfrac{x-1}{x+1})^2$
+    \item $x\sin x-\dfrac{e^x}{1+x^2}$
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+
+
+
+\section{Chain Rule: Derivative of Composite Functions}
+
+
+Here if $y=f(g(x))$, then $\dfrac{dy}{dx}=f'(g(x))\cdot g'(x)$, it is called Chain rule. Try to prove it using the definition of derivative.
+
+\begin{example}
+Evaluate the following: \begin{enumerate*}[label=(\roman*)]
+    \item $\dfrac{d}{dx} (x^2+1)^3$
+    \item $\dfrac{d}{dx} \sqrt{x^2+3x-7}$
+    \item $\dfrac{d}{dx} \frac{1}{\sqrt{a^2-x^2}}$
+    \item $\dfrac{d}{dx}\sin x^\circ$
+\end{enumerate*}
+\end{example}
+
+\begin{solution}
+Applying the chain rule, we have,
+\begin{enumerate}[label=(\roman*)]
+\item 
+\[
+\dfrac{d}{dx} (x^2+1)^3 = 3(x^2+1)^{3-1} \dfrac{d}{dx}(x^2+1) = 3(x^2+1)^2.2x = 6x(x^2+1)^2
+\]
+
+\item 
+\begin{align*}
+\dfrac{d}{dx} \sqrt{{x^2+3x-7}} &= \dfrac{d}{dx} {(x^2+3x-7)^{\frac{1}{2}}} = \frac{1}{2}(x^2+3x-7)^{\frac{1}{2}-1}\dfrac{d}{dx}(x^2+3x-7) \\
+&= \frac{1}{2}(x^2+3x-7)^{\frac{-1}{2}}(2x+3) = \frac{2x+3}{2\sqrt{x^2+3x-7}}
+\end{align*}
+
+\item \begin{align*}
+\dfrac{d}{dx} \frac{1}{\sqrt{a^2-x^2}} &= \dfrac{d}{dx}(a^2-x^2)^{-\frac{1}{2}} = -\frac{1}{2}(a^2-x^2)^{-\frac{1}{2}-1}.\dfrac{d}{dx}(a^2-x^2) \\
+&= -\frac{1}{2}(a^2-x^2)^{-\frac{3}{2}}.(-2x) = \frac{x}{(a^2-x^2)^\frac{3}{2}}
+\end{align*}
+
+\item To find $\dfrac{d}{dx}\sin x^\circ$, we know that $\pi=180^0\Rightarrow x^0=\frac{\pi}{180}x$. Thus, 
+
+\[
+\dfrac{d}{dx}\sin x^\circ = \dfrac{d}{dx}\sin \frac{\pi}{180}x = \cos \frac{\pi}{180}x.\dfrac{d}{dx}\frac{\pi}{180}x = \frac{\pi}{180}\cos x^\circ
+\]
+\end{enumerate}
+\end{solution}
+
+\begin{example}
+Find 
+\begin{enumerate*}[label=(\roman*)]
+    \item $\dfrac{d}{dx} \sec (x^2+1)$
+    \item $\dfrac{d}{dx} e^{\sin^2 x}$
+    \item $\dfrac{d}{dx} \sin e^{x^2}$ 
+    \item $\dfrac{d}{dx} \ln \tan x^2$
+\end{enumerate*}
+\end{example}
+
+\begin{solution}
+\begin{enumerate}[label=(\roman*)]
+\item \begin{align*}
+\dfrac{d}{dx} \sec (x^2+1) &= \sec (x^2+1)\tan(x^2+1)\dfrac{d}{dx}(x^2+1) \\
+&= \sec (x^2+1)\tan(x^2+1)2x = 2x\sec (x^2+1)\tan(x^2+1)    
+\end{align*}
+
+\item $\dfrac{d}{dx} e^{\sin^2 x} = e^{\sin^2x}\dfrac{d}{dx} {(\sin x)^2} = e^{\sin^2x} 2\sin x \dfrac{d}{dx}\sin x = e^{\sin^2x} 2\sin x \cos x = e^{\sin^2 x}\sin 2x$
+
+\item $\dfrac{d}{dx} \sin (e^{x^2}) = \cos (e^{x^2})\dfrac{d}{dx}e^{x^2} =
+ \cos (e^{x^2})e^{x^2}\dfrac{d}{dx}x^2 = \cos (e^{x^2})e^{x^2}.2x = 2xe^{x^2}\cos (e^{x^2})$
+
+\item $\dfrac{d}{dx} \ln \tan x^2$= $\frac{1}{\tan x^2} \dfrac{d}{dx}\tan x^2$ =$\frac{1}{\tan x^2} \sec^2 x^2\dfrac{d}{dx}x^2$ = $\frac{1}{\tan x^2} \sec^2 x^2\cdot2x$ =$2x\sec^2 x^2\cot x^2$
+\end{enumerate}
+\end{solution}
+
+
+\begin{exercise}
+Find $\dfrac{dy}{dx}$ if $y$ is given as follows:
+\begin{multicols}{4}
+\begin{enumerate}
+    \item $(x^2+3)^5$
+    \item $\sin (\cos 3x)$
+    \item $(\sin 7x+\cos 5x)$   
+    \item $\sin 3x\cos 2x$
+    \item $\sin^3x.\cos^3x$
+    \item $\sqrt{\tan 5x}$
+    \item $\sin^2(3x+5)$
+    \item $(4x-1)^2$
+    \item $\dfrac{1}{2x+3}$
+    \item $\dfrac{x^2+2}{x+1}$
+    \item $(\dfrac{x^2+1}{x+3})^{-2}$
+    \item $2^{x^3+2x}$
+    \item$ \sqrt{\dfrac{1+x^2}{1-x^2}}$
+    \item $\sin \dfrac{1-x^2}{1+x^2}$
+    \item $\ln\sqrt{\dfrac{1-\sin x}{1+\sin x}}$
+    \item $\dfrac{e^{3x}-e^{-3x}}{e^{3x}+e^{-3x}}$
+    \item $\dfrac{e^x\ln x}{x^2}$
+    \item $\dfrac{e^x \sin x}{(x^2+5)^3}$
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+
+
+
+\section{Evaluation of Derivative using Trigonometric substitution}
+
+
+In this section, we shall differentiate a function by using Trigonometric Substitution. Usually this is done in case of inverse Trigonometric functions. For ready reference, the following Trigonometric and inverse Trigonometric formulae are given.
+
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $\sin 2x=2\sin x\cos x$
+    \item $1+\cos 2x=2\cos^2x$
+    \item $1-\cos 2x=2\sin^2 x$   
+    \item $\sin 3x=3\sin x-4\sin^3 x$
+    \item $\cos 3x=4\cos^3 x-3\cos x$
+    \item $\sin 2x=\dfrac{2\tan x}{1+\tan^2 x}$
+    \item $\cos 2x=\dfrac{1-\tan^2x}{1+\tan^2 x}$
+    \item $\tan 2x=\dfrac{2\tan x}{1-\tan^2 x}$
+    \item$\tan ^{-1}(\dfrac{x+y}{1-xy})=\tan^{-1}x+\tan^{-1}y$
+    \item $\tan^{-1}(\dfrac{x-y}{1+xy})=\tan^{-1}x-\tan^{-1}y$
+    \item $\sin^{-1}x+\cos^{-1}x=\dfrac{\pi}{2}$
+    \item $\tan^{-1}x+\cot^{-1}x=\dfrac{\pi}{2}$
+    \item $\sec^{-1}x+\cosec^{-1}x=\dfrac{\pi}{2}$
+    \item[] \phantom{x}
+\end{enumerate}
+\end{multicols}
+
+Additionally, we also have the following expressions:
+\begin{enumerate}
+    \item $\sin^{-1}[x\sqrt{1-y^2}+y\sqrt{1-x^2}] =\sin^{-1}x+\sin^{-1}y\text{, if }-1\leq x,y\leq 1$
+    \item $\sin^{-1}[x\sqrt{1-y^2}-y\sqrt{1-x^2}] = \sin^{-1}x-\sin^{-1}y\text{, if }-1\leq x,y\leq 1$
+    \item $\cos ^{-1}[xy-\sqrt{1-x^2}\sqrt{1-y^2}=\cos^{-1}x+\cos ^{-1}y\text{, if }-1\leq x,y\leq 1$
+    \item $\cos ^{-1}[xy+\sqrt{1-x^2}\sqrt{1-y^2}=\cos^{-1}x-\cos ^{-1}y,$ if $-1\leq x,y\leq 1$
+\end{enumerate}
+ 
+\begin{example}
+For  $ 0 < x <\frac{\pi}{2}$, find 
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $\dfrac{d}{dx} \tan ^{-1} (\sec x+\tan x)$
+    \item $\dfrac{d}{dx} \tan ^{-1} (\dfrac{1-\cos x}{\sin x})$
+    \item $\dfrac{d}{dx} \tan ^{-1} \sqrt{\dfrac{1+\cos x}{1-\cos x}}$ 
+    \item $\dfrac{d}{dx} \tan ^{-1} \sqrt{\dfrac{1-\cos x}{1+\cos x}}$
+    \item $\dfrac{d}{dx} \tan^{-1} \dfrac{\cos x}{1+\sin x}$
+    \item $\dfrac{d}{dx} \tan ^{-1} \sqrt{\dfrac{1+\sin x}{1-\sin x}}$
+\end{enumerate}
+\end{multicols}
+\end{example}
+
+
+\begin{solution}
+\begin{enumerate}[label=(\roman*)]
+\item Working on the expression $\sec x+\tan x$, we see that,
+\begin{align*}
+    \sec x+\tan x &= \frac{1}{\cos x}+\frac{\sin x}{\cos x} = \frac{1+\sin x}{\cos x} = \frac{\sin^2 \frac{x}{2}+\cos^2\frac{x}{2}+2\sin \frac{x}{2}.\cos \frac{x}{2}}{\cos^2 \frac{x}{2}-\sin^2 \frac{x}{2}} \\
+    &= \frac{(\cos \frac{x}{2}+\sin \frac{x}{2})^2}{\cos^2 \frac{x}{2}-\sin^2 \frac{x}{2}} = \frac{\cos \frac{x}{2}+\sin \frac{x}{2}}{\cos \frac{x}{2}-\sin \frac{x}{2}} = \frac{1+\tan \frac{x}{2}}{1-\tan \frac{x}{2}} = \frac{\tan \frac{\pi}{4}+\tan \frac{x}{2}}{1-\tan \frac{\pi}{4}\tan \frac{x}{2}} = \tan \left(\frac{\pi}{4}+\frac{x}{2}\right)
+\end{align*}
+
+Thus $\dfrac{d}{dx} \tan ^{-1} (\sec x+\tan x)$=$\dfrac{d}{dx} \tan ^{-1} \tan \left(\frac{\pi}{4}+\frac{x}{2}\right)$ = $\dfrac{d}{dx} (\frac{\pi}{4}+\frac{x}{2})$ =$\frac{1}{2}$.
+
+
+\item Here we have, 
+\begin{align*}
+&\qquad \frac{1-\cos x}{\sin x} = \frac{1-\cos^2\frac{x}{2}+sin^2\frac{x}{2}}{2\sin \frac{x}{2}.\cos \frac{x}{2}} = \frac{2\sin^2\frac{x}{2}}{2\sin \frac{x}{2}.\cos \frac{x}{2}} = \tan \frac{x}{2} \\ 
+&\text{So, }\dfrac{d}{dx} \tan ^{-1} \left(\frac{1-\cos x}{\sin x}\right) = \dfrac{d}{dx} \tan ^{-1}\tan \frac{x}{2} = \dfrac{d}{dx}\frac{x}{2} = \frac{1}{2}
+\end{align*}
+
+\item Here $\sqrt{\frac{1+\cos x}{1-\cos x}} = \sqrt{\frac{2\cos^2\frac{x}{2}}{2\sin^2\frac{x}{2}}} = \cot \frac{x}{2}$. Thus,
+\[
+\dfrac{d}{dx} \tan ^{-1} \sqrt{\frac{1+\cos x}{1-\cos x}} = \dfrac{d}{dx} \tan ^{-1} \cot \frac{x}{2} = \dfrac{d}{dx} \tan ^{-1} \tan(\frac{\pi}{2}-\frac{x}{2}) = \dfrac{d}{dx}\left(\frac{\pi}{2}-\frac{x}{2}\right) = -\frac{1}{2}
+\]
+
+\item Here $\sqrt{\frac{1-\cos x}{1+\cos x}} = \sqrt{\frac{2\sin^2\frac{x}{2}}{2\cos^2\frac{x}{2}}} = \tan \frac{x}{2}$. Thus, $\dfrac{d}{dx} \tan ^{-1} \sqrt{\frac{1-\cos x}{1+\cos x}} = \dfrac{d}{dx} \tan ^{-1}\tan \frac{x}{2} = \dfrac{d}{dx}\frac{x}{2} = \frac{1}{2}$.
+
+\item Here $\frac{\cos x}{1+\sin x}$ = $\frac{\sin (\frac{\pi}{2}+x)}{1-\cos(\frac{\pi}{2}+x)}$ = $\frac{2\sin (\frac{\pi}{4}+\frac{x}{2}).\cos (\frac{\pi}{4}+\frac{x}{2})}{2\sin^2(\frac{\pi}{4}+\frac{x}{2})}$ = $\cot (\frac{\pi}{4}+\frac{x}{2})$. Therefore,
+
+\begin{align*}
+\dfrac{d}{dx} \tan^{-1} \frac{\cos x}{1+\sin x} &= \dfrac{d}{dx} \tan^{-1}\cot (\pi/4+x/2) = \dfrac{d}{dx} \tan^{-1}\tan(\pi/2- (\pi/4+x/2)) \\ 
+&= \dfrac{d}{dx} (\pi/4-x/2) = -\frac{1}{2}
+\end{align*}
+
+
+\item Here $\frac{1+\sin x}{1-\sin x} = \frac{1-\cos(\frac{\pi}{2}+ x)}{1+\cos (\frac{\pi}{2}+x)} = \frac{2\sin^2(\frac
+{\pi}{4}+\frac{x}{2})}{2\cos^2\frac
+{\pi}{4}+\frac{x}{2})} = \tan^2(\frac{\pi}{4}+\frac{x}{2}) \Rightarrow \sqrt{\frac{1+\sin x}{1-\sin x}} = \tan (\frac{\pi}{4}+\frac{x}{2})$. 
+
+\[
+\text{Therefore, }\dfrac{d}{dx} \tan ^{-1} \sqrt{\frac{1+\sin x}{1-\sin x}} = \dfrac{d}{dx}\tan ^{-1}\tan (\frac{\pi}{4}+\frac{x}{2}) = \dfrac{d}{dx}(\frac{\pi}{4}+\frac{x}{2}) = \frac{1}{2}
+\]
+
+\end{enumerate}
+\end{solution}
+
+
+\begin{example}
+Find the values for the following derivatives 
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $\dfrac{d}{dx} \cos^{-1} (4x^3-3x)$
+    \item $\dfrac{d}{dx} \sin^{-1} 2x\sqrt{1-x^2}$
+    \item $\dfrac{d}{dx} \sin^{-1} (\dfrac{2x}{1+x^2})$ 
+    \item $\dfrac{d}{dx} \tan^{-1} \dfrac{2x}{1-x^2}$
+    \item $\dfrac{d}{dx} \sec^{-1} (\dfrac{\sqrt{a^2+x^2}}{a})$
+    \item $\dfrac{d}{dx} \sin^{-1} (\dfrac{2\sqrt{x^2-1}}{x^2})$
+    \item $\dfrac{d}{dx} \cos^{-1} (1-2x^2)$ 
+    \item $\dfrac{d}{dx} \tan^{-1} (\dfrac{\sqrt{x}-x}{1+x^{3/2}})$   
+\end{enumerate}
+\end{multicols}
+\end{example}
+
+\begin{solution}
+\begin{enumerate}[label=(\roman*)]
+\item Let us put $x=\cos \theta $. Then 
+$4x^3-3x=4\cos^3\theta -3 \cos\theta = \cos 3\theta $. Thus
+\[
+\dfrac{d}{dx} \cos^{-1} (4x^3-3x) = \dfrac{d}{dx} \cos^{-1} \cos 3\theta = \dfrac{d}{dx}3\theta = \dfrac{d}{dx}3\cos^{-1}x = \frac{-3}{\sqrt{1-x^2}}
+\]
+
+\item To find $\dfrac{d}{dx} \sin^{-1} 2x\sqrt{1-x^2}$, let us put $x=\sin \theta$. Then,
+\begin{align*}
+\dfrac{d}{dx} \sin^{-1} 2x\sqrt{1-x^2} &= \dfrac{d}{dx}\sin^{-1}2\sin \theta \sqrt{1-\sin^2 \theta} = \dfrac{d}{dx}\sin^{-1}\sin 2\theta = \dfrac{d}{dx}2\theta \\
+&= \dfrac{d}{dx}2 \sin^{-1}x = \frac{2}{\sqrt{1-x^2}}
+\end{align*}
+
+\item Let us take $x=\tan\theta$. Then,
+\begin{align*}
+\dfrac{d}{dx} \sin^{-1} \left(\frac{2x}{1+x^2}\right) &= \dfrac{d}{dx} \sin^{-1} \left(\frac{2\tan\theta}{1+\tan^2\theta}\right) = \dfrac{d}{dx} \sin^{-1} 2\sin\theta \cos\theta = \dfrac{d}{dx} \sin^{-1} \sin2\theta \\ 
+&= \dfrac{d}{dx}2\theta = \dfrac{d}{dx}2\tan^{-1}x = \frac{2}{1+x^2}
+\end{align*}
+
+\item To find  $\dfrac{d}{dx} \tan^{-1} \dfrac{2x}{1-x^2}$, let $x=\tan \theta $. Then,
+
+\begin{align*}
+\dfrac{d}{dx} \tan^{-1} \frac{2x}{1-x^2} &= \dfrac{d}{dx} \tan^{-1} \frac{2\tan \theta}{1-\tan^2\theta} = \dfrac{d}{dx}\tan^{-1}\tan 2\theta = \dfrac{d}{dx}2\theta = \dfrac{d}{dx}2\tan^{-1}x = \frac{2}{1+x^2}
+\end{align*}
+
+
+\item Let us put $x=a\tan\theta$, then
+\begin{align*}
+\dfrac{d}{dx} \sec^{-1} \left(\frac{\sqrt{a^2+x^2}}{a}\right) &= \dfrac{d}{dx} \sec^{-1} \frac{\sqrt{a^2+a^2\tan^2\theta}}{a} = \dfrac{d}{dx}\sec^{-1} \sec\theta = \dfrac{d}{dx}\tan^{-1}\frac{x}{a} \\
+&= \frac{1}{1+(x/a)^2}.\dfrac{d}{dx}\frac{x}{a} = \frac{1}{1+(x/a)^2}.\frac{1}{a} = \frac{a}{a^2+x^2}
+\end{align*}
+
+\item To find $\dfrac{d}{dx} \sin^{-1} (\dfrac{2\sqrt{x^2-1}}{x^2})$, we shall put $x=\sec \theta$. So,
+\begin{align*}
+    \dfrac{d}{dx} \sin^{-1} \left(\frac{2\sqrt{x^2-1}}{x^2}\right) &= \dfrac{d}{dx} \sin^{-1} \left(\frac{2\sqrt{\sec^2\theta-1}}{\sec^2\theta}\right) = \dfrac{d}{dx}\sin^{-1}(2\sin \theta \cos \theta) = \dfrac{d}{dx}\sin ^{-1}\sin 2\theta \\
+    &= \dfrac{d}{dx}2\theta = \dfrac{d}{dx}2\sec^{-1}x = \frac{2}{|x|\sqrt{x^2-1}}
+\end{align*}
+
+\item Let us put $x=\sin \theta$. Then
+\begin{align*}
+\dfrac{d}{dx} \cos^{-1} (1-2x^2) &= \dfrac{d}{dx} \cos^{-1} (1-2\sin ^2\theta) = \dfrac{d}{dx} \cos^{-1} (\cos^2\theta-\sin^2\theta) = \dfrac{d}{dx}\cos^{-1}\cos 2\theta \\ 
+&= \dfrac{d}{dx}2\theta = \dfrac{d}{dx}2\sin^{-1}x = \frac{2}{\sqrt{1-x^2}}
+\end{align*}
+
+\item Let us put $\sqrt{x}=\tan \alpha$ and $x=\tan \beta$. Then,
+
+\begin{align*}
+\dfrac{d}{dx} \tan^{-1} \left(\frac{\sqrt{x}-x}{1+x^{3/2}}\right) &= \dfrac{d}{dx} \tan^{-1} \left(\frac{\tan \alpha-\tan \beta}{1+\tan \alpha.\tan \beta}\right) = \dfrac{d}{dx} \tan^{-1}\tan (\alpha+\beta) = \dfrac{d}{dx}(\alpha+\beta) \\
+&= \dfrac{d}{dx}(\tan ^{-1}\sqrt{x}+\tan^{-1}x) = \frac{1}{1+x}\dfrac{d}{dx}\sqrt{x} +\frac{1}{1+x^2} = \frac{1}{2\sqrt{x}(1+x)} + \frac{1}{1+x^2}
+\end{align*}
+\end{enumerate}
+\end{solution}
+
+\begin{exercise}
+Differentiate the following functions with respect to $x$
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $\sin ^{-1}\sqrt{1-x^2}$, for $0<x<1$
+    \item $\sin ^{-1}\dfrac{x}{\sqrt{x^2+a^2}}$
+    \item $\sin ^{-1}(1-2x^2)$, for $0<x<1$   
+    \item $\sin ^{-1}(\dfrac{\sin x+\cos x}{\sqrt{2}})$, for $0<x<\pi/4$
+    \item $\tan ^{-1}(\dfrac{4x}{1-4x^2})$, for $-1/2<x<1/2$
+    \item $\tan ^{-1}(\dfrac{\sqrt{1+a^2x^2}-1}{ax}),$ for $x\ne 0$
+    \item $\sin ^{-1}(\dfrac{1-x^2}{1+x^2})+ \sec ^{-1}(\dfrac{1+x^2}{1-x^2})$
+    \item $\tan ^{-1}(\dfrac{a+b\tan x}{b-a\tan x})$
+    \item $\tan ^{-1}(\dfrac{\cos x+ \sin x}{\cos x-\sin x}),$ for $-\pi/4<x<\pi/4$
+    \item $\sin ^{-1}(\dfrac{2x}{1+x^2})+ \sec ^{-1}(\dfrac{1+x^2}{1-x^2})$, for $0<x<1$
+    \item $\sin ^{-1}(\dfrac{x}{\sqrt{1+x^2}})+ \cos ^{-1}(\dfrac{1}{\sqrt{1+x^2}})$
+    \item $\tan ^{-1}(\dfrac{2x}{{1-x^2}})+ \sec ^{-1}(\dfrac{1+x^2}{1-x^2})$
+    \item$\tan ^{-1}(\dfrac{\sqrt{1+x}-\sqrt{1-x}}{{\sqrt{1+x}+\sqrt{1-x}}})$
+    \item $\cos ^{-1}2x+2\cos ^{-1}\sqrt{1-4x^2}$, for $0<x<1/2$
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+
+
+\section{Differentiation using Logarithm}
+
+It becomes convenient to use logarithm when a function is an exponent of another function and when a function is the product of several functions. Let us go through the following examples.
+
+\begin{example}\label{derivative-log-ex1}
+Differentiate $y=x^x$.    
+\end{example}
+
+\begin{solution}
+Given $y=x^x$ $\Rightarrow \ln y=\ln x^x$ $\Rightarrow \ln y= x\ln x$ $\Rightarrow \dfrac{d}{dx}\ln y= \dfrac{d}{dx}(x\ln x)$ 
+
+$\Rightarrow \frac{1}{y}\dfrac{dy}{dx}=(\dfrac{d}{dx}x)\ln x+x\dfrac{d}{dx}\ln x$ $\Rightarrow \frac{1}{y}\dfrac{dy}{dx}=\ln x+x\frac{1}{x}$
+$\Rightarrow \dfrac{dy}{dx}=y(1+\ln x)=x^x(1+\ln x)$.
+\end{solution}
+
+\begin{example}
+Differentiate $y=x^{x^x}$    
+\end{example}
+
+\begin{solution}
+Suppose $z=x^x$, then $\dfrac{dz}{dx}$=$x^x(1+ln x)$ which is already proved in Example \ref{derivative-log-ex1}. Now,
+
+\begin{align*}
+y=x^{x^x}=x^z \Rightarrow \ln y=\ln x^z=z\ln x &\Rightarrow \dfrac{d}{dx}\ln y=\dfrac{d}{dx}(z\ln x)=\frac{dz}{dx}\ln x+\frac{z}{x} \\ 
+&\Rightarrow \frac{1}{y}\dfrac{dy}{dx}=x^x(1+\ln x)\ln x+\frac{x^x}{x} \\ 
+&\Rightarrow  \dfrac{dy}{dx}=y\left[x^x(1+\ln x)\ln x+\frac{x^x}{x}\right]=x^{x^x}\left[x^x(1+\ln x)\ln x+\frac{x^x}{x}\right]
+\end{align*}
+\end{solution}
+
+\begin{example}
+Differentiate $y=(x+\frac{1}{x})^x$.    
+\end{example}
+
+\begin{solution}
+Given $y=(x+\frac{1}{x})^x$ $\Rightarrow \ln y = \ln (x+\frac{1}{x})^x$. Taking derivatives with respect to x on both the sides, we have,
+\begin{align*}
+    &\qquad \dfrac{d}{dx}\ln y = \dfrac{d}{dx}\ln \left(x+\frac{1}{x}\right)^x = \dfrac{d}{dx}x\ln \left(x+\frac{1}{x}\right) \\
+    &\Rightarrow \frac{1}{y}\dfrac{dy}{dx}=(\dfrac{d}{dx}x)\ln \left(x+\frac{1}{x}\right)+x.\dfrac{d}{dx}\ln \left(x+\frac{1}{x}\right)=\ln \left(x+\frac{1}{x}\right)+x\frac{1}{x+\frac{1}{x}}\dfrac{d}{dx}\left(x+\frac{1}{x}\right) \\
+    &\Rightarrow \frac{1}{y}\dfrac{dy}{dx}=\ln \left(x+\frac{1}{x}\right)+\left(\frac{x^2}{1+x^2}\right)\left(1-\frac{1}{x^2}\right) = \ln \left(x+\frac{1}{x}\right)+\left(\frac{x^2}{1+x^2}\right)\left(\frac{x^2-1}{x^2}\right) \\
+    &\Rightarrow \dfrac{dy}{dx}= y\left[\ln \left(x+\frac{1}{x}\right)+\left(\frac{x^2-1}{x^2+1}\right)\right] = \left(x+\frac{1}{x}\right)^x\left[\ln \left(x+\frac{1}{x}\right)+\left(\frac{x^2-1}{x^2+1}\right)\right]
+\end{align*}
+\end{solution}
+
+\begin{example}
+Find $\dfrac{dy}{dx}$ if $y=\dfrac{\sqrt{1-x^2}\sqrt{2x+3}}{(x^2+5)^{\frac{2}{3}}}$.
+\end{example}
+
+\begin{solution}
+\begin{align*}
+\text{Given }y=\frac{\sqrt{1-x^2}\sqrt{2x+3}}{(x^2+5)^{\frac{2}{3}}} &\Rightarrow \ln y=\ln \frac{\sqrt{1-x^2}\sqrt{2x+3}}{(x^2+5)^{\frac{2}{3}}} = \ln \sqrt{1-x^2}+\ln \sqrt{2x+3}-\ln {(x^2+5)^{\frac{2}{3}}} \\
+&\Rightarrow \dfrac{d}{dx} \ln y=\dfrac{d}{dx}(\ln\sqrt{1-x^2}+\ln \sqrt{2x+3}-\ln {(x^2+5)^{\frac{2}{3}}}) \\
+&\Rightarrow \dfrac{d}{dx} \ln y=\dfrac{d}{dx}\ln\sqrt{1-x^2}+\dfrac{d}{dx}\ln \sqrt{2x+3}-\dfrac{d}{dx}\frac{2}{3}\ln (x^2+5) \\ 
+&\Rightarrow \frac{1}{y}\dfrac{dy}{dx} = \frac{-x}{1-x^2}+\frac{1}{2x+3}-\frac{4x}{3(x^2+5)} \\
+&\Rightarrow \dfrac{dy}{dx} = \frac{\sqrt{1-x^2}\sqrt{2x+3}}{(x^2+5)^{\frac{2}{3}}}\left[\frac{-x}{1-x^2}+\frac{1}{2x+3}-\frac{4x}{3(x^2+5)}\right]
+\end{align*}    
+\end{solution}
+
+
+\begin{exercise}
+    
+
+Find $\dfrac{dy}{dx}$ in the following cases
+\begin{multicols}{2}
+\begin{enumerate}
+    \item $y=e^x+10^x+x^x$
+    \item $y=x^x+x^{\frac{1}{x}}$
+    \item $\sin x^{\tan y}=\tan x^{\sin y}$
+    \item $x^my^n=(x+y)^{m+n}$ 
+    \item $y=(x\cos x)^x+(x\sin x)^{\dfrac{1}{x}}$
+    \item $y=\dfrac{\sqrt{x}(x+2)^{3/2}}{(5x-1)^{4/3}}$
+    
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+
+
+
+\section{Derivative of Implicit Functions}
+
+ In the earlier sections,we notice that y is a function of x, that is $y=f(x)$. But if x and y occur implicitly, i.e. can not be separated from each other, then we shall differentiate both sides of the equation where both x and y occur.
+ 
+\begin{example}
+Find $\dfrac{dy}{dx}$ in the following cases: 
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $x^2+xy+y^2=3$
+    \item $y=\sin xy$
+    \item $x=e^{xy}$ 
+    \item $y=x\ln (xy)$
+    \item $\sin (x+y)=y \cos (x+y)$
+    \item $x^y=y^x$.
+\end{enumerate}
+\end{multicols}
+\end{example}
+
+\begin{solution}
+\begin{enumerate}[label=(\roman*)]
+\item Given $x^2+xy+y^2=3$, we differentiate both the sides with respect to x to get,
+\begin{align*}
+    &\qquad \dfrac{d}{dx}(x^2+xy+y^2)=\dfrac{d}{dx}3 \\
+    &\Rightarrow \dfrac{d}{dx}x^2+\dfrac{d}{dx}(xy)+\dfrac{d}{dx}y^2=\dfrac{d}{dx}3 \\ &\Rightarrow 2x+(\dfrac{d}{dx}x)y+x\dfrac{dy}{dx}+2y\dfrac{dy}{dx}= 0 \\
+    &\Rightarrow 2x+1y+x\dfrac{dy}{dx}+2y\dfrac{dy}{dx}= 0 \\ 
+    &\Rightarrow(x+2y)\dfrac{dy}{dx}= -(2x+y) \Rightarrow\dfrac{dy}{dx}= -\frac{(2x+y)}{(x+2y)}
+\end{align*}
+
+\item Given  $y=\sin xy$, differentiate both the sides with respect to x, we get,  $\dfrac{d}{dx}y=\dfrac{d}{dx}\sin xy$ 
+\begin{align*}
+\dfrac{dy}{dx}=\cos xy \dfrac{d}{dx}(xy) &\Rightarrow \dfrac{dy}{dx}=\cos xy ((\dfrac{d}{dx}x)y+x\dfrac{d}{dx}y) \\
+&\Rightarrow \dfrac{dy}{dx}=y\cos xy +x\dfrac{dy}{dx}\cos xy \\
+&\Rightarrow \dfrac{dy}{dx}-x\dfrac{dy}{dx}\cos xy=y\cos xy \Rightarrow \dfrac{dy}{dx} = \frac{y\cos xy}{1-x\cos xy}
+\end{align*}
+
+\item Given $x=e^{xy}$. Taking derivatives throughout, we get
+\begin{align*}
+    \dfrac{d}{dx}x=\dfrac{d}{dx}e^{xy} &\Rightarrow 1=e^{xy}\dfrac{d}{dx}(xy)=e^{xy}((\dfrac{d}{dx}x)y+x\dfrac{dy}{dx})=e^{xy}(1.y+x\dfrac{dy}{dx})= ye^{xy}+x e^{xy}\dfrac{dy}{dx} \\
+    &\Rightarrow \dfrac{dy}{dx}=\frac{1-ye^{xy}}{xe^{xy}}
+\end{align*}
+
+\item Given $y=x\ln (xy)$, differentiate both the sides with respect to x, we get,
+
+\begin{align*}
+\dfrac{d}{dx}y=\dfrac{d}{dx}(x\ln(xy)) &\Rightarrow \dfrac{dy}{dx}=(\dfrac{d}{dx}x).\ln(xy)+x.\dfrac{d}{dx}\ln(xy)=1.\ln(xy)+x.\frac{1}{xy}\dfrac{d}{dx}(xy) \\
+&\Rightarrow \frac{dy}{dx} = \ln(xy)+\frac{1}{y}\left[(\dfrac{d}{dx}x)y+x.\dfrac{d}{dx}y\right] = \ln(xy)+1+\frac{x}{y}\dfrac{dy}{dx} \\
+&\Rightarrow \dfrac{dy}{dx}-\frac{x}{y}\dfrac{dx}{dy}=1+\ln(xy) \Rightarrow \dfrac{dy}{dx}= \frac{1+\ln(xy)}{(1-\frac{x}{y})}=\frac{y+y\ln xy}{y-x}
+\end{align*}
+
+\item Given $\sin (x+y)=y \cos (x+y)$, differentiate both the sides with respect to x, we get,
+
+\begin{align*}
+&\qquad \dfrac{d}{dx}{\sin (x+y)}=\dfrac{d}{dx}\left[y\cos (x+y)\right] \\
+&\Rightarrow \cos (x+y)\dfrac{d}{dx}(x+y)=(\dfrac{d}{dx}y)\cos (x+y)+y \dfrac{d}{dx}\cos(x+y) \\ 
+&\Rightarrow \cos (x+y)(1+\dfrac{dy}{dx}) = \dfrac{dy}{dx}\cos (x+y)-y\sin (x+y)\dfrac{d}{dx}(x+y) \\ 
+&\Rightarrow \cos (x+y)+\cos (x+y)\frac{dx}{dy}=\cos (x+y)\dfrac{dy}{dx}-y\sin (x+y)-y\sin (x+y)\dfrac{dy}{dx} \\
+&\Rightarrow y\sin(x+y)\dfrac{dy}{dx}=-(\cos (x+y)+y\sin (x+y)) \\
+&\Rightarrow \dfrac{dy}{dx}=\frac{-(\cos (x+y)+y\sin (x+y))}{y\sin (x+y)}
+\end{align*}
+
+\item Given $x^y=y^x$. Taking logarithm in both the sides, we have,
+$\ln x^y=\ln y^x \Rightarrow y \ln x=x\ln y$. Taking derivatives of both the sides, 
+
+\begin{align*}
+    \dfrac{d}{dx}(y \ln x)=\dfrac{d}{dx}(x \ln y) &\Rightarrow \dfrac{dy}{dx}\ln x+y\dfrac{d}{dx}\ln x=(\dfrac{d}{dx}x)\ln y+x\dfrac{d}{dx}\ln y \\
+    &\Rightarrow \dfrac{dy}{dx}\ln x+y\frac{1}{x}=1.\ln y+x\frac{1}{y}\dfrac{dy}{dx} \\ 
+    &\Rightarrow\dfrac{dy}{dx}\ln x-\frac{x}{y}\dfrac{dy}{dx}= \ln y-\frac{y}{x} \\
+    &\Rightarrow \dfrac{dy}{dx}=\frac{\ln y-\frac{y}{x}}{\ln x-\frac{x}{y}} = \frac{y(x\ln y-y)}{x(y\ln x-x)}
+\end{align*}
+
+\end{enumerate}
+\end{solution}
+
+
+\section{Derivative of Parametric Functions}
+
+Some times the variables x and y are two different functions of a single variable, i.e. $x=\phi(t)$ and $y=\psi(t)$. In such case x and y are called parametric function and t is called the parameter. Here to find $\dfrac{dy}{dx}$ we find $\dfrac{dy}{dt}$ and $\dfrac{dx}{dt}$, then we calculate $\dfrac{dy}{dx}$= $\dfrac{dy}{dt}$/$\dfrac{dx}{dt}$.
+
+\begin{example}
+Find $\dfrac{dy}{dx}$ in the following cases 
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $x=at^2, y=2at$
+    \item $x=a\cos \theta ,y= a\sin \theta $ 
+    \item $x=a\cos ^3t,  y=a\sin^3 t$
+    \item $x=3\cos t-2\cos^3 t,y=3\sin t-2\sin^3t$
+    \item $x=a(\cos t+t\sin t), y=a(\sin t-t\cos t)$.
+\end{enumerate}
+\end{multicols}  
+\end{example}
+
+\begin{solution}
+\begin{enumerate}[label=(\roman*)]
+\item Given $x=at^2 \Rightarrow \dfrac{dx}{dt}=2at$. Given $y=2at$
+$\Rightarrow \dfrac{dy}{dt}=2a$. Hence $\dfrac{dy}{dx}$= $\dfrac{dy}{dt}$/$\dfrac{dx}{dt}$ = $\dfrac{2a}{2at}$=$\dfrac{1}{t}$.
+
+\item Given $x=a\cos \theta ,y= a\sin \theta $ $\Rightarrow \dfrac{dx}{d\theta}=-a\sin \theta , \dfrac{dy}{d\theta}=a\cos\theta $. Thus $\dfrac{dy}{dx}= \dfrac{dy}{d\theta}/\dfrac{dx}{d\theta}=\dfrac{a\cos \theta}{-a\sin\theta}$=$-\cot \theta$.
+
+\item Here $x=a\cos ^3t,  y=a\sin^3 t$. Thus, we have,
+\begin{align*}
+& \frac{dx}{dt}= 3a\cos^2t \frac{d}{dt}\cos t = -3a\cos^2 t\sin t \\
+& \frac{dy}{dt}=3a\sin^2 t\frac{d}{dt}\sin t=3a\sin^2 t \cos t
+\end{align*}
+
+Hence $\dfrac{dy}{dx}=\dfrac{dy}{dt}/\dfrac{dx}{dt}=\dfrac{3a\sin^2t\cos t}{-3a\cos^2t\sin t}$=$-\tan t$.
+
+\item Here $x=3\cos t-2\cos^3 t,y=3\sin t-2\sin^3t$. Thus, we have,
+\begin{align*}
+\frac{dx}{dt}&=\frac{d}{dt}(3\cos t-2\cos^3 t)=(-3\sin t-6\cos ^2t\frac{d}{dt}\cos t) = -3\sin t(1-2\cos^2 t)=3\sin t\cos 2t \\ 
+\frac{dy}{dt}&=\frac{d}{dt}(3\sin t-2\sin^3t)=(3\cos t-6\sin^2t\frac{d}{dt}\sin t)=3\cos t(1-2\sin^2 t)=3\cos t\cos2t
+\end{align*}
+Hence $\dfrac{dy}{dx}=\dfrac{dy}{dt}/\dfrac{dx}{dt}=\dfrac{3\cos t\cos2t}{3\sin t\cos 2t}=\cot t$
+
+\item Given $x=a(\cos t+t\sin t), y=a(\sin t-t\cos t)$. Thus, we have,
+
+\begin{align*}
+\frac{dx}{dt}&=\frac{d}{dt}a(\cos t+t\sin t)=a(-\sin t+(\frac{d}{dt}t)\sin t+t\frac{d}{dt}\sin t)=a(-\sin t+\sin t+t\cos t)=at\cos t \\
+\frac{dy}{dt}&=\frac{d}{dt}a(\sin t-t\cos t)
+=a(\cos t-(\frac{d}{dt}t)\cos t-t\frac{d}{dt}\cos t)=a(\cos t-\cos t+t\sin t)=at\sin t
+\end{align*}
+Thus $\dfrac{dy}{dx}=\dfrac{dy}{dt}/\dfrac{dx}{dt}=\dfrac{at \sin t}{at \cos t}= \tan t$
+\end{enumerate}
+\end{solution}
+ 
+\begin{note}
+Same as the method described above, we can find the derivative of a function with respect to another function, i.e. if we are given with two functions $f(x)$ and $g(x)$, the derivative of $f(x)$ with respect to $g(x)$, written by, $\dfrac{df(x)}{dg(x)}$ can be evaluated by $\dfrac{df(x)}{dg(x)}$=$\dfrac{df(x)}{dx}/\dfrac{dg(x)}{dx}$.    
+\end{note}
+
+\begin{example}
+Differentiate $\sqrt{x}$ with respect to $x^2$.
+\end{example}
+
+\begin{solution}
+\[
+\frac{d\sqrt{x}}{dx^2} = \frac{d\sqrt{x}}{dx}/\frac{dx^2}{dx} = \frac{1}{2\sqrt{x}}/2x = \frac{1}{2\sqrt{x}2x} = 1/4x^{3/2} 
+\]
+\end{solution}
+
+
+\begin{example}
+Differentiate $\sin x$ with respect to $\cos x$.    
+\end{example}
+
+\begin{solution}
+\[
+\frac{d\sin x}{d\cos x} = \frac{d\sin x}{dx}/\frac{d\cos x}{dx} = \frac{\cos x}{-\sin x}=-\cot x
+\]
+\end{solution}
+
+\begin{example}
+Differentiate $\tan^{-1}x$ with respect to $\cos^{-1} x$.
+\end{example}
+
+\begin{solution}
+\[
+\frac{d\tan^{-1}x}{d\cos^{-1} x} = \frac{d\tan^{-1}x}{dx}/\frac{d\cos^{-1} x}{dx} = \frac{1}{1+x^2}/\frac{-1}{\sqrt{1-x^2}} = -\frac{\sqrt{1-x^2}}{1+x^2}
+\]
+
+\end{solution}
+
+\begin{example}
+Differentiate $\tan^{-1} x$ with respect to $\tan^{-1}\sqrt{1+x^2}$.    
+\end{example}
+
+\begin{solution}
+\[
+\frac{d\tan^{-1} x}{d\tan^{-1}\sqrt{1+x^2}} = \frac{d\tan^{-1} x}{dx}/\frac{d\tan^{-1}\sqrt{1+x^2}}{dx} = \frac{1}{1+x^2}/(\frac{1}{1+(\sqrt{1+x^2})^2})(\dfrac{d}{dx}\sqrt{1+x^2})=\frac{2+x^2}{x\sqrt{1+x^2}}
+\]
+
+\end{solution}
+
+\begin{exercise}
+Find $\dfrac{dy}{dx}$ in the following cases,
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $x=a(t-\sin t),y=a(1-\cos t)$
+    \item $x=a\sec^3 \theta ,y=a\tan^3 \theta$
+    \item $x=a(1-\cos \theta), y=a(\theta+\sin \theta)$    
+    \item $x=\dfrac{e^t+e^{-t}}{2}$, $y=\dfrac{e^t-e^{-t}}{2}$ 
+    \item $x=\dfrac{2t}{1+t^2}, y=\dfrac{1-t^2}{1+t^2}$
+    \item $x=\dfrac{1-t^2}{1+t^2}, y=\dfrac{2t}{1+t^2}$.
+    \item $x=\sin^{-1}(\dfrac{2t}{1+t^2}), y=\tan^{-1}(\dfrac{2t}{1-t^2})$.
+    \item[] \phantom{x}
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+\begin{exercise}
+Find the derivatives for the following,
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $x^2$ with respect to $x^3$
+    \item $\ln(1+x^2)$ with respect to $\tan^{-1} x$
+    \item $(\ln x)^x$ with respect to $\ln x$
+    \item $\sin^{-1}\sqrt{1-x^2}$ with respect to $\cos^{-1} x$ 
+    \item $(\cos x)^{\sin x}$ with respect to $(\sin x)^{\cos x}$
+    \item $\sin^{-1}\dfrac{2x}{1+x^2}$ wrt $\cos^{-1}\dfrac{1-x^2}{1+x^2}$, $0<x<1$   
+\end{enumerate}    
+\end{multicols}
+\end{exercise}
+
+\begin{example}
+Let us go through the following special examples where the function $y$ is an infinite series of $x$. In each of these cases, find $\dfrac{dy}{dx}$.
+
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $y=e^{x+e^{x+e^{x+\cdots}}}$
+    \item $y=x+\frac{1}{x+\frac{1}{x+\frac{1}{x+\frac{1}{x+\cdots}}}}$
+    \item $y = x^{x^{x^{\cdot^{\cdot^{\cdot}}}}}$
+    \item $y=\sqrt{\sin x+\sqrt{\sin x+\sqrt{\sin x+\cdots \cdots}}}$
+    \item $y= a^{x^{a^{x^{\cdot^{\cdot}}}}}$
+    \item $y=\sqrt{x}^{\sqrt{x}^{\sqrt{x}^{\cdot^{\cdot^{\cdot}}}}}$
+    \item $y=\frac{\sin x}{1+\frac{\cos x}{1+\frac{\sin x}{1+\frac{\cos x}{\cdots}}}}$
+\end{enumerate}
+\end{multicols}
+\end{example}
+
+\begin{solution}
+\begin{enumerate}[label=(\roman*)]
+
+\item 
+\begin{align*}
+y=e^{x+y} &\Rightarrow \dfrac{dy}{dx}= \dfrac{d}{dx}e^{x+y}=e^{x+y}\dfrac{d}{dx}(x+y) = e^{x+y}\left(1+\dfrac{dy}{dx}\right) \\
+&\Rightarrow \dfrac{dy}{dx}=e^{x+y}+e^{x+y}\dfrac{dy}{dx}\Rightarrow \dfrac{dy}{dx}= \frac{e^{x+y}}{1-e^{x+y}}=\frac{y}{1-y}
+\end{align*}
+
+\item Here $y=x+\frac{1}{y}=\frac{xy+1}{y} \Rightarrow y^2=xy+1 \Rightarrow \dfrac{d}{dx}y^2=\dfrac{d}{dx}(xy+1) \Rightarrow 2y\dfrac{dy}{dx}=y+x\dfrac{dy}{dx} \Rightarrow \dfrac{dy}{dx}=\frac{y}{2y-x}$.
+
+\item It is clear that $y=x^y\Rightarrow \ln y = \ln x^y=y\ln x$ $\Rightarrow \frac{1}{y}\dfrac{dy}{dx}=(\dfrac{dy}{dx})\ln x+\dfrac{y}{x} \Rightarrow \dfrac{dy}{dx}(\frac{1}{y}-\ln x)=\dfrac{y}{x}$ 
+
+$\Rightarrow \dfrac{dy}{dx}=\frac{y^2}{x(1-y\ln x)}$.
+
+\item Here it is given $y=\sqrt{\sin x+y}$
+$\Rightarrow y^2=\sin x+y$. Taking derivative of both the sides w.r.t. $x$, we get, 
+\[
+2y\dfrac{dy}{dx}= \cos x+\dfrac{dy}{dx} \Rightarrow \dfrac{dy}{dx}=\frac{\cos x}{2y-1}
+\]
+
+\item Here $y=a^{{x}^y}\Rightarrow \ln y=\ln a^{{x}^y}= x^y\ln a$. Therefore, we have, \begin{align*}
+    &\qquad \ln(\ln y)=lnx^y+ln(ln a)=y\ln x+\ln (\ln a) \Rightarrow \dfrac{d}{dx}\ln (\ln y)=\dfrac{d}{dx}(y \ln x)+\dfrac{d}{dx}\ln (\ln a) \\
+    &\Rightarrow \frac{1}{\ln y}\dfrac{d}{dx}\ln y=\dfrac{dy}{dx}\ln x+\frac{y}{x}+0 \Rightarrow \frac{1}{y\ln y}\dfrac{dy}{dx}=\dfrac{dy}{dx}\ln x+\frac{y}{x} \\
+    &\Rightarrow \dfrac{dy}{dx}(\frac{1}{y\ln y}-\ln x)=\frac{y}{x} \Rightarrow \dfrac{dy}{dx}=\frac{y^2\ln y}{x(1-y\ln x\ln y)}
+\end{align*} 
+
+\item Here $y=(\sqrt{x})^y\Rightarrow \ln y=\ln (\sqrt{x})^y= y\ln \sqrt{x}$. Therefore, we have,
+\begin{align*}
+   \dfrac{d}{dx}\ln y = \dfrac{d}{dx}(y \ln \sqrt{x}) &\Rightarrow \frac{1}{y}\dfrac{dy}{dx}=\dfrac{dy}{dx}\ln \sqrt{x}+y\dfrac{d}{dx}\ln \sqrt{x} = \dfrac{dy}{dx}\ln \sqrt{x}+\frac{y}{\sqrt{x}}\dfrac{d}{dx}\sqrt{x} \\
+   &\Rightarrow \frac{1}{y}\dfrac{dy}{dx}=\dfrac{dy}{dx}\ln \sqrt{x}+\frac{y}{\sqrt{x}}.\frac{1}{2\sqrt{x}}=\dfrac{dy}{dx}\ln \sqrt{x}+\frac{y}{2x} \\
+   &\Rightarrow \dfrac{dy}{dx}=\frac{y^2}{2x(1-y\ln \sqrt{x})}
+\end{align*}
+
+\item Here $y=\frac{\sin x}{1+\frac{\cos x}{1+y}}=\frac{(1+y)\sin x}{1+y+\cos x}$. Therefore, we have,
+\begin{align*}
+y+y^2+y\cos x=(1+y)\sin x &\Rightarrow \dfrac{d}{dx}(y+y^2+y\cos x)=\dfrac{d}{dx}((1+y)\sin x) \\
+& \Rightarrow \dfrac{dy}{dx}+2y\dfrac{dy}{dx}+\dfrac{dy}{dx}\cos x-y\sin x=\dfrac{dy}{dx}\sin x+(1+y)\cos x \\
+&\Rightarrow (1+2y+\cos x)\dfrac{dy}{dx}=(1+y)\cos x+y\sin x \\
+&\Rightarrow \dfrac{dy}{dx}= \frac{(1+y)\cos x+y\sin x}{1+2y+\cos x-\sin x}
+\end{align*}
+\end{enumerate}
+\end{solution}
+
+
+\section{Successive Differentiation}
+
+The derivative of the function $y=f(x)$ is written by $y_1$ or $y' =f'(x)$. Similarly the 2nd, 3rd,... derivatives are denoted by $y_2 =y'' =f'' (x)$, $ y_3 = y''' = f'''(x)$ (if they exist) and called the 1st order, 2nd order, 3rd order derivatives etc. respectively.
+
+\begin{example}
+Find $y_n$ if $y$ is given by
+\begin{multicols}{3}
+\begin{enumerate}[label=(\roman*)]
+    \item $y=e^{ax}$
+    \item $y=\sin (ax+b)$
+    \item $y=(ax+b)^m$
+    \item $y=\ln x$ 
+    \item $y=\dfrac{1}{ax+b}$
+    \item $y=(3x-5)^n$
+    \item $y=(8-7x)^n$
+\end{enumerate}
+\end{multicols}    
+\end{example}
+
+\begin{solution}
+\begin{enumerate}[label=(\roman*)]
+\item Given $y=e^{ax}\Rightarrow y_1 =\dfrac{d}{dx}e^{ax}=e^{ax}\dfrac{d}{dx}ax=ae^{ax}$. 
+
+Similarly $y_2=a^2e^{ax}$, $y_3=a^3e^{ax}$. Finally, after $n-$successive derivation, $y_n=a^ne^{ax}$.
+
+\item Given $y=\sin (ax+b)\Rightarrow y_1= \cos(ax+b).\dfrac{d}{dx}(ax+b)=a\cos(ax+b)=a\sin(\frac{\pi}{2}+ax+b)$.
+
+Now $y_2=a^2\cos(\frac{\pi}{2}+ax+b)=a^2\sin(2\frac{\pi}{2}+ax+b)$. Proceeding on similar lines, we get,
+\[
+    y_n=a^n\sin(n\frac{\pi}{2}+ax+b)
+\]
+
+\item We are given with $y=(ax+b)^m \Rightarrow y_1=\dfrac{dy}{dx}=m(ax+b)^{m-1}\dfrac{d}{dx}(ax+b)=am(ax+b)^{m-1}$. 
+
+Thus $y_2 =a^2m(m-1)(ax+b)^{m-2}$. Proceeding on similar lines, we get,
+
+\begin{align*}
+y_n &= 
+\begin{cases}
+a^nm(m-1)(m-2)\cdots(m-n+1)(ax+b)^{m-n}     & \text{if   }n<m \\\\    
+a^n n!    & \text{if   }   m=n  \\\\
+0  & \text{if   }   m < n
+\end{cases}&    
+\end{align*}
+
+\item Here $y=\ln x \Rightarrow y_1= \dfrac{1}{x} \Rightarrow y_2=-\dfrac{1}{x^2} \Rightarrow y_3=\dfrac{2}{x^3} \Rightarrow y_4=-\dfrac{3!}{x^4}$. 
+
+Proceeding in the same way, we get, 
+\[
+y_n=\dfrac{(-1)^{n+1}(n-1)!}{x^n}
+\]
+
+\item Given $y=\dfrac{1}{ax+b} \Rightarrow y_1= \dfrac{d}{dx}(\dfrac{1}{ax+b})=\dfrac{-1}{(ax+b)^2}\dfrac{d}{dx}(ax+b)=\dfrac{-a}{(ax+b)^2} \Rightarrow y_2=\dfrac{2a^2}{(ax+b)^3} \Rightarrow y_3=\dfrac{-3!a^3}{(ax+b)^4}$. Proceeding on similar lines, after n-differentiations, we get 
+\[
+y_n= \dfrac{(-1)^n n! a^n}{(ax+b)^{n+1}}
+\]
+
+\item Here it is given that $y=(3x-5)^n$. Therefore, 
+\begin{align*}
+    y_1&=n(3x-5)^{n-1}\dfrac{d}{dx}(3x-5)=3n(3x-5)^{n-1} \\
+    y_2&=3^2n(n-1)(3x-5)^{n-2} \\
+    y_3&=3^3n(n-1)(n-2)(3x-5)^{n-3}
+\end{align*}
+Repeating the process n-times, we get, $y_n=3^n n!$
+
+\item Given $y=(8-7x)^n$. So,
+\begin{align*}
+    y_1&=n(8-7x)^{n-1}\dfrac{d}{dx}(8-7x)=-7n(8-7x)^{n-1} \\
+    y_2&=7^2n(n-1)(8-7x)^{n-2}
+\end{align*}
+After successively n-differentiation, we get $y_n=(-1)^n7^nn!$
+\end{enumerate}
+\end{solution}
+
+
+\subsubsection{Leibnitz Rule}
+
+This rule helps us to find out the $n-$successive differentiation of product of two functions $f(x)$ and $g(x)$, provided  $f(x)$ and $g(x)$ are 
+$n-$times derivable. This rule is given as the following theorem, which can be proved by the help of Mathematical Induction.
+
+\begin{theorem}
+Let $f$ and $g$ are two $n-$times differentiable functions. Then the nth derivative $(fg)_n$ is given by
+\[
+(fg)_n=f_ng+^nC_1f_{n-1}g_1+^nC_2f_{n-2}g_2+...+^nC_rf_{n-r}g_r+...+fg_n
+\]
+where $^nC_r= \dfrac{n!}{r!(n-r)!}$, $^nC_r$ is also written by $C(n,r)$.    
+\end{theorem}
+
+\begin{example}
+Find $y_n$, where $y$ is as follows:
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $(e^{ax}.\cos bx)$, find $y_5$
+    \item $x^4e^{2x}$
+    \item ${x^2\ln x}$
+    \item $x^ne^x$ 
+\end{enumerate}
+\end{multicols}    
+\end{example}
+
+\begin{solution}
+    \begin{enumerate}[label=(\roman*)]
+        \item Let $f(x)=e^{ax}$ and $g(x)=\cos bx$. Here we know that 
+\begin{align*}
+& f_m=\frac{d^m}{dx^m}e^{ax}=a^me^{ax} \text{ for } m=1,2,3,\cdots \\
+& g_n=\frac{d^n}{dx^n}\cos bx=b^n\cos (\frac{n\pi}{2}+bx) \text{ for } n=1,2,3,\cdots
+\end{align*}
+Therefore, by Leibnitz theorem, 
+\begin{align*}
+ y_5=(fg)_5 &= f_5g+C(5,1)f_4g_1+C(5,2)f_3g_2+C(5,3)f_2g_3+C(5,4)f_1g_4+fg_5   \\
+ &= a^5e^{ax}\cos bx+5a^4e^{ax}b\cos (\frac{\pi}{2}+bx)+10a^3e^{ax}b^2\cos (\frac{2\pi}{2}+bx)+10a^2e^{ax}b^3\cos (\frac{3\pi}{2}+bx)+ \\
+ &\qquad\qquad 5ae^{ax}b^4\cos (\frac{4\pi}{2}+bx)+e^{ax}b^5\cos (5\frac{\pi}{2}+bx) \\ 
+ &= e^{ax}(a^5\cos bx-5a^4b\sin bx-10a^3b^2\cos bx+10a^2b^3\sin bx+5ab^4\cos bx-b^5\sin bx)
+\end{align*}
+
+\item Given $y=x^4e^{2x}$. Let $f(x)=x^4$ and $g(x)=e^{2x}$. Then $f_1=4x^3, f_2=12x^2, f_3=24x, f_4=24,f_5=0, f_6=f_7=....=0$ and $g_n=2^ne^{2x}$ for $n=1,2,3,\cdots$
+Now, using Leibnitz theorem, 
+\begin{align*}
+y_n &= g_nf+C(n,1)g_{n-1}f_1+C(n,2)g_{n-2}f_2+C(n,3)g_{n-3}f_3+C(n,4)g_{n-4}f_4+C(n,5)g_{n-5}f_5+\cdots \\ %  C(n,6)g_{n-6}f_6+ \cdots \\
+&= 2^ne^{2x}x^4+n2^{n-1}e^{2x}4x^3+\frac{n(n-1)}{2}2^{n-2}e^{2x}12x^2+\frac{n(n-1)(n-2)}{6}2^{n-3}e^{2x}24x \\
+&\qquad\qquad+\frac{n(n-1)(n-2)(n-3)}{24}.2^{n-4}.24+0+0+\cdots \\
+&= 2^ne^{2x}x^4+n2^{n-1}e^{2x}4x^3+{n(n-1)}2^{n-2}e^{2x}6x^2+n(n-1)(n-2)2^{n-3}e^{2x}4x+\\
+&\qquad\qquad{n(n-1)(n-2)(n-3)}.2^{n-4}
+\end{align*}
+
+\item Here it is given $y=x^2\ln x$. Let $g(x)=x^2$ and $f(x)=\ln x$. So $g_1=2x, g_2=2,g_n=0$ for $n> 2$ and $f_1=\dfrac{1}{x}, f_2=\dfrac{-1}{x^2},f_3=\dfrac{2}{x^3}$, in general $f_n=(-1)^{n+1}\dfrac{(n-1)!}{x^n}$.
+So by applying Leibnitz theorem,
+\begin{align*}
+y_n=(fg)_n &= f_ng+C(n,1)f_{n-1}g_1+C(n,2)f_{n-2}g_2+C(n,3)f_{n-3}g_3+\cdots \\
+&= (-1)^{n+1}\frac{(n-1)!}{x^n}.x^2+n.(-1)^n\frac{(n-2)!}{x^{n-1}}2x+\frac{n(n-1)}{2}(-1)^{n+1}\frac{(n-3)!}{x^{n-2}}2+0 \\
+&= \frac{1}{x^{n-2}}(n-3)![(-1)^{n+1}(n-1)(n-2)+2n(n-2)(-1)^n+n(n-1)(-1)^{n+1}]
+\end{align*}
+
+\item Given $y=x^ne^x$, let $f(x)=x^n$ and $g(x)=e^x$ $\Rightarrow f_1=nx^{n-1}, f_2=n(n-1)x^{n-2}, f_n=n!$ and $g_n=e^x$ for each n. Now, using Leibnitz theorem, we have,
+\begin{align*}
+y_n = (fg)_n &= f_ng+^nC_1f_{n-1}g_1+^nC_2f_{n-2}g_2+...+^nC_rf_{n-r}g_r+...+fg_n \\
+&= n!e^x+^nC_1n!xe^x+^nC_2\frac{n!}{2!}x^2e^x+...+^nC_r\frac{n!}{r!}x^re^x+...+x^ne^x \\
+&= (n!+^nC_1n!x+^nC_2\frac{n!}{2!}x^2+...+^nC_r\frac{n!}{r!}x^r+...+x^n)e^x
+\end{align*}
+\end{enumerate}
+\end{solution}
+
+
+\begin{example}
+If $y=(x^2-1)^m$, show that, $(x^2-1)y_2-2(m-1)xy_1-2my=0$ and differentiate this equation $n$ times using Leibnitz theorem.
+\end{example}
+
+\begin{solution}
+Given $y=(x^2-1)^m$.Differentiating this equation throughout with respect to $x$, we get,
+
+\[
+y_1=m(x^2-1)^{m-1}\dfrac{d}{dx}(x^2-1)=2mx(x^2-1)^{m-1}=\frac{2mxy}{x^2-1} \Rightarrow (x^2-1)y_1-2mxy=0
+\]
+Differentiating again with respect to $x$, we have, 
+\[
+(x^2-1)y_2+2xy_1-2mxy_1-2my=0 \Rightarrow (x^2-1)y_2-2(m-1)xy_1-2my=0
+\]
+Differentiating the last equation throughout with respect to $x$ n-times, using Leibnitz theorem, we get,
+\begin{align*}
+& (x^2-1)y_{n+2}+^nC_1y_{n+1}2x+^nC_2y_n.2-2(m-1)(xy_{n+1}+^nC_1y_n)-2y_n=0    \\
+& \Rightarrow (x^2-1)y_{n+2}-2(m-n-1)xy_{n+1}-(n+1)(2m-n)y_n=0
+\end{align*}
+\end{solution}
+
+\begin{example}
+If $y=\sin^{-1}x$, show that, $(1-x^2)y_2-xy_1=0$ and differentiate this equation $n-$times using Leibnitz theorem.
+\end{example}
+
+\begin{solution}
+Given $y=\sin^{-1} x$. Differentiating this equation throughout with respect to $x$, we get,
+\[
+y_1=\frac{1}{\sqrt{1-x^2}}\Rightarrow (1-x^2)(y_1)^2-1=0
+\]
+Differentiating with respect to x again, we get,
+\[
+(1-x^2)2y_1y_2-2x(y_1)^2=0\Rightarrow (1-x^2)y_2-xy_1=0
+\]
+Differentiating the last equation n-times with respect to x, we get,
+\begin{align*}
+& (1-x^2)y_{n+2}+^nC_1(-2x)y_{n+1}+^nC_2(-2)y_n-(xy_{n+1}+^nC_1y_n)=0 \\ 
+&\Rightarrow (1-x^2)y_{n+2}-(2n+1)xy_{n+1}-n^2y_n=0
+\end{align*}
+\end{solution}
+
+\begin{exercise}
+Find $y_n$ in the following cases,
+\begin{multicols}{3}
+\begin{enumerate*}[label=(\roman*)]
+    \item $y=\dfrac{1}{2x+1}$
+    \item $y=\dfrac{1}{(2-5x)^2}$
+    \item $y=x^6e^x$
+    \item $y=e^x\cos x$
+    \item $y=e^x\ln x$
+    \item $y=x^2\cos x$. 
+\end{enumerate*}
+\end{multicols}
+\end{exercise}
+
+\begin{exercise}
+If $y=a \cos(\ln x)+b \sin (\ln x)$, show that $x^2y_{n+2}+(2n+1)xy_{n+1}+(n^2+1)y_n=0$.
+\end{exercise}
+
+\begin{exercise}
+If $y= (x+\sqrt{1+x^2})^m$, show that $(1+x^2)y_{n+2}+(2n+1)xy_{n+1}+(n^2-m^2)y_n=0$. 
+\end{exercise}
+
+\begin{exercise}
+If $y=\tan^{-1} x$, show that $(1+x^2)y_2+2xy_1=0$. 
+% Differentiate this equation with respect to x.
+\end{exercise}
+
+\begin{exercise}
+If $y=x^{n-1}\ln x$, show that $xy_1=(n-1)y+x^{n-1}$. Differentiating this result n-times to show that $y_n=\dfrac{(n-1)!}{x}$.
+\end{exercise}
+
+\begin{exercise}
+If $y= (\sin^{-1} x)^2$, show that, $(1-x^2)y_{n+2}-(2n+1)xy_{n+1}-n^2y_n=0$.    
+\end{exercise}
+
+\begin{exercise}
+If $y=e^{m\cos^{-1}x}$, show that, $(1-x^2)y_{n+2}-(2n+1)xy_{n+1}-(n^2+m^2)y_n=0$.
+\end{exercise}
+
+
+
+
+\section{Partial Differentiation}
+
+
+In all the sections till now, we have taken real functions of a single variable. But in practical situations, functions of several variables arise. For clear understanding, let us go through the following examples.
+
+\begin{example}
+The area $A$ of a rectangle having length of sides $x$ and $y$ is calculated as $A=x.y$. Thus $A$ is a function from $\mathbb {R^+}\times \mathbb {R^+}$ into $\mathbb {R^+}$. We write the function $A$ by $f(x,y)=x.y$    
+\end{example}
+
+\begin{example}
+A farmer grow Rice, Wheat and Potato in his field. For cultivation of Rice, suppose he has to spend Rs.800, for Wheat Rs.950 and for Potato Rs.300 for seeds per acre. For cultivation of $x$ acres of Rice, $y$ acres of Wheat and $z$ acres of Potatoes, what will be the total cost $C$ of seeds?
+
+Here the total cost $C$ of seeds is $C=800x+950y+300z$, which is a function of $x,y,z$.    
+\end{example}
+
+The \emph{first} example is an example of two variables and \emph{second} is of three variables.
+
+If $f(x,y)$ is a function of two variables, the partial derivative of $f$ with respect to $x$ is obtained by differentiating $f$ treating $y$ as constant. Similarly, the partial derivative with respect to $y$ is the derivative of $f$ with respect to $y$ treating $x$ as constant.
+
+We use the notation $\dfrac{\partial f}{\partial x}$ or $f_x$ or $D_xf$ to denote the partial derivative of $f$ with respect to $x$ and the partial derivative of $f$ with respect to $y$ is denoted by $\dfrac{\partial f}{\partial y}$ or $f_y$ or $D_yf$.
+
+\begin{definition}
+We define the following,
+\begin{align*}
+    \frac{\partial f}{\partial x} &= \lim_{h\rightarrow 0}\frac{f(x+h,y)-f(x,y)}{h} \\
+    \frac{\partial f}{\partial y} &= \lim_{k\rightarrow 0}\frac{f(x,y+k)-f(x,y)}{k}
+\end{align*}
+\end{definition}
+
+\begin{example}
+Find the partial derivative of $z=x^2\sin^2 y$ with respect to both $x$ and $y$.    
+\end{example}
+
+\begin{solution}
+\begin{align*}
+    \text{Given } z=x^2\sin^2 y &\Rightarrow \frac{\partial z}{\partial x}= (\frac{\partial x^2}{\partial x})\sin^2 y=2x\sin^2 y \\    
+    &and  \frac{\partial z}{\partial y}= x^2(\frac{\partial \sin^2 y}{\partial y})=x^2 2\sin y\cos y=x^2\sin 2y
+\end{align*}
+\end{solution}
+
+\subsubsection{Higher order partial derivatives}
+
+For a function $f(x,y)$ of two variables there are four second order partial derivatives of $f$ and these are obtained in the following way:
+
+\begin{itemize}
+    \item $\dfrac{\partial^2f}{\partial x^2}$ or $f_{xx}$ is obtained by successively differentiating $f$ twice with respect to $x$, treating $y$ as constant.
+
+    \item $\dfrac{\partial^2f}{\partial y^2}$ or $f_{yy}$ is obtained by successively differentiating $f$ twice with respect to $y$, treating $x$ as constant.
+
+    \item $\dfrac{\partial^2f}{\partial x\partial y}$ or $f_{yx}$ is obtained by differentiating $\dfrac{\partial f}{\partial y}$ partially with respect to $x$ treating $y$ as constant.
+
+    \item $\dfrac{\partial^2f}{\partial y\partial x}$ or $f_{xy}$ is obtained by differentiating $\dfrac{\partial f}{\partial x}$ partially with respect to $y$ treating $x$ as constant.
+\end{itemize}
+
+\begin{example}
+Find the four 2nd order partial derivatives of the function $f(x,y)=e^y\sin x$.    
+\end{example}
+
+\begin{solution}
+    \begin{align*}
+        \text{Given } f = e^y\sin x &\Rightarrow \frac{\partial f}{\partial x}=e^y\cos x \text { and } \frac{\partial^2f}{\partial x^2}=-e^y\sin x \\
+        f = e^y\sin x &\Rightarrow \frac{\partial f}{\partial y}=e^y\sin x \text { and } \frac{\partial f^2}{\partial y^2}=e^y\sin x \\
+     \text{Also, } & \frac{\partial^2f}{\partial x\partial y}=\frac{\partial }{\partial x}\frac{\partial f}{\partial y}=\frac{\partial }{\partial x}e^y\sin x=e^y\cos x \\ 
+        \text{and } & \frac{\partial^2f}{\partial y\partial x}=\frac{\partial }{\partial y}\frac{\partial f}{\partial x}=\frac{\partial }{\partial y}e^y\cos x=e^y\cos x
+    \end{align*}
+    
+\end{solution}
+
+\subsubsection{Homogeneous Function and Euler's Theorem}
+
+\begin{definition}
+A function $f(x,y)$ in two variables is a \emph{homogeneous} function of degree $n$ if we replace $x$, $y$ by $\lambda x$, $\lambda y$ respectively then $f(\lambda x, \lambda y)=\lambda^nf(x,y)$.    
+\end{definition}
+
+For example, $f(x,y)=x^3-y^3$ is a homogeneous function of degree 3, as,
+\[
+f(\lambda x, \lambda y)=\lambda^3x^3-\lambda^3y^3=\lambda^3(x^3-y^3)=\lambda^3f(x,y)
+\]
+
+But the function $f(x,y)=x^3-y^2$ is not a homogeneous function.
+
+Here we note that the function $f(x,y)=\dfrac{x-y}{x+y}$ is homogeneous of degree $0$ and $f(x,y)=\dfrac{x^3-xy^2}{x^2+xy}$ is homogeneous of degree $1$.
+
+A homogeneous function $f(x,y)$ of degree $n$ can also be defined as follows: if $f(x,y)=x^n\phi(\dfrac{y}{x})$ or $f(x,y)=y^n\psi(\dfrac{x}{y})$, where $\phi$ is a function in the variable $u=\dfrac{y}{x}$ and $\psi$ is a function in the variable $v=\dfrac{x}{y}$.
+
+For example,
+\begin{align*}
+    & f(x,y)=x^3-y^3=x^3(1-\frac{y^3}{x^3})=x^3\phi(\frac{y}{x}) \\
+    \text{or } &f(x,y)=x^3-y^3=y^3(\frac{x^3}{y^3}-1)=y^3\psi(\frac{x}{y})
+\end{align*}
+where $\phi (\dfrac{y}{x})=(1-\dfrac{y^3}{x^3})$ and $\psi(\dfrac{x}{y})=(\dfrac{x^3}{y^3}-1)$.
+
+\begin{theorem}[\textbf{Euler's Theorem}]
+If $f(x,y)$ is a homogeneous function of degree $n$, then,
+\[
+ x\frac{\partial f}{\partial x}+y\frac{\partial f}{\partial y}=nf(x,y)
+\]
+\end{theorem}
+
+\begin{proof}
+Given $f(x,y)$ is a homogeneous function of degree $n$. Thus 
+\begin{equation}\label{euler_one}
+f(x,y)=x^n\phi(\frac{y}{x})
+\end{equation}
+Differentiating equation \ref{euler_one} partially throughout with respect to $x$, we get, 
+
+\begin{align}\label{euler_two}
+\frac{\partial f}{\partial x}=\frac{\partial }{\partial x}\left[x^n\phi(\frac{y}{x})\right] &= nx^{n-1}\phi(\frac{y}{x})+x^n\phi'(\frac{y}{x})(-\frac{y}{x^2}) \nonumber \\
+&= nx^{n-1}\phi(\frac{y}{x})-x^{n-2}\phi'(\frac{y}{x})y
+\end{align}
+
+Next differentiating equation \ref{euler_one} partially throughout with respect to $y$, we get, 
+ \begin{equation}\label{euler_three}
+   \frac{\partial f}{\partial y} = x^{n-1}\phi'(\frac{y}{x}) 
+ \end{equation}
+Now multiplying equation \ref{euler_two} by $x$ and equation \ref{euler_three} by $y$ through out and adding, we get,
+\[
+x\frac{\partial f}{\partial x}+y\frac{\partial f}{\partial y}=nx^n\phi(\frac{y}{x})=nf(x,y)
+\]
+\end{proof}
+
+\begin{note}
+The above theorem is called Euler's theorem of 1st order as it involves the 1st order partial derivatives $\dfrac{\partial f}{\partial x}$ and $\dfrac{\partial f}{\partial y}$.
+The following result is known as Euler's theorem of 2nd order.
+\[
+(x\frac{\partial}{\partial x}+y\frac{\partial}{\partial y})^2f=x^2\frac{\partial^2f}{\partial x^2}+2xy\frac{\partial^2f}{\partial x\partial y}+y^2\frac{\partial f^2}{\partial y^2}=n(n-1)f(x,y)
+\]
+where $f(x,y)$ is a homogeneous function of degree $n$.
+\end{note}
+
+
+\begin{example}
+Examine whether the function $f(x,y)=\dfrac{xy}{x+y}$ is homogeneous and using Euler's theorem, prove that, $x^2\dfrac{\partial^2f}{\partial x^2}+2xy\dfrac{\partial^2f}{\partial x\partial y}+y^2\dfrac{\partial f^2}{\partial y^2}=0$.    
+\end{example}
+
+\begin{solution}
+Given $f(x,y)=\dfrac{xy}{x+y}=\dfrac{x^2(\dfrac{y}{x})}{x(1+\dfrac{y}{x})}=\dfrac{x^1(\dfrac{y}{x})}{(1+\dfrac{y}{x})}$=$x\phi(\dfrac{y}{x})$. Thus the function $f(x,y)$ is a homogeneous function of degree $n=1$.
+
+Hence by the Euler's theorem of 2nd order, we have,
+\[
+x^2\frac{\partial^2f}{\partial x^2}+2xy\frac{\partial^2f}{\partial x\partial y}+y^2\frac{\partial f^2}{\partial y^2}=n(n-1)f(x,y)=1(1-1)f(x,y)=0
+\]
+\end{solution}
+
+\begin{example}
+If $f(x,y)=(x^2+y^2)^{\frac{1}{3}}$, show that
+\begin{align*}
+    xf_x+yf_y &= \frac{2}{3}f(x,y) \text{ and } \\
+    x^2\frac{\partial^2f}{\partial x^2}+2xy\frac{\partial^2f}{\partial x\partial y}+y^2\frac{\partial f^2}{\partial y^2} &= -\frac{2}{9}f(x,y)
+\end{align*}
+\end{example}
+
+\begin{solution}
+Given $f(x,y)=(x^2+y^2)^{\frac{1}{3}}=\left[x^2(1+\dfrac{y^2}{x^2})\right]^{\frac{1}{3}}$=$x^{\frac{2}{3}}\left[(1+(\dfrac{y}{x})^2\right]^{\frac{1}{3}}=x^{\frac{2}{3}}\phi(\dfrac{y}{x})$, therefore $f(x,y)$ is a homogeneous function of degree $n=\frac{2}{3}$.    
+
+Hence by Euler's function of 1st order $xf_x+yf_y=nf(x,y)=\frac{2}{3}f(x,y)$ and by Euler's theorem of 2nd order, 
+\[
+x^2\frac{\partial^2f}{\partial x^2}+2xy\frac{\partial^2f}{\partial x\partial y}+y^2\frac{\partial f^2}{\partial y^2}=n(n-1)f(x,y)=\frac{2}{3}(1-\frac{2}{3})=\frac{2}{3}(-\frac{1}{3})=-\frac{2}{9}f(x,y)
+\]
+\end{solution}
+
+\begin{example}
+If $u=\sin^{-1} (\dfrac{\sqrt{x}-\sqrt{y}}{\sqrt{x}+\sqrt{y}})$, show that $\dfrac{\partial u}{\partial x}=-\dfrac{y}{x}\dfrac{\partial u}{\partial y}$.
+\end{example}
+
+\begin{solution}
+Here $u=\sin^{-1} (\dfrac{\sqrt{x}-\sqrt{y}}{\sqrt{x}+\sqrt{y}})$, $\Rightarrow \sin u=\dfrac{\sqrt{x}-\sqrt{y}}{\sqrt{x}+\sqrt{y}}=f(x,y)$ (say). It is clear that $f(x,y)$ is a homogeneous function of degree $0$. Therefore, by Euler's theorem, 
+\begin{align*}
+    &\qquad  x\frac{\partial f}{\partial x}+y\frac{\partial f}{\partial y}=nf(x,y)
+    \Rightarrow x\frac{\partial }{\partial x}\sin u+y\frac{\partial }{\partial y}\sin u=0.f(x,y)=0 \\
+    &\Rightarrow x\frac{\partial }{\partial u}\sin u\frac{\partial u}{\partial x}+y\frac{\partial }{\partial u}\sin u\frac{\partial u}{\partial y}=0 \\
+    &\Rightarrow x \cos u\frac{\partial u}{\partial x}+y \cos u\frac{\partial u}{\partial y}=0 \\ 
+    &\Rightarrow x\frac{\partial u}{\partial x}+y\frac{\partial u}{\partial y}=0 \Rightarrow x\frac{\partial u}{\partial x}=-y\frac{\partial u}{\partial y} \Rightarrow \frac{\partial u}{\partial x}=-\frac{y}{x} \frac{\partial u}{\partial y}
+\end{align*}
+\end{solution}
+
+\begin{example}
+If $z=\tan^{-1} \dfrac{x^3+y^3}{x+y}$, show that $x\dfrac{\partial z}{\partial x}+y\dfrac{\partial z}{\partial y}=\sin 2z$.
+\end{example}
+
+\begin{solution}
+Given $z=\tan^{-1} \dfrac{x^3+y^3}{x+y}$ $\Rightarrow \tan z= \dfrac{x^3+y^3}{x+y}=f(x,y)$ (say). Clearly $f(x,y)$ is a homogeneous function of degree $2$. Applying Euler's theorem, we get,
+\begin{align*}
+    &\qquad x\frac{\partial f}{\partial x}+y\frac{\partial f}{\partial y}=nf(x,y)
+    \Rightarrow x\frac{\partial }{\partial x}\tan z+y\frac{\partial }{\partial y}\tan z=2\tan z \\
+    &\Rightarrow x\frac{\partial }{\partial z}\tan z\frac{\partial z}{\partial x}+y\frac{\partial }{\partial z}\tan z\frac{\partial z}{\partial y}=2\tan z \\
+    &\Rightarrow x\sec^2 z\frac{\partial z}{\partial x}+y\sec^2 z\frac{\partial z}{\partial y}=2\tan z \\
+    &\Rightarrow x\frac{\partial z}{\partial x}+y\frac{\partial z}{\partial y}=2\tan z\cos^2 z=2\sin z \cos z=\sin 2z
+\end{align*}
+\end{solution}
+
+\begin{exercise}
+Find $f_x$ and $f_y$ where $f(x,y)$ is given as follows:
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $\sqrt{x^2+y2}$
+    \item $e^{x^3+y^3}$
+    \item $\tan^{-1}(xy)$
+    \item $\tan^{-1}(\dfrac{x}{y})$
+    \item $\ln(xy)$
+    \item $e^{\dfrac{x}{y}}+e^{\dfrac{y}{x}}$
+    \item $xy+e^x\sin y$
+    \item $e^{2x}\cos 3x$
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+
+\begin{exercise}
+If $f(x,y)=\dfrac{2x-y}{x^2+y^2}$, find $f_x(1,1)$ and $f_y(-1,2)$.
+\end{exercise}
+
+\begin{exercise}
+Find $f_{xx}$, $f_{xy}$, $f_{yx}$ and $f_{yy}$ where $f(x,y)$ is given as follows,
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $x^3+5x^2y+3xy^2-4y^3$
+    \item $x^2\sin y+y^2\cos x$
+    \item $\tan (xy)$
+    \item $\ln (\dfrac{x}{x+y})$
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+
+\begin{exercise}
+Verify Euler's theorem, where $f(x,y)$ is given as follows:
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $f(x,y)=x^2y^2+4xy^3-3x^3y$
+    \item $f(x,y)=\dfrac{x^2+y^2}{x+y}$
+    \item $f(x,y)=\dfrac{x}{y}+\dfrac{y}{x}$
+    \item $f(x,y)=xy+\dfrac{(x+y)^4}{xy}$ 
+\end{enumerate}
+\end{multicols}    
+\end{exercise}
+
+\begin{exercise}
+If $u=\tan^{-1}\dfrac{x^3+y^3}{x^2+y^2}$, show that $xu_x+yu_y=\frac{1}{2}\sin 2u$.    
+\end{exercise}
+
+\begin{exercise}
+If $u=\ln\dfrac{x^4+y^4}{x+y}$, show that $xu_x+yu_y=3$.    
+\end{exercise}
+
+\begin{exercise}
+If $f(x,y)=x^3-3xy^2$, show that $\dfrac{\partial^2f}{\partial x^2}+\dfrac{\partial^2f}{\partial y^2}=0$.
+
+This equation is called Laplace's equation.
+\end{exercise}
+
+\begin{exercise}
+If $f(x,y)=\ln(x^2+y^2)$, show that $\dfrac{\partial^2f}{\partial x^2}+\dfrac{\partial^2f}{\partial y^2}=0$.    
+\end{exercise}
+
+\begin{exercise}
+If $f(x,y)=\sin^{-1}\dfrac{y}{x}$, show that $x^2f_{xx}+2xyf_{xy}+y^2f_{yy}=0$.
+\end{exercise}
+
+\begin{exercise}
+Prove that $u=\dfrac{x^{\frac{1}{6}}-y^{\frac{1}{6}}}{x^{\frac{1}{7}}+y^{\frac{1}{7}}}$ is a homogeneous function and show that
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $xu_x+yu_y=\frac{1}{42}u$
+    \item $x^2u_{xx}+2xyu_{xy}+y^2u_{yy}=-\dfrac{41}{1764}u$
+
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+\end{document} 

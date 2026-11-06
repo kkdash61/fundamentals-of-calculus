@@ -1,0 +1,727 @@
+\documentclass{book}
+\usepackage{graphicx} % Required for inserting images
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{amsthm}
+\usepackage{todonotes}
+\usepackage[margin=1in]{geometry}
+\DeclareMathOperator{\cosec}{cosec}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem*{note}{Note}
+
+\newenvironment{solution}
+    {\begin{proof}[Solution]}
+    {\end{proof}}
+
+% \author{KISHORE KUMAR DASH}
+% \date{25, Juiy 2026}
+
+\begin{document}
+\chapter{Definite Integrals}
+
+\section {Fundamental Theorem of Integral Calculus}
+
+\begin{definition}
+Let $F(x)$ be the primitive or anti-derivative of a continuous function $f(x)$ defined on a closed interval $[a,b]$, i.e. $F'(x)=f(x)$. Then the definite integral of $f(x)$ over $[a,b]$ is denoted by 
+\[
+\int_{a}^{b}f(x)\,dx
+\]
+which is equal to $F(b)-F(a)$, i.e.,
+\[
+\int_{a}^{b}f(x)\,dx = F(b)-F(a)
+\]
+
+The numbers $a$ and $b$ are called the limits of integration, $a$ is called the \textit{lower limit} and $b$ is the \textit{upper limit}. The closed interval $[a,b]$ is called the \textit{interval of integration}.
+
+Usually we use the symbol $\left.F(x)\right\vert _a^b$ for $F(b)-F(a)$ and therefore,
+\[
+\int_{a}^{b}f(x)\,dx = \left.F(x)\right\vert _a^b = F(b)-F(a)
+\]
+\end{definition}
+
+\begin{example}
+Evaluate the following:
+\begin{multicols}{3}
+
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int _{-1}^{2}x^2 \, dx$
+    \item $\displaystyle\int _{1}^{2} \sqrt{x}\, dx$
+    \item $\displaystyle\int _{0}^{1} \frac{1-x}{1+x} \, dx$
+    \item $\displaystyle\int _{1}^{\sqrt{3}} \frac{dx}{1+x^2}$
+    \item $\displaystyle\int_0^{\frac{\pi}{4}}\cos x \, dx$
+    \item $\displaystyle\int _0^{\frac{\pi}{4}}\sec^2 x \, dx$
+    \item[] \phantom{x}
+\end{enumerate}
+\end{multicols}    
+\end{example}
+
+\begin{solution}
+\begin{enumerate}[label=(\roman*)]
+\item 
+\[
+\int _{-1}^2 x^2\,dx=\left.\frac{x^3}{3}\right\vert _{-1}^2 =\frac{1}{3}(2^3-(-1)^3)=\frac{1}{3}.9=3
+\]
+
+
+\item 
+\[
+\int _1^2 \sqrt{x}\, dx=\left.\frac{x^{3/2}}{3/2}\right\vert_1^2=\frac{2}{3}(2^{3/2}-1^{3/2})=\frac{2}{3}(2\sqrt{2}-1)
+\]
+
+\item 
+\begin{align*}
+\int _0^1 \frac{1-x}{1+x} \, dx &= \int _0^1 \frac{2-(1+x)}{1+x} \, dx = \int _0^1 \frac{2}{1+x} \, dx - \int _0^1 \frac{1+x}{1+x} \, dx \\ 
+&= \left.\left(2\ln|1+x|-x\right)\right\vert_0^1=(2\ln 2-1)-(2\ln 1-0)=\ln 4-1
+\end{align*}
+
+\item
+\[
+\int _1^{\sqrt{3}} \frac{dx}{1+x^2}=\left.\tan^{-1}x\right\vert_1^{\sqrt{3}}=\tan^{-1}\sqrt{3}-\tan^{-1} 1=\frac{\pi}{3}-\frac{\pi}{4}=\frac{\pi}{12}
+\]
+
+\item 
+\[
+\int_0^{\frac{\pi}{4}}\cos x \, dx=\left.\sin x\right\vert_0^{\frac{\pi}{4}}=\sin \frac{\pi}{4}-\sin 0=\frac{1}{\sqrt{2}}-0=\frac{1}{\sqrt{2}}
+\]
+
+\item 
+\[
+\int _0^{\frac{\pi}{4}}\sec^2 x \, dx = \tan x\vert_0^{\frac{\pi}{4}} = \tan \frac{\pi}{4}-\tan 0 = 1-0 = 1
+\]
+
+
+\end{enumerate}
+\end{solution}
+
+
+Now we shall discuss \textbf{some rules for the evaluation of Definite Integrals}, which are easy to prove.
+
+\begin{enumerate}[label=(\roman*)]
+\item Definite Integral is independent of the variable of integration, i.e., 
+\[
+\int_a^b f(x)\,dx=\displaystyle\int_a^b f(t)\,dt
+\]
+
+\item For $a<c<b$,
+\[
+\int_a^b f(x)\,dx =\int_a^c f(x)\,dx +\int_c^b f(x)\,dx
+\]
+
+\item \[
+\int_a^b f(x)\,dx=-\int_b^a f(x)\,dx
+\]
+
+\item \[
+\int_a^b (f(x)+g(x))\,dx= \int_a^b f(x)\,dx+\int_a^b g(x)\,dx
+\]
+
+\item For any arbitrary constant $k$, 
+\[
+\int_a^b kf(x)\,dx= k\int_a^b f(x)\,dx
+\]
+\end{enumerate}
+
+
+\begin{example}
+Evaluate the following:
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int _{-3}^{2}|x| \, dx$
+    \item $\displaystyle\int_{-1}^3 [x]\,dx$
+    \item $\displaystyle\int_{-1}^1 (3x^2+2x-1)\,dx$
+    \item $\displaystyle\int_{0}^{\frac{\pi}{3}} (\sin x+\cos x)\,dx$
+
+\end{enumerate}
+\end{multicols}    
+\end{example}
+
+\begin{solution}
+\begin{enumerate}[label=(\roman*)]
+\item The absolute value function $|x|=x$ for $x\geq 0$ and $|x|=-x$ for $x < 0$. Hence
+
+\begin{align*}
+\int _{-3}^{2}|x| \, dx &= \int _{-3}^{0}|x| \, dx + \int _{0}^{2}|x| \, dx = \int _{-3}^{0}-x \, dx +\int _{0}^{2}x \, dx \\
+&= \left.\left(-\frac{x^2}{2}\right)\right\vert_{-3}^0+\left.\left(\frac{x^2}{2}\right)\right\vert_0^2 = -\frac{1}{2}(0^2-(-3)^2)+\frac{1}{2}(2^2-0^2) \\
+&= -\frac{1}{2}(-9)+\frac{1}{2}.4 = \frac{13}{2}
+\end{align*}
+
+
+\item Here the Greatest Integer Function $[x]$ takes different values in different unit intervals. Therefore,
+\begin{align*}
+\int_{-1}^3 [x]\,dx &= \int_{-1}^0 [x]\,dx+ \int_0^1 [x]\,dx+ \int_1^2 [x]\,dx+ \int_2^3 [x]\,dx \\
+&= \int_{-1}^0 -1\,dx+ \int_0^1 0\,dx+ \int_1^2 1\,dx+ \int_2^3 2\,dx \\
+&= \left.-x\right\vert_{-1}^0+0+\left.x\right\vert_1^2+\left.2x\right\vert_2^3 = -(-1-0)+0+(2-1)+2(3-2)=4
+\end{align*}
+
+\item 
+\begin{align*}
+\int_{-1}^1 (3x^2+2x-1)\,dx &= \int_{-1}^1 3x^2\,dx +\int_{-1}^1 2x\,dx -\int_{-1}^1 1\,dx \\
+&= \left.x^3\right\vert_{-1}^1+\left.x^2\right\vert_{-1}^1-\left.x\right\vert_{-1}^1 = \{1^3-(-1)^3\}+\{(1^2-(-1)^2\}-\{1-(-1)\} \\
+&= 2+0-2 = 0
+\end{align*}
+
+\item 
+\begin{align*}
+\int_{0}^{\frac{\pi}{3}} (\sin x+\cos x)\,dx &= \int_{0}^{\frac{\pi}{3}} \sin x\,dx + \int_{0}^{\frac{\pi}{3}}\cos x\,dx = -\left.\cos x\right\vert_{0}^{\frac{\pi}{3}}+\left.\sin x\right\vert_{0}^{\frac{\pi}{3}} \\
+&= -\left(\cos \frac{\pi}{3}-\cos 0\right)+\sin\frac{\pi}{3}-\sin 0 \\
+&= -\left(\frac{1}{2}-1\right)+\left(\frac{\sqrt{3}}{2}-0\right) = \frac{1+\sqrt{3}}{2}
+\end{align*}
+
+\end{enumerate}
+\end{solution}
+
+\section {Some Useful Results} 
+
+In the indefinite integral chapter we have discussed the \textbf{method of substitution} and the \textbf{integration by parts}. Both the methods can be used here with a appropriate change of limits of integration.
+
+\subsection{Method of substitution}
+If $f$ is a function $g(t)$, where $g$ is a function of $t$ and $F(x)$ is the antiderivative of $f(x)$, then
+
+\[
+\int _a^b f(g(t))\,dt=\int_{g(a)}^{g(b)}f(x)\,dx=F(g(b)-g(a))
+\]
+
+Here we have substituted $g(t)=x$, so that, $t=a \implies x=g(a)$ and $t=b \implies x=g(b)$.
+
+\subsection{Integration by parts}
+It is wise to complete the integration by the method as described in the indefinite integration and then put the value of $x=b, x=a$ and calculate the difference.
+
+\begin{example}
+Evaluate the following:
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int _{1}^{2}e^{4x+1} \, dx$
+    \item $\displaystyle\int_{0}^{\frac{\pi}{2}}e^{\sin t}\cos t\,dt$
+    \item $\displaystyle\int_{0}^{\frac{\pi}{4}} \sin 2x\cos x\,dx$
+    \item $\displaystyle\int_{0}^{\frac{\pi}{4}} e^x\cos x\,dx$
+
+\end{enumerate}
+\end{multicols}    
+\end{example}
+
+\begin{solution}
+\begin{enumerate}[label=(\roman*)]
+\item Let $4x+1=t\Rightarrow 4dx=dt$. 
+
+Setting $x=1$ gives us $t=5$, and subsequently, setting $x=2$ gives $t=9$. Therefore,
+\[
+\int _{1}^{2}e^{4x+1} \, dx =\frac{1}{4}\int _{1}^{2}e^{4x+1} \, (4dx)=\frac{1}{4}\int _{5}^{9}e^t \,dt= \left.\frac{1}{4}e^t\right\vert_5^9=\frac{1}{4}(e^9-e^5)=\frac{1}{4}e^5(e^4-1)
+\]
+
+
+
+
+\item To evaluate $\displaystyle\int_{0}^{\frac{\pi}{2}}e^{\sin t}\cos t\,dt$, let $\sin t=x\Rightarrow \cos t\,dt=dx$. 
+
+Now, when $t=0$, we have $x=0$; when $t=\frac{\pi}{2}$, we have $x=\sin \frac{\pi}{2}=1$. Therefore,
+
+\[
+\int_{0}^{\frac{\pi}{2}}e^{\sin t}\cos t\,dt = \int_0^1e^t\,dt=\left.e^t\right\vert_0^1=e^1-e^0=e-1
+\]
+
+\item To evaluate $\displaystyle\int_{0}^{\frac{\pi}{4}} \sin 2x\cos x\,dx = \displaystyle\int_{0}^{\frac{\pi}{4}} 2\sin x\cos^2 x\,dx$, let $\cos x=u \Rightarrow -\sin x\,dx=du$. 
+
+Now, when $x=0$, we have $u=\cos 0 = 1$; when $x=\frac{\pi}{4}$, we have $u=\frac{1}{\sqrt{2}}$. Therefore,
+\begin{align*}
+\int_{0}^{\frac{\pi}{4}} \sin 2x\cos x\,dx&=-\int_{0}^{\frac{\pi}{4}} 2(-\sin x)\cos^2 x\,dx=-2\int_1^{\frac{1}{\sqrt{2}}}u^2\,du    \\
+&= -\left.\frac{2}{3}u^3\right\vert_1^{\frac{1}{\sqrt{2}}} = -\frac{2}{3}\left[(\frac{1}{\sqrt{2}})^3-1^3\right] \\
+&= -\frac{2}{3}\left[\frac{1}{2\sqrt{2}}-1\right] = \frac{2\sqrt{2}-1}{3\sqrt{2}}
+\end{align*}
+
+
+
+\item To evaluate $\displaystyle\int_{0}^{\frac{\pi}{4}} e^x\cos x\,dx$, let us first evaluate,
+\begin{align*}
+K&=\displaystyle\int e^x\cos x\,dx = e^x\int\cos x\,dx-\int\left(\frac{d}{dx}e^x\int\cos x\,dx\right)\,dx \\
+&=e^x\sin x-\int e^x\sin x\,dx = e^x\sin x-\left\{e^x\int\sin x\,dx-\int\left(\frac{d}{dx}e^x\int\sin x\,dx\right)\,dx)\right\} \\
+&= e^x\sin x+e^x\cos x-\int e^x\cos x\,dx \\
+&= e^x\sin x+e^x\cos x-K
+\end{align*}
+Therefore, we have,
+\[
+2K=e^x\sin x+e^x\cos x \implies K = \frac{1}{2}\left\{e^x\sin x+e^x\cos x\right\}
+\]
+And finally,
+\begin{align*}
+\int_{0}^{\frac{\pi}{4}} e^x\cos x\,dx &= \frac{1}{2}e^x\left.\left\{\sin x+\cos x\right\}\right\vert_0^{\frac{\pi}{4}} \\
+&= \frac{1}{2}\left\{e^{\frac{\pi}{4}}\left(\sin {\frac{\pi}{4}}+\cos {\frac{\pi}{4}}\right)-e^0\left(\sin 0+\cos 0\right)\right\} = \frac{1}{2}(\sqrt{2}e^{\frac{\pi}{4}}-1)
+\end{align*}
+
+
+\end{enumerate}
+\end{solution}
+
+\pagebreak
+
+\begin{exercise}
+Evaluate the following:
+\begin{multicols}{3}
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int_{-1}^3 x^3\,dx$
+    \item $\displaystyle\int_0^1 \sqrt{x}\,dx$
+    \item $\displaystyle\int_1^3 \frac{x^3+x}{x^2}\,dx$
+    \item $\displaystyle\int_0^1 (2x+1)^3\,dx$
+    \item $\displaystyle\int_0^1 \frac{1}{3x+2}\,dx$
+    \item $\displaystyle\int_0^1 x^3\sqrt{1+x^4}\,dx$
+
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+
+\begin{exercise}
+ Evaluate the following integrals:
+\begin{multicols}{3}
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int_0^{\frac{\pi
+    }{4}} \sin 2x\,dx$
+    \item $\displaystyle\int_0^{\frac{\pi
+    }{2}} 3\sin \frac{x}{2}\cos\frac{x}{2}\,dx$
+    \item $\displaystyle\int_{\frac{\pi}{6}}^{\frac{\pi
+    }{3}} \frac{1+\cos 2x}{1-\cos 2x}\,dx$
+    \item $\displaystyle\int_0^{\frac{\pi}{2}}\frac{\cos x}{1+\sin^2 x}\,dx$
+    \item $\displaystyle\int_{\frac{\pi}{4}}^{\frac{\pi
+    }{2}}\cot x\,dx$
+    \item $\displaystyle\int_{-1}^1\tan^{-1}\frac{2x}{1-x^2}\,dx$
+
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+\begin{exercise}
+ Evaluate the following:
+\begin{multicols}{3}
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int_0^2 5^{x+2}\,dx$
+    \item $\displaystyle\int_0^1 \frac{e^x-e^{-x}}{e^x+e^{-x}}\,dx$
+    \item $\displaystyle\int_0^2 x^2e^{x^3}\,dx$
+    \item $\displaystyle\int_0^1\frac{e^x}{1+e^{2x}}\,dx$
+    \item $\displaystyle\int_0^{\ln 2}\frac{e^x}{e^{2x}+3e^x+2}\,dx$
+    \item $\displaystyle\int_1^3\frac{\cos (\ln x)}{x}\,dx$
+    
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+\begin{exercise}
+ Evaluate the following integrals:
+\begin{multicols}{3}
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int_0^{\sqrt{3}} \frac{1}{1+x^2}\,dx$
+    \item $\displaystyle\int_\frac{2}{\sqrt{3}}^{2}\frac{1}{x\sqrt{x^2-1}}\,dx$
+    \item $\displaystyle\int_0^{\ln 2} \frac{1}{\sqrt{e^{2x}-1}}\,dx$
+    \item $\displaystyle\int_0^4\sqrt{x^2+9}\,dx$
+    \item $\displaystyle\int_0^1 \frac{x^3}{\sqrt{1+x^2}}\,dx$
+    \item $\displaystyle\int_2^4 \sqrt{x^2-4}\,dx$
+
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+\begin{exercise}
+ Evaluate the following integrals:
+\begin{multicols}{3}
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int_{-2}^1 (|x|+x)\,dx$
+    \item $\displaystyle\int_{-2}^2 |2x+1|\,dx$
+    \item $\displaystyle\int_0^2|x^2+2x-3|\,dx$
+    \item $\displaystyle\int_1^5 [x]\,dx$
+    \item $\displaystyle\int_0^{3/2}[2x]\,dx$
+    \item $\displaystyle\int_0^2[x^2]\,dx$
+   
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+\begin{exercise}
+ Evaluate the following integrals:
+\begin{multicols}{3}
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int_1^2 x\ln x\,dx$
+    \item $\displaystyle\int_1^2 (x+1)e^x\,dx$
+    \item $\displaystyle\int_0^{\frac{\pi}{4}} x\sin x\,dx$
+    \item $\displaystyle\int_0^1 x\tan^{-1}x\,dx$
+    \item $\displaystyle\int_0^{\frac{\pi}{2}}e^x\sin x\,dx$
+    \item $\displaystyle\int_0^1 \frac{x}{(2x+1)(x+1)}\,dx$
+
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+\newpage
+
+\section {Some useful properties of Definite Integrals}
+
+The following properties can be easily proved.
+
+\begin{enumerate}[
+    label=\textbf{Property \Roman*.}, 
+    ref=\textbf{Property \Roman*},
+    leftmargin=*,
+    align=left
+]
+\item $\displaystyle\int _0^a f(x)\,dx$=$\displaystyle\int _0^a f(a-x)\,dx$ \label{prop:first}
+
+\item From trigonometry, we know that $f(x)$ is called an \textit{even function} if $f(-x)=f(x)$ and $f(x)$ is an \textit{odd function} if $f(-x)=-f(x)$. For example, $f(x)=\cos x$ and $f(x)=x^2$ are \textit{even functions}, whereas $f(x)=\sin x$ and $f(x)=x^3$ are \textit{odd functions}. So,
+\begin{equation*}
+\displaystyle\int_{-a}^a f(x)\,dx= 
+\begin{cases}
+    2\displaystyle\int_0^a f(x)\,dx     & \text{if f is an even function} \\\\
+     0   & \text{if f is an odd function}
+\end{cases}    
+\end{equation*} \label{prop:second}
+
+\item \begin{equation*}
+\displaystyle\int_0^{2a} f(x)\,dx= 
+\begin{cases}
+    2\displaystyle\int_0^a f(x)\,dx     & \text{if   } f(2a-x)=f(x)     \\\\
+    0    & \text{if   }   f(2a-x)=-f(x)
+\end{cases}    
+\end{equation*} \label{prop:third}
+
+\item $\displaystyle\int_0^{2a} f(x)\,dx = \displaystyle\int_0^a f(x)\,dx + \displaystyle\int_0^a f(2a-x)\,dx$ \label{prop:fourth}
+
+\item $\displaystyle\int_0^{na} f(x)\,dx = n\displaystyle\int_0^a f(x)\,dx$ if $f(x)=f(a+x)$ \label{prop:fifth}
+\end{enumerate}
+
+
+
+\begin{example}
+Evaluate the following integrals:
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int_0^{\frac{\pi}{4}}\ln(1+\tan x)\,dx$
+    \item $\displaystyle\int_{-\frac{\pi}{4}}^{\frac{\pi}{4}}\cos^3 x\,dx$
+    \item $\displaystyle\int_{-\frac{\pi}{4}}^{\frac{\pi}{4}}\sin^3 x\,dx$
+    \item $\displaystyle\int_0^{\pi}\sin^3 x\,dx$
+    \item $\displaystyle\int_0^{\frac{\pi}{2}}\ln \sin x\,dx$
+\end{enumerate}
+\end{multicols}
+\end{example}
+
+\begin{solution}
+\begin{enumerate}[label=(\roman*)]
+
+\item 
+\begin{align*}
+    \text{Let } K&=\int_0^{\frac{\pi}{4}}\ln(1+\tan x)\,dx = \int_0^{\frac{\pi}{4}}\ln\left\{1+\tan \left(\frac{\pi}{4}-x\right)\right\}\,dx = \int_0^{\frac{\pi}{4}}\ln\left\{1+\frac{1-\tan x}{1+\tan x}\right\}\,dx \\ 
+    &= \int_0^{\frac{\pi}{4}}\ln \left\{\frac{2}{1+\tan x}\right\}\,dx = \int_0^{\frac{\pi}{4}}\ln 2\,dx-\int_0^{\frac{\pi}{4}}\ln (1+\tan x)\,dx = \frac{\pi}{4}\ln 2-K
+\end{align*}
+In other words,
+\[
+2K=\frac{\pi}{4}\ln 2 \implies K = \frac{\pi}{8}\ln 2
+\]
+
+\item 
+\begin{align*}
+\int_{-\frac{\pi}{4}}^{\frac{\pi}{4}}\cos^3 x\,dx &= 2\int_0^{\frac{\pi}{4}}\cos^3 x\,dx \qquad \text{ As $\cos^3 x$ is an even function} \\ 
+&= 2\int_0^{\frac{\pi}{4}}(1-\sin^2 x)\cos x\,dx = \int_0^{\frac{1}{\sqrt{2}}}(1-u^2)du \qquad \text{ Substituting $u=\sin x$} \\
+&= 2\left.\left(u-\frac{u^3}{3}\right)\right\vert_0^{\frac{1}{\sqrt{2}}} = 2\left(\frac{1}{\sqrt{2}}-\frac{1}{3.2.\sqrt{2}}\right)=\frac{2}{\sqrt{2}}\left(1-\frac{1}{6}\right) = \sqrt{2}\frac{5}{6}= \frac{5}{3\sqrt{2}}
+\end{align*}
+
+
+\item $\displaystyle\int_{-\frac{\pi}{4}}^{\frac{\pi}{4}}\sin^3 x\,dx=0$, as $\sin^3 x$ is an odd function.
+
+\item 
+\begin{align*}
+\int_0^{\pi}\sin^3 x\,dx &= 2\int_0^{\frac{\pi}{2}}\sin^3 x\,dx \qquad \text{(As $\sin^3 (\pi-x)=\sin^3 x$)} \\
+&= 2\int_0^{\frac{\pi}{2}}(1-\cos^2 x)\sin x\,dx \\
+&= 2\int_1^0(1-z^2)(-dz) \qquad \text{(Substituting $z=\cos x$)} \\
+&= 2\int_0^1(1-z^2)\,dz = 2\left.\left(z-\frac{z^3}{3}\right)\right\vert_0^1 = 2\left(1-\frac{1}{3}\right)=\frac{4}{3}
+\end{align*}
+
+\item Using Property I, we can write,
+\[
+\text{Let } I=\int_0^{\frac{\pi}{2}}\ln \sin x\,dx = \displaystyle\int_0^{\frac{\pi}{2}}\ln \sin (\frac{\pi}{2}-x)\,dx = \int_0^{\frac{\pi}{2}}\ln \cos x\,dx = I
+\]
+
+Therefore, 
+\begin{align*}
+    2I = I+I &= \int_0^{\frac{\pi}{2}}\ln \sin x\,dx + \int_0^{\frac{\pi}{2}}\ln \cos x\,dx \\
+    &= \int_0^{\frac{\pi}{2}}(\ln \sin x+\ln \cos x)\,dx = \int_0^{\frac{\pi}{2}}\ln (\sin x\cos x)\,dx \\
+    &= \int_0^{\frac{\pi}{2}}\ln \left(\frac{\sin 2x}{2}\right)\,dx = \int_0^{\frac{\pi}{2}}\ln\sin2x\,dx- \displaystyle\int_0^{\frac{\pi}{2}}\ln 2\,dx \\
+    &= \frac{1}{2}\int_0^{\pi}\ln \sin z\,dz-\frac{\pi}{2}\ln 2 \qquad \text{ (Putting $z=2x \Rightarrow dz = 2\,dx$)} \\
+    &= \frac{1}{2}.2\displaystyle\int_0^\frac{\pi}{2}\ln \sin z\,dz-\frac{\pi}{2}\ln 2 \\
+    &= \int_0^\frac{\pi}{2}\ln \sin x\,dx-\frac{\pi}{2}\ln 2 = I-\frac{\pi}{2}\ln 2
+\end{align*}
+Thus, we have,
+\[
+I = -\frac{\pi}{2}\ln 2
+\]
+
+\end{enumerate}
+\end{solution}
+
+\pagebreak
+
+\begin{example}
+Evaluate $\displaystyle\int_0^{\frac{\pi}{2}}\frac{\sin x}{\sin x+\cos x}\,dx$    
+\end{example}
+
+\begin{solution}
+Here using \ref{prop:first}, we get,
+\[
+K=\displaystyle\int_0^{\frac{\pi}{2}}\frac{\sin x}{\sin x+\cos x}\,dx = \int_0^{\frac{\pi}{2}}\frac{\sin \left(\frac{\pi}{2}-x\right)}{\sin \left(\frac{\pi}{2}-x\right)+\cos (\frac{\pi}{2}-x)}\,dx = \int_0^{\frac{\pi}{2}}\frac{\cos x}{\sin x+\cos x}\,dx
+\]
+Therefore,
+\begin{align*}
+    2K = K+K &= \int_0^{\frac{\pi}{2}}\frac{\sin x}{\sin x+\cos x}\,dx+\int_0^{\frac{\pi}{2}}\frac{\cos x}{\sin x+\cos x}\,dx=\int_0^{\frac{\pi}{2}}\frac{\sin x+\cos x}{\sin x+\cos x}\,dx \\
+    &= \int_0^{\frac{\pi}{2}}\,dx =\left.x\right\vert _0^{\frac{\pi}{2}}=\frac{\pi}{2} \implies K = \frac{\pi}{4}
+\end{align*}
+\end{solution}
+
+
+\begin{example}
+Evaluate $\displaystyle\int_0^{\pi}\frac{x\tan x}{\sec x+\tan x}\,dx$    
+\end{example}
+
+\begin{solution}
+Using \ref{prop:first} we have,
+\begin{align*}
+K=\int_0^{\pi}\frac{x\tan x}{\sec x+\tan x}\,dx &= \int_0^{\pi}\frac{(\pi-x)\tan (\pi-x)}{\sec (\pi-x)+\tan (\pi-x)}\,dx \\
+&= \int_0^{\pi}\frac{(\pi-x)(-\tan x)}{(-\sec x-\tan x)}\,dx = \int_0^{\pi}\frac{(\pi-x)\tan x}{\sec x+\tan x}\,dx \\
+&= \int_0^{\pi}\frac{\pi\tan x}{\sec x+\tan x}\,dx-\int_0^{\pi}\frac{x\tan x}{\sec x+\tan x}\,dx \\
+&= \pi\int_0^{\pi}\frac{\tan x}{\sec x+\tan x}\,dx - K
+\end{align*}
+Therefore, rearranging the terms, we get,
+\begin{align*}
+    2K = \pi\int_0^{\pi}\frac{\tan x}{\sec x+\tan x}\,dx &= \pi\int_0^{\pi}\frac{\sin x}{1+\sin x}\,dx = \pi\int_0^{\pi}\frac{(1+\sin x)-1}{1+\sin x}\,dx \\
+    &= \pi\int_0^{\pi}\,dx-\pi\int_0^{\pi}\frac{1}{1+\sin x}\,dx \\
+    &= \pi.x\vert_0^{\pi}-2\pi\displaystyle\int_0^{\frac{\pi}{2}}\frac{1}{1+\sin x}\,dx \qquad \text{ (Using \ref{prop:third})} \\
+    &= \pi^2-2\pi\displaystyle\int_0^{\frac{\pi}{2}}\frac{1}{1+\sin (\frac{\pi}{2}-x)}\,dx \qquad \text{ (Using \ref{prop:first})} \\
+    &= \pi^2-2\pi\displaystyle\int_0^{\frac{\pi}{2}}\frac{1}{1+\cos x}\,dx = \pi^2-2\pi\displaystyle\int_0^{\frac{\pi}{2}}\frac{1}{2\cos^2\frac{x}{2}}\,dx \\
+    &= \pi^2-\pi\displaystyle\int_0^{\frac{\pi}{2}}\sec^2\frac{x}{2}\,dx \\
+    &= \pi^2-2\pi\displaystyle\int_0^{\frac{\pi}{4}}\sec^2 t\,dt \qquad \text{ (Set $t=\frac{x}{2} \Rightarrow dx = 2\,dt$)} \\
+    &= \pi^2-\left.2\pi \tan t\right\vert_0^{\frac{\pi}{4}} = \pi^2-2\pi
+\end{align*}
+In other words,
+\[
+K=\int_0^{\pi}\frac{x\tan x}{\sec x+\tan x}\,dx=\frac{1}{2}(\pi^2-2\pi)
+\]
+\end{solution}
+
+\begin{example}
+Evaluate $\displaystyle\int_0^{\pi}\frac{x}{1+\sin x}\,dx$    
+\end{example}
+
+
+\begin{solution}
+Using \ref{prop:first} we have,
+\begin{align*}
+I&=\int_0^{\pi}\frac{x}{1+\sin x}\,dx = \int_0^{\pi}\frac{\pi-x}{1+\sin (\pi-x)}\,dx= \int_0^{\pi}\frac{\pi-x}{1+\sin x}\,dx \\
+&= \int_0^{\pi}\frac{\pi}{1+\sin x}\,dx-\int_0^{\pi}\frac{x}{1+\sin x}\,dx \\ 
+&= \pi\int_0^{\pi}\frac{1}{1+\sin x}\,dx-I
+\end{align*}
+Therefore, rearranging the terms, we have,
+\begin{align*}
+2I=\pi\int_0^{\pi}\frac{1}{1+\sin x}\,dx &\implies I = \frac{\pi}{2}\int_0^{\pi}\frac{1}{1+\sin x}\,dx \\
+&= \frac{\pi}{2}.2\displaystyle\int_0^{\frac{\pi}{2}}\frac{1}{1+\sin x}\,dx \qquad \text{(Using \ref{prop:third})} \\
+&= \pi\int_0^{\frac{\pi}{2}}\frac{1}{1+\sin \left(\frac{\pi}{2}-x\right)}\,dx \qquad \text{(Using \ref{prop:first})} \\
+&= \pi\int_0^{\frac{\pi}{2}}\frac{1}{1+\cos x}\,dx = \frac{\pi}{2}\int_0^{\frac{\pi}{2}}\sec^2\frac{x}{2}\,dx \\
+&= \frac{\pi}{2}.2\displaystyle\int_0^{\frac{\pi}{4}}\sec^2t\,dt = \pi\tan t\vert_0^{\frac{\pi}{4}} = \pi(\tan\frac{\pi}{4}-\tan 0) =\pi
+\end{align*}
+\end{solution}
+
+\begin{exercise}
+ Evaluate the following integrals:
+\begin{multicols}{3}
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int_0^{\frac{\pi}{2}}\frac{dx}{1+\tan x}$
+    \item $\displaystyle\int_0^{\frac{\pi}{2}}\frac{\sqrt{\tan x}}{1+\tan x}\,dx$
+    \item $\displaystyle\int_0^{\frac{\pi}{2}}\frac{\sqrt{\sin x}}{\sqrt{\sin x}+\sqrt{\cos x}}\,dx$
+    \item $\displaystyle\int_0^{\frac{\pi}{2}}\sin 2x \ln \tan x\,dx$
+    \item $\displaystyle\int_0^{\pi}\frac{x\sin x}{1+\cos^2 x}\,dx$
+    \item $\displaystyle\int_0^{\frac{\pi}{2}}\frac{dx}{4+5\sin x}$
+    \item $\displaystyle\int_0^{\pi}\frac{x\tan x}{\sec x+\tan x}\,dx$ 
+    \item $\displaystyle\int_0^{\frac{\pi}{2}}\ln(\tan x+\cot x)\,dx$
+    \item $\displaystyle\int_0^{\frac{\pi}{2}}\sin x \ln \sin x\,dx$
+
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+\section {Evaluation of definite integrals of Trigonometric functions}
+
+\subsection{Wallis' Formula}
+
+Here, we discuss the evaluation of the definite integrals:
+
+\[
+\int_0^{\frac{\pi}{2}}\sin^n x\,dx \quad \text{and} \quad \displaystyle\int_0^{\frac{\pi}{2}}\cos^n x\,dx
+\]
+
+\begin{solution}
+Using \ref{prop:first}, we have,
+\begin{align*}
+\int_0^{\frac{\pi}{2}}\sin^n x\,dx &= \int_0^{\frac{\pi}{2}}\sin^n(\frac{\pi}{2}-x)\,dx = \int_0^{\frac{\pi}{2}}\cos^n x\,dx
+\end{align*}
+For $n\geq2$, we can perform Integration by parts to get,
+\begin{align*}
+I=\int\sin^nx\,dx &= \int\sin x\sin^{n-1}x\,dx = \sin^{n-1} x\int\sin x\,dx-\int\left(\frac{d}{dx}\sin^{n-1} x\int\sin x\,dx\right)\,dx \\
+&= -\sin^{n-1} x\cos x-\displaystyle\int\{(n-1)\sin^{n-2}x\cos x(-\cos x)\}\,dx \\
+&= -\sin^{n-1} x\cos x+(n-1)\int\sin^{n-2}x\cos^2 x\,dx \\ 
+&= -\sin^{n-1} x\cos x+(n-1)\int\sin^{n-2}x\,dx-(n-1)\int\sin^n x\,dx \\
+&= -\sin^{n-1} x\cos x+(n-1)\int\sin^{n-2}x\,dx-(n-1)I
+\end{align*}
+Therefore, rearranging the terms, we get,
+\begin{align*}
+I+(n-1)I&=nI=-\sin^{n-1} x\cos x+(n-1)\int\sin^{n-2}x\,dx \\
+&\implies I=-\frac{1}{n}\sin^{n-1} x\cos x+\frac{n-1}{n}\displaystyle\int\sin^{n-2}x\,dx
+\end{align*}
+Now taking the limits of integration, we have,
+\[
+\int_0^{\frac{\pi}{2}}\sin^n x\,dx=-\left.\frac{1}{n}\sin^{n-1} x\cos x\right\vert_0^{\frac{\pi}{2}}+\frac{n-1}{n}\int_0^{\frac{\pi}{2}}\sin^{n-2}x\,dx = \frac{n-1}{n}\displaystyle\int_0^{\frac{\pi}{2}}\sin^{n-2}x\,dx
+\]
+Repeating the Integration by parts one more time, we get the following equation as mentioned below. Note that this equation is valid if $n\geq4$,
+\[
+\int_0^{\frac{\pi}{2}}\sin^n x\,dx=\frac{(n-1)(n-3)}{n(n-2)}\int_0^{\frac{\pi}{2}}\sin^{n-4}x\,dx
+\]
+Performing the integration recursively, we get,
+
+\begin{equation*}
+\displaystyle\int_0^{\frac{\pi}{2}} sin^n x\,dx=\displaystyle\int_0^{\frac{\pi}{2}} \cos^n x\,dx= 
+\begin{cases}
+    \dfrac{(n-1)(n-3)...3.1}{n(n-2)(n-4)...4.2}\displaystyle\int_0^{\frac{\pi}{2}}\,dx     & \text{if n is even and }n\geq2     \\\\
+    \dfrac{(n-1)(n-3)...3.1}{n(n-2)(n-4)...5.3}\displaystyle\int_0^{\frac{\pi}{2}}\sin x\,dx    & \text{if n is odd and }n>2  
+\end{cases}    
+\end{equation*}
+This formula is known as Wallis' formula. 
+\end{solution}
+
+Next, let us discuss the reduction formulae of other similar trigonometric integrals for $n\geq 2$.
+
+\begin{align*}
+    I_n&=\int\tan^n x\,dx=\int\tan^{n-2} x.\tan^2 x\,dx=\int\tan^{n-2} x.(\sec^2 x-1)\,dx \\
+    &= \int\tan^{n-2} x.\sec^2 x\,dx-\int\tan^{n-2} x\,dx \\
+    &= \int z^{n-2}\,dz-I_{n-2} \qquad \text{(Taking $\tan x=z \Rightarrow dz = \sec^2 x\,dx$)} \\
+    &= \frac{1}{(n-1)}\tan^{n-1}x-I_{n-2}
+\end{align*}
+Rearranging the terms, we have the following \textbf{reduction formula for $\tan^n x$},
+\[
+\text{For } n\geq2, \quad I_n + I_{n-2} = \frac{1}{(n-1)}\tan^{n-1}x
+\]
+Similarly, we have the following \textbf{reduction formula for} $\cot^nx$ as,
+\[
+\text{For } n\geq2, \quad I_n+I_{n-2}=-\frac{1}{{n-1}}\cot^{n-1}x, \text{ where } I_n = \int \cot^n x\, dx
+\]
+
+To obtain the \textbf{reduction formula} for $\displaystyle\int\sec^nx\,dx$, let us 
+\begin{align*}
+I_n &= \int\sec^nx\,dx = \int\sec^{n-2}x.\sec^2x\,dx \\
+&= \sec^{n-2}x\int\sec^2x\,dx-\int\left(\frac{d}{dx}\sec^{n-2}x \int\sec^2x\,dx\right)\,dx \qquad \text{(Using Integration by parts)} \\
+&= \sec^{n-2}x\tan x-(n-2)\int\sec^{n-3}x\left(\frac{d}{dx}\sec x\right)\tan x\,dx \\
+&= \sec^{n-2}x\tan x-(n-2) \int\sec^{n-2}x\tan^2x \,dx \\
+&= \sec^{n-2}x\tan x-(n-2)\int\sec^{n-2}x(\sec^2x-1) \,dx \\
+&= \sec^{n-2}x\tan x-(n-2)\int(\sec^nx-\sec^{n-2}x) \,dx \\ 
+&=\sec^{n-2}x\tan x-(n-2)(I_n-I_{n-2})
+\end{align*}
+Rearranging the terms, we get, 
+\begin{align*}
+&\qquad (1+n-2)I_n=\sec^{n-2}x\tan x+(n-2)I_{n-2} \\
+&\implies I_n= \frac{1}{n-1}\sec^{n-2}x\tan x+\frac{n-2}{n-1}I_{n-2}
+\end{align*}
+
+In a similar way we can get the \textbf{reduction formula for} $\cosec^nx$ as 
+\[
+I_n=\int\cosec^n x\,dx=-\frac{1}{{n-1}}\cosec^{n-2}x\cot x+\frac{n-2}{n-1}I_{n-2}
+\]
+
+
+
+\begin{example}
+ Evaluate the following integrals:
+\begin{multicols}{2}
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int_0^{\frac{\pi}{2}}\sin^6x\,dx$
+    \item $\displaystyle\int_0^{\frac{\pi}{2}}\cos^9x\,dx$
+    \item $\displaystyle\int_0^{\frac{\pi}{4}}\tan^5x\,dx$
+    \item $\displaystyle\int_0^{\frac{\pi}{4}}\sec^6x\,dx$
+
+\end{enumerate}
+\end{multicols}
+\end{example}
+\begin{solution}
+\begin{enumerate}[label=(\roman*)]
+
+\item Using Wallis' formula, let us take $n=6$, which is even, we get,
+\[
+\int_0^{\frac{\pi}{2}}\sin^nx\,dx = \frac{(n-1)(n-3)...3.1}{n(n-2)(n-4)...4.2} \int_0^{\frac{\pi}{2}}\,dx \implies \int_0^{\frac{\pi}{2}}\sin^6x\,dx=\frac{5.3.1}{6.4.2}\frac{\pi}{2}=\frac{5\pi}{32}
+\]     
+
+\item Using Wallis' formula, let us take $n=9$, which is odd, we get,
+\begin{align*}
+\int_0^{\frac{\pi}{2}}\cos^nx\,dx = \frac{(n-1)(n-3)...4.2}{n(n-2)(n-4)...3.1} \int_0^{\frac{\pi}{2}}\sin x\,dx &= \frac{(n-1)(n-3)...4.2}{n(n-2)(n-4)...3.1}\left.(-\cos x)\right\vert_0^{\frac{\pi}{2}}\\
+&=\frac{(n-1)(n-3)...4.2}{n(n-2)(n-4)...3.1}    
+\end{align*}
+Therefore,
+\[
+\int_0^{\frac{\pi}{2}}\cos^9x\,dx=\frac{8.6.4.2}{9.7.5.3}=\frac{128}{315}
+\]
+
+\item We know that the reduction formula for $\tan^n x$ is given by 
+\[
+I_n=\int\tan^n x\,dx=\frac{1}{(n-1)}\tan^{n-1}x-I_{n-2}
+\]
+
+Therefore, 
+\[
+I_5 = \int_0^{\frac{\pi}{4}}\tan^5 x\,dx = \frac{1}{4}\tan^4x - I_3 = \frac{1}{4}\tan^4x - \left(\frac{1}{2}\tan^2x - I_1\right)
+\]
+Adding the limits of integration, we have,
+\begin{align*}
+\int_0^{\frac{\pi}{4}}\tan^5 x\,dx &= \frac{1}{4}\tan^4x\vert_0^{\frac{\pi}{4}} - (\frac{1}{2}\tan^2x)\vert_0^{\frac{\pi}{4}}+\int_0^{\frac{\pi}{4}}\tan x\,dx \\
+&= \frac{1}{4}-\frac{1}{2}-\ln\cos x\vert_0^{\frac{\pi}{4}}=-\left(\frac{1}{4}+\ln\frac{1}{\sqrt{2}}\right) 
+\end{align*}
+
+\item We know that the reduction formula for $\sec^n x$ is given by 
+
+\[
+I_n=\int\sec^n x\,dx = \frac{1}{n-1}\sec^{n-2}x\tan x+\frac{n-2}{n-1}I_{n-2}
+\]
+
+Therefore, applying the reduction formulae successively, we get,
+\begin{align*}
+I_6 = \int \sec^6 x\,dx &= \frac{1}{5} \sec^4x\tan x + \frac{4}{5}I_4 \\
+&= \frac{1}{5} \sec^4x\tan x + \frac{4}{5}\left\{\frac{1}{3}\sec^2x\tan x+\frac{2}{3}I_2\right\} \\
+&= \frac{1}{5} \sec^4x\tan x + \frac{4}{15}\sec^2x\tan x + \frac{8}{15}\tan x
+\end{align*}
+Adding the limits of integration, we have,
+\begin{align*}
+\int_0^{\frac{\pi}{4}}\sec^6x\,dx &= \left.\frac{1}{5} \sec^4x\tan x + \frac{4}{15}\sec^2x\tan x + \frac{8}{15}\tan x\right\vert_0^{\frac{\pi}{4}} \\
+&= \frac{4}{5} + \frac{8}{15} + \frac{8}{15} = \frac{28}{15}
+\end{align*}
+
+\end{enumerate}   
+\end{solution}
+
+\begin{exercise}
+ Evaluate the following integrals:
+\begin{multicols}{3}
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle\int_0^{\frac{\pi}{2}}\sin^8x\,dx$
+    \item $\displaystyle\int_0^{\frac{\pi}{2}}\sin^7x\,dx$
+    \item $\displaystyle\int_0^{\frac{\pi}{2}}\cos^5x\,dx$
+    \item $\displaystyle\int_0^{\frac{\pi}{2}}\cos^6x\,dx$
+    \item $\displaystyle\int_0^{\frac{\pi}{4}}\sec^7x\,dx$
+    \item $\displaystyle\int_0^{\frac{\pi}{4}}\tan^6x\,dx$
+    \item $\displaystyle\int_0^{\frac{\pi}{2}}\sin^4x\cos^6x\,dx$
+    \item $\displaystyle\int_0^{\frac{\pi}{2}}\sin^2x\cos^4x\,dx$
+    \item $\displaystyle\int_0^{\frac{\pi}{2}}\sin^3x\cos^2x\,dx$
+    \item $\displaystyle\int_0^1\frac{x^5}{\sqrt{1-x^2}}\,dx$
+    \item $\displaystyle\int_0^\infty\frac{dx}{(1+x^2)^n}$
+    \item $\displaystyle\int_0^ax^3(a^2-x^2)^{\frac{5}{2}}\,dx$
+
+\end{enumerate}
+\end{multicols}
+\end{exercise}
+
+\end{document}
