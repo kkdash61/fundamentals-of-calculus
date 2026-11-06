@@ -1,0 +1,47 @@
+name: Build book
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: texlive/texlive:latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build PDF
+        run: latexmk -pdf -interaction=nonstopmode main.tex
+
+      - name: Build HTML (one page per chapter, math via MathJax)
+        run: make4ht -d site main.tex "mathjax,2"
+
+      - name: Assemble site
+        run: |
+          cp main.pdf site/book.pdf
+          cp site/main.html site/index.html
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
